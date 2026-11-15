@@ -268,7 +268,7 @@
         "makeCover": "Définir comme couverture",
         "deletePhoto": "Supprimer",
         "deleteConfirm": "Supprimer définitivement cette photo ?",
-        "mediaErrors": {"invalid":"Une erreur est survenue. Veuillez réessayer.","invalid_file":"Choisissez une image JPG, PNG ou WebP de 10 Mo maximum.","decode_failed":"Ce fichier n’a pas pu être lu comme une image.","credit_license_required":"Renseignez le crédit et la licence avant de confirmer les droits.","not_found":"Cette photo n’existe plus."},
+        "mediaErrors": {"invalid":"Une erreur est survenue. Veuillez réessayer.","invalid_file":"Choisissez une image JPG, PNG ou WebP de 10 Mo maximum.","decode_failed":"Ce fichier n’a pas pu être lu comme une image.","credit_license_required":"Renseignez le crédit et la licence avant de confirmer les droits.","storage_failed":"Le stockage des photos est indisponible. Vérifiez les réglages (accès en écriture) et réessayez.","not_found":"Cette photo n’existe plus."},
         "upload": "Téléverser",
         "live": "Publié",
         "draftState": "Brouillon",

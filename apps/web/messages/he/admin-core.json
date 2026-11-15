@@ -178,7 +178,7 @@
         "makeCover": "קבע כתמונה ראשית",
         "deletePhoto": "מחיקה",
         "deleteConfirm": "למחוק את התמונה לצמיתות?",
-        "mediaErrors": {"invalid":"משהו השתבש. נסו שוב.","invalid_file":"בחרו קובץ JPG,‏ PNG או WebP עד 10MB.","decode_failed":"לא ניתן לקרוא את הקובץ כתמונה.","credit_license_required":"יש למלא קרדיט ורישיון לפני אישור הזכויות.","not_found":"התמונה כבר לא קיימת."},
+        "mediaErrors": {"invalid":"משהו השתבש. נסו שוב.","invalid_file":"בחרו קובץ JPG,‏ PNG או WebP עד 10MB.","decode_failed":"לא ניתן לקרוא את הקובץ כתמונה.","credit_license_required":"יש למלא קרדיט ורישיון לפני אישור הזכויות.","storage_failed":"שירות אחסון התמונות אינו זמין כרגע. בדקו את הגדרות האחסון (הרשאת כתיבה) ונסו שוב.","not_found":"התמונה כבר לא קיימת."},
         "upload": "העלאה",
         "live": "מפורסם",
         "draftState": "טיוטה",

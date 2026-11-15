@@ -178,7 +178,7 @@
         "makeCover": "Make cover",
         "deletePhoto": "Delete",
         "deleteConfirm": "Delete this photo permanently?",
-        "mediaErrors": {"invalid":"Something went wrong. Please try again.","invalid_file":"Choose a JPG, PNG or WebP image up to 10 MB.","decode_failed":"This file could not be read as an image.","credit_license_required":"Fill in the credit and licence before confirming rights.","not_found":"This photo no longer exists."},
+        "mediaErrors": {"invalid":"Something went wrong. Please try again.","invalid_file":"Choose a JPG, PNG or WebP image up to 10 MB.","decode_failed":"This file could not be read as an image.","credit_license_required":"Fill in the credit and licence before confirming rights.","storage_failed":"Photo storage is not available right now. Check the storage settings (write access) and try again.","not_found":"This photo no longer exists."},
         "upload": "Hochladen",
         "live": "Veröffentlicht",
         "draftState": "Entwurf",

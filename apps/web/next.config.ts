@@ -22,7 +22,7 @@ const config: NextConfig = {
   serverExternalPackages: ["@electric-sql/pglite", "@napi-rs/canvas", "pg"],
   typedRoutes: false,
   experimental: {
-    serverActions: { bodySizeLimit: "4mb" },
+    serverActions: { bodySizeLimit: "12mb" },
   },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];

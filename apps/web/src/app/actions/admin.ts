@@ -34,6 +34,7 @@ import type { KvittelContent } from "@kvittel/print-layout";
 import { audit } from "@/server/audit";
 import { requirePermission } from "@/server/auth/session";
 import { getDb } from "@/server/db";
+import { log } from "@/server/log";
 import { sendOrderConfirmation } from "@/server/email";
 import { env } from "@/server/env";
 import { invalidateSearchIndex } from "@/server/graves";
@@ -234,7 +235,12 @@ export async function adminUploadGraveMedia(form: FormData): Promise<Result> {
     return { ok: false, error: "decode_failed" };
   }
   const key = `media/${graveId}/${randomToken(10).replace(/[^A-Za-z0-9_-]/g, "")}`;
-  await storage.put(key, clean.data);
+  try {
+    await storage.put(key, clean.data);
+  } catch (e) {
+    log.error("grave media storage put failed", { name: (e as Error).name });
+    return { ok: false, error: "storage_failed" };
+  }
   const db = await getDb();
   const existing = await db.select({ sortOrder: graveMedia.sortOrder }).from(graveMedia).where(eq(graveMedia.graveId, graveId));
   const sortOrder = existing.length ? Math.max(...existing.map((e) => e.sortOrder)) + 1 : 0;
