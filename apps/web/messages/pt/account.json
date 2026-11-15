@@ -17,7 +17,9 @@
         "invalid_email": "Informe um endereço de e-mail válido.",
         "rate_limited": "Tentativas demais. Aguarde um pouco.",
         "invalid_code": "Este código não é válido ou expirou.",
-        "invalid_link": "Este link não é válido ou expirou. Solicite um novo."
+        "invalid_link": "Este link não é válido ou expirou. Solicite um novo.",
+        "invalid_credentials": "Incorrect e-mail or password.",
+        "locked": "Too many attempts. Locked for 15 minutes."
       },
       "roles": {
         "super_admin": "Superadministrador",
@@ -27,7 +29,10 @@
         "partner_manager": "Gestor de parceiros",
         "local_maintainer": "Técnico local",
         "customer": "Cliente"
-      }
+      },
+      "password": "Password",
+      "usePassword": "Staff sign-in with password",
+      "useEmailCode": "Sign in with an e-mail code"
     },
     "dashboard": {
       "eyebrow": "Minha conta",

@@ -17,7 +17,9 @@
         "invalid_email": "ביטע שרייַבט אַרייַן אַ גילטיקן אימעיל־אַדרעס.",
         "rate_limited": "צו פֿיל פּרוּוון. ביטע וואַרט אַ ווייַלע.",
         "invalid_code": "דער קאָד איז נישט גילטיק אָדער איז שוין אויסגעגאַנגען.",
-        "invalid_link": "דער לינק איז נישט גילטיק אָדער איז שוין אויסגעגאַנגען. ביטע בעט אַ נייַעם."
+        "invalid_link": "דער לינק איז נישט גילטיק אָדער איז שוין אויסגעגאַנגען. ביטע בעט אַ נייַעם.",
+        "invalid_credentials": "Incorrect e-mail or password.",
+        "locked": "Too many attempts. Locked for 15 minutes."
       },
       "roles": {
         "super_admin": "הויפּט־אַדמיניסטראַטאָר",
@@ -27,7 +29,10 @@
         "partner_manager": "פֿאַרוואַלטער פֿון שותּפֿים",
         "local_maintainer": "אָרטיקער טעכניקער",
         "customer": "קונה"
-      }
+      },
+      "password": "Password",
+      "usePassword": "Staff sign-in with password",
+      "useEmailCode": "Sign in with an e-mail code"
     },
     "dashboard": {
       "eyebrow": "מייַן קאָנטע",

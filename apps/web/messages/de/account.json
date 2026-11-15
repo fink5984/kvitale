@@ -17,7 +17,9 @@
         "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
         "rate_limited": "Zu viele Versuche. Bitte warten Sie einen Moment.",
         "invalid_code": "Dieser Code ist ungültig oder abgelaufen.",
-        "invalid_link": "Dieser Link ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen an."
+        "invalid_link": "Dieser Link ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen an.",
+        "invalid_credentials": "Incorrect e-mail or password.",
+        "locked": "Too many attempts. Locked for 15 minutes."
       },
       "roles": {
         "super_admin": "Superadministrator",
@@ -27,7 +29,10 @@
         "partner_manager": "Partnerbetreuung",
         "local_maintainer": "Techniker vor Ort",
         "customer": "Kunde"
-      }
+      },
+      "password": "Password",
+      "usePassword": "Staff sign-in with password",
+      "useEmailCode": "Sign in with an e-mail code"
     },
     "dashboard": {
       "eyebrow": "Mein Konto",

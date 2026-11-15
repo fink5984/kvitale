@@ -3,7 +3,7 @@
 import { Mail } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState, useTransition } from "react";
-import { requestGrave, requestMagicLink, verifyMagicCode, verifyMagicToken } from "@/app/actions/public";
+import { passwordSignIn, requestGrave, requestMagicLink, verifyMagicCode, verifyMagicToken } from "@/app/actions/public";
 import { Button, Field, Input, Notice, Textarea } from "@/components/ui";
 
 export function LoginForm({ next }: { next?: string }) {
@@ -12,13 +12,41 @@ export function LoginForm({ next }: { next?: string }) {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
   const [sent, setSent] = useState(false);
+  const [usePassword, setUsePassword] = useState(false);
+  const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [pending, start] = useTransition();
   const go = (n: string) => (window.location.href = `/${locale}${n === "/" ? "" : n}`);
 
   return (
     <div className="space-y-8">
-      {!sent ? (
+      {usePassword ? (
+        <form
+          className="space-y-5"
+          onSubmit={(e) => {
+            e.preventDefault();
+            setError(null);
+            start(async () => {
+              const r = await passwordSignIn({ email, password, locale, next });
+              if (r.ok) go(r.next);
+              else setError(t(`errors.${r.error}`));
+            });
+          }}
+        >
+          <Field label={t("email")} htmlFor="login-email-pw">
+            <Input id="login-email-pw" type="email" required autoComplete="username" dir="ltr" value={email} onChange={(e) => setEmail(e.target.value)} />
+          </Field>
+          <Field label={t("password")} htmlFor="login-password">
+            <Input id="login-password" type="password" required autoComplete="current-password" dir="ltr" value={password} onChange={(e) => setPassword(e.target.value)} />
+          </Field>
+          <Button type="submit" size="lg" className="w-full" loading={pending}>
+            {t("verify")}
+          </Button>
+          <button type="button" className="text-sm text-charcoal-500 underline" onClick={() => { setUsePassword(false); setError(null); }}>
+            {t("useEmailCode")}
+          </button>
+        </form>
+      ) : !sent ? (
         <form
           className="space-y-5"
           onSubmit={(e) => {
@@ -37,6 +65,9 @@ export function LoginForm({ next }: { next?: string }) {
           <Button type="submit" size="lg" className="w-full" loading={pending} icon={<Mail className="size-4" />}>
             {t("send")}
           </Button>
+          <button type="button" className="text-sm text-charcoal-500 underline" onClick={() => { setUsePassword(true); setError(null); }}>
+            {t("usePassword")}
+          </button>
         </form>
       ) : (
         <form

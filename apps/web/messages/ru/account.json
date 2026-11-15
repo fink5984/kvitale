@@ -17,7 +17,9 @@
         "invalid_email": "Введите корректный адрес электронной почты.",
         "rate_limited": "Слишком много попыток. Пожалуйста, подождите немного.",
         "invalid_code": "Код недействителен или срок его действия истёк.",
-        "invalid_link": "Ссылка недействительна или срок её действия истёк. Запросите новую."
+        "invalid_link": "Ссылка недействительна или срок её действия истёк. Запросите новую.",
+        "invalid_credentials": "Incorrect e-mail or password.",
+        "locked": "Too many attempts. Locked for 15 minutes."
       },
       "roles": {
         "super_admin": "Суперадминистратор",
@@ -27,7 +29,10 @@
         "partner_manager": "Менеджер по партнёрам",
         "local_maintainer": "Местный техник",
         "customer": "Клиент"
-      }
+      },
+      "password": "Password",
+      "usePassword": "Staff sign-in with password",
+      "useEmailCode": "Sign in with an e-mail code"
     },
     "dashboard": {
       "eyebrow": "Мой кабинет",

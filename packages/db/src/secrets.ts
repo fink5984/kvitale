@@ -1,4 +1,4 @@
-import { createCipheriv, createDecipheriv, createHash, randomBytes } from "node:crypto";
+import { scryptSync, timingSafeEqual, createCipheriv, createDecipheriv, createHash, randomBytes } from "node:crypto";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { repoRoot } from "./client";
@@ -56,4 +56,20 @@ export function sha256(s: string | Buffer): string {
 
 export function randomToken(bytes = 32): string {
   return randomBytes(bytes).toString("base64url");
+}
+
+/** Password hashing: scrypt (N=2^15, r=8, p=1), random 16-byte salt. Format: scrypt$N$r$p$salt$hash (base64url). */
+const SCRYPT = { N: 32768, r: 8, p: 1, maxmem: 128 * 1024 * 1024 };
+export function hashPassword(password: string): string {
+  const salt = randomBytes(16);
+  const dk = scryptSync(password, salt, 32, SCRYPT);
+  return ["scrypt", SCRYPT.N, SCRYPT.r, SCRYPT.p, salt.toString("base64url"), dk.toString("base64url")].join("$");
+}
+export function verifyPassword(password: string, stored: string | null | undefined): boolean {
+  // Always do the same work, so a missing account is not distinguishable by timing.
+  const [alg, N, r, p, salt, hash] = (stored ?? "scrypt$32768$8$1$AAAAAAAAAAAAAAAAAAAAAA$AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA").split("$");
+  if (alg !== "scrypt" || !salt || !hash) return false;
+  const expected = Buffer.from(hash, "base64url");
+  const dk = scryptSync(password, Buffer.from(salt, "base64url"), expected.length, { N: Number(N), r: Number(r), p: Number(p), maxmem: SCRYPT.maxmem });
+  return !!stored && dk.length === expected.length && timingSafeEqual(dk, expected);
 }

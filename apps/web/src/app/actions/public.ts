@@ -3,7 +3,7 @@
 import { and, eq, sql } from "drizzle-orm";
 import { headers } from "next/headers";
 import { z } from "zod";
-import { graveRequests, graves, payments } from "@kvittel/db";
+import { graveRequests, graves, payments, roleAssignments, users, verifyPassword } from "@kvittel/db";
 import type { KvittelContent } from "@kvittel/print-layout";
 import { routing } from "@/i18n/routing";
 import { checkoutSchema, cartEntrySchema, kvittelContentSchema } from "@/lib/kvittel-schema";
@@ -128,6 +128,35 @@ export async function verifyMagicToken(token: string, locale: string) {
   const user = await findOrCreateUser(row.email, locale);
   await createSession(user.id, (await headers()).get("user-agent"));
   return { ok: true as const, next: row.redirectTo ?? "/account" };
+}
+
+/** Password sign-in for staff accounts (admin, finance, support, ...). Customers use e-mail codes. */
+export async function passwordSignIn(input: { email: string; password: string; locale: string; next?: string }) {
+  const email = z.email().max(200).safeParse(input.email?.trim());
+  if (!email.success || typeof input.password !== "string" || input.password.length < 1 || input.password.length > 200) return { ok: false as const, error: "invalid_credentials" };
+  const e = email.data.toLowerCase();
+  if (!rateLimit(`pw:${await clientKey()}`, 20, 900000).ok || !rateLimit(`pw:${e}`, 10, 900000).ok) return { ok: false as const, error: "rate_limited" };
+  const db = await getDb();
+  const [u] = await db.select().from(users).where(and(eq(users.email, e), sql`${users.deletedAt} is null`)).limit(1);
+  const staff = u
+    ? (await db.select({ role: roleAssignments.role }).from(roleAssignments).where(and(eq(roleAssignments.userId, u.id), sql`${roleAssignments.revokedAt} is null`))).some((r) => r.role !== "customer")
+    : false;
+  if (u?.passwordLockedUntil && u.passwordLockedUntil > new Date()) {
+    verifyPassword(input.password, null);
+    return { ok: false as const, error: "locked" };
+  }
+  const ok = verifyPassword(input.password, u?.passwordHash) && !!u && staff;
+  if (!ok) {
+    if (u?.passwordHash) {
+      const fails = u.passwordFailures + 1;
+      await db.update(users).set({ passwordFailures: fails >= 5 ? 0 : fails, passwordLockedUntil: fails >= 5 ? new Date(Date.now() + 15 * 60000) : null }).where(eq(users.id, u.id));
+    }
+    return { ok: false as const, error: "invalid_credentials" };
+  }
+  await db.update(users).set({ passwordFailures: 0, passwordLockedUntil: null }).where(eq(users.id, u!.id));
+  await createSession(u!.id, (await headers()).get("user-agent"));
+  const next = input.next && input.next.startsWith("/") && !input.next.startsWith("//") ? input.next : "/admin";
+  return { ok: true as const, next };
 }
 
 export async function signOut() {

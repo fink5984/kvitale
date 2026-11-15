@@ -15,6 +15,13 @@
       "when": 1794759931591,
       "tag": "0001_public_redesign",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794772714733,
+      "tag": "0002_admin_password",
+      "breakpoints": true
     }
   ]
 }

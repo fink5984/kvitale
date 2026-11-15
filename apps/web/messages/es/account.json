@@ -17,7 +17,9 @@
         "invalid_email": "Introduzca una dirección de correo electrónico válida.",
         "rate_limited": "Demasiados intentos. Espere un momento.",
         "invalid_code": "Este código no es válido o ha caducado.",
-        "invalid_link": "Este enlace no es válido o ha caducado. Solicite uno nuevo."
+        "invalid_link": "Este enlace no es válido o ha caducado. Solicite uno nuevo.",
+        "invalid_credentials": "Incorrect e-mail or password.",
+        "locked": "Too many attempts. Locked for 15 minutes."
       },
       "roles": {
         "super_admin": "Superadministrador",
@@ -27,7 +29,10 @@
         "partner_manager": "Responsable de socios",
         "local_maintainer": "Técnico local",
         "customer": "Cliente"
-      }
+      },
+      "password": "Password",
+      "usePassword": "Staff sign-in with password",
+      "useEmailCode": "Sign in with an e-mail code"
     },
     "dashboard": {
       "eyebrow": "Mi cuenta",

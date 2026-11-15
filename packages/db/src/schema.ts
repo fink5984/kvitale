@@ -121,6 +121,10 @@ export const users = pgTable(
     currency: text("currency").notNull().default("USD"),
     emailVerifiedAt: ts("email_verified_at"),
     isDemo: boolean("is_demo").notNull().default(false),
+    /** scrypt hash. Password sign-in is offered to staff accounts only; customers use e-mail codes. */
+    passwordHash: text("password_hash"),
+    passwordFailures: smallint("password_failures").notNull().default(0),
+    passwordLockedUntil: ts("password_locked_until"),
     createdAt: createdAt(),
     updatedAt: updatedAt(),
     deletedAt: ts("deleted_at"),

@@ -147,3 +147,16 @@ describe("demo mode can never be on by accident", () => {
     expect(m.commerceReady()).toBe(false);
   });
 });
+
+describe("password hashing", () => {
+  it("verifies the right password and rejects wrong, empty and missing hashes", async () => {
+    const { hashPassword, verifyPassword } = await import("@kvittel/db");
+    const h = hashPassword("correct horse battery");
+    expect(h.startsWith("scrypt$")).toBe(true);
+    expect(verifyPassword("correct horse battery", h)).toBe(true);
+    expect(verifyPassword("wrong", h)).toBe(false);
+    expect(verifyPassword("", h)).toBe(false);
+    expect(verifyPassword("correct horse battery", null)).toBe(false);
+    expect(hashPassword("correct horse battery")).not.toBe(h);
+  });
+});
