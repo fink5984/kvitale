@@ -40,6 +40,7 @@ export default async function GraveEditPage({ params }: { params: Promise<{ loca
       observeShabbat: true,
       observeYomTov: true,
       israelHolidays: false,
+      testIntake: false,
       shabbatCutoffMinute: 720,
       published: false,
       translations: LOCALES.map((l) => ({ locale: l, name: "", reviewed: false })),
@@ -80,6 +81,7 @@ export default async function GraveEditPage({ params }: { params: Promise<{ loca
       observeShabbat: g.observeShabbat,
       observeYomTov: g.observeYomTov,
       israelHolidays: g.israelHolidays,
+      testIntake: g.testIntake,
       shabbatCutoffMinute: g.shabbatCutoffMinute,
       published: !!g.publishedAt,
       translations: LOCALES.map((l) => {

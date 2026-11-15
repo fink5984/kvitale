@@ -19,7 +19,7 @@ import { closedReason, nextHilula, nextOpenAt, type ClosedReason, type GraveServ
 export type GraveStatus = "discovery_only" | "coming_soon" | "active" | "paused" | "maintenance";
 
 export type Availability =
-  | { kind: "available_now" }
+  | { kind: "available_now"; testIntake?: boolean }
   | { kind: "scheduled"; reason: ClosedReason | "device_offline" | "maintenance"; nextOpenAt: string | null }
   | { kind: "not_purchasable"; reason: "discovery_only" | "coming_soon" | "paused" | "no_device" | "service_unavailable" };
 
@@ -123,11 +123,12 @@ export function policyOf(g: typeof graves.$inferSelect, sched: Loaded["sched"]):
 }
 
 export function computeAvailability(g: typeof graves.$inferSelect, sched: Loaded["sched"], devs: Loaded["devs"], now = new Date()): Availability {
-  if (g.status === "discovery_only" || g.status === "coming_soon" || g.status === "paused") return { kind: "not_purchasable", reason: g.status };
+  if (g.status === "discovery_only" || g.status === "paused" || (g.status === "coming_soon" && !g.testIntake)) return { kind: "not_purchasable", reason: g.status };
   // Never present a grave as sendable while we cannot genuinely take payment and confirm by e-mail.
   if (!commerceReady()) return { kind: "not_purchasable", reason: "service_unavailable" };
   const mine = devs.filter((d) => d.graveId === g.id && d.status !== "retired" && d.status !== "revoked");
-  if (!mine.length) return { kind: "not_purchasable", reason: "no_device" };
+  // Testing intake: orders are accepted and wait in the queue; nothing is printed or marked delivered without a device.
+  if (!mine.length) return g.testIntake ? { kind: "available_now", testIntake: true } : { kind: "not_purchasable", reason: "no_device" };
   const policy = policyOf(g, sched);
   const next = nextOpenAt(policy, now);
   if (g.status === "maintenance") return { kind: "scheduled", reason: "maintenance", nextOpenAt: null };

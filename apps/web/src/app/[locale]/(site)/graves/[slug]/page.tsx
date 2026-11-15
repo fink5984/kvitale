@@ -48,11 +48,13 @@ export default async function GravePage({ params, searchParams }: { params: Prom
     <article>
       {/* ───────── the tziyun, and the page to write on ───────── */}
       <section className="relative isolate overflow-hidden pb-28 lg:pb-20" aria-labelledby="grave-title">
-        <div className="absolute inset-0 -z-20 bg-midnight-900">
-          {bg ? <TziyunPhoto image={bg} mobile={g.mobileImage} sizes="100vw" priority /> : <PhotoFallback nameHe={g.nameHe} className="[&>span]:hidden" />}
+        {/* Fixed backdrop: the photo stays put while the content scrolls. The clip-path wrapper confines the fixed layer to this section. */}
+        <div className="pointer-events-none absolute inset-0 -z-20 [clip-path:inset(0)]" aria-hidden>
+          <div className="fixed inset-0 bg-midnight-900">
+            {bg ? <TziyunPhoto image={bg} mobile={g.mobileImage} sizes="100vw" priority /> : <PhotoFallback nameHe={g.nameHe} className="[&>span]:hidden" />}
+            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(5_15_36/0.62),rgb(5_15_36/0.5))]" />
+          </div>
         </div>
-        {/* readable-but-present veil: dark where the name sits, cream where the form sits */}
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,rgb(5_15_36/0.72)_0,rgb(5_15_36/0.45)_9rem,rgb(250_244_231/0.82)_22rem,rgb(250_244_231/0.93)_100%)]" aria-hidden />
 
         <div className="mx-auto max-w-6xl px-[var(--gutter)]">
           <header className="pb-8 pt-8 text-ivory-50 sm:pt-12">
@@ -71,6 +73,11 @@ export default async function GravePage({ params, searchParams }: { params: Prom
             )}
           </header>
 
+          {g.availability.kind === "available_now" && g.availability.testIntake && (
+            <Notice tone="warning" className="mb-6">
+              {t("testIntake")}
+            </Notice>
+          )}
           {g.availability.kind === "scheduled" && (
             <Notice tone="warning" className="mb-6">
               {t(`scheduled.${g.availability.reason}`, { when: g.availability.nextOpenAt ? formatDateTime(g.availability.nextOpenAt, locale, g.timezone) : "—" })}
@@ -94,13 +101,13 @@ export default async function GravePage({ params, searchParams }: { params: Prom
             </div>
           )}
           {credit?.credit && (
-            <p className="mt-6 text-xs text-charcoal-600">{t("photoCredit", { credit: credit.credit, license: credit.license ?? "" })}</p>
+            <p className="mt-6 text-xs text-ivory-100/80">{t("photoCredit", { credit: credit.credit, license: credit.license ?? "" })}</p>
           )}
         </div>
       </section>
 
       {/* ───────── more about the tzaddik (secondary; also what search engines read) ───────── */}
-      <section className="border-t border-[var(--line)] bg-ivory-100" aria-labelledby="more-title">
+      <section className="border-t border-[var(--line)] bg-ivory-100/95 backdrop-blur-sm" aria-labelledby="more-title">
         <div className="mx-auto grid max-w-6xl gap-14 px-[var(--gutter)] py-16 sm:py-20 lg:grid-cols-[1.4fr_0.8fr]">
           <div className="space-y-12">
             <div>

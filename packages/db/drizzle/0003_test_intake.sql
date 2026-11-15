@@ -1,0 +1,1 @@
+ALTER TABLE "graves" ADD COLUMN "test_intake" boolean DEFAULT false NOT NULL;

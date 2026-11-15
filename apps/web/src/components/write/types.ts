@@ -7,6 +7,6 @@ export interface BuilderGrave {
   nameHe: string;
   namesByLocale: Record<string, string>;
   place: string | null;
-  availability: { kind: string; reason?: string; nextOpenAt?: string | null };
+  availability: { kind: string; reason?: string; nextOpenAt?: string | null; testIntake?: boolean };
   cover: GraveImage | null;
 }

@@ -138,6 +138,10 @@ export function GraveEditor({ initial, media, assigned, canWrite, canPublish }: 
                 <Checkbox checked={g.observeShabbat} onChange={(e) => set({ observeShabbat: e.target.checked })} label={t("shabbat")} />
                 <Checkbox checked={g.observeYomTov} onChange={(e) => set({ observeYomTov: e.target.checked })} label={t("yomTov")} />
                 <Checkbox checked={g.israelHolidays} onChange={(e) => set({ israelHolidays: e.target.checked })} label={t("israel")} />
+                <div className="sm:col-span-2">
+                  <Checkbox checked={g.testIntake} onChange={(e) => set({ testIntake: e.target.checked })} label={t("testIntake")} />
+                  <p className="mt-1 text-xs text-[var(--color-warning-700,#8a5a00)]">{t("testIntakeHint")}</p>
+                </div>
                 <Field label={t("cutoff")} hint={t("cutoffHint")} htmlFor="cut"><Input id="cut" type="time" value={mm(g.shabbatCutoffMinute)} onChange={(e) => set({ shabbatCutoffMinute: toMin(e.target.value) })} /></Field>
               </div>
               <div className="grid gap-4 border-t border-[var(--line)] pt-5 sm:grid-cols-4">

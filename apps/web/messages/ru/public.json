@@ -51,7 +51,8 @@
       },
       "map": {
         "navigate": "Маршрут"
-      }
+      },
+      "testIntake": "Testing phase: this site has no device yet. Your kvittel will wait in the queue and will not be printed or marked delivered until a device is assigned."
     },
     "faq": {
       "eyebrow": "Вопросы",

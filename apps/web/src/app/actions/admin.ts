@@ -156,6 +156,7 @@ const graveSchema = z.object({
   observeShabbat: z.boolean(),
   observeYomTov: z.boolean(),
   israelHolidays: z.boolean(),
+  testIntake: z.boolean(),
   shabbatCutoffMinute: z.number().int().min(0).max(1439),
   published: z.boolean(),
   translations: z.array(z.object({ locale: z.string().min(2).max(5), name: z.string().trim().max(160), epithet: z.string().max(200).optional(), placeName: z.string().max(200).optional(), address: z.string().max(300).optional(), bio: z.string().max(5000).optional(), bioSources: z.string().max(1000).optional(), customs: z.string().max(2000).optional(), metaTitle: z.string().max(70).optional(), metaDescription: z.string().max(170).optional(), reviewed: z.boolean() })),
@@ -187,7 +188,7 @@ export async function adminSaveGrave(input: GraveInput): Promise<Result & { id?:
     else locationId = (await tx.insert(locations).values(loc).returning())[0]!.id;
     const values = {
       slug: g.slug, status: g.status, locationId, timezone: g.timezone, dynasty: g.dynasty || null, eraStartYear: g.eraStartYear, eraEndYear: g.eraEndYear, featured: g.featured, sortOrder: g.sortOrder, permitStatus: g.permitStatus, permitNotes: g.permitNotes || null,
-      observeShabbat: g.observeShabbat, observeYomTov: g.observeYomTov, israelHolidays: g.israelHolidays, shabbatCutoffMinute: g.shabbatCutoffMinute, updatedAt: new Date(),
+      observeShabbat: g.observeShabbat, observeYomTov: g.observeYomTov, israelHolidays: g.israelHolidays, testIntake: g.testIntake, shabbatCutoffMinute: g.shabbatCutoffMinute, updatedAt: new Date(),
     };
     if (graveId) {
       const [cur] = await tx.select({ publishedAt: graves.publishedAt }).from(graves).where(eq(graves.id, graveId));

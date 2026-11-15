@@ -256,6 +256,8 @@ export const graves = pgTable(
     israelHolidays: boolean("israel_holidays").notNull().default(false),
     /** Conservative pre-Shabbat cut-off in local minutes from midnight Friday (used until verified coordinates allow zmanim) */
     shabbatCutoffMinute: smallint("shabbat_cutoff_minute").notNull().default(720),
+    /** TESTING ONLY: accept paid orders although no device is assigned yet. They wait in the queue; nothing is marked delivered. */
+    testIntake: boolean("test_intake").notNull().default(false),
     demandCount: integer("demand_count").notNull().default(0),
     isDemo: boolean("is_demo").notNull().default(false),
     publishedAt: ts("published_at"),
