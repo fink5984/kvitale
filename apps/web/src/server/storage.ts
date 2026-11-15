@@ -49,17 +49,27 @@ function s3Adapter(): Storage {
   const bucket = need("S3_BUCKET");
   let client: Promise<import("@aws-sdk/client-s3").S3Client> | undefined;
   const get = () =>
-    (client ??= import("@aws-sdk/client-s3").then(
-      ({ S3Client }) =>
-        new S3Client({
-          region: process.env.S3_REGION || "auto",
-          endpoint: need("S3_ENDPOINT"),
-          credentials: { accessKeyId: need("S3_ACCESS_KEY_ID"), secretAccessKey: need("S3_SECRET_ACCESS_KEY") },
-          forcePathStyle: true,
-          maxAttempts: 2,
-          requestHandler: { requestTimeout: 20_000, connectionTimeout: 5_000 },
-        }),
-    ));
+    (client ??= import("@aws-sdk/client-s3").then(({ S3Client }) => {
+      const c = new S3Client({
+        region: process.env.S3_REGION || "auto",
+        endpoint: need("S3_ENDPOINT"),
+        credentials: { accessKeyId: need("S3_ACCESS_KEY_ID"), secretAccessKey: need("S3_SECRET_ACCESS_KEY") },
+        forcePathStyle: true,
+        maxAttempts: 2,
+        requestHandler: { requestTimeout: 20_000, connectionTimeout: 5_000 },
+      });
+      // The SDK adds "Expect: 100-continue" to uploads; Cloudflare R2 never answers it and
+      // the request hangs until timeout (verified against a live bucket). Drop the header.
+      c.middlewareStack.add(
+        (next) => async (args) => {
+          const h = (args.request as { headers?: Record<string, string> }).headers;
+          if (h) for (const k of Object.keys(h)) if (k.toLowerCase() === "expect") delete h[k];
+          return next(args);
+        },
+        { step: "build", name: "dropExpectContinue", priority: "low" },
+      );
+      return c;
+    }));
   const check = (key: string) => {
     if (!/^[a-z0-9/_-]+$/i.test(key) || key.includes("..")) throw new Error("bad storage key");
     return key;
