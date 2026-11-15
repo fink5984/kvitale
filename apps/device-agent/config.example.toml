@@ -1,0 +1,61 @@
+# Kvittel field-unit agent — example config.
+# Install as /etc/kvittel-agent/config.toml (root:kvittel, 0640).
+# Every key is optional; defaults are shown. Unknown keys are rejected.
+# Env overrides: KVITTEL_SERVER, KVITTEL_TOKEN_FILE, KVITTEL_SPOOL_DIR, KVITTEL_LOG_LEVEL,
+# KVITTEL_CA_FILE, KVITTEL_ALLOW_INSECURE_HTTP, KVITTEL_PRINTER_ADAPTER,
+# KVITTEL_PRINTER_CONNECTION, KVITTEL_PRINTER_DEVICE, KVITTEL_CHUTE_ADAPTER.
+# Note: on Python 3.10 a strict TOML subset is parsed (arrays on one line, no multi-line strings).
+
+server_url = "https://kvittel.example"   # used for pairing; the agent then talks only to the paired server
+token_file = "/var/lib/kvittel-agent/credentials.json"   # written 0600
+spool_dir = "/var/lib/kvittel-agent/spool"
+log_level = "INFO"
+http_timeout_s = 15.0
+allow_insecure_http = false              # http:// is always allowed for localhost (development)
+ca_file = ""                             # optional private CA bundle (PEM)
+outbox_max = 500
+token_rotate_days = 30
+heartbeat_sec = 15                       # until the server pushes its config
+lease_sec = 90
+chute_timeout_ms = 8000
+backoff_initial_s = 1.0
+backoff_max_s = 60.0
+
+[printer]
+adapter = "escpos"                       # "escpos" | "mock"
+connection = "file"                      # "file" (/dev/usb/lp0 or udev symlink) | "serial" (needs pyserial)
+device = "/dev/kvittel-printer"          # see udev/99-kvittel-printer.rules
+serial_baud = 9600
+serial_flow_control = "none"             # "none" | "rtscts"
+model = "unknown"                        # free text, sent once at pairing
+width_dots = 384                         # 58 mm @ 203 dpi — UNVERIFIED for your model
+dots_per_mm = 8.0
+band_rows = 256
+write_chunk_bytes = 4096
+cut_command_hex = "1d5600"               # UNVERIFIED: GS V 0. Set "" if the printer has no cutter.
+partial_cut_command_hex = ""
+line_feed_mm = 4.23                      # UNVERIFIED: ESC d line pitch
+est_print_speed_mm_s = 50.0              # UNVERIFIED: wait after writing each page; 0 disables
+status_query = false                     # DLE EOT real-time status (needs a bidirectional link)
+status_timeout_ms = 300
+# Flip these only after completing the checklist in docs/HARDWARE_BOM.md on this exact model/firmware.
+status_verified = false
+cut_verified = false
+raster_verified = false
+mock_output_dir = ""                     # mock adapter only; default <spool_dir>/mock-printer
+
+[chute]
+adapter = "none"                         # "none" | "gpio" | "mock"
+gpio_pin = 17                            # BCM numbering
+active_low = true                        # receiver pulls low when the beam is broken (check your part)
+bounce_ms = 5
+
+[power]
+adapter = "none"                         # "none" → reported as unsupported (no UPS integration yet)
+
+[hooks]
+# "disabled" (log + report failed), "exit" (exit 75; systemd restarts the service),
+# or an absolute argv list executed WITHOUT a shell, e.g. ["/usr/bin/systemctl", "reboot"]
+# (that one additionally needs a polkit rule — see docs/DEVICE_AGENT_INSTALL.md).
+reboot_agent = "disabled"
+restart_service = "disabled"

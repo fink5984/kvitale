@@ -1,0 +1,65 @@
+{
+  "lab": {
+    "eyebrow": "Demo · Laboratório de unidades",
+    "title": "Laboratório de unidades",
+    "description": "Opere unidades simuladas pelo protocolo real das unidades — sinais, reservas de trabalho, eventos de impressão e comandos assinados — e injete falhas para ver como a plataforma reage.",
+    "disclaimer": {
+      "title": "Simulador, não hardware",
+      "body": "Estas unidades são substitutos de software criados para a demo. Nada aqui é impresso em papel, e nada aqui prova que uma impressora, guilhotina ou sensor reais funcionem."
+    },
+    "loadError": "Não foi possível carregar as unidades simuladas.",
+    "none": { "title": "Nenhuma unidade simulada", "body": "Execute o seed de demonstração (pnpm setup) para criar unidades simuladas." },
+    "unit": "Unidade simulada",
+    "start": "Iniciar ciclo",
+    "stop": "Parar ciclo",
+    "tick": "Um passo",
+    "writeOrder": "Escrever um kvitel para imprimir →",
+    "simBadge": "SIMULADO",
+    "yes": "Sim",
+    "no": "Não",
+    "state": {
+      "title": "Estado da unidade",
+      "loop": "Ciclo",
+      "running": "Em execução",
+      "stopped": "Parado",
+      "phase": "Fase",
+      "heartbeat": "Último sinal",
+      "ok": "Aceito",
+      "failed": "Falhou",
+      "paused": "Pausada pelo servidor",
+      "outbox": "Caixa de saída (eventos não enviados)",
+      "journal": "Entradas do diário"
+    },
+    "phase": { "idle": "Ociosa", "leasing": "Pedindo trabalho", "printing": "Imprimindo", "cutting": "Cortando", "waiting_chute": "Aguardando sensor do duto", "offline": "Off-line", "rebooting": "Reiniciando" },
+    "knobs": {
+      "title": "Injeção de falhas",
+      "hint": "Chaves vermelhas injetam uma falha. As alterações valem a partir do próximo passo.",
+      "paper": "Papel",
+      "cover": "Tampa",
+      "online": "Perda de internet",
+      "onlineHint": "Todas as requisições falham; os trabalhos aguardam na fila.",
+      "acPower": "Energia elétrica desligada",
+      "acPowerHint": "Informa funcionamento na bateria (nobreak simulado).",
+      "cutterJam": "Guilhotina travada",
+      "cutterJamHint": "Falha após imprimir → entrega requer análise.",
+      "chuteSensorFail": "Falha do sensor do duto",
+      "chuteSensorFailHint": "O sensor nunca dispara → incerta, nunca reimpressa.",
+      "doubleCallback": "Callback duplo",
+      "doubleCallbackHint": "Envia cada evento de trabalho duas vezes (idempotência).",
+      "rebootMidPrint": "Reinício durante a impressão",
+      "rebootMidPrintHint": "A energia é cortada após o início da impressão; informa interrupção.",
+      "dropAckOnce": "Perder uma confirmação",
+      "dropAckOnceHint": "O primeiro evento de impressão concluída é reenviado da caixa de saída."
+    },
+    "paper": { "ok": "OK", "near_end": "Quase no fim", "paper_end": "Acabou" },
+    "cover": { "closed": "Fechada", "open": "Aberta" },
+    "log": { "title": "Log do protocolo", "empty": "Nenhuma atividade ainda — clique em “Um passo”." },
+    "printer": {
+      "title": "Saída da impressora",
+      "clear": "Limpar",
+      "empty": "Os bilhetes impressos aparecerão aqui.",
+      "note": "Raster de 1 bit exatamente como recebido pela unidade, exibido na resolução nativa.",
+      "slipAria": "Bilhete impresso (simulado)"
+    }
+  }
+}

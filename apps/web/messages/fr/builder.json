@@ -1,0 +1,168 @@
+{
+  "builder": {
+    "metaTitle": "Écrire un kvitel",
+    "title": "Écrivez votre kvitel",
+    "intro": "Écrivez librement. Ce que vous voyez à droite est exactement ce qui sera imprimé au tsiyoun.",
+    "demoPrinter": "Imprimantes DÉMO",
+    "optional": "facultatif",
+    "steps": {
+      "label": "Progression",
+      "choose": "Tsiyoun",
+      "write": "Rédaction",
+      "preview": "Vérification",
+      "pay": "Paiement",
+      "track": "Remise"
+    },
+    "grave": {
+      "title": "Tsiyoun",
+      "choose": "Choisir un tsiyoun",
+      "chooseHint": "Vous pouvez en ajouter plusieurs",
+      "scheduled": "Programmé",
+      "remove": "Retirer {name}",
+      "addAnother": "Envoyer aussi à un autre tsiyoun",
+      "multiNote": "Le même kvitel sera imprimé séparément à chaque tsiyoun.",
+      "printedName": "Nom du tsaddik tel qu’imprimé",
+      "printedNameHint": "Imprimé exactement tel qu’écrit ici — jamais modifié automatiquement."
+    },
+    "nusach": {
+      "title": "Langue du kvitel",
+      "hint": "Détermine des mots comme « ben / bat » sur le billet. Votre texte est imprimé exactement tel que vous le saisissez.",
+      "he": "עברית",
+      "yi": "ייִדיש",
+      "en": "English",
+      "fr": "Français",
+      "ru": "Русский"
+    },
+    "people": {
+      "title": "Noms",
+      "hint": "Traditionnellement, le nom de la personne suivi du nom de sa mère. Écrivez-le comme vous le souhaitez.",
+      "person": "Nom {n}",
+      "mode": "Mode de saisie",
+      "structured": "Guidé",
+      "free": "Libre",
+      "remove": "Retirer le nom {n}",
+      "given": "Prénom",
+      "givenPh": "p. ex. Yossef ’Haïm",
+      "relation": "Lien",
+      "ben": "ben",
+      "bat": "bat",
+      "parent": "Nom de la mère / du père",
+      "parentPh": "p. ex. Sarah",
+      "freeLabel": "Nom tel qu’il doit apparaître",
+      "freeHint": "Imprimé exactement tel que saisi.",
+      "add": "Ajouter un nom"
+    },
+    "topics": {
+      "title": "Sujets (facultatif)",
+      "health": "Santé",
+      "livelihood": "Parnassa",
+      "marriage": "Un chidoukh",
+      "children": "Enfants",
+      "success": "Réussite",
+      "gratitude": "Gratitude",
+      "general": "Général"
+    },
+    "request": {
+      "title": "Vos mots",
+      "hint": "Vos propres mots passent en premier. Les suggestions ci-dessous sont facultatives.",
+      "label": "Demande",
+      "count": "{n} / {max}",
+      "placeholder": "Écrivez ce que vous avez sur le cœur…",
+      "suggestionsLabel": "Formules facultatives",
+      "suggestions": {
+        "he": {
+          "0": "לרפואה שלמה ולבריאות איתנה",
+          "1": "להצלחה ולפרנסה בכבוד",
+          "2": "בתודה על כל הטוב"
+        },
+        "en": {
+          "0": "For a complete recovery and good health",
+          "1": "For success and an honourable livelihood",
+          "2": "With gratitude for all the good"
+        },
+        "fr": {
+          "0": "Pour une guérison complète et une bonne santé",
+          "1": "Pour la réussite et une subsistance honorable",
+          "2": "Avec gratitude pour tout le bien"
+        },
+        "ru": {
+          "0": "О полном выздоровлении и крепком здоровье",
+          "1": "Об успехе и достойном заработке",
+          "2": "С благодарностью за всё доброе"
+        }
+      }
+    },
+    "hand": {
+      "title": "Kvitel manuscrit",
+      "hint": "Facultatif — joignez la photo d’un kvitel écrit de votre main.",
+      "choose": "Choisir une photo",
+      "formats": "JPG ou PNG, 8 Mo maximum",
+      "previewAria": "Aperçu de la page manuscrite",
+      "rotate": "Pivoter",
+      "contrast": "Contraste",
+      "brightness": "Luminosité",
+      "trim": "Rogner les marges",
+      "attach": "Joindre",
+      "cancel": "Annuler",
+      "attached": "Page manuscrite jointe ({w}×{h})",
+      "remove": "Retirer",
+      "noAi": "Votre écriture est conservée telle quelle, en image. Nous ne modifions ni ne « corrigeons » jamais vos mots.",
+      "errors": {
+        "type": "Veuillez choisir une image JPG ou PNG.",
+        "size": "L’image dépasse 8 Mo.",
+        "decode": "Cette image n’a pas pu être lue.",
+        "upload": "L’envoi a échoué. Veuillez réessayer."
+      }
+    },
+    "finish": {
+      "title": "Finitions",
+      "template": "Présentation",
+      "templates": {
+        "classic": "Classique",
+        "arch": "Arche",
+        "minimal": "Épuré"
+      },
+      "signature": "Ligne de signature",
+      "signatureHint": "Par exemple un nom de famille. Laissez vide pour rester anonyme.",
+      "bh": "Imprimer « ב״ה » en haut"
+    },
+    "privacy": {
+      "remember": "Conserver ce brouillon sur cet appareil",
+      "rememberHint": "Désactivé par défaut : votre brouillon est effacé à la fermeture de cet onglet. Sur un ordinateur partagé, laissez cette option désactivée.",
+      "wipe": "Effacer tout ce que j’ai saisi",
+      "wipeConfirm": "Effacer ce brouillon et votre panier de cet appareil ?"
+    },
+    "summary": {
+      "pages": "{count, plural, one {# page} other {# pages}}",
+      "graves": "{count, plural, one {# tsiyoun} other {# tsiyounim}}",
+      "from": "à partir de {price}"
+    },
+    "cta": {
+      "continue": "Vérifier et continuer",
+      "update": "Enregistrer les modifications"
+    },
+    "preview": {
+      "label": "Aperçu en direct",
+      "open": "Aperçu",
+      "title": "Votre kvitel",
+      "live": "Aperçu en direct",
+      "thermal": "Afficher tel qu’imprimé",
+      "meta": "{pages, plural, one {# page} other {# pages}} · env. {mm} mm de papier",
+      "exact": "Rendu par le même moteur et les mêmes polices que l’imprimante. La ligne de date indique la date réelle d’impression."
+    },
+    "warnings": {
+      "unsupported_chars": "Ces caractères ne peuvent pas être imprimés :",
+      "strip": "Les retirer",
+      "too_long": "Le kvitel est trop long ({detail} pages). Veuillez le raccourcir.",
+      "empty": "Ajoutez au moins un nom ou quelques mots.",
+      "name_missing_parent": "{detail, plural, one {Un nom n’a pas} other {# noms n’ont pas}} de nom de mère ou de père. C’est tout à fait possible — simple vérification.",
+      "grave_name_empty": "Veuillez saisir le nom du tsaddik tel qu’il doit être imprimé.",
+      "invalid": "Un élément du formulaire n’est pas valide."
+    },
+    "picker": {
+      "title": "Choisir un tsiyoun",
+      "subtitle": "Seuls les tsiyounim équipés d’une unité en service peuvent être sélectionnés.",
+      "search": "Rechercher"
+    }
+  }
+}

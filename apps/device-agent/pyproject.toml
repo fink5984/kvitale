@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kvittel-agent"
+version = "0.1.0"
+description = "Kvittel Global field-unit agent (Raspberry Pi thermal printer + chute)"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []  # core is stdlib-only
+
+[project.optional-dependencies]
+serial = ["pyserial>=3.5"]
+gpio = ["gpiozero>=2.0"]
+
+[project.scripts]
+kvittel-agent = "kvittel_agent.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["kvittel_agent*"]

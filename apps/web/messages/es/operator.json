@@ -1,0 +1,153 @@
+{
+  "operator": {
+    "shell": {
+      "title": "Operador",
+      "nav": "Navegación del operador",
+      "units": "Unidades",
+      "tickets": "Incidencias",
+      "admin": "Administración",
+      "signOut": "Cerrar sesión ({who})",
+      "scoped": "{count, plural, one {# tziún asignado} other {# tziunim asignados}}",
+      "unscoped": "Todos los lugares"
+    },
+    "units": {
+      "eyebrow": "Estado en el lugar",
+      "title": "Sus unidades",
+      "subtitle": "Estado en directo de las unidades de sus tziunim asignados. Se actualiza cada 15 segundos.",
+      "empty": { "title": "No hay tziunim asignados", "body": "Pida a un administrador que asigne su cuenta de socio a un lugar." },
+      "noUnits": "Todavía no hay ninguna unidad instalada en este tziún.",
+      "simulated": "SIMULADO",
+      "online": "En línea",
+      "offline": "Sin conexión",
+      "paused": "En pausa",
+      "lastSeen": "Última señal {when}",
+      "neverSeen": "Aún no se ha recibido ninguna señal",
+      "queue": "{count, plural, =0 {Cola vacía} one {# trabajo en espera} other {# trabajos en espera}}",
+      "changeRoll": "Cambiar el rollo de papel",
+      "testPrint": "Impresión de prueba",
+      "testPrintConfirm": "¿Imprimir ahora una nota de prueba en esta unidad?",
+      "testPrintQueued": "Impresión de prueba enviada a la unidad.",
+      "privacy": "Este portal nunca muestra el contenido de los kvitlaj, ni nombres ni peticiones.",
+      "paper": {
+        "title": "Papel restante",
+        "noRoll": "No hay rollo registrado",
+        "days": "≈ {days} días hasta agotarse",
+        "daysUnknown": "No hay datos de uso suficientes para una previsión",
+        "confidence": { "measured": "sensor de fin de rollo", "estimated": "estimación calibrada", "low": "estimación aproximada" }
+      },
+      "sensor": {
+        "paper": "Sensor de papel",
+        "cover": "Tapa",
+        "cutter": "Cortador",
+        "chute": "Sensor del conducto",
+        "power": "Red eléctrica",
+        "signal": "Señal",
+        "values": {
+          "ok": "OK",
+          "near_end": "Casi agotado",
+          "paper_end": "Sin papel",
+          "unknown": "Desconocido",
+          "unsupported": "No medible",
+          "closed": "Cerrada",
+          "open": "Abierta",
+          "fault": "Avería",
+          "blocked": "Obstruido",
+          "not_installed": "No instalado",
+          "ac": "Con red eléctrica",
+          "battery": "Con batería"
+        }
+      },
+      "alerts": {
+        "heartbeat_missed": "Señal perdida",
+        "device_offline": "Unidad sin conexión (causa desconocida)",
+        "paper_low": "Queda poco papel",
+        "paper_end": "Sin papel",
+        "cover_open": "Tapa abierta",
+        "cutter_fault": "Avería del cortador",
+        "print_uncertain": "La entrega requiere revisión",
+        "ac_power_lost": "Corte de red eléctrica (confirmado por el SAI)",
+        "chute_sensor_fault": "Avería del sensor del conducto",
+        "payment_mismatch": "Discrepancia en el pago"
+      },
+      "errors": { "forbidden": "No permitido para su rol.", "invalid": "Datos no válidos.", "not_found": "Esta unidad no le está asignada.", "server_error": "Algo ha salido mal." }
+    },
+    "roll": {
+      "eyebrow": "Mantenimiento",
+      "title": "Cambiar el rollo de papel",
+      "backToUnits": "Volver a las unidades",
+      "current": "Rollo actual instalado el {date} · {m} m usados",
+      "remaining": "≈ {pct} % restante",
+      "optional": "opcional",
+      "next": "Continuar",
+      "back": "Volver",
+      "steps": { "label": "Pasos del cambio de rollo", "prepare": "Preparar", "specs": "Rollo nuevo", "confirm": "Confirmar" },
+      "prepare": {
+        "title": "En la unidad",
+        "body": "Trabaje con calma y respeto; puede haber gente en el lugar. Marque cada paso al terminarlo.",
+        "door": "Abra la puerta de servicio con llave",
+        "doorHint": "Use la llave de servicio. La unidad detiene la impresión mientras la tapa está abierta.",
+        "remove": "Retire el rollo usado y el núcleo",
+        "removeHint": "Llévese el núcleo vacío y cualquier trozo de papel suelto.",
+        "load": "Coloque el rollo nuevo con la cara de impresión hacia fuera",
+        "loadHint": "La cara térmica mira al cabezal de impresión; tire de unos centímetros por el recorrido del papel.",
+        "cover": "Cierre la tapa de la impresora y la puerta de servicio",
+        "coverHint": "Espere a que el sensor de la tapa indique «Cerrada»."
+      },
+      "photoLater": "Adjuntar una foto del rollo instalado está previsto, pero todavía no está disponible.",
+      "specs": {
+        "title": "Especificaciones del rollo nuevo",
+        "body": "Se usan para estimar el papel restante. Los valores por defecto corresponden al rollo estándar de 58 mm.",
+        "outer": "Diámetro exterior",
+        "core": "Diámetro del núcleo",
+        "thickness": "Grosor del papel",
+        "nominal": "Longitud indicada en el envase",
+        "nominalHint": "En milímetros, si se indica (p. ej. 18000).",
+        "estimate": "Longitud estimada: {m} m",
+        "invalid": "Revise los valores: el núcleo debe ser menor que el diámetro exterior."
+      },
+      "confirm": {
+        "title": "Confirmar el cambio",
+        "body": "Esto cierra el rollo actual, empieza el seguimiento del nuevo, borra las alertas de papel y resuelve la incidencia abierta de cambio de papel.",
+        "cta": "Confirmar el cambio de rollo"
+      },
+      "success": {
+        "title": "Cambio de rollo registrado",
+        "body": "El seguimiento del papel se ha reiniciado. Se recomienda una impresión de prueba para verificar la impresión, el corte y el sensor del conducto.",
+        "back": "Volver a las unidades"
+      },
+      "errors": { "forbidden": "No permitido para su rol.", "invalid": "Valores no válidos.", "not_found": "Esta unidad no le está asignada.", "server_error": "Algo ha salido mal." }
+    },
+    "tickets": {
+      "eyebrow": "Mantenimiento",
+      "title": "Incidentes e historial de servicio",
+      "subtitle": "Notifique incidentes y mantenga un historial de servicio de sus lugares. Nunca escriba aquí el contenido de un kvitel ni nombres.",
+      "open": "{count, plural, =0 {No hay incidencias abiertas} one {# incidencia abierta} other {# incidencias abiertas}}",
+      "new": "Nueva incidencia",
+      "create": "Crear incidencia",
+      "close": "Cerrar",
+      "noneOpen": "Todo en orden",
+      "noneOpenBody": "No hay incidentes abiertos en sus lugares.",
+      "history": "Historial de mantenimiento",
+      "resolved": "Incidencias resueltas",
+      "noHistory": "Aún no hay incidencias resueltas.",
+      "rollChanges": "Cambios de rollo de papel",
+      "current": "actual",
+      "site": "Tziún",
+      "unit": "Unidad",
+      "optional": "opcional",
+      "kind": "Tipo",
+      "priority": "Prioridad",
+      "titleLabel": "Descripción breve",
+      "noContentHint": "Describa solo el problema de hardware.",
+      "status": "Estado",
+      "addNote": "Añadir nota",
+      "notePh": "Qué se hizo u observó…",
+      "due": "Vence el {date}",
+      "overdue": "Vencida desde el {date}",
+      "kinds": { "paper_change": "Cambio de papel", "cleaning": "Limpieza", "battery": "Batería / alimentación", "sensor": "Sensor", "cutter": "Cortador", "other": "Otro" },
+      "priorities": { "1": "Urgente", "2": "Normal", "3": "Baja" },
+      "statuses": { "open": "Abierta", "in_progress": "En curso", "waiting_parts": "Esperando piezas", "resolved": "Resuelta", "closed": "Cerrada" },
+      "errors": { "forbidden": "No permitido para su rol.", "invalid": "Revise el formulario.", "not_found": "No se encuentra entre sus lugares.", "server_error": "Algo ha salido mal." }
+    }
+  }
+}

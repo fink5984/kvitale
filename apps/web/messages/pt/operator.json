@@ -1,0 +1,153 @@
+{
+  "operator": {
+    "shell": {
+      "title": "Operador",
+      "nav": "Navegação do operador",
+      "units": "Unidades",
+      "tickets": "Chamados",
+      "admin": "Administração",
+      "signOut": "Sair ({who})",
+      "scoped": "{count, plural, one {# tziyun atribuído} other {# tziyunim atribuídos}}",
+      "unscoped": "Todos os locais"
+    },
+    "units": {
+      "eyebrow": "Status no local",
+      "title": "Suas unidades",
+      "subtitle": "Condição ao vivo das unidades nos tziyunim atribuídos a você. Atualiza a cada 15 segundos.",
+      "empty": { "title": "Nenhum tziyun atribuído", "body": "Peça a um administrador que vincule sua conta de parceiro a um local." },
+      "noUnits": "Ainda não há unidade instalada neste tziyun.",
+      "simulated": "SIMULADO",
+      "online": "On-line",
+      "offline": "Off-line",
+      "paused": "Pausado",
+      "lastSeen": "Último sinal {when}",
+      "neverSeen": "Nenhum sinal recebido ainda",
+      "queue": "{count, plural, =0 {Fila vazia} one {# trabalho aguardando} other {# trabalhos aguardando}}",
+      "changeRoll": "Trocar a bobina",
+      "testPrint": "Impressão de teste",
+      "testPrintConfirm": "Imprimir agora um bilhete de teste nesta unidade?",
+      "testPrintQueued": "Impressão de teste enviada à unidade.",
+      "privacy": "Este portal nunca mostra o conteúdo dos kvitlach, nomes ou pedidos.",
+      "paper": {
+        "title": "Papel restante",
+        "noRoll": "Nenhuma bobina registrada",
+        "days": "≈ {days} dias até acabar",
+        "daysUnknown": "Dados de uso insuficientes para uma previsão",
+        "confidence": { "measured": "sensor de fim de bobina", "estimated": "estimativa calibrada", "low": "estimativa aproximada" }
+      },
+      "sensor": {
+        "paper": "Sensor de papel",
+        "cover": "Tampa",
+        "cutter": "Guilhotina",
+        "chute": "Sensor do duto",
+        "power": "Energia elétrica",
+        "signal": "Sinal",
+        "values": {
+          "ok": "OK",
+          "near_end": "Quase no fim",
+          "paper_end": "Sem papel",
+          "unknown": "Desconhecido",
+          "unsupported": "Não mensurável",
+          "closed": "Fechada",
+          "open": "Aberta",
+          "fault": "Falha",
+          "blocked": "Obstruído",
+          "not_installed": "Não instalado",
+          "ac": "Na rede elétrica",
+          "battery": "Na bateria"
+        }
+      },
+      "alerts": {
+        "heartbeat_missed": "Sinal perdido",
+        "device_offline": "Unidade off-line (causa desconhecida)",
+        "paper_low": "Papel acabando",
+        "paper_end": "Sem papel",
+        "cover_open": "Tampa aberta",
+        "cutter_fault": "Falha na guilhotina",
+        "print_uncertain": "Entrega requer análise",
+        "ac_power_lost": "Queda de energia (confirmada pelo nobreak)",
+        "chute_sensor_fault": "Falha no sensor do duto",
+        "payment_mismatch": "Divergência de pagamento"
+      },
+      "errors": { "forbidden": "Não permitido para sua função.", "invalid": "Dados inválidos.", "not_found": "Esta unidade não está atribuída a você.", "server_error": "Algo deu errado." }
+    },
+    "roll": {
+      "eyebrow": "Manutenção",
+      "title": "Trocar a bobina de papel",
+      "backToUnits": "Voltar às unidades",
+      "current": "Bobina atual instalada em {date} · {m} m usados",
+      "remaining": "≈ {pct}% restante",
+      "optional": "opcional",
+      "next": "Continuar",
+      "back": "Voltar",
+      "steps": { "label": "Etapas da troca de bobina", "prepare": "Preparar", "specs": "Nova bobina", "confirm": "Confirmar" },
+      "prepare": {
+        "title": "Na unidade",
+        "body": "Trabalhe com calma e respeito; o local pode estar movimentado. Marque cada etapa ao concluí-la.",
+        "door": "Abra a porta de serviço trancada",
+        "doorHint": "Use a chave de serviço. A unidade pausa a impressão enquanto a tampa estiver aberta.",
+        "remove": "Retire a bobina antiga e o tubete",
+        "removeHint": "Leve consigo o tubete vazio e qualquer pedaço de papel solto.",
+        "load": "Coloque a nova bobina com o lado de impressão para fora",
+        "loadHint": "O lado térmico fica voltado para a cabeça de impressão; puxe alguns centímetros pelo caminho do papel.",
+        "cover": "Feche a tampa da impressora e a porta de serviço",
+        "coverHint": "Aguarde até o sensor da tampa indicar “Fechada”."
+      },
+      "photoLater": "Anexar uma foto da bobina instalada está previsto, mas ainda não está disponível.",
+      "specs": {
+        "title": "Especificação da nova bobina",
+        "body": "Usada para estimar o papel restante. Os valores padrão correspondem à bobina padrão de 58 mm.",
+        "outer": "Diâmetro externo",
+        "core": "Diâmetro do tubete",
+        "thickness": "Espessura do papel",
+        "nominal": "Comprimento indicado na embalagem",
+        "nominalHint": "Em milímetros, se informado (ex.: 18000).",
+        "estimate": "Comprimento estimado: {m} m",
+        "invalid": "Verifique os valores: o tubete deve ser menor que o diâmetro externo."
+      },
+      "confirm": {
+        "title": "Confirmar a troca",
+        "body": "Isso encerra a bobina atual, inicia o acompanhamento da nova, limpa os alertas de papel e resolve um chamado aberto de troca de papel.",
+        "cta": "Confirmar troca de bobina"
+      },
+      "success": {
+        "title": "Troca de bobina registrada",
+        "body": "O acompanhamento do papel foi reiniciado. Recomenda-se uma impressão de teste para verificar a impressão, o corte e o sensor do duto.",
+        "back": "Voltar às unidades"
+      },
+      "errors": { "forbidden": "Não permitido para sua função.", "invalid": "Valores inválidos.", "not_found": "Esta unidade não está atribuída a você.", "server_error": "Algo deu errado." }
+    },
+    "tickets": {
+      "eyebrow": "Manutenção",
+      "title": "Incidentes e chamados",
+      "subtitle": "Relate incidentes e mantenha um histórico de serviço dos seus locais. Nunca escreva aqui o conteúdo de um kvitel ou nomes.",
+      "open": "{count, plural, =0 {Nenhum chamado aberto} one {# chamado aberto} other {# chamados abertos}}",
+      "new": "Novo chamado",
+      "create": "Criar chamado",
+      "close": "Fechar",
+      "noneOpen": "Tudo em ordem",
+      "noneOpenBody": "Nenhum incidente aberto nos seus locais.",
+      "history": "Histórico de manutenção",
+      "resolved": "Chamados resolvidos",
+      "noHistory": "Nenhum chamado resolvido ainda.",
+      "rollChanges": "Trocas de bobina",
+      "current": "atual",
+      "site": "Tziyun",
+      "unit": "Unidade",
+      "optional": "opcional",
+      "kind": "Tipo",
+      "priority": "Prioridade",
+      "titleLabel": "Descrição curta",
+      "noContentHint": "Descreva apenas o problema de hardware.",
+      "status": "Status",
+      "addNote": "Adicionar nota",
+      "notePh": "O que foi feito ou observado…",
+      "due": "Prazo: {date}",
+      "overdue": "Atrasado desde {date}",
+      "kinds": { "paper_change": "Troca de papel", "cleaning": "Limpeza", "battery": "Bateria / energia", "sensor": "Sensor", "cutter": "Guilhotina", "other": "Outro" },
+      "priorities": { "1": "Urgente", "2": "Normal", "3": "Baixa" },
+      "statuses": { "open": "Aberto", "in_progress": "Em andamento", "waiting_parts": "Aguardando peças", "resolved": "Resolvido", "closed": "Fechado" },
+      "errors": { "forbidden": "Não permitido para sua função.", "invalid": "Verifique o formulário.", "not_found": "Não encontrado nos seus locais.", "server_error": "Algo deu errado." }
+    }
+  }
+}

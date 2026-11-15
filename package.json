@@ -1,0 +1,25 @@
+{
+  "name": "kvittel-global",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@10.27.0",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "pnpm --filter @kvittel/web dev",
+    "build": "pnpm --filter @kvittel/web build",
+    "start": "pnpm --filter @kvittel/web start",
+    "setup": "pnpm db:migrate && pnpm db:seed",
+    "db:generate": "pnpm --filter @kvittel/db generate",
+    "db:migrate": "pnpm --filter @kvittel/db migrate",
+    "db:seed": "pnpm --filter @kvittel/db seed",
+    "db:reset": "pnpm --filter @kvittel/db reset",
+    "sim": "pnpm --filter @kvittel/device-simulator start",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm --filter @kvittel/web lint",
+    "test": "pnpm -r test",
+    "e2e": "pnpm --filter @kvittel/web e2e"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp", "@tailwindcss/oxide", "unrs-resolver"]
+  }
+}

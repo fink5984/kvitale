@@ -1,0 +1,134 @@
+{
+  "builder": {
+    "metaTitle": "Escribir un kvitel",
+    "title": "Escriba su kvitel",
+    "intro": "Escriba con libertad. Lo que ve a la derecha es exactamente lo que se imprimirá en el tziún.",
+    "demoPrinter": "Impresoras DEMO",
+    "optional": "opcional",
+    "steps": { "label": "Progreso", "choose": "Tziún", "write": "Escribir", "preview": "Revisar", "pay": "Pago", "track": "Entrega" },
+    "grave": {
+      "title": "Tziún",
+      "choose": "Elija un tziún",
+      "chooseHint": "Puede añadir más de uno",
+      "scheduled": "Programado",
+      "remove": "Quitar {name}",
+      "addAnother": "Enviar también a otro tziún",
+      "multiNote": "El mismo kvitel se imprimirá por separado en cada tziún.",
+      "printedName": "Nombre del tzadik tal como se imprimirá",
+      "printedNameHint": "Se imprime exactamente como lo escriba aquí — nunca se modifica automáticamente."
+    },
+    "nusach": {
+      "title": "Idioma del kvitel",
+      "hint": "Define palabras como «ben / bat» en la nota. Su texto se imprime exactamente como lo escribe.",
+      "he": "עברית",
+      "yi": "ייִדיש",
+      "en": "English",
+      "fr": "Français",
+      "ru": "Русский"
+    },
+    "people": {
+      "title": "Nombres",
+      "hint": "Tradicionalmente, el nombre de la persona junto con el nombre de su madre. Escríbalo como prefiera.",
+      "person": "Nombre {n}",
+      "mode": "Modo de escritura",
+      "structured": "Guiado",
+      "free": "Libre",
+      "remove": "Quitar el nombre {n}",
+      "given": "Nombre",
+      "givenPh": "p. ej. Yosef Jaim",
+      "relation": "Relación",
+      "ben": "ben",
+      "bat": "bat",
+      "parent": "Nombre de la madre / del padre",
+      "parentPh": "p. ej. Sara",
+      "freeLabel": "Nombre tal como debe aparecer",
+      "freeHint": "Se imprime exactamente como se escribe.",
+      "add": "Añadir un nombre"
+    },
+    "topics": {
+      "title": "Temas (opcional)",
+      "health": "Salud",
+      "livelihood": "Parnasá (sustento)",
+      "marriage": "Un shidaj",
+      "children": "Hijos",
+      "success": "Éxito",
+      "gratitude": "Gratitud",
+      "general": "General"
+    },
+    "request": {
+      "title": "Sus palabras",
+      "hint": "Sus propias palabras son lo primero. Las sugerencias de abajo son opcionales.",
+      "label": "Petición",
+      "count": "{n} / {max}",
+      "placeholder": "Escriba lo que lleva en el corazón…",
+      "suggestionsLabel": "Frases opcionales",
+      "suggestions": {
+        "he": { "0": "לרפואה שלמה ולבריאות איתנה", "1": "להצלחה ולפרנסה בכבוד", "2": "בתודה על כל הטוב" },
+        "en": { "0": "For a complete recovery and good health", "1": "For success and an honourable livelihood", "2": "With gratitude for all the good" },
+        "fr": { "0": "Pour une guérison complète et une bonne santé", "1": "Pour la réussite et une subsistance honorable", "2": "Avec gratitude pour tout le bien" },
+        "ru": { "0": "О полном выздоровлении и крепком здоровье", "1": "Об успехе и достойном заработке", "2": "С благодарностью за всё доброе" }
+      }
+    },
+    "hand": {
+      "title": "Kvitel manuscrito",
+      "hint": "Opcional — adjunte una foto de un kvitel escrito a mano.",
+      "choose": "Elegir una foto",
+      "formats": "JPG o PNG, hasta 8 MB",
+      "previewAria": "Vista previa de la página manuscrita",
+      "rotate": "Girar",
+      "contrast": "Contraste",
+      "brightness": "Brillo",
+      "trim": "Recortar márgenes",
+      "attach": "Adjuntar",
+      "cancel": "Cancelar",
+      "attached": "Página manuscrita adjunta ({w}×{h})",
+      "remove": "Quitar",
+      "noAi": "Su letra se conserva como imagen. Nunca alteramos ni «corregimos» sus palabras.",
+      "errors": {
+        "type": "Elija una imagen JPG o PNG.",
+        "size": "La imagen supera los 8 MB.",
+        "decode": "No se ha podido leer esta imagen.",
+        "upload": "La subida ha fallado. Inténtelo de nuevo."
+      }
+    },
+    "finish": {
+      "title": "Acabado",
+      "template": "Diseño",
+      "templates": { "classic": "Clásico", "arch": "Arco", "minimal": "Minimalista" },
+      "signature": "Línea de firma",
+      "signatureHint": "Por ejemplo, un apellido. Déjelo vacío para mantener el anonimato.",
+      "bh": "Imprimir «ב״ה» en la parte superior"
+    },
+    "privacy": {
+      "remember": "Recordar este borrador en este dispositivo",
+      "rememberHint": "Desactivado por defecto: su borrador se borra al cerrar esta pestaña. En un ordenador compartido, déjelo desactivado.",
+      "wipe": "Borrar todo lo que he escrito",
+      "wipeConfirm": "¿Borrar este borrador y su cesta de este dispositivo?"
+    },
+    "summary": {
+      "pages": "{count, plural, one {# página} other {# páginas}}",
+      "graves": "{count, plural, one {# tziún} other {# tziunim}}",
+      "from": "desde {price}"
+    },
+    "cta": { "continue": "Revisar y continuar", "update": "Guardar cambios" },
+    "preview": {
+      "label": "Vista previa en directo",
+      "open": "Vista previa",
+      "title": "Su kvitel",
+      "live": "Vista previa en directo",
+      "thermal": "Mostrar como impreso",
+      "meta": "{pages, plural, one {# página} other {# páginas}} · aprox. {mm} mm de papel",
+      "exact": "Generado con el mismo motor y las mismas fuentes que la impresora. La línea de fecha muestra la fecha real de impresión."
+    },
+    "warnings": {
+      "unsupported_chars": "Estos caracteres no se pueden imprimir:",
+      "strip": "Quitarlos",
+      "too_long": "El kvitel es demasiado largo ({detail} páginas). Acórtelo, por favor.",
+      "empty": "Añada al menos un nombre o unas palabras.",
+      "name_missing_parent": "{detail, plural, one {Un nombre no tiene} other {# nombres no tienen}} el nombre de la madre o del padre. No pasa nada — solo lo comprobamos.",
+      "grave_name_empty": "Introduzca el nombre del tzadik tal como debe imprimirse.",
+      "invalid": "Algo en el formulario no es válido."
+    },
+    "picker": { "title": "Elija un tziún", "subtitle": "Solo se pueden seleccionar los tziunim con una unidad en funcionamiento.", "search": "Buscar" }
+  }
+}

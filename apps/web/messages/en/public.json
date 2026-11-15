@@ -1,0 +1,217 @@
+{
+  "public": {
+    "card": {
+      "location": "Location",
+      "hilula": "Hilula",
+      "hilulaOn": "Hilula {date}",
+      "from": "from",
+      "notPurchasable": "Not available for delivery yet",
+      "write": "Write a kvittel",
+      "details": "Details"
+    },
+    "search": {
+      "label": "Search for a tzaddik, city or name",
+      "placeholder": "Tzaddik, city or nickname — e.g. Kerestir",
+      "submit": "Search",
+      "resultsCount": "{count, plural, =0 {No results} one {# result} other {# results}}",
+      "noResults": "We couldn’t find that tziyun yet.",
+      "requestIt": "Suggest it to us"
+    },
+    "home": {
+      "hero": {
+        "eyebrow": "From anywhere in the world",
+        "titleA": "Your kvittel,",
+        "titleB": "placed at the tziyun.",
+        "subtitle": "Write the names and the words of your heart. We print your kvittel beside the tziyun, guide it into the kvittel opening, and confirm the moment it passes the sensor.",
+        "searchHint": "Hebrew, English, Yiddish, Russian or any transliteration.",
+        "trust": {
+          "printed": "Printed on site, never by hand",
+          "sensor": "Sensor-confirmed delivery",
+          "noAccount": "No account needed",
+          "private": "Encrypted and private"
+        }
+      },
+      "featured": {
+        "eyebrow": "Resting places",
+        "title": "Tziyunim open for kvittlach",
+        "body": "{count, plural, one {# tziyun currently accepts} other {# tziyunim currently accept}} kvittlach. Each unit is installed with the caretakers’ permission.",
+        "all": "All tziyunim"
+      },
+      "journey": {
+        "eyebrow": "The journey",
+        "title": "From your words to the opening",
+        "note": "Most people finish in one to two minutes. Take as long as you need.",
+        "choose": { "title": "Choose", "body": "Find the tziyun by name, city or nickname, in any spelling." },
+        "write": { "title": "Write", "body": "Names and requests in your own words — and see the printed slip as you type." },
+        "pay": { "title": "Pay", "body": "Clear price before you pay. No registration, no stored card details." },
+        "deliver": { "title": "Delivered", "body": "Printed, cut and passed into the opening — follow each step live." }
+      },
+      "proof": {
+        "eyebrow": "Physical, verifiable",
+        "title": "A slip of paper, a closed path, a sensor that sees it pass.",
+        "body": "Each unit is a quiet stone-coloured column beside the tziyun. Inside, a thermal printer prints your kvittel, cuts it fully and releases it into a closed chute that leads to the kvittel opening.",
+        "honesty": "We only show “Delivered” when the hardware confirms it. If a sensor cannot confirm, we tell you so — and a person reviews it. Nothing is ever printed twice automatically.",
+        "steps": {
+          "printed": { "title": "Printed", "body": "Exactly as in your preview — the same layout engine, the same fonts." },
+          "cut": { "title": "Cut", "body": "A full cut separates your kvittel from the roll." },
+          "chute": { "title": "Passes the sensor", "body": "An optical sensor in the chute registers the slip on its way down." },
+          "delivered": { "title": "Delivered", "body": "You see the time of delivery in the tziyun’s local time." }
+        },
+        "diagram": {
+          "aria": "Diagram of the field unit: printer, cutter, closed chute and optical sensor leading to the kvittel opening",
+          "opening": "Kvittel opening",
+          "printer": "Thermal printer",
+          "cutter": "Full cut",
+          "chute": "Closed chute",
+          "sensor": "Optical sensor",
+          "drawer": "Locked service door",
+          "modem": "Secure outbound link"
+        }
+      },
+      "hilulot": {
+        "eyebrow": "Calendar",
+        "title": "Upcoming hilulot",
+        "body": "Days of remembrance, when many send kvittlach. Dates follow the Hebrew calendar.",
+        "verify": "Hilula dates are shown as commonly cited and are being verified against sources."
+      },
+      "principles": {
+        "title": "Built on four commitments",
+        "privacy": { "title": "Private by design", "body": "Names and requests are encrypted, never logged, and deleted after delivery." },
+        "honesty": { "title": "Honest status", "body": "No “delivered” without confirmation. No promises of outcomes." },
+        "permission": { "title": "With permission", "body": "Units are installed only with the consent of each site’s caretakers." },
+        "physical": { "title": "Truly physical", "body": "Your words become paper at the tziyun — not an email, not a screen." }
+      },
+      "cta": {
+        "title": "Whenever you are ready.",
+        "body": "Write your kvittel now. It will wait in the queue until the tziyun’s next service window.",
+        "write": "Write a kvittel",
+        "learn": "How it works"
+      }
+    },
+    "directory": {
+      "metaTitle": "Tziyunim of tzaddikim",
+      "metaDescription": "Find the resting places of tzaddikim and send a kvittel that is printed on site.",
+      "eyebrow": "Directory",
+      "title": "Tziyunim of tzaddikim",
+      "subtitle": "Search in any language or spelling. Availability is shown as it is right now.",
+      "resultsFor": "{count, plural, =0 {No results for} one {# result for} other {# results for}}",
+      "empty": { "title": "Nothing here yet", "body": "No tziyun matches these filters. Try another spelling, or tell us which tziyun you are looking for.", "cta": "Suggest a tziyun" },
+      "missing": { "title": "Missing a tziyun?", "body": "Tell us where you would like to send a kvittel. Requests help us decide where to install the next unit.", "cta": "Suggest a tziyun" },
+      "filters": {
+        "label": "Filter",
+        "availability": "Availability",
+        "anyAvailability": "Any availability",
+        "availableNow": "Available now",
+        "purchasable": "Can be ordered",
+        "comingSoon": "Coming soon",
+        "country": "Country",
+        "anyCountry": "All countries",
+        "tradition": "Tradition",
+        "anyTradition": "All traditions",
+        "dynasty": { "hungary": "Hungarian Chassidut", "poland": "Polish Chassidut", "ukraine": "Ukraine & Podolia", "breslov": "Breslov", "tannaim": "Tannaim" },
+        "sort": "Sort",
+        "sortFeatured": "Featured",
+        "sortHilula": "Next hilula",
+        "sortName": "Name",
+        "apply": "Apply",
+        "clear": "Clear",
+        "count": "{count, plural, =0 {No tziyunim} one {# tziyun} other {# tziyunim}}"
+      }
+    },
+    "grave": {
+      "breadcrumb": "Breadcrumb",
+      "allGraves": "All tziyunim",
+      "photoCredit": "Photo: {credit} · {license}",
+      "translationFallback": "Shown in another language — translation in progress",
+      "location": "Location",
+      "hilula": "Hilula",
+      "unverified": "date being verified",
+      "price": "Price per kvittel",
+      "priceNote": "Additional pages are priced transparently before payment.",
+      "write": "Write a kvittel here",
+      "unavailable": {
+        "discovery_only": { "title": "Information only", "body": "There is no printing unit at this tziyun. We will never sell a delivery we cannot make." },
+        "coming_soon": { "title": "Coming soon", "body": "We are preparing a unit here with the caretakers. Let us know you’d like to send a kvittel." },
+        "paused": { "title": "Service paused", "body": "Delivery here is temporarily paused. New orders are not accepted until it resumes." },
+        "no_device": { "title": "No unit installed", "body": "This tziyun is listed, but no printing unit is connected yet." }
+      },
+      "scheduled": {
+        "closed_hours": "Right now the tziyun is outside service hours. Your kvittel will be printed from {when} (local time).",
+        "shabbat": "No printing on Shabbat. Your kvittel will be printed from {when} (local time).",
+        "yom_tov": "No printing on Yom Tov. Your kvittel will be printed from {when} (local time).",
+        "device_offline": "The unit is reconnecting. Your kvittel will wait safely in the queue and print when it is back — or you can request a refund at any time.",
+        "maintenance": "The unit is under maintenance. Your kvittel will be scheduled for when service resumes — or you can request a refund at any time."
+      },
+      "about": "About",
+      "included": {
+        "title": "What is included",
+        "print": "Printing of your kvittel on site, exactly as previewed",
+        "cut": "Full cut and release through a closed chute",
+        "sensor": "Optical sensor confirmation where installed",
+        "tracking": "Live status in the tziyun’s local time",
+        "notIncluded": "Not included: a person praying on your behalf, or any promise of an outcome."
+      },
+      "customs": "Customs of the place",
+      "aliases": "Also known as",
+      "hours": {
+        "title": "Service hours",
+        "localNow": "Now at the tziyun: {time} ({tz})",
+        "closed": "Closed",
+        "policy": "No printing on Shabbat and Yom Tov, nor after midday on Fridays and the eve of Yom Tov. Orders wait safely in the queue."
+      },
+      "map": { "title": "Map", "navigate": "Navigate", "unverified": "Exact coordinates are awaiting verification and are not shown yet." },
+      "faq": "Questions",
+      "demand": { "cta": "I’d send a kvittel here", "thanks": "Thank you — noted." }
+    },
+    "how": {
+      "eyebrow": "How it works",
+      "title": "From your hand to the opening",
+      "intro": "Every step is real and visible — from the words you type to the moment the slip passes the sensor at the tziyun.",
+      "steps": {
+        "choose": { "title": "Choose the tziyun", "body": "Search by name, nickname or city in any spelling. You can send the same kvittel to several tziyunim in one order." },
+        "write": { "title": "Write in your own words", "body": "Add names (with mother’s or father’s name if you wish), choose topics, and write freely. Suggested phrases are optional." },
+        "preview": { "title": "See the exact slip", "body": "The preview is drawn by the same engine that prints it — on 58 mm paper, in Hebrew, Yiddish, Latin or Cyrillic." },
+        "pay": { "title": "Pay securely", "body": "The final price is fixed before you pay. Card details never reach us; payment is confirmed only by the payment provider’s signed message." },
+        "queue": { "title": "Queued with respect for time", "body": "The unit prints only during the tziyun’s service hours — never on Shabbat or Yom Tov." },
+        "print": { "title": "Printed and cut", "body": "The unit receives an image of your kvittel (never readable text), prints it and cuts it fully." },
+        "chute": { "title": "Through the chute", "body": "The slip falls through a closed chute into the kvittel opening; an optical sensor registers its passage." },
+        "notify": { "title": "You are told the truth", "body": "You see each step live. If the hardware cannot confirm, we say so and a person reviews it." }
+      },
+      "honesty": { "title": "What we do not claim", "body": "This is a physical delivery service. We do not pray on your behalf, and we promise no spiritual outcome. A status is only shown when it actually happened." },
+      "cta": "Write a kvittel"
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "title": "Questions, answered plainly",
+      "items": {
+        "what": { "q": "What exactly do I receive?", "a": "Your kvittel is printed on paper at a unit beside the tziyun, cut, and released through a closed chute into the kvittel opening. You can follow every step." },
+        "prayer": { "q": "Does someone pray for me?", "a": "No. We provide physical delivery of the note you wrote. We do not pray on your behalf and promise no outcome." },
+        "proof": { "q": "How do I know it was delivered?", "a": "An optical sensor in the chute registers the slip. “Delivered” is shown only after that confirmation. If a unit has no sensor, we say so explicitly." },
+        "privacy": { "q": "Who can read what I write?", "a": "Your text is encrypted and only turned into an image at the moment of printing. Our staff cannot read it by default, it is never written to logs, and it is deleted after delivery." },
+        "language": { "q": "Which languages can I write in?", "a": "Hebrew (with niqqud), Yiddish, English, French, Russian and other Latin or Cyrillic languages. Emoji cannot be printed — we will tell you before payment." },
+        "handwriting": { "q": "Can I send my own handwriting?", "a": "Yes. Upload a photo; you can rotate it and adjust contrast. We never change or ‘correct’ your words." },
+        "shabbat": { "q": "What about Shabbat and Yom Tov?", "a": "Units do not print on Shabbat and Yom Tov, nor after midday on the eve. Your kvittel waits in the queue and prints afterwards." },
+        "uncertain": { "q": "What does “under review” mean?", "a": "Sometimes the hardware cannot confirm a step — for example, if power is lost mid-print. We never reprint automatically; a person checks and contacts you." },
+        "refund": { "q": "Can I get a refund?", "a": "If your kvittel was not delivered because of a fault, maintenance or a pause, you can choose a later delivery or a full refund." },
+        "account": { "q": "Do I need an account?", "a": "No. You can order as a guest. An account lets you see history and save names — only with your explicit consent." },
+        "multi": { "q": "Can I send to several tziyunim?", "a": "Yes — add several tziyunim to one kvittel, or write different kvittlach. Orders with more than one delivery receive a bundle discount." },
+        "video": { "q": "Will I get a video?", "a": "Not yet. A private delivery clip (showing only the slot, never people) is planned and will only be offered where installed and approved." }
+      }
+    },
+    "legal": { "fallback": "Shown in another language — translation in progress", "draft": "Draft text — subject to legal review before launch." },
+    "requestGrave": {
+      "eyebrow": "Suggest a tziyun",
+      "title": "Where would you like to send a kvittel?",
+      "body": "Requests guide where we seek permission to install the next unit. We do not sell delivery anywhere without a unit on site.",
+      "name": "Tzaddik or place",
+      "location": "Location details",
+      "optional": "optional",
+      "email": "Email",
+      "emailHint": "Only to tell you if we open service there.",
+      "error": "Something went wrong. Please try again.",
+      "submit": "Send suggestion",
+      "thanksTitle": "Thank you",
+      "thanks": "Your suggestion has been recorded."
+    }
+  }
+}

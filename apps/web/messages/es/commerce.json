@@ -1,0 +1,100 @@
+{
+  "commerce": {
+    "cart": {
+      "title": "Su cesta",
+      "empty": { "title": "Su cesta está vacía", "body": "Escriba un kvitel y aparecerá aquí.", "cta": "Escribir un kvitel" },
+      "kvittel": "Kvitel {n}",
+      "summary": "{people, plural, =0 {Sin nombres} one {# nombre} other {# nombres}} · {chars} caracteres",
+      "edit": "Editar",
+      "remove": "Quitar",
+      "addAnother": "Añadir otro kvitel",
+      "checkout": "Continuar al pago",
+      "noAccount": "No necesita una cuenta."
+    },
+    "summary": {
+      "title": "Resumen",
+      "deliveries": "{count, plural, one {# entrega} other {# entregas}}",
+      "extraPages": "incl. páginas adicionales",
+      "bundle": "Varios tziunim ({pct} %)",
+      "coupon": "Cupón",
+      "total": "Total",
+      "taxNote": "Importe final, cobrado una sola vez. Recibos por correo electrónico.",
+      "error": "No se ha podido calcular el precio en este momento. Inténtelo de nuevo."
+    },
+    "checkout": {
+      "title": "Pago",
+      "intro": "Solo necesitamos un correo electrónico para su recibo y el enlace de seguimiento.",
+      "empty": "No hay nada que pagar.",
+      "emptyCta": "Escribir un kvitel",
+      "email": "Correo electrónico",
+      "emailHint": "Para el recibo y un enlace de seguimiento privado. No se crea ninguna cuenta.",
+      "coupon": "Código de cupón",
+      "optional": "opcional",
+      "apply": "Aplicar",
+      "couponErrors": {
+        "invalid": "Este código no es válido.",
+        "expired": "Este código ha caducado.",
+        "exhausted": "Este código ya se ha utilizado por completo.",
+        "currency": "Este código es para otra moneda."
+      },
+      "scheduled": {
+        "title": "Algunas entregas quedarán programadas",
+        "closed_hours": "se imprimirá a partir del {when}",
+        "shabbat": "después de Shabat, a partir del {when}",
+        "yom_tov": "después de Yom Tov, a partir del {when}",
+        "device_offline": "la unidad se está reconectando; se imprimirá cuando vuelva",
+        "maintenance": "en mantenimiento; se imprimirá cuando se reanude el servicio",
+        "consent": "Entiendo que estas entregas se imprimirán más tarde y que puedo solicitar un reembolso en cualquier momento antes de la entrega."
+      },
+      "terms": "Acepto las <terms>condiciones</terms> y entiendo <disclosure>qué se entrega</disclosure>: un kvitel físico impreso, no una plegaria en mi nombre.",
+      "marketing": "Enviarme novedades de vez en cuando (p. ej. próximas hilulot)",
+      "marketingHint": "Opcional. Puede darse de baja en cualquier momento.",
+      "secure": "Pago seguro a través del proveedor de pagos.",
+      "demoProvider": "Proveedor DEMO",
+      "pay": "Pagar",
+      "pages": "{count, plural, one {# página} other {# páginas}}",
+      "errors": {
+        "kvittel_invalid": "Uno de los kvitlaj no se puede imprimir tal como está escrito ({detail}). Edítelo, por favor.",
+        "grave_unavailable": "Un tziún seleccionado no está disponible en este momento ({detail}).",
+        "coupon_invalid": "No se puede aplicar el cupón ({detail}).",
+        "schedule_consent_required": "Confirme que algunas entregas quedarán programadas.",
+        "rate_limited": "Demasiados intentos. Espere unos minutos.",
+        "server_error": "Algo ha salido mal. No se le ha cobrado. Inténtelo de nuevo."
+      }
+    },
+    "demoPay": {
+      "noCard": "No se recogen datos de tarjeta",
+      "merchant": "Pedido de Kvittel",
+      "amount": "Importe",
+      "explain": "Esta es una página de pago simulada. Al elegir un resultado se envía un webhook firmado al servidor — el mismo camino que usa un proveedor real. El pedido solo se marca como pagado cuando ese webhook se verifica.",
+      "succeed": "Simular pago correcto",
+      "decline": "Simular rechazo",
+      "replay": "Repetir webhook",
+      "webhookOutcome": "Webhook procesado:",
+      "toOrder": "Ir a mi pedido"
+    },
+    "order": {
+      "eyebrow": "Su pedido",
+      "titlePaid": "Gracias. Su kvitel está en camino.",
+      "titlePending": "Esperando la confirmación del pago",
+      "titleFailed": "El pago no se ha completado",
+      "bodyPaid": "Siga cada paso a continuación. Las horas se muestran en la hora local del tziún. También le escribiremos por correo.",
+      "bodyPending": "En cuanto el proveedor de pagos lo confirme, su kvitel entrará en la cola. Esta página se actualiza sola.",
+      "bodyFailed": "No se le ha cobrado. Puede intentarlo de nuevo desde su cesta.",
+      "ref": "Pedido",
+      "total": "Total",
+      "placed": "Realizado",
+      "webhookNote": "Antes de imprimir nada, esperamos la confirmación firmada del proveedor de pagos — no la de su navegador.",
+      "localTime": "Hora local en el tziún: {time} ({tz})",
+      "scheduledFor": "Programado para imprimirse a partir del {when}, hora local.",
+      "uncertain": { "title": "Estamos revisando esta entrega", "body": "La unidad no pudo confirmar todos los pasos. No volveremos a imprimir automáticamente; una persona lo está revisando y se pondrá en contacto con usted." },
+      "confidence": {
+        "sensor_confirmed": "Confirmado por el sensor óptico del conducto.",
+        "printer_reported": "Notificado por la impresora. Esta unidad no tiene sensor en el conducto, por lo que el paso a la abertura no se ha confirmado de forma independiente.",
+        "manual": "Confirmado manualmente por nuestro equipo tras una revisión."
+      },
+      "privacy": "El contenido de su kvitel nunca se muestra en esta página.",
+      "locked": { "title": "Este pedido es privado", "body": "Ábralo con el enlace de su correo de confirmación, o inicie sesión con el correo que utilizó.", "signIn": "Iniciar sesión" }
+    }
+  }
+}

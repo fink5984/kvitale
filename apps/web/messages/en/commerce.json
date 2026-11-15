@@ -1,0 +1,100 @@
+{
+  "commerce": {
+    "cart": {
+      "title": "Your basket",
+      "empty": { "title": "Your basket is empty", "body": "Write a kvittel and it will appear here.", "cta": "Write a kvittel" },
+      "kvittel": "Kvittel {n}",
+      "summary": "{people, plural, =0 {No names} one {# name} other {# names}} · {chars} characters",
+      "edit": "Edit",
+      "remove": "Remove",
+      "addAnother": "Add another kvittel",
+      "checkout": "Continue to payment",
+      "noAccount": "No account needed."
+    },
+    "summary": {
+      "title": "Summary",
+      "deliveries": "{count, plural, one {# delivery} other {# deliveries}}",
+      "extraPages": "incl. additional pages",
+      "bundle": "Several tziyunim ({pct}%)",
+      "coupon": "Coupon",
+      "total": "Total",
+      "taxNote": "Final amount, charged once. Receipts by email.",
+      "error": "The price could not be calculated right now. Please try again."
+    },
+    "checkout": {
+      "title": "Payment",
+      "intro": "We only need an email for your receipt and the delivery link.",
+      "empty": "There is nothing to pay for.",
+      "emptyCta": "Write a kvittel",
+      "email": "Email",
+      "emailHint": "For the receipt and a private tracking link. No account is created.",
+      "coupon": "Coupon code",
+      "optional": "optional",
+      "apply": "Apply",
+      "couponErrors": {
+        "invalid": "This code is not valid.",
+        "expired": "This code has expired.",
+        "exhausted": "This code has been fully used.",
+        "currency": "This code is for another currency."
+      },
+      "scheduled": {
+        "title": "Some deliveries will be scheduled",
+        "closed_hours": "printed from {when}",
+        "shabbat": "after Shabbat, from {when}",
+        "yom_tov": "after Yom Tov, from {when}",
+        "device_offline": "the unit is reconnecting; printed when it is back",
+        "maintenance": "under maintenance; printed when service resumes",
+        "consent": "I understand these will be printed later, and that I can ask for a refund at any time before delivery."
+      },
+      "terms": "I agree to the <terms>terms</terms> and understand <disclosure>what is delivered</disclosure>: a physical printed kvittel, not a prayer on my behalf.",
+      "marketing": "Send me occasional updates (e.g. upcoming hilulot)",
+      "marketingHint": "Optional. You can unsubscribe at any time.",
+      "secure": "Secure payment through the payment provider.",
+      "demoProvider": "DEMO provider",
+      "pay": "Pay",
+      "pages": "{count, plural, one {# page} other {# pages}}",
+      "errors": {
+        "kvittel_invalid": "One of the kvittlach cannot be printed as written ({detail}). Please edit it.",
+        "grave_unavailable": "A selected tziyun is not available right now ({detail}).",
+        "coupon_invalid": "The coupon cannot be applied ({detail}).",
+        "schedule_consent_required": "Please confirm that some deliveries will be scheduled.",
+        "rate_limited": "Too many attempts. Please wait a few minutes.",
+        "server_error": "Something went wrong. You have not been charged. Please try again."
+      }
+    },
+    "demoPay": {
+      "noCard": "No card details are collected",
+      "merchant": "Kvittel order",
+      "amount": "Amount",
+      "explain": "This is a simulated payment page. Choosing an outcome sends a signed webhook to the server — the same path a real provider uses. The order is only marked paid when that webhook is verified.",
+      "succeed": "Simulate successful payment",
+      "decline": "Simulate decline",
+      "replay": "Replay webhook",
+      "webhookOutcome": "Webhook processed:",
+      "toOrder": "Go to my order"
+    },
+    "order": {
+      "eyebrow": "Your order",
+      "titlePaid": "Thank you. Your kvittel is on its way.",
+      "titlePending": "Waiting for payment confirmation",
+      "titleFailed": "The payment did not go through",
+      "bodyPaid": "Follow each step below. Times are shown in the tziyun’s local time. We will also email you.",
+      "bodyPending": "As soon as the payment provider confirms, your kvittel joins the queue. This page updates by itself.",
+      "bodyFailed": "You have not been charged. You can try again from your basket.",
+      "ref": "Order",
+      "total": "Total",
+      "placed": "Placed",
+      "webhookNote": "We wait for the payment provider’s signed confirmation — not for your browser — before printing anything.",
+      "localTime": "Local time at the tziyun: {time} ({tz})",
+      "scheduledFor": "Scheduled to print from {when}, local time.",
+      "uncertain": { "title": "We are checking this delivery", "body": "The unit could not confirm every step. We will not reprint automatically; a person is reviewing it and will contact you." },
+      "confidence": {
+        "sensor_confirmed": "Confirmed by the optical sensor in the chute.",
+        "printer_reported": "Reported by the printer. This unit has no chute sensor, so passage into the opening was not independently confirmed.",
+        "manual": "Confirmed manually by our team after review."
+      },
+      "privacy": "The content of your kvittel is never shown on this page.",
+      "locked": { "title": "This order is private", "body": "Open it with the link from your confirmation email, or sign in with the email you used.", "signIn": "Sign in" }
+    }
+  }
+}

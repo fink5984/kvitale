@@ -1,0 +1,65 @@
+{
+  "lab": {
+    "eyebrow": "Demo · Device lab",
+    "title": "Device lab",
+    "description": "Drive simulated field units over the real device protocol — heartbeats, leases, print events and signed commands — and inject faults to see how the platform reacts.",
+    "disclaimer": {
+      "title": "Simulator, not hardware",
+      "body": "These units are software stand-ins seeded for the demo. Nothing here is printed on paper, and nothing here proves that a real printer, cutter or sensor works."
+    },
+    "loadError": "The simulated units could not be loaded.",
+    "none": { "title": "No simulated units", "body": "Run the demo seed (pnpm setup) to create simulated units." },
+    "unit": "Simulated unit",
+    "start": "Start loop",
+    "stop": "Stop loop",
+    "tick": "Tick once",
+    "writeOrder": "Write a kvittel to print →",
+    "simBadge": "SIMULATED",
+    "yes": "Yes",
+    "no": "No",
+    "state": {
+      "title": "Unit state",
+      "loop": "Loop",
+      "running": "Running",
+      "stopped": "Stopped",
+      "phase": "Phase",
+      "heartbeat": "Last heartbeat",
+      "ok": "Accepted",
+      "failed": "Failed",
+      "paused": "Paused by server",
+      "outbox": "Outbox (unsent events)",
+      "journal": "Journal entries"
+    },
+    "phase": { "idle": "Idle", "leasing": "Asking for work", "printing": "Printing", "cutting": "Cutting", "waiting_chute": "Waiting for chute sensor", "offline": "Offline", "rebooting": "Rebooting" },
+    "knobs": {
+      "title": "Fault injection",
+      "hint": "Red switches inject a fault. Changes apply on the next tick.",
+      "paper": "Paper",
+      "cover": "Cover",
+      "online": "Internet loss",
+      "onlineHint": "Every request fails; jobs wait in the queue.",
+      "acPower": "Mains power off",
+      "acPowerHint": "Reports running on battery (simulated UPS).",
+      "cutterJam": "Cutter jam",
+      "cutterJamHint": "Fails after printing → delivery needs review.",
+      "chuteSensorFail": "Chute sensor fails",
+      "chuteSensorFailHint": "Sensor never fires → uncertain, never reprinted.",
+      "doubleCallback": "Double callback",
+      "doubleCallbackHint": "Sends every job event twice (idempotency).",
+      "rebootMidPrint": "Reboot mid-print",
+      "rebootMidPrintHint": "Power is cut after printing starts; reports interrupted.",
+      "dropAckOnce": "Lose one acknowledgement",
+      "dropAckOnceHint": "First print-completed event is retried from the outbox."
+    },
+    "paper": { "ok": "OK", "near_end": "Near end", "paper_end": "Out" },
+    "cover": { "closed": "Closed", "open": "Open" },
+    "log": { "title": "Protocol log", "empty": "No activity yet — press “Tick once”." },
+    "printer": {
+      "title": "Printer output",
+      "clear": "Clear",
+      "empty": "Printed slips will appear here.",
+      "note": "1-bit raster exactly as received by the unit, shown at native resolution.",
+      "slipAria": "Printed slip (simulated)"
+    }
+  }
+}

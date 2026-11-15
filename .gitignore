@@ -1,0 +1,16 @@
+node_modules
+.next
+dist
+.data
+*.tsbuildinfo
+.env
+.env.local
+coverage
+test-results
+playwright-report
+apps/web/e2e/screenshots/*.png
+!apps/web/e2e/screenshots/.gitkeep
+__pycache__
+*.pyc
+.venv
+apps/device-agent/spool

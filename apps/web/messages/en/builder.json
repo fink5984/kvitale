@@ -1,0 +1,134 @@
+{
+  "builder": {
+    "metaTitle": "Write a kvittel",
+    "title": "Write your kvittel",
+    "intro": "Write freely. What you see on the right is exactly what will be printed at the tziyun.",
+    "demoPrinter": "DEMO printers",
+    "optional": "optional",
+    "steps": { "label": "Progress", "choose": "Tziyun", "write": "Write", "preview": "Review", "pay": "Payment", "track": "Delivery" },
+    "grave": {
+      "title": "Tziyun",
+      "choose": "Choose a tziyun",
+      "chooseHint": "You can add more than one",
+      "scheduled": "Scheduled",
+      "remove": "Remove {name}",
+      "addAnother": "Send to another tziyun as well",
+      "multiNote": "The same kvittel will be printed separately at each tziyun.",
+      "printedName": "Name of the tzaddik as printed",
+      "printedNameHint": "Printed exactly as written here — never changed automatically."
+    },
+    "nusach": {
+      "title": "Language of the kvittel",
+      "hint": "Sets words such as “ben / bat” on the slip. Your text is printed exactly as you type it.",
+      "he": "עברית",
+      "yi": "ייִדיש",
+      "en": "English",
+      "fr": "Français",
+      "ru": "Русский"
+    },
+    "people": {
+      "title": "Names",
+      "hint": "Traditionally the person’s name with their mother’s name. Write it any way you prefer.",
+      "person": "Name {n}",
+      "mode": "Input style",
+      "structured": "Guided",
+      "free": "Free",
+      "remove": "Remove name {n}",
+      "given": "Name",
+      "givenPh": "e.g. Yosef Chaim",
+      "relation": "Relation",
+      "ben": "ben",
+      "bat": "bat",
+      "parent": "Mother’s / father’s name",
+      "parentPh": "e.g. Sarah",
+      "freeLabel": "Name as it should appear",
+      "freeHint": "Printed exactly as typed.",
+      "add": "Add a name"
+    },
+    "topics": {
+      "title": "Topics (optional)",
+      "health": "Health",
+      "livelihood": "Livelihood",
+      "marriage": "A match",
+      "children": "Children",
+      "success": "Success",
+      "gratitude": "Gratitude",
+      "general": "General"
+    },
+    "request": {
+      "title": "Your words",
+      "hint": "Your own words come first. Suggestions below are optional.",
+      "label": "Request",
+      "count": "{n} / {max}",
+      "placeholder": "Write what is in your heart…",
+      "suggestionsLabel": "Optional phrases",
+      "suggestions": {
+        "he": { "0": "לרפואה שלמה ולבריאות איתנה", "1": "להצלחה ולפרנסה בכבוד", "2": "בתודה על כל הטוב" },
+        "en": { "0": "For a complete recovery and good health", "1": "For success and an honourable livelihood", "2": "With gratitude for all the good" },
+        "fr": { "0": "Pour une guérison complète et une bonne santé", "1": "Pour la réussite et une subsistance honorable", "2": "Avec gratitude pour tout le bien" },
+        "ru": { "0": "О полном выздоровлении и крепком здоровье", "1": "Об успехе и достойном заработке", "2": "С благодарностью за всё доброе" }
+      }
+    },
+    "hand": {
+      "title": "Handwritten kvittel",
+      "hint": "Optional — attach a photo of a kvittel you wrote by hand.",
+      "choose": "Choose a photo",
+      "formats": "JPG or PNG, up to 8 MB",
+      "previewAria": "Preview of the handwritten page",
+      "rotate": "Rotate",
+      "contrast": "Contrast",
+      "brightness": "Brightness",
+      "trim": "Trim margins",
+      "attach": "Attach",
+      "cancel": "Cancel",
+      "attached": "Handwritten page attached ({w}×{h})",
+      "remove": "Remove",
+      "noAi": "Your handwriting is kept as an image. We never alter or “correct” your words.",
+      "errors": {
+        "type": "Please choose a JPG or PNG image.",
+        "size": "The image is larger than 8 MB.",
+        "decode": "This image could not be read.",
+        "upload": "Upload failed. Please try again."
+      }
+    },
+    "finish": {
+      "title": "Finishing",
+      "template": "Design",
+      "templates": { "classic": "Classic", "arch": "Arch", "minimal": "Minimal" },
+      "signature": "Signature line",
+      "signatureHint": "For example a family name. Leave empty to stay anonymous.",
+      "bh": "Print “ב״ה” at the top"
+    },
+    "privacy": {
+      "remember": "Remember this draft on this device",
+      "rememberHint": "Off by default: your draft is erased when you close this tab. On a shared computer, leave this off.",
+      "wipe": "Erase everything I typed",
+      "wipeConfirm": "Erase this draft and your basket from this device?"
+    },
+    "summary": {
+      "pages": "{count, plural, one {# page} other {# pages}}",
+      "graves": "{count, plural, one {# tziyun} other {# tziyunim}}",
+      "from": "from {price}"
+    },
+    "cta": { "continue": "Review and continue", "update": "Save changes" },
+    "preview": {
+      "label": "Live preview",
+      "open": "Preview",
+      "title": "Your kvittel",
+      "live": "Live preview",
+      "thermal": "Show as printed",
+      "meta": "{pages, plural, one {# page} other {# pages}} · approx. {mm} mm of paper",
+      "exact": "Drawn by the same engine and fonts as the printer. The date line shows the actual print date."
+    },
+    "warnings": {
+      "unsupported_chars": "These characters cannot be printed:",
+      "strip": "Remove them",
+      "too_long": "The kvittel is too long ({detail} pages). Please shorten it.",
+      "empty": "Add at least one name or a few words.",
+      "name_missing_parent": "{detail, plural, one {One name has} other {# names have}} no mother’s or father’s name. That is fine — just checking.",
+      "grave_name_empty": "Please enter the name of the tzaddik as it should be printed.",
+      "invalid": "Something in the form is not valid."
+    },
+    "picker": { "title": "Choose a tziyun", "subtitle": "Only tziyunim with a working unit can be selected.", "search": "Search" }
+  }
+}

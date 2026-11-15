@@ -1,0 +1,75 @@
+{
+  "account": {
+    "login": {
+      "title": "Se connecter",
+      "subtitle": "Sans mot de passe. Nous vous envoyons par e-mail un lien et un code à six chiffres.",
+      "email": "E-mail",
+      "emailHint": "Un compte est facultatif. Il est toujours possible de commander en tant qu’invité.",
+      "send": "Recevoir un lien de connexion",
+      "sent": "Nous avons envoyé un lien et un code à {email}.",
+      "code": "Code à six chiffres",
+      "verify": "Se connecter",
+      "changeEmail": "Utiliser une autre adresse e-mail",
+      "verifying": "Connexion en cours…",
+      "demo": "Connexion immédiate avec un rôle de démonstration. Disponible uniquement dans l’environnement de démonstration.",
+      "mailbox": "Les e-mails simulés peuvent être consultés à l’adresse",
+      "errors": {
+        "invalid_email": "Veuillez saisir une adresse e-mail valide.",
+        "rate_limited": "Trop de tentatives. Veuillez patienter un peu.",
+        "invalid_code": "Ce code n’est pas valide ou a expiré.",
+        "invalid_link": "Ce lien n’est pas valide ou a expiré. Veuillez en demander un nouveau."
+      },
+      "roles": {
+        "super_admin": "Super-administrateur",
+        "finance": "Finances",
+        "support_limited": "Assistance",
+        "content_editor": "Éditeur de contenu",
+        "partner_manager": "Responsable partenaires",
+        "local_maintainer": "Technicien local",
+        "customer": "Client"
+      }
+    },
+    "dashboard": {
+      "eyebrow": "Mon compte",
+      "title": "Chalom, {name}",
+      "toAdmin": "Administration",
+      "toOperator": "Portail opérateur",
+      "orders": "Commandes",
+      "newKvittel": "Nouveau kvitel",
+      "noOrders": "Aucune commande pour l’instant",
+      "noOrdersBody": "Les commandes passées avec cette adresse e-mail apparaissent ici.",
+      "claim": "{count, plural, one {# commande antérieure passée en tant qu’invité} other {# commandes antérieures passées en tant qu’invité}} avec votre adresse e-mail {count, plural, one {peut être rattachée} other {peuvent être rattachées}} à votre compte.",
+      "claimCta": "Les rattacher",
+      "favorites": "Tsiyounim favoris",
+      "noFavorites": "Aucun pour l’instant."
+    },
+    "names": {
+      "title": "Noms enregistrés",
+      "add": "Nouvelle liste",
+      "privacy": "Conservés chiffrés, uniquement avec votre accord. Visibles par vous seul.",
+      "empty": "Aucune liste enregistrée.",
+      "count": "{count, plural, one {# nom} other {# noms}}",
+      "use": "Utiliser",
+      "delete": "Supprimer la liste",
+      "save": "Enregistrer la liste",
+      "groupName": "Nom de la liste (p. ex. Famille)",
+      "lines": "Noms, un par ligne",
+      "linesHint": "p. ex. « Yossef ben Sarah »",
+      "consent": "J’accepte que ces noms soient conservés chiffrés dans mon compte."
+    },
+    "settings": {
+      "title": "Confidentialité et paramètres",
+      "marketingOptIn": "Recevoir des nouvelles",
+      "marketingOptOut": "Ne pas recevoir de nouvelles",
+      "marketingOn": "Vous recevrez occasionnellement de nos nouvelles.",
+      "marketingOff": "Vous ne recevrez pas de nouvelles.",
+      "export": "Télécharger mes données",
+      "signOut": "Se déconnecter",
+      "delete": "Supprimer mon compte",
+      "deleteTitle": "Supprimer le compte",
+      "deleteBody": "Les noms enregistrés et les favoris sont supprimés. Les données de commande nécessaires à la comptabilité sont conservées, sans votre contenu enregistré.",
+      "deleteConfirm": "Supprimer définitivement",
+      "typeEmail": "Saisissez votre adresse e-mail pour confirmer"
+    }
+  }
+}

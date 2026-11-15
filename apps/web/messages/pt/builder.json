@@ -1,0 +1,134 @@
+{
+  "builder": {
+    "metaTitle": "Escrever um kvitel",
+    "title": "Escreva o seu kvitel",
+    "intro": "Escreva livremente. O que você vê à direita é exatamente o que será impresso no tziyun.",
+    "demoPrinter": "Impressoras DEMO",
+    "optional": "opcional",
+    "steps": { "label": "Progresso", "choose": "Tziyun", "write": "Escrever", "preview": "Revisar", "pay": "Pagamento", "track": "Entrega" },
+    "grave": {
+      "title": "Tziyun",
+      "choose": "Escolha um tziyun",
+      "chooseHint": "Você pode adicionar mais de um",
+      "scheduled": "Agendado",
+      "remove": "Remover {name}",
+      "addAnother": "Enviar também a outro tziyun",
+      "multiNote": "O mesmo kvitel será impresso separadamente em cada tziyun.",
+      "printedName": "Nome do tzadik como será impresso",
+      "printedNameHint": "Impresso exatamente como escrito aqui — nunca alterado automaticamente."
+    },
+    "nusach": {
+      "title": "Idioma do kvitel",
+      "hint": "Define palavras como “ben / bat” no bilhete. Seu texto é impresso exatamente como você digitar.",
+      "he": "עברית",
+      "yi": "ייִדיש",
+      "en": "English",
+      "fr": "Français",
+      "ru": "Русский"
+    },
+    "people": {
+      "title": "Nomes",
+      "hint": "Tradicionalmente, o nome da pessoa junto com o nome da mãe. Escreva como preferir.",
+      "person": "Nome {n}",
+      "mode": "Modo de digitação",
+      "structured": "Guiado",
+      "free": "Livre",
+      "remove": "Remover o nome {n}",
+      "given": "Nome",
+      "givenPh": "ex.: Yossef Chaim",
+      "relation": "Relação",
+      "ben": "ben",
+      "bat": "bat",
+      "parent": "Nome da mãe / do pai",
+      "parentPh": "ex.: Sara",
+      "freeLabel": "Nome como deve aparecer",
+      "freeHint": "Impresso exatamente como digitado.",
+      "add": "Adicionar um nome"
+    },
+    "topics": {
+      "title": "Temas (opcional)",
+      "health": "Saúde",
+      "livelihood": "Parnassá (sustento)",
+      "marriage": "Um shidach",
+      "children": "Filhos",
+      "success": "Sucesso",
+      "gratitude": "Gratidão",
+      "general": "Geral"
+    },
+    "request": {
+      "title": "Suas palavras",
+      "hint": "Suas próprias palavras vêm em primeiro lugar. As sugestões abaixo são opcionais.",
+      "label": "Pedido",
+      "count": "{n} / {max}",
+      "placeholder": "Escreva o que está em seu coração…",
+      "suggestionsLabel": "Frases opcionais",
+      "suggestions": {
+        "he": { "0": "לרפואה שלמה ולבריאות איתנה", "1": "להצלחה ולפרנסה בכבוד", "2": "בתודה על כל הטוב" },
+        "en": { "0": "For a complete recovery and good health", "1": "For success and an honourable livelihood", "2": "With gratitude for all the good" },
+        "fr": { "0": "Pour une guérison complète et une bonne santé", "1": "Pour la réussite et une subsistance honorable", "2": "Avec gratitude pour tout le bien" },
+        "ru": { "0": "О полном выздоровлении и крепком здоровье", "1": "Об успехе и достойном заработке", "2": "С благодарностью за всё доброе" }
+      }
+    },
+    "hand": {
+      "title": "Kvitel manuscrito",
+      "hint": "Opcional — anexe a foto de um kvitel escrito à mão.",
+      "choose": "Escolher uma foto",
+      "formats": "JPG ou PNG, até 8 MB",
+      "previewAria": "Pré-visualização da página manuscrita",
+      "rotate": "Girar",
+      "contrast": "Contraste",
+      "brightness": "Brilho",
+      "trim": "Recortar margens",
+      "attach": "Anexar",
+      "cancel": "Cancelar",
+      "attached": "Página manuscrita anexada ({w}×{h})",
+      "remove": "Remover",
+      "noAi": "Sua caligrafia é mantida como imagem. Nunca alteramos nem “corrigimos” suas palavras.",
+      "errors": {
+        "type": "Escolha uma imagem JPG ou PNG.",
+        "size": "A imagem tem mais de 8 MB.",
+        "decode": "Não foi possível ler esta imagem.",
+        "upload": "O envio falhou. Tente novamente."
+      }
+    },
+    "finish": {
+      "title": "Acabamento",
+      "template": "Modelo",
+      "templates": { "classic": "Clássico", "arch": "Arco", "minimal": "Minimalista" },
+      "signature": "Linha de assinatura",
+      "signatureHint": "Por exemplo, um sobrenome. Deixe em branco para permanecer anônimo.",
+      "bh": "Imprimir “ב״ה” no topo"
+    },
+    "privacy": {
+      "remember": "Lembrar este rascunho neste dispositivo",
+      "rememberHint": "Desativado por padrão: o rascunho é apagado quando você fecha esta aba. Em um computador compartilhado, deixe desativado.",
+      "wipe": "Apagar tudo o que digitei",
+      "wipeConfirm": "Apagar este rascunho e a sua cesta deste dispositivo?"
+    },
+    "summary": {
+      "pages": "{count, plural, one {# página} other {# páginas}}",
+      "graves": "{count, plural, one {# tziyun} other {# tziyunim}}",
+      "from": "a partir de {price}"
+    },
+    "cta": { "continue": "Revisar e continuar", "update": "Salvar alterações" },
+    "preview": {
+      "label": "Pré-visualização ao vivo",
+      "open": "Pré-visualizar",
+      "title": "Seu kvitel",
+      "live": "Pré-visualização ao vivo",
+      "thermal": "Mostrar como impresso",
+      "meta": "{pages, plural, one {# página} other {# páginas}} · aprox. {mm} mm de papel",
+      "exact": "Gerado pelo mesmo mecanismo e com as mesmas fontes da impressora. A linha de data mostra a data real da impressão."
+    },
+    "warnings": {
+      "unsupported_chars": "Estes caracteres não podem ser impressos:",
+      "strip": "Removê-los",
+      "too_long": "O kvitel está longo demais ({detail} páginas). Por favor, encurte-o.",
+      "empty": "Adicione pelo menos um nome ou algumas palavras.",
+      "name_missing_parent": "{detail, plural, one {Um nome está} other {# nomes estão}} sem o nome da mãe ou do pai. Tudo bem — só para conferir.",
+      "grave_name_empty": "Informe o nome do tzadik como deve ser impresso.",
+      "invalid": "Algo no formulário não é válido."
+    },
+    "picker": { "title": "Escolha um tziyun", "subtitle": "Só é possível selecionar tziyunim com uma unidade em funcionamento.", "search": "Buscar" }
+  }
+}

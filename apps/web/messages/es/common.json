@@ -1,0 +1,90 @@
+{
+  "common": {
+    "brand": "Kvittel",
+    "meta": {
+      "title": "Kvittel — su kvitel, depositado en el tziún",
+      "description": "Escriba un kvitel desde cualquier lugar del mundo. Se imprime en el lugar, junto al tziún, se corta y se introduce en la abertura destinada a los kvitlaj — con entrega confirmada por sensor y privacidad desde el diseño."
+    },
+    "skipToContent": "Saltar al contenido",
+    "homeAria": "Kvittel — inicio",
+    "nav": {
+      "primary": "Navegación principal",
+      "graves": "Tziunim",
+      "howItWorks": "Cómo funciona",
+      "faq": "Preguntas",
+      "account": "Mi cuenta",
+      "signIn": "Iniciar sesión",
+      "cartAria": "Cesta, {count, plural, =0 {vacía} one {# entrega} other {# entregas}}",
+      "menu": "Abrir menú",
+      "close": "Cerrar menú"
+    },
+    "cta": { "write": "Escribir un kvitel" },
+    "language": "Idioma",
+    "currency": "Moneda",
+    "weekdays": { "0": "Domingo", "1": "Lunes", "2": "Martes", "3": "Miércoles", "4": "Jueves", "5": "Viernes", "6": "Shabat" },
+    "footer": {
+      "service": "Servicio",
+      "requestGrave": "Sugerir un tziún",
+      "trust": "Confianza",
+      "disclosure": "Qué ofrecemos",
+      "privacy": "Privacidad",
+      "refunds": "Reembolsos",
+      "terms": "Condiciones",
+      "account": "Cuenta",
+      "operators": "Operadores en el lugar",
+      "mission": "Una manera serena y digna de llevar su kvitel a los lugares de descanso de los tzadikim — impreso en el lugar, depositado en la abertura y confirmado por sensor.",
+      "disclaimer": "Ofrecemos la entrega física de la nota que usted escribe. No es una plegaria dicha en su nombre, y no se promete ningún resultado espiritual. Cada unidad funciona con el permiso de los responsables del lugar.",
+      "workingName": "nombre provisional"
+    },
+    "demo": {
+      "banner": "Entorno de demostración: los pagos, las impresoras y los datos son simulados.",
+      "learn": "¿Qué es real?",
+      "footer": "ENTORNO DE DEMOSTRACIÓN — sin pagos ni impresiones reales"
+    }
+  },
+  "status": {
+    "availability": {
+      "available_now": "Disponible ahora",
+      "closed_hours": "Fuera del horario de servicio",
+      "shabbat": "Shabat — se imprimirá después",
+      "yom_tov": "Yom Tov — se imprimirá después",
+      "device_offline": "Unidad reconectándose",
+      "maintenance": "En mantenimiento",
+      "discovery_only": "Solo información",
+      "coming_soon": "Próximamente",
+      "paused": "Servicio en pausa",
+      "no_device": "Sin unidad instalada"
+    },
+    "item": {
+      "pending_payment": "Pendiente de pago",
+      "paid": "Pago confirmado",
+      "queued": "En cola",
+      "scheduled": "Programado",
+      "sending": "Enviado a la unidad",
+      "printing": "Imprimiendo",
+      "printed": "Impreso",
+      "cut": "Cortado",
+      "chute_confirmed": "Pasó por el sensor del conducto",
+      "delivered": "Entregado",
+      "uncertain": "En revisión",
+      "failed": "No entregado",
+      "refunded": "Reembolsado",
+      "canceled": "Cancelado"
+    },
+    "order": {
+      "pending_payment": "Pendiente de pago",
+      "paid": "Pagado",
+      "in_fulfillment": "En curso",
+      "fulfilled": "Entregado",
+      "attention": "Requiere atención",
+      "refunded": "Reembolsado",
+      "partially_refunded": "Reembolsado en parte",
+      "canceled": "Cancelado",
+      "payment_failed": "Pago fallido"
+    }
+  },
+  "validation": {
+    "required": "Este campo es obligatorio",
+    "email": "Introduzca una dirección de correo electrónico válida"
+  }
+}

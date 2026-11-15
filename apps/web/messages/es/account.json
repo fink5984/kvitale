@@ -1,0 +1,75 @@
+{
+  "account": {
+    "login": {
+      "title": "Iniciar sesión",
+      "subtitle": "Sin contraseña. Le enviamos por correo un enlace y un código de seis dígitos.",
+      "email": "Correo electrónico",
+      "emailHint": "La cuenta es opcional. Siempre puede hacer un pedido como invitado.",
+      "send": "Enviarme un enlace de acceso",
+      "sent": "Hemos enviado un enlace y un código a {email}.",
+      "code": "Código de seis dígitos",
+      "verify": "Iniciar sesión",
+      "changeEmail": "Usar otro correo electrónico",
+      "verifying": "Iniciando sesión…",
+      "demo": "Acceda al instante con un rol de demostración. Disponible solo en el entorno de demostración.",
+      "mailbox": "Los correos simulados se pueden leer en",
+      "errors": {
+        "invalid_email": "Introduzca una dirección de correo electrónico válida.",
+        "rate_limited": "Demasiados intentos. Espere un momento.",
+        "invalid_code": "Este código no es válido o ha caducado.",
+        "invalid_link": "Este enlace no es válido o ha caducado. Solicite uno nuevo."
+      },
+      "roles": {
+        "super_admin": "Superadministrador",
+        "finance": "Finanzas",
+        "support_limited": "Soporte",
+        "content_editor": "Editor de contenido",
+        "partner_manager": "Responsable de socios",
+        "local_maintainer": "Técnico local",
+        "customer": "Cliente"
+      }
+    },
+    "dashboard": {
+      "eyebrow": "Mi cuenta",
+      "title": "Shalom, {name}",
+      "toAdmin": "Administración",
+      "toOperator": "Portal de operadores",
+      "orders": "Pedidos",
+      "newKvittel": "Nuevo kvitel",
+      "noOrders": "Aún no hay pedidos",
+      "noOrdersBody": "Aquí aparecerán los pedidos que haga con este correo.",
+      "claim": "{count, plural, one {# pedido anterior como invitado con su correo puede vincularse} other {# pedidos anteriores como invitado con su correo pueden vincularse}} a su cuenta.",
+      "claimCta": "Vincularlos",
+      "favorites": "Tziunim favoritos",
+      "noFavorites": "Ninguno todavía."
+    },
+    "names": {
+      "title": "Nombres guardados",
+      "add": "Nueva lista",
+      "privacy": "Se guardan cifrados, solo con su consentimiento. Solo usted puede verlos.",
+      "empty": "No hay listas guardadas.",
+      "count": "{count, plural, one {# nombre} other {# nombres}}",
+      "use": "Usar",
+      "delete": "Eliminar lista",
+      "save": "Guardar lista",
+      "groupName": "Nombre de la lista (p. ej. Familia)",
+      "lines": "Nombres, uno por línea",
+      "linesHint": "p. ej. «Yosef ben Sara»",
+      "consent": "Acepto que estos nombres se guarden cifrados en mi cuenta."
+    },
+    "settings": {
+      "title": "Privacidad y ajustes",
+      "marketingOptIn": "Recibir novedades",
+      "marketingOptOut": "Sin novedades",
+      "marketingOn": "Recibirá novedades de vez en cuando.",
+      "marketingOff": "No recibirá novedades.",
+      "export": "Descargar mis datos",
+      "signOut": "Cerrar sesión",
+      "delete": "Eliminar mi cuenta",
+      "deleteTitle": "Eliminar la cuenta",
+      "deleteBody": "Se eliminan los nombres guardados y los favoritos. Los registros de pedidos necesarios para la contabilidad se conservan sin el contenido que usted guardó.",
+      "deleteConfirm": "Eliminar definitivamente",
+      "typeEmail": "Escriba su correo electrónico para confirmar"
+    }
+  }
+}

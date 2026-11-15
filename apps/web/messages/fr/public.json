@@ -1,0 +1,352 @@
+{
+  "public": {
+    "card": {
+      "location": "Lieu",
+      "hilula": "Hilloula",
+      "hilulaOn": "Hilloula le {date}",
+      "from": "à partir de",
+      "notPurchasable": "Pas encore disponible pour une remise",
+      "write": "Écrire un kvitel",
+      "details": "Détails"
+    },
+    "search": {
+      "label": "Rechercher un tsaddik, une ville ou un nom",
+      "placeholder": "Tsaddik, ville ou surnom — p. ex. Kerestir",
+      "submit": "Rechercher",
+      "resultsCount": "{count, plural, =0 {Aucun résultat} one {# résultat} other {# résultats}}",
+      "noResults": "Nous n’avons pas encore trouvé ce tsiyoun.",
+      "requestIt": "Nous le proposer"
+    },
+    "home": {
+      "hero": {
+        "eyebrow": "Depuis n’importe où dans le monde",
+        "titleA": "Votre kvitel,",
+        "titleB": "déposé au tsiyoun.",
+        "subtitle": "Écrivez les noms et les mots de votre cœur. Nous imprimons votre kvitel près du tsiyoun, le guidons jusqu’à l’ouverture prévue pour les kvitlekh et confirmons l’instant où il passe devant le capteur.",
+        "searchHint": "En hébreu, en anglais, en yiddish, en russe ou dans n’importe quelle translittération.",
+        "trust": {
+          "printed": "Imprimé sur place, sans intervention manuelle",
+          "sensor": "Remise confirmée par capteur",
+          "noAccount": "Aucun compte nécessaire",
+          "private": "Chiffré et confidentiel"
+        }
+      },
+      "featured": {
+        "eyebrow": "Lieux de repos",
+        "title": "Tsiyounim ouverts aux kvitlekh",
+        "body": "{count, plural, one {# tsiyoun accueille} other {# tsiyounim accueillent}} actuellement des kvitlekh. Chaque unité est installée avec l’autorisation des responsables du lieu.",
+        "all": "Tous les tsiyounim"
+      },
+      "journey": {
+        "eyebrow": "Le parcours",
+        "title": "De vos mots jusqu’à l’ouverture",
+        "note": "La plupart des personnes terminent en une à deux minutes. Prenez tout le temps qu’il vous faut.",
+        "choose": {
+          "title": "Choisir",
+          "body": "Trouvez le tsiyoun par nom, ville ou surnom, quelle que soit l’orthographe."
+        },
+        "write": {
+          "title": "Écrire",
+          "body": "Des noms et des demandes, avec vos propres mots — et le billet imprimé sous vos yeux pendant la saisie."
+        },
+        "pay": {
+          "title": "Payer",
+          "body": "Un prix clair avant de payer. Sans inscription, sans conservation des données de carte."
+        },
+        "deliver": {
+          "title": "Remis",
+          "body": "Imprimé, découpé et glissé dans l’ouverture — suivez chaque étape en direct."
+        }
+      },
+      "proof": {
+        "eyebrow": "Physique et vérifiable",
+        "title": "Un billet de papier, un chemin fermé, un capteur qui le voit passer.",
+        "body": "Chaque unité est une colonne discrète, couleur pierre, placée près du tsiyoun. À l’intérieur, une imprimante thermique imprime votre kvitel, le découpe entièrement et le libère dans un conduit fermé qui mène à l’ouverture prévue pour les kvitlekh.",
+        "honesty": "Nous n’affichons « Remis » que lorsque le matériel le confirme. Si un capteur ne peut pas confirmer, nous vous le disons — et une personne examine la situation. Rien n’est jamais réimprimé automatiquement.",
+        "steps": {
+          "printed": {
+            "title": "Imprimé",
+            "body": "Exactement comme dans votre aperçu — le même moteur de mise en page, les mêmes polices."
+          },
+          "cut": {
+            "title": "Découpé",
+            "body": "Une découpe complète sépare votre kvitel du rouleau."
+          },
+          "chute": {
+            "title": "Passe devant le capteur",
+            "body": "Un capteur optique placé dans le conduit enregistre le passage du billet."
+          },
+          "delivered": {
+            "title": "Remis",
+            "body": "L’heure de la remise vous est indiquée à l’heure locale du tsiyoun."
+          }
+        },
+        "diagram": {
+          "aria": "Schéma de l’unité sur site : imprimante, massicot, conduit fermé et capteur optique menant à l’ouverture des kvitlekh",
+          "opening": "Ouverture des kvitlekh",
+          "printer": "Imprimante thermique",
+          "cutter": "Découpe complète",
+          "chute": "Conduit fermé",
+          "sensor": "Capteur optique",
+          "drawer": "Porte de service verrouillée",
+          "modem": "Liaison sortante sécurisée"
+        }
+      },
+      "hilulot": {
+        "eyebrow": "Calendrier",
+        "title": "Prochaines hilloulot",
+        "body": "Des jours de souvenir, où beaucoup envoient des kvitlekh. Les dates suivent le calendrier hébraïque.",
+        "verify": "Les dates de hilloula sont indiquées telles qu’elles sont communément admises et sont en cours de vérification auprès des sources."
+      },
+      "principles": {
+        "title": "Fondé sur quatre engagements",
+        "privacy": {
+          "title": "Confidentiel par conception",
+          "body": "Les noms et les demandes sont chiffrés, jamais journalisés, et supprimés après la remise."
+        },
+        "honesty": {
+          "title": "Un statut honnête",
+          "body": "Jamais « remis » sans confirmation. Aucune promesse de résultat."
+        },
+        "permission": {
+          "title": "Avec autorisation",
+          "body": "Les unités ne sont installées qu’avec l’accord des responsables de chaque lieu."
+        },
+        "physical": {
+          "title": "Réellement physique",
+          "body": "Vos mots deviennent papier au tsiyoun — ni un e-mail, ni un écran."
+        }
+      },
+      "cta": {
+        "title": "Quand vous serez prêt.",
+        "body": "Écrivez votre kvitel dès maintenant. Il attendra dans la file jusqu’à la prochaine plage de service du tsiyoun.",
+        "write": "Écrire un kvitel",
+        "learn": "Comment ça marche"
+      }
+    },
+    "directory": {
+      "metaTitle": "Tsiyounim des tsaddikim",
+      "metaDescription": "Trouvez les lieux de repos des tsaddikim et envoyez un kvitel imprimé sur place.",
+      "eyebrow": "Répertoire",
+      "title": "Tsiyounim des tsaddikim",
+      "subtitle": "Recherchez dans n’importe quelle langue ou orthographe. La disponibilité est affichée en temps réel.",
+      "resultsFor": "{count, plural, =0 {Aucun résultat pour} one {# résultat pour} other {# résultats pour}}",
+      "empty": {
+        "title": "Rien pour l’instant",
+        "body": "Aucun tsiyoun ne correspond à ces filtres. Essayez une autre orthographe, ou dites-nous quel tsiyoun vous cherchez.",
+        "cta": "Proposer un tsiyoun"
+      },
+      "missing": {
+        "title": "Un tsiyoun manque ?",
+        "body": "Dites-nous où vous aimeriez envoyer un kvitel. Vos demandes nous aident à choisir où installer la prochaine unité.",
+        "cta": "Proposer un tsiyoun"
+      },
+      "filters": {
+        "label": "Filtrer",
+        "availability": "Disponibilité",
+        "anyAvailability": "Toute disponibilité",
+        "availableNow": "Disponible maintenant",
+        "purchasable": "Commandable",
+        "comingSoon": "Bientôt disponible",
+        "country": "Pays",
+        "anyCountry": "Tous les pays",
+        "tradition": "Tradition",
+        "anyTradition": "Toutes les traditions",
+        "dynasty": {
+          "hungary": "’Hassidout hongroise",
+          "poland": "’Hassidout polonaise",
+          "ukraine": "Ukraine et Podolie",
+          "breslov": "Breslev",
+          "tannaim": "Tannaïm"
+        },
+        "sort": "Trier",
+        "sortFeatured": "À la une",
+        "sortHilula": "Prochaine hilloula",
+        "sortName": "Nom",
+        "apply": "Appliquer",
+        "clear": "Effacer",
+        "count": "{count, plural, =0 {Aucun tsiyoun} one {# tsiyoun} other {# tsiyounim}}"
+      }
+    },
+    "grave": {
+      "breadcrumb": "Fil d’Ariane",
+      "allGraves": "Tous les tsiyounim",
+      "photoCredit": "Photo : {credit} · {license}",
+      "translationFallback": "Affiché dans une autre langue — traduction en cours",
+      "location": "Lieu",
+      "hilula": "Hilloula",
+      "unverified": "date en cours de vérification",
+      "price": "Prix par kvitel",
+      "priceNote": "Les pages supplémentaires sont tarifées en toute transparence avant le paiement.",
+      "write": "Écrire un kvitel pour ce tsiyoun",
+      "unavailable": {
+        "discovery_only": {
+          "title": "Informations uniquement",
+          "body": "Aucune unité d’impression n’est installée à ce tsiyoun. Nous ne vendrons jamais une remise que nous ne pouvons pas assurer."
+        },
+        "coming_soon": {
+          "title": "Bientôt disponible",
+          "body": "Nous préparons ici une unité avec les responsables du lieu. Faites-nous savoir que vous aimeriez y envoyer un kvitel."
+        },
+        "paused": {
+          "title": "Service suspendu",
+          "body": "La remise est temporairement suspendue ici. Aucune nouvelle commande n’est acceptée jusqu’à la reprise."
+        },
+        "no_device": {
+          "title": "Aucune unité installée",
+          "body": "Ce tsiyoun est répertorié, mais aucune unité d’impression n’y est encore connectée."
+        }
+      },
+      "scheduled": {
+        "closed_hours": "Le tsiyoun est actuellement hors des heures de service. Votre kvitel sera imprimé à partir du {when} (heure locale).",
+        "shabbat": "Aucune impression pendant Chabbat. Votre kvitel sera imprimé à partir du {when} (heure locale).",
+        "yom_tov": "Aucune impression pendant Yom Tov. Votre kvitel sera imprimé à partir du {when} (heure locale).",
+        "device_offline": "L’unité se reconnecte. Votre kvitel attendra en toute sécurité dans la file et sera imprimé dès son retour — vous pouvez aussi demander un remboursement à tout moment.",
+        "maintenance": "L’unité est en maintenance. Votre kvitel sera programmé pour la reprise du service — vous pouvez aussi demander un remboursement à tout moment."
+      },
+      "about": "À propos",
+      "included": {
+        "title": "Ce qui est inclus",
+        "print": "L’impression de votre kvitel sur place, exactement comme dans l’aperçu",
+        "cut": "Une découpe complète et le passage par un conduit fermé",
+        "sensor": "La confirmation par capteur optique, là où il est installé",
+        "tracking": "Un suivi en direct à l’heure locale du tsiyoun",
+        "notIncluded": "Non inclus : une personne priant en votre nom, ou toute promesse de résultat."
+      },
+      "customs": "Usages du lieu",
+      "aliases": "Également connu sous le nom de",
+      "hours": {
+        "title": "Heures de service",
+        "localNow": "Actuellement au tsiyoun : {time} ({tz})",
+        "closed": "Fermé",
+        "policy": "Aucune impression pendant Chabbat et Yom Tov, ni après midi le vendredi et la veille de Yom Tov. Les commandes attendent en toute sécurité dans la file."
+      },
+      "map": {
+        "title": "Carte",
+        "navigate": "Itinéraire",
+        "unverified": "Les coordonnées exactes sont en attente de vérification et ne sont pas encore affichées."
+      },
+      "faq": "Questions",
+      "demand": {
+        "cta": "J’aimerais envoyer un kvitel ici",
+        "thanks": "Merci — c’est noté."
+      }
+    },
+    "how": {
+      "eyebrow": "Comment ça marche",
+      "title": "De votre main jusqu’à l’ouverture",
+      "intro": "Chaque étape est réelle et visible — des mots que vous saisissez jusqu’à l’instant où le billet passe devant le capteur au tsiyoun.",
+      "steps": {
+        "choose": {
+          "title": "Choisissez le tsiyoun",
+          "body": "Recherchez par nom, surnom ou ville, quelle que soit l’orthographe. Vous pouvez envoyer le même kvitel à plusieurs tsiyounim en une seule commande."
+        },
+        "write": {
+          "title": "Écrivez avec vos propres mots",
+          "body": "Ajoutez des noms (avec le nom de la mère ou du père si vous le souhaitez), choisissez des sujets et écrivez librement. Les formules suggérées sont facultatives."
+        },
+        "preview": {
+          "title": "Voyez le billet exact",
+          "body": "L’aperçu est rendu par le même moteur que celui qui l’imprime — sur papier de 58 mm, en caractères hébraïques, yiddish, latins ou cyrilliques."
+        },
+        "pay": {
+          "title": "Payez en toute sécurité",
+          "body": "Le prix final est arrêté avant le paiement. Vos données de carte ne nous parviennent jamais ; le paiement n’est confirmé que par le message signé du prestataire de paiement."
+        },
+        "queue": {
+          "title": "Une file qui respecte les temps",
+          "body": "L’unité n’imprime que pendant les heures de service du tsiyoun — jamais pendant Chabbat ni Yom Tov."
+        },
+        "print": {
+          "title": "Imprimé et découpé",
+          "body": "L’unité reçoit une image de votre kvitel (jamais un texte lisible), l’imprime et la découpe entièrement."
+        },
+        "chute": {
+          "title": "Par le conduit",
+          "body": "Le billet descend par un conduit fermé jusqu’à l’ouverture des kvitlekh ; un capteur optique enregistre son passage."
+        },
+        "notify": {
+          "title": "Nous vous disons la vérité",
+          "body": "Vous suivez chaque étape en direct. Si le matériel ne peut pas confirmer, nous vous le disons et une personne examine la situation."
+        }
+      },
+      "honesty": {
+        "title": "Ce que nous ne prétendons pas",
+        "body": "Il s’agit d’un service de remise physique. Nous ne prions pas en votre nom et ne promettons aucun résultat spirituel. Un statut n’est affiché que lorsqu’il s’est réellement produit."
+      },
+      "cta": "Écrire un kvitel"
+    },
+    "faq": {
+      "eyebrow": "Questions",
+      "title": "Des questions, des réponses claires",
+      "items": {
+        "what": {
+          "q": "Que reçois-je exactement ?",
+          "a": "Votre kvitel est imprimé sur papier par une unité placée près du tsiyoun, découpé, puis libéré dans un conduit fermé jusqu’à l’ouverture des kvitlekh. Vous pouvez suivre chaque étape."
+        },
+        "prayer": {
+          "q": "Quelqu’un prie-t-il pour moi ?",
+          "a": "Non. Nous assurons la remise physique du mot que vous avez écrit. Nous ne prions pas en votre nom et ne promettons aucun résultat."
+        },
+        "proof": {
+          "q": "Comment savoir que mon kvitel a été remis ?",
+          "a": "Un capteur optique placé dans le conduit enregistre le passage du billet. « Remis » ne s’affiche qu’après cette confirmation. Si une unité n’a pas de capteur, nous l’indiquons explicitement."
+        },
+        "privacy": {
+          "q": "Qui peut lire ce que j’écris ?",
+          "a": "Votre texte est chiffré et n’est transformé en image qu’au moment de l’impression. Par défaut, notre équipe ne peut pas le lire ; il n’est jamais enregistré dans des journaux et il est supprimé après la remise."
+        },
+        "language": {
+          "q": "Dans quelles langues puis-je écrire ?",
+          "a": "En hébreu (avec nikoud), en yiddish, en anglais, en français, en russe et dans d’autres langues en alphabet latin ou cyrillique. Les émojis ne peuvent pas être imprimés — nous vous le signalerons avant le paiement."
+        },
+        "handwriting": {
+          "q": "Puis-je envoyer mon propre texte manuscrit ?",
+          "a": "Oui. Téléversez une photo ; vous pouvez la faire pivoter et ajuster le contraste. Nous ne modifions ni ne « corrigeons » jamais vos mots."
+        },
+        "shabbat": {
+          "q": "Et pendant Chabbat et Yom Tov ?",
+          "a": "Les unités n’impriment pas pendant Chabbat et Yom Tov, ni après midi la veille. Votre kvitel attend dans la file et est imprimé ensuite."
+        },
+        "uncertain": {
+          "q": "Que signifie « en cours de vérification » ?",
+          "a": "Il arrive que le matériel ne puisse pas confirmer une étape — par exemple en cas de coupure de courant pendant l’impression. Nous ne réimprimons jamais automatiquement ; une personne vérifie et prend contact avec vous."
+        },
+        "refund": {
+          "q": "Puis-je être remboursé ?",
+          "a": "Si votre kvitel n’a pas été remis en raison d’une panne, d’une maintenance ou d’une suspension, vous pouvez choisir une remise ultérieure ou un remboursement intégral."
+        },
+        "account": {
+          "q": "Ai-je besoin d’un compte ?",
+          "a": "Non. Vous pouvez commander en tant qu’invité. Un compte permet de consulter votre historique et d’enregistrer des noms — uniquement avec votre accord explicite."
+        },
+        "multi": {
+          "q": "Puis-je envoyer à plusieurs tsiyounim ?",
+          "a": "Oui — ajoutez plusieurs tsiyounim à un même kvitel, ou écrivez des kvitlekh différents. Les commandes comportant plus d’une remise bénéficient d’une réduction groupée."
+        },
+        "video": {
+          "q": "Recevrai-je une vidéo ?",
+          "a": "Pas encore. Un court extrait vidéo privé de la remise (montrant uniquement la fente, jamais des personnes) est prévu ; il ne sera proposé que là où il est installé et approuvé."
+        }
+      }
+    },
+    "legal": {
+      "fallback": "Affiché dans une autre langue — traduction en cours",
+      "draft": "Texte provisoire — soumis à une relecture juridique avant le lancement."
+    },
+    "requestGrave": {
+      "eyebrow": "Proposer un tsiyoun",
+      "title": "Où aimeriez-vous envoyer un kvitel ?",
+      "body": "Les demandes orientent les lieux où nous sollicitons l’autorisation d’installer la prochaine unité. Nous ne vendons aucune remise là où aucune unité n’est installée.",
+      "name": "Tsaddik ou lieu",
+      "location": "Précisions sur le lieu",
+      "optional": "facultatif",
+      "email": "E-mail",
+      "emailHint": "Uniquement pour vous prévenir si nous ouvrons le service à cet endroit.",
+      "error": "Une erreur s’est produite. Veuillez réessayer.",
+      "submit": "Envoyer la proposition",
+      "thanksTitle": "Merci",
+      "thanks": "Votre proposition a bien été enregistrée."
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "email": {
+    "footer": "Kvittel · physical delivery of kvittlach to the resting places of tzaddikim. Your kvittel’s content is never included in emails.",
+    "magic": {
+      "subject": "Your sign-in link",
+      "title": "Sign in to Kvittel",
+      "body": "Use the button below to sign in. The link is valid for 15 minutes.",
+      "cta": "Sign in",
+      "code": "Or enter this code:",
+      "ignore": "If you did not request this, you can ignore this email."
+    },
+    "order": {
+      "subject": "Order {ref} confirmed",
+      "title": "Your kvittel is on its way",
+      "body": "Thank you. Payment was confirmed and your kvittel has joined the queue. You can follow each step through the private link below.",
+      "ref": "Order",
+      "scheduled": "Some deliveries are scheduled for the tziyun’s next service window (after Shabbat, Yom Tov or maintenance).",
+      "cta": "Follow delivery",
+      "privacy": "Keep this link private: it gives access to the status of your order."
+    },
+    "delivery": {
+      "delivered": { "subject": "Delivered · {ref}", "title": "Your kvittel was delivered", "body": "Your kvittel was printed and passed into the opening at {grave}." },
+      "uncertain": { "subject": "We are checking a delivery · {ref}", "title": "We are checking this delivery", "body": "The unit at {grave} could not confirm every step. Nothing will be printed twice automatically; our team is reviewing it." },
+      "failed": { "subject": "Delivery not completed · {ref}", "title": "Delivery not completed", "body": "We could not deliver your kvittel at {grave}. You can choose a later delivery or a full refund." }
+    }
+  }
+}

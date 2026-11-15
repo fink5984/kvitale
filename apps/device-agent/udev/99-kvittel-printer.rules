@@ -1,0 +1,10 @@
+# /etc/udev/rules.d/99-kvittel-printer.rules
+# Gives the thermal printer a stable name (/dev/kvittel-printer) and restricts access to group lp.
+# Replace the vendor/product ids with the values from `lsusb` for YOUR printer (shown as XXXX:YYYY).
+# The ids below are placeholders, not a claim about any specific model.
+SUBSYSTEM=="usbmisc", KERNEL=="lp[0-9]*", ATTRS{idVendor}=="XXXX", ATTRS{idProduct}=="YYYY", \
+  SYMLINK+="kvittel-printer", GROUP="lp", MODE="0660"
+
+# Serial-attached printer via USB-serial adapter (alternative):
+# SUBSYSTEM=="tty", ATTRS{idVendor}=="XXXX", ATTRS{idProduct}=="YYYY", \
+#   SYMLINK+="kvittel-printer", GROUP="dialout", MODE="0660"

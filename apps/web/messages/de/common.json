@@ -1,0 +1,90 @@
+{
+  "common": {
+    "brand": "Kvittel",
+    "meta": {
+      "title": "Kvittel — Ihr Kvittel, an der Grabstätte niedergelegt",
+      "description": "Schreiben Sie ein Kvittel von überall auf der Welt. Es wird vor Ort neben der Grabstätte gedruckt, abgeschnitten und in die Kvittel-Öffnung geführt — mit sensorbestätigter Zustellung und Datenschutz von Anfang an."
+    },
+    "skipToContent": "Zum Inhalt springen",
+    "homeAria": "Kvittel — Startseite",
+    "nav": {
+      "primary": "Hauptnavigation",
+      "graves": "Grabstätten",
+      "howItWorks": "So funktioniert es",
+      "faq": "Fragen",
+      "account": "Mein Konto",
+      "signIn": "Anmelden",
+      "cartAria": "Warenkorb, {count, plural, =0 {leer} one {# Zustellung} other {# Zustellungen}}",
+      "menu": "Menü öffnen",
+      "close": "Menü schließen"
+    },
+    "cta": { "write": "Ein Kvittel schreiben" },
+    "language": "Sprache",
+    "currency": "Währung",
+    "weekdays": { "0": "Sonntag", "1": "Montag", "2": "Dienstag", "3": "Mittwoch", "4": "Donnerstag", "5": "Freitag", "6": "Schabbat" },
+    "footer": {
+      "service": "Service",
+      "requestGrave": "Grabstätte vorschlagen",
+      "trust": "Vertrauen",
+      "disclosure": "Was wir leisten",
+      "privacy": "Datenschutz",
+      "refunds": "Erstattungen",
+      "terms": "Bedingungen",
+      "account": "Konto",
+      "operators": "Betreiber vor Ort",
+      "mission": "Ein stiller, würdevoller Weg, Ihr Kvittel zu den Ruhestätten der Zaddikim zu bringen — vor Ort gedruckt, in die Öffnung gelegt, per Sensor bestätigt.",
+      "disclaimer": "Wir leisten die physische Zustellung des Zettels, den Sie schreiben. Es ist kein Gebet, das in Ihrem Namen gesprochen wird, und es wird kein spirituelles Ergebnis versprochen. Jede Einheit arbeitet mit Erlaubnis der Verantwortlichen des Ortes.",
+      "workingName": "Arbeitstitel"
+    },
+    "demo": {
+      "banner": "Demo-Umgebung: Zahlungen, Drucker und Daten sind simuliert.",
+      "learn": "Was ist echt?",
+      "footer": "DEMO-UMGEBUNG — keine echten Zahlungen oder Drucke"
+    }
+  },
+  "status": {
+    "availability": {
+      "available_now": "Jetzt verfügbar",
+      "closed_hours": "Außerhalb der Servicezeiten",
+      "shabbat": "Schabbat — Druck danach",
+      "yom_tov": "Jom Tow — Druck danach",
+      "device_offline": "Einheit verbindet sich neu",
+      "maintenance": "In Wartung",
+      "discovery_only": "Nur Informationen",
+      "coming_soon": "Demnächst",
+      "paused": "Service pausiert",
+      "no_device": "Keine Einheit installiert"
+    },
+    "item": {
+      "pending_payment": "Zahlung ausstehend",
+      "paid": "Zahlung bestätigt",
+      "queued": "In der Warteschlange",
+      "scheduled": "Eingeplant",
+      "sending": "An die Einheit gesendet",
+      "printing": "Wird gedruckt",
+      "printed": "Gedruckt",
+      "cut": "Abgeschnitten",
+      "chute_confirmed": "Sensor im Schacht passiert",
+      "delivered": "Zugestellt",
+      "uncertain": "In Prüfung",
+      "failed": "Nicht zugestellt",
+      "refunded": "Erstattet",
+      "canceled": "Storniert"
+    },
+    "order": {
+      "pending_payment": "Zahlung ausstehend",
+      "paid": "Bezahlt",
+      "in_fulfillment": "In Bearbeitung",
+      "fulfilled": "Zugestellt",
+      "attention": "Erfordert Aufmerksamkeit",
+      "refunded": "Erstattet",
+      "partially_refunded": "Teilweise erstattet",
+      "canceled": "Storniert",
+      "payment_failed": "Zahlung fehlgeschlagen"
+    }
+  },
+  "validation": {
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+  }
+}

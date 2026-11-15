@@ -1,0 +1,90 @@
+{
+  "common": {
+    "brand": "Kvittel",
+    "meta": {
+      "title": "Kvittel — your kvittel, placed at the tziyun",
+      "description": "Write a kvittel from anywhere in the world. It is printed on site beside the tziyun, cut, and passed into the kvittel opening — with sensor-confirmed delivery and privacy by design."
+    },
+    "skipToContent": "Skip to content",
+    "homeAria": "Kvittel — home",
+    "nav": {
+      "primary": "Main navigation",
+      "graves": "Tziyunim",
+      "howItWorks": "How it works",
+      "faq": "Questions",
+      "account": "My account",
+      "signIn": "Sign in",
+      "cartAria": "Basket, {count, plural, =0 {empty} one {# delivery} other {# deliveries}}",
+      "menu": "Open menu",
+      "close": "Close menu"
+    },
+    "cta": { "write": "Write a kvittel" },
+    "language": "Language",
+    "currency": "Currency",
+    "weekdays": { "0": "Sunday", "1": "Monday", "2": "Tuesday", "3": "Wednesday", "4": "Thursday", "5": "Friday", "6": "Shabbat" },
+    "footer": {
+      "service": "Service",
+      "requestGrave": "Suggest a tziyun",
+      "trust": "Trust",
+      "disclosure": "What we provide",
+      "privacy": "Privacy",
+      "refunds": "Refunds",
+      "terms": "Terms",
+      "account": "Account",
+      "operators": "Site operators",
+      "mission": "A quiet, dignified way to bring your kvittel to the resting places of tzaddikim — printed on site, placed in the opening, confirmed by sensor.",
+      "disclaimer": "We provide physical delivery of the note you write. It is not a prayer said on your behalf, and no spiritual outcome is promised. Every unit operates with the permission of the site's caretakers.",
+      "workingName": "working name"
+    },
+    "demo": {
+      "banner": "Demonstration environment: payments, printers and data are simulated.",
+      "learn": "What is real?",
+      "footer": "DEMO ENVIRONMENT — no real payments or prints"
+    }
+  },
+  "status": {
+    "availability": {
+      "available_now": "Available now",
+      "closed_hours": "Outside service hours",
+      "shabbat": "Shabbat — will print after",
+      "yom_tov": "Yom Tov — will print after",
+      "device_offline": "Unit reconnecting",
+      "maintenance": "Under maintenance",
+      "discovery_only": "Information only",
+      "coming_soon": "Coming soon",
+      "paused": "Service paused",
+      "no_device": "No unit installed"
+    },
+    "item": {
+      "pending_payment": "Awaiting payment",
+      "paid": "Payment confirmed",
+      "queued": "In the queue",
+      "scheduled": "Scheduled",
+      "sending": "Sent to the unit",
+      "printing": "Printing",
+      "printed": "Printed",
+      "cut": "Cut",
+      "chute_confirmed": "Passed the chute sensor",
+      "delivered": "Delivered",
+      "uncertain": "Under review",
+      "failed": "Not delivered",
+      "refunded": "Refunded",
+      "canceled": "Cancelled"
+    },
+    "order": {
+      "pending_payment": "Awaiting payment",
+      "paid": "Paid",
+      "in_fulfillment": "In progress",
+      "fulfilled": "Delivered",
+      "attention": "Needs attention",
+      "refunded": "Refunded",
+      "partially_refunded": "Partly refunded",
+      "canceled": "Cancelled",
+      "payment_failed": "Payment failed"
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address"
+  }
+}

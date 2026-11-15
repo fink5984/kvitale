@@ -1,0 +1,27 @@
+{
+  "email": {
+    "footer": "Kvittel · physische Zustellung von Kvittlach an die Ruhestätten der Zaddikim. Der Inhalt Ihres Kvittels ist niemals Teil unserer E-Mails.",
+    "magic": {
+      "subject": "Ihr Anmeldelink",
+      "title": "Bei Kvittel anmelden",
+      "body": "Melden Sie sich über die Schaltfläche unten an. Der Link ist 15 Minuten gültig.",
+      "cta": "Anmelden",
+      "code": "Oder geben Sie diesen Code ein:",
+      "ignore": "Falls Sie dies nicht angefordert haben, können Sie diese E-Mail ignorieren."
+    },
+    "order": {
+      "subject": "Bestellung {ref} bestätigt",
+      "title": "Ihr Kvittel ist unterwegs",
+      "body": "Vielen Dank. Die Zahlung wurde bestätigt, und Ihr Kvittel ist in der Warteschlange. Über den privaten Link unten können Sie jeden Schritt verfolgen.",
+      "ref": "Bestellung",
+      "scheduled": "Einige Zustellungen sind für das nächste Servicefenster der Grabstätte eingeplant (nach Schabbat, Jom Tow oder einer Wartung).",
+      "cta": "Zustellung verfolgen",
+      "privacy": "Behalten Sie diesen Link für sich: Er gewährt Zugriff auf den Status Ihrer Bestellung."
+    },
+    "delivery": {
+      "delivered": { "subject": "Zugestellt · {ref}", "title": "Ihr Kvittel wurde zugestellt", "body": "Ihr Kvittel wurde gedruckt und in die Öffnung an der Grabstätte von {grave} geführt." },
+      "uncertain": { "subject": "Wir prüfen eine Zustellung · {ref}", "title": "Wir prüfen diese Zustellung", "body": "Die Einheit an der Grabstätte von {grave} konnte nicht jeden Schritt bestätigen. Nichts wird automatisch doppelt gedruckt; unser Team prüft den Vorgang." },
+      "failed": { "subject": "Zustellung nicht abgeschlossen · {ref}", "title": "Zustellung nicht abgeschlossen", "body": "Wir konnten Ihr Kvittel an der Grabstätte von {grave} nicht zustellen. Sie können eine spätere Zustellung oder eine vollständige Erstattung wählen." }
+    }
+  }
+}

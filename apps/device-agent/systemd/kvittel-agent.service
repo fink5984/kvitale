@@ -1,0 +1,75 @@
+# /etc/systemd/system/kvittel-agent.service
+# Hardened unit for the Kvittel field-unit agent. Outbound HTTPS only; no listening sockets.
+# Verify on your image with:  systemd-analyze security kvittel-agent.service
+[Unit]
+Description=Kvittel Global field-unit agent
+Documentation=file:///opt/kvittel-agent/README.md
+Wants=network-online.target time-sync.target
+After=network-online.target time-sync.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=kvittel
+Group=kvittel
+# lp: /dev/usb/lp*  dialout: serial printers  gpio: chute sensor (Raspberry Pi OS groups)
+SupplementaryGroups=lp dialout gpio
+ExecStart=/opt/kvittel-agent/venv/bin/python -m kvittel_agent --config /etc/kvittel-agent/config.toml run
+Restart=always
+RestartSec=5
+# Exit code 75 = restart requested by a signed restart_service/reboot_agent command ("exit" hook).
+# 78 = not paired / config error: keep retrying slowly rather than giving up.
+TimeoutStopSec=20
+KillMode=mixed
+
+StateDirectory=kvittel-agent
+StateDirectoryMode=0700
+ConfigurationDirectory=kvittel-agent
+ConfigurationDirectoryMode=0750
+UMask=0077
+
+# --- filesystem ---
+ProtectSystem=strict
+ReadWritePaths=/var/lib/kvittel-agent
+ProtectHome=yes
+PrivateTmp=yes
+
+# --- privileges ---
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RestrictRealtime=yes
+RestrictNamespaces=yes
+MemoryDenyWriteExecute=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallFilter=~@privileged @mount @debug @cpu-emulation @obsolete @raw-io @reboot @swap @module @clock
+
+# --- kernel / host ---
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectProc=invisible
+# Do NOT set ProcSubset=pid: telemetry reads /proc/uptime and /proc/net/{route,wireless}.
+
+# --- network: outbound only; AF_UNIX for journald (and D-Bus if a systemctl hook is enabled) ---
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+IPAccounting=yes
+
+# --- devices: closed policy, allow only printer/serial/GPIO classes ---
+# Class names come from /proc/devices and are UNVERIFIED for your kernel; check with
+#   grep -E 'usb|ttyS|ttyAMA|gpiochip' /proc/devices
+DevicePolicy=closed
+DeviceAllow=char-usb rw
+DeviceAllow=char-ttyS rw
+DeviceAllow=char-ttyAMA rw
+DeviceAllow=char-gpiochip rw
+# RPi.GPIO (legacy) uses /dev/gpiomem instead; if you use it, add its class from /proc/devices.
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,39 @@
+{
+  "email": {
+    "footer": "Kvittel · remise physique de kvitlekh aux lieux de repos des tsaddikim. Le contenu de votre kvitel n’est jamais inclus dans nos e-mails.",
+    "magic": {
+      "subject": "Votre lien de connexion",
+      "title": "Connexion à Kvittel",
+      "body": "Utilisez le bouton ci-dessous pour vous connecter. Le lien est valable 15 minutes.",
+      "cta": "Se connecter",
+      "code": "Ou saisissez ce code :",
+      "ignore": "Si vous n’êtes pas à l’origine de cette demande, vous pouvez ignorer cet e-mail."
+    },
+    "order": {
+      "subject": "Commande {ref} confirmée",
+      "title": "Votre kvitel est en chemin",
+      "body": "Merci. Le paiement a été confirmé et votre kvitel a rejoint la file d’attente. Vous pouvez suivre chaque étape grâce au lien privé ci-dessous.",
+      "ref": "Commande",
+      "scheduled": "Certaines remises sont programmées pour la prochaine plage de service du tsiyoun (après Chabbat, Yom Tov ou une maintenance).",
+      "cta": "Suivre la remise",
+      "privacy": "Gardez ce lien pour vous : il donne accès au suivi de votre commande."
+    },
+    "delivery": {
+      "delivered": {
+        "subject": "Remis · {ref}",
+        "title": "Votre kvitel a été remis",
+        "body": "Votre kvitel a été imprimé et glissé dans l’ouverture au tsiyoun de {grave}."
+      },
+      "uncertain": {
+        "subject": "Vérification d’une remise · {ref}",
+        "title": "Nous vérifions cette remise",
+        "body": "L’unité du tsiyoun de {grave} n’a pas pu confirmer chaque étape. Rien ne sera réimprimé automatiquement ; notre équipe examine la situation."
+      },
+      "failed": {
+        "subject": "Remise non effectuée · {ref}",
+        "title": "Remise non effectuée",
+        "body": "Nous n’avons pas pu remettre votre kvitel au tsiyoun de {grave}. Vous pouvez choisir une remise ultérieure ou un remboursement intégral."
+      }
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "lab": {
+    "eyebrow": "Demo · Gerätelabor",
+    "title": "Gerätelabor",
+    "description": "Steuern Sie simulierte Einheiten über das echte Geräteprotokoll — Lebenszeichen, Leases, Druckereignisse und signierte Befehle — und speisen Sie Fehler ein, um zu sehen, wie die Plattform reagiert.",
+    "disclaimer": {
+      "title": "Simulator, keine Hardware",
+      "body": "Diese Einheiten sind Software-Platzhalter, die für die Demo angelegt wurden. Hier wird nichts auf Papier gedruckt, und nichts hier beweist, dass ein echter Drucker, ein Schneidwerk oder ein Sensor funktioniert."
+    },
+    "loadError": "Die simulierten Einheiten konnten nicht geladen werden.",
+    "none": { "title": "Keine simulierten Einheiten", "body": "Führen Sie den Demo-Seed aus (pnpm setup), um simulierte Einheiten anzulegen." },
+    "unit": "Simulierte Einheit",
+    "start": "Schleife starten",
+    "stop": "Schleife stoppen",
+    "tick": "Ein Takt",
+    "writeOrder": "Ein Kvittel zum Drucken schreiben →",
+    "simBadge": "SIMULIERT",
+    "yes": "Ja",
+    "no": "Nein",
+    "state": {
+      "title": "Zustand der Einheit",
+      "loop": "Schleife",
+      "running": "Läuft",
+      "stopped": "Gestoppt",
+      "phase": "Phase",
+      "heartbeat": "Letztes Lebenszeichen",
+      "ok": "Angenommen",
+      "failed": "Fehlgeschlagen",
+      "paused": "Vom Server pausiert",
+      "outbox": "Ausgang (nicht gesendete Ereignisse)",
+      "journal": "Journaleinträge"
+    },
+    "phase": { "idle": "Leerlauf", "leasing": "Fragt nach Arbeit", "printing": "Druckt", "cutting": "Schneidet", "waiting_chute": "Wartet auf Schachtsensor", "offline": "Offline", "rebooting": "Startet neu" },
+    "knobs": {
+      "title": "Fehlereinspeisung",
+      "hint": "Rote Schalter speisen einen Fehler ein. Änderungen gelten ab dem nächsten Takt.",
+      "paper": "Papier",
+      "cover": "Abdeckung",
+      "online": "Internetausfall",
+      "onlineHint": "Jede Anfrage schlägt fehl; Aufträge warten in der Warteschlange.",
+      "acPower": "Netzstrom aus",
+      "acPowerHint": "Meldet Akkubetrieb (simulierte USV).",
+      "cutterJam": "Schneidwerk blockiert",
+      "cutterJamHint": "Schlägt nach dem Druck fehl → Zustellung muss geprüft werden.",
+      "chuteSensorFail": "Schachtsensor fällt aus",
+      "chuteSensorFailHint": "Sensor löst nie aus → ungewiss, wird nie erneut gedruckt.",
+      "doubleCallback": "Doppelter Callback",
+      "doubleCallbackHint": "Sendet jedes Auftragsereignis doppelt (Idempotenz).",
+      "rebootMidPrint": "Neustart während des Drucks",
+      "rebootMidPrintHint": "Der Strom wird nach Druckbeginn unterbrochen; meldet einen Abbruch.",
+      "dropAckOnce": "Eine Bestätigung verlieren",
+      "dropAckOnceHint": "Das erste Ereignis „Druck abgeschlossen“ wird aus dem Ausgang erneut gesendet."
+    },
+    "paper": { "ok": "OK", "near_end": "Fast leer", "paper_end": "Leer" },
+    "cover": { "closed": "Geschlossen", "open": "Offen" },
+    "log": { "title": "Protokoll-Log", "empty": "Noch keine Aktivität — klicken Sie auf „Ein Takt“." },
+    "printer": {
+      "title": "Druckerausgabe",
+      "clear": "Leeren",
+      "empty": "Gedruckte Zettel erscheinen hier.",
+      "note": "1-Bit-Raster genau so, wie die Einheit es empfangen hat, in nativer Auflösung angezeigt.",
+      "slipAria": "Gedruckter Zettel (simuliert)"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "account": {
+    "login": {
+      "title": "Anmelden",
+      "subtitle": "Ohne Passwort. Wir senden Ihnen per E-Mail einen Link und einen sechsstelligen Code.",
+      "email": "E-Mail",
+      "emailHint": "Ein Konto ist optional. Als Gast können Sie jederzeit bestellen.",
+      "send": "Anmeldelink per E-Mail senden",
+      "sent": "Wir haben einen Link und einen Code an {email} gesendet.",
+      "code": "Sechsstelliger Code",
+      "verify": "Anmelden",
+      "changeEmail": "Andere E-Mail-Adresse verwenden",
+      "verifying": "Anmeldung läuft…",
+      "demo": "Sofort mit einer Demo-Rolle anmelden. Nur in der Demo-Umgebung verfügbar.",
+      "mailbox": "Simulierte E-Mails sind abrufbar unter",
+      "errors": {
+        "invalid_email": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        "rate_limited": "Zu viele Versuche. Bitte warten Sie einen Moment.",
+        "invalid_code": "Dieser Code ist ungültig oder abgelaufen.",
+        "invalid_link": "Dieser Link ist ungültig oder abgelaufen. Bitte fordern Sie einen neuen an."
+      },
+      "roles": {
+        "super_admin": "Superadministrator",
+        "finance": "Finanzen",
+        "support_limited": "Support",
+        "content_editor": "Inhaltsredaktion",
+        "partner_manager": "Partnerbetreuung",
+        "local_maintainer": "Techniker vor Ort",
+        "customer": "Kunde"
+      }
+    },
+    "dashboard": {
+      "eyebrow": "Mein Konto",
+      "title": "Schalom, {name}",
+      "toAdmin": "Verwaltung",
+      "toOperator": "Betreiberportal",
+      "orders": "Bestellungen",
+      "newKvittel": "Neues Kvittel",
+      "noOrders": "Noch keine Bestellungen",
+      "noOrdersBody": "Bestellungen, die Sie mit dieser E-Mail-Adresse aufgeben, erscheinen hier.",
+      "claim": "{count, plural, one {# frühere Gastbestellung mit Ihrer E-Mail-Adresse kann} other {# frühere Gastbestellungen mit Ihrer E-Mail-Adresse können}} mit Ihrem Konto verknüpft werden.",
+      "claimCta": "Verknüpfen",
+      "favorites": "Bevorzugte Grabstätten",
+      "noFavorites": "Noch keine."
+    },
+    "names": {
+      "title": "Gespeicherte Namen",
+      "add": "Neue Liste",
+      "privacy": "Verschlüsselt gespeichert, nur mit Ihrer Einwilligung. Nur für Sie sichtbar.",
+      "empty": "Keine gespeicherten Listen.",
+      "count": "{count, plural, one {# Name} other {# Namen}}",
+      "use": "Verwenden",
+      "delete": "Liste löschen",
+      "save": "Liste speichern",
+      "groupName": "Name der Liste (z. B. Familie)",
+      "lines": "Namen, einer pro Zeile",
+      "linesHint": "z. B. „Josef ben Sara“",
+      "consent": "Ich willige ein, dass diese Namen verschlüsselt in meinem Konto gespeichert werden."
+    },
+    "settings": {
+      "title": "Datenschutz & Einstellungen",
+      "marketingOptIn": "Neuigkeiten erhalten",
+      "marketingOptOut": "Keine Neuigkeiten",
+      "marketingOn": "Sie erhalten gelegentlich Neuigkeiten.",
+      "marketingOff": "Sie erhalten keine Neuigkeiten.",
+      "export": "Meine Daten herunterladen",
+      "signOut": "Abmelden",
+      "delete": "Mein Konto löschen",
+      "deleteTitle": "Konto löschen",
+      "deleteBody": "Gespeicherte Namen und Favoriten werden gelöscht. Für die Buchhaltung erforderliche Bestelldaten bleiben erhalten, jedoch ohne Ihre gespeicherten Inhalte.",
+      "deleteConfirm": "Endgültig löschen",
+      "typeEmail": "Geben Sie zur Bestätigung Ihre E-Mail-Adresse ein"
+    }
+  }
+}

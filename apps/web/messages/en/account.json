@@ -1,0 +1,75 @@
+{
+  "account": {
+    "login": {
+      "title": "Sign in",
+      "subtitle": "No password. We email you a link and a six-digit code.",
+      "email": "Email",
+      "emailHint": "An account is optional. Guests can always order.",
+      "send": "Email me a sign-in link",
+      "sent": "We sent a link and a code to {email}.",
+      "code": "Six-digit code",
+      "verify": "Sign in",
+      "changeEmail": "Use a different email",
+      "verifying": "Signing you in…",
+      "demo": "Sign in instantly as a demo role. Available in the demo environment only.",
+      "mailbox": "Simulated emails can be read at",
+      "errors": {
+        "invalid_email": "Please enter a valid email address.",
+        "rate_limited": "Too many attempts. Please wait a little.",
+        "invalid_code": "This code is not valid or has expired.",
+        "invalid_link": "This link is not valid or has expired. Please request a new one."
+      },
+      "roles": {
+        "super_admin": "Super admin",
+        "finance": "Finance",
+        "support_limited": "Support",
+        "content_editor": "Content editor",
+        "partner_manager": "Partner manager",
+        "local_maintainer": "Local maintainer",
+        "customer": "Customer"
+      }
+    },
+    "dashboard": {
+      "eyebrow": "My account",
+      "title": "Shalom, {name}",
+      "toAdmin": "Administration",
+      "toOperator": "Operator portal",
+      "orders": "Orders",
+      "newKvittel": "New kvittel",
+      "noOrders": "No orders yet",
+      "noOrdersBody": "Orders you place with this email appear here.",
+      "claim": "{count, plural, one {# earlier guest order} other {# earlier guest orders}} with your email can be linked to your account.",
+      "claimCta": "Link them",
+      "favorites": "Favourite tziyunim",
+      "noFavorites": "None yet."
+    },
+    "names": {
+      "title": "Saved names",
+      "add": "New list",
+      "privacy": "Stored encrypted, only with your consent. Visible only to you.",
+      "empty": "No saved lists.",
+      "count": "{count, plural, one {# name} other {# names}}",
+      "use": "Use",
+      "delete": "Delete list",
+      "save": "Save list",
+      "groupName": "List name (e.g. Family)",
+      "lines": "Names, one per line",
+      "linesHint": "e.g. “Yosef ben Sarah”",
+      "consent": "I agree to store these names encrypted in my account."
+    },
+    "settings": {
+      "title": "Privacy & settings",
+      "marketingOptIn": "Receive updates",
+      "marketingOptOut": "No updates",
+      "marketingOn": "You will receive occasional updates.",
+      "marketingOff": "You will not receive updates.",
+      "export": "Download my data",
+      "signOut": "Sign out",
+      "delete": "Delete my account",
+      "deleteTitle": "Delete account",
+      "deleteBody": "Saved names and favourites are deleted. Order records required for accounting are kept without your saved content.",
+      "deleteConfirm": "Delete permanently",
+      "typeEmail": "Type your email to confirm"
+    }
+  }
+}

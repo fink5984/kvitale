@@ -1,0 +1,134 @@
+{
+  "builder": {
+    "metaTitle": "Ein Kvittel schreiben",
+    "title": "Schreiben Sie Ihr Kvittel",
+    "intro": "Schreiben Sie frei. Was Sie rechts sehen, wird genau so an der Grabstätte gedruckt.",
+    "demoPrinter": "DEMO-Drucker",
+    "optional": "optional",
+    "steps": { "label": "Fortschritt", "choose": "Grabstätte", "write": "Schreiben", "preview": "Prüfen", "pay": "Zahlung", "track": "Zustellung" },
+    "grave": {
+      "title": "Grabstätte",
+      "choose": "Grabstätte wählen",
+      "chooseHint": "Sie können mehrere hinzufügen",
+      "scheduled": "Eingeplant",
+      "remove": "{name} entfernen",
+      "addAnother": "Auch an eine weitere Grabstätte senden",
+      "multiNote": "Dasselbe Kvittel wird an jeder Grabstätte separat gedruckt.",
+      "printedName": "Name des Zaddiks wie gedruckt",
+      "printedNameHint": "Wird genau so gedruckt, wie hier geschrieben — nie automatisch verändert."
+    },
+    "nusach": {
+      "title": "Sprache des Kvittels",
+      "hint": "Legt Wörter wie „ben / bat“ auf dem Zettel fest. Ihr Text wird genau so gedruckt, wie Sie ihn eingeben.",
+      "he": "עברית",
+      "yi": "ייִדיש",
+      "en": "English",
+      "fr": "Français",
+      "ru": "Русский"
+    },
+    "people": {
+      "title": "Namen",
+      "hint": "Traditionell der Name der Person mit dem Namen ihrer Mutter. Schreiben Sie ihn so, wie Sie möchten.",
+      "person": "Name {n}",
+      "mode": "Eingabeart",
+      "structured": "Geführt",
+      "free": "Frei",
+      "remove": "Name {n} entfernen",
+      "given": "Name",
+      "givenPh": "z. B. Josef Chaim",
+      "relation": "Beziehung",
+      "ben": "ben",
+      "bat": "bat",
+      "parent": "Name der Mutter / des Vaters",
+      "parentPh": "z. B. Sara",
+      "freeLabel": "Name, wie er erscheinen soll",
+      "freeHint": "Wird genau so gedruckt, wie eingegeben.",
+      "add": "Namen hinzufügen"
+    },
+    "topics": {
+      "title": "Anliegen (optional)",
+      "health": "Gesundheit",
+      "livelihood": "Parnasse (Auskommen)",
+      "marriage": "Ein Schidduch",
+      "children": "Kinder",
+      "success": "Erfolg",
+      "gratitude": "Dankbarkeit",
+      "general": "Allgemein"
+    },
+    "request": {
+      "title": "Ihre Worte",
+      "hint": "Ihre eigenen Worte stehen an erster Stelle. Die Vorschläge unten sind optional.",
+      "label": "Anliegen",
+      "count": "{n} / {max}",
+      "placeholder": "Schreiben Sie, was Ihnen auf dem Herzen liegt…",
+      "suggestionsLabel": "Optionale Formulierungen",
+      "suggestions": {
+        "he": { "0": "לרפואה שלמה ולבריאות איתנה", "1": "להצלחה ולפרנסה בכבוד", "2": "בתודה על כל הטוב" },
+        "en": { "0": "For a complete recovery and good health", "1": "For success and an honourable livelihood", "2": "With gratitude for all the good" },
+        "fr": { "0": "Pour une guérison complète et une bonne santé", "1": "Pour la réussite et une subsistance honorable", "2": "Avec gratitude pour tout le bien" },
+        "ru": { "0": "О полном выздоровлении и крепком здоровье", "1": "Об успехе и достойном заработке", "2": "С благодарностью за всё доброе" }
+      }
+    },
+    "hand": {
+      "title": "Handgeschriebenes Kvittel",
+      "hint": "Optional — fügen Sie ein Foto eines von Hand geschriebenen Kvittels bei.",
+      "choose": "Foto auswählen",
+      "formats": "JPG oder PNG, bis 8 MB",
+      "previewAria": "Vorschau der handgeschriebenen Seite",
+      "rotate": "Drehen",
+      "contrast": "Kontrast",
+      "brightness": "Helligkeit",
+      "trim": "Ränder zuschneiden",
+      "attach": "Beifügen",
+      "cancel": "Abbrechen",
+      "attached": "Handgeschriebene Seite beigefügt ({w}×{h})",
+      "remove": "Entfernen",
+      "noAi": "Ihre Handschrift bleibt als Bild erhalten. Wir verändern oder „korrigieren“ Ihre Worte niemals.",
+      "errors": {
+        "type": "Bitte wählen Sie ein JPG- oder PNG-Bild.",
+        "size": "Das Bild ist größer als 8 MB.",
+        "decode": "Dieses Bild konnte nicht gelesen werden.",
+        "upload": "Das Hochladen ist fehlgeschlagen. Bitte versuchen Sie es erneut."
+      }
+    },
+    "finish": {
+      "title": "Gestaltung",
+      "template": "Design",
+      "templates": { "classic": "Klassisch", "arch": "Bogen", "minimal": "Schlicht" },
+      "signature": "Unterschriftszeile",
+      "signatureHint": "Zum Beispiel ein Familienname. Leer lassen, um anonym zu bleiben.",
+      "bh": "„ב״ה“ oben drucken"
+    },
+    "privacy": {
+      "remember": "Entwurf auf diesem Gerät speichern",
+      "rememberHint": "Standardmäßig aus: Ihr Entwurf wird gelöscht, wenn Sie diesen Tab schließen. Lassen Sie diese Option auf einem gemeinsam genutzten Computer ausgeschaltet.",
+      "wipe": "Alles Eingegebene löschen",
+      "wipeConfirm": "Diesen Entwurf und Ihren Warenkorb von diesem Gerät löschen?"
+    },
+    "summary": {
+      "pages": "{count, plural, one {# Seite} other {# Seiten}}",
+      "graves": "{count, plural, one {# Grabstätte} other {# Grabstätten}}",
+      "from": "ab {price}"
+    },
+    "cta": { "continue": "Prüfen und fortfahren", "update": "Änderungen speichern" },
+    "preview": {
+      "label": "Live-Vorschau",
+      "open": "Vorschau",
+      "title": "Ihr Kvittel",
+      "live": "Live-Vorschau",
+      "thermal": "Wie gedruckt anzeigen",
+      "meta": "{pages, plural, one {# Seite} other {# Seiten}} · ca. {mm} mm Papier",
+      "exact": "Mit derselben Engine und denselben Schriften wie der Drucker dargestellt. Die Datumszeile zeigt das tatsächliche Druckdatum."
+    },
+    "warnings": {
+      "unsupported_chars": "Diese Zeichen können nicht gedruckt werden:",
+      "strip": "Entfernen",
+      "too_long": "Das Kvittel ist zu lang ({detail} Seiten). Bitte kürzen Sie es.",
+      "empty": "Fügen Sie mindestens einen Namen oder ein paar Worte hinzu.",
+      "name_missing_parent": "{detail, plural, one {Bei einem Namen fehlt} other {Bei # Namen fehlt}} der Name der Mutter oder des Vaters. Das ist in Ordnung — nur zur Kontrolle.",
+      "grave_name_empty": "Bitte geben Sie den Namen des Zaddiks so ein, wie er gedruckt werden soll.",
+      "invalid": "Etwas im Formular ist ungültig."
+    },
+    "picker": { "title": "Grabstätte wählen", "subtitle": "Nur Grabstätten mit funktionierender Einheit können ausgewählt werden.", "search": "Suchen" }
+  }
+}

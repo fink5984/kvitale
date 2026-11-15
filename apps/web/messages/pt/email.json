@@ -1,0 +1,27 @@
+{
+  "email": {
+    "footer": "Kvittel · entrega física de kvitlach nos locais de descanso dos tzadikim. O conteúdo do seu kvitel nunca é incluído nos e-mails.",
+    "magic": {
+      "subject": "Seu link de acesso",
+      "title": "Entrar no Kvittel",
+      "body": "Use o botão abaixo para entrar. O link é válido por 15 minutos.",
+      "cta": "Entrar",
+      "code": "Ou digite este código:",
+      "ignore": "Se você não fez esta solicitação, pode ignorar este e-mail."
+    },
+    "order": {
+      "subject": "Pedido {ref} confirmado",
+      "title": "Seu kvitel está a caminho",
+      "body": "Obrigado. O pagamento foi confirmado e seu kvitel entrou na fila. Você pode acompanhar cada etapa pelo link privado abaixo.",
+      "ref": "Pedido",
+      "scheduled": "Algumas entregas estão agendadas para o próximo horário de atendimento do tziyun (após o Shabat, o Yom Tov ou uma manutenção).",
+      "cta": "Acompanhar a entrega",
+      "privacy": "Mantenha este link em sigilo: ele dá acesso ao status do seu pedido."
+    },
+    "delivery": {
+      "delivered": { "subject": "Entregue · {ref}", "title": "Seu kvitel foi entregue", "body": "Seu kvitel foi impresso e conduzido à abertura no tziyun de {grave}." },
+      "uncertain": { "subject": "Estamos verificando uma entrega · {ref}", "title": "Estamos verificando esta entrega", "body": "A unidade no tziyun de {grave} não conseguiu confirmar todas as etapas. Nada será impresso duas vezes automaticamente; nossa equipe está analisando o caso." },
+      "failed": { "subject": "Entrega não concluída · {ref}", "title": "Entrega não concluída", "body": "Não conseguimos entregar seu kvitel no tziyun de {grave}. Você pode escolher uma entrega posterior ou o reembolso integral." }
+    }
+  }
+}

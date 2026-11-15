@@ -1,0 +1,36 @@
+name: CI
+on:
+  push: { branches: [main] }
+  pull_request:
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    env:
+      KVITTEL_DEMO_MODE: "1"
+      KVITTEL_E2E_IGNORE_SCHEDULE: "1"
+      PW_CHANNEL: chromium
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with: { version: 10.27.0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: pnpm }
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
+      - run: pnpm setup
+      - run: pnpm build
+      - run: pnpm --filter @kvittel/web exec playwright install --with-deps chromium
+      - name: E2E
+        run: |
+          pnpm start &
+          npx wait-on http://localhost:3000/api/health --timeout 120000
+          pnpm e2e
+  device-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: cd apps/device-agent && python -m unittest discover -s tests -v

@@ -1,0 +1,9 @@
+{
+  "name": "@kvittel/device-simulator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "tsx src/cli.ts", "typecheck": "tsc --noEmit", "test": "echo \"simulator: see web e2e\"" },
+  "dependencies": { "@kvittel/device-sim": "workspace:*" },
+  "devDependencies": { "tsx": "^4.20.6", "typescript": "5.9.3", "@types/node": "^22.18.0" }
+}

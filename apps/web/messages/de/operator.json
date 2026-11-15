@@ -1,0 +1,153 @@
+{
+  "operator": {
+    "shell": {
+      "title": "Betreiber",
+      "nav": "Betreiber-Navigation",
+      "units": "Einheiten",
+      "tickets": "Tickets",
+      "admin": "Verwaltung",
+      "signOut": "Abmelden ({who})",
+      "scoped": "{count, plural, one {# zugewiesene Grabstätte} other {# zugewiesene Grabstätten}}",
+      "unscoped": "Alle Standorte"
+    },
+    "units": {
+      "eyebrow": "Status vor Ort",
+      "title": "Ihre Einheiten",
+      "subtitle": "Aktueller Zustand der Einheiten an Ihren zugewiesenen Grabstätten. Aktualisiert sich alle 15 Sekunden.",
+      "empty": { "title": "Keine zugewiesenen Grabstätten", "body": "Bitten Sie einen Administrator, Ihr Partnerkonto einem Standort zuzuweisen." },
+      "noUnits": "An dieser Grabstätte ist noch keine Einheit installiert.",
+      "simulated": "SIMULIERT",
+      "online": "Online",
+      "offline": "Offline",
+      "paused": "Pausiert",
+      "lastSeen": "Letztes Lebenszeichen {when}",
+      "neverSeen": "Noch kein Lebenszeichen empfangen",
+      "queue": "{count, plural, =0 {Warteschlange leer} one {# Auftrag wartet} other {# Aufträge warten}}",
+      "changeRoll": "Papierrolle wechseln",
+      "testPrint": "Testdruck",
+      "testPrintConfirm": "Jetzt einen Testzettel auf dieser Einheit drucken?",
+      "testPrintQueued": "Testdruck an die Einheit gesendet.",
+      "privacy": "Dieses Portal zeigt niemals den Inhalt von Kvittlach, Namen oder Anliegen.",
+      "paper": {
+        "title": "Verbleibendes Papier",
+        "noRoll": "Keine Rolle erfasst",
+        "days": "≈ {days} Tage bis leer",
+        "daysUnknown": "Nicht genug Nutzungsdaten für eine Prognose",
+        "confidence": { "measured": "Papierende-Sensor", "estimated": "kalibrierte Schätzung", "low": "grobe Schätzung" }
+      },
+      "sensor": {
+        "paper": "Papiersensor",
+        "cover": "Abdeckung",
+        "cutter": "Schneidwerk",
+        "chute": "Schachtsensor",
+        "power": "Netzstrom",
+        "signal": "Signal",
+        "values": {
+          "ok": "OK",
+          "near_end": "Fast leer",
+          "paper_end": "Papier leer",
+          "unknown": "Unbekannt",
+          "unsupported": "Nicht messbar",
+          "closed": "Geschlossen",
+          "open": "Offen",
+          "fault": "Störung",
+          "blocked": "Blockiert",
+          "not_installed": "Nicht installiert",
+          "ac": "Am Netz",
+          "battery": "Im Akkubetrieb"
+        }
+      },
+      "alerts": {
+        "heartbeat_missed": "Lebenszeichen ausgeblieben",
+        "device_offline": "Einheit offline (Ursache unbekannt)",
+        "paper_low": "Papier wird knapp",
+        "paper_end": "Papier leer",
+        "cover_open": "Abdeckung offen",
+        "cutter_fault": "Störung des Schneidwerks",
+        "print_uncertain": "Zustellung muss geprüft werden",
+        "ac_power_lost": "Netzstrom ausgefallen (von der USV bestätigt)",
+        "chute_sensor_fault": "Störung des Schachtsensors",
+        "payment_mismatch": "Zahlungsabweichung"
+      },
+      "errors": { "forbidden": "Für Ihre Rolle nicht erlaubt.", "invalid": "Ungültige Eingabe.", "not_found": "Diese Einheit ist Ihnen nicht zugewiesen.", "server_error": "Etwas ist schiefgelaufen." }
+    },
+    "roll": {
+      "eyebrow": "Wartung",
+      "title": "Papierrolle wechseln",
+      "backToUnits": "Zurück zu den Einheiten",
+      "current": "Aktuelle Rolle eingesetzt am {date} · {m} m verbraucht",
+      "remaining": "≈ {pct} % verbleibend",
+      "optional": "optional",
+      "next": "Weiter",
+      "back": "Zurück",
+      "steps": { "label": "Schritte des Rollenwechsels", "prepare": "Vorbereiten", "specs": "Neue Rolle", "confirm": "Bestätigen" },
+      "prepare": {
+        "title": "An der Einheit",
+        "body": "Arbeiten Sie ruhig und respektvoll; am Ort können viele Menschen sein. Haken Sie jeden erledigten Schritt ab.",
+        "door": "Verschlossene Servicetür öffnen",
+        "doorHint": "Verwenden Sie den Serviceschlüssel. Solange die Abdeckung offen ist, pausiert die Einheit den Druck.",
+        "remove": "Alte Rolle und Kern entnehmen",
+        "removeHint": "Nehmen Sie den leeren Kern und lose Papierreste mit.",
+        "load": "Neue Rolle einlegen, Druckseite nach außen",
+        "loadHint": "Die Thermoseite zeigt zum Druckkopf; ziehen Sie einige Zentimeter durch den Papierweg.",
+        "cover": "Druckerabdeckung und Servicetür schließen",
+        "coverHint": "Warten Sie, bis der Abdeckungssensor „Geschlossen“ meldet."
+      },
+      "photoLater": "Das Anhängen eines Fotos der eingesetzten Rolle ist geplant, aber noch nicht verfügbar.",
+      "specs": {
+        "title": "Angaben zur neuen Rolle",
+        "body": "Dient zur Schätzung des verbleibenden Papiers. Die Standardwerte entsprechen der üblichen 58-mm-Rolle.",
+        "outer": "Außendurchmesser",
+        "core": "Kerndurchmesser",
+        "thickness": "Papierstärke",
+        "nominal": "Auf der Verpackung angegebene Länge",
+        "nominalHint": "In Millimetern, falls angegeben (z. B. 18000).",
+        "estimate": "Geschätzte Länge: {m} m",
+        "invalid": "Bitte prüfen Sie die Werte: Der Kern muss kleiner sein als der Außendurchmesser."
+      },
+      "confirm": {
+        "title": "Wechsel bestätigen",
+        "body": "Damit wird die aktuelle Rolle abgeschlossen, die Erfassung der neuen gestartet, Papierwarnungen werden gelöscht und ein offenes Ticket zum Papierwechsel wird erledigt.",
+        "cta": "Rollenwechsel bestätigen"
+      },
+      "success": {
+        "title": "Rollenwechsel erfasst",
+        "body": "Die Papiererfassung wurde neu gestartet. Ein Testdruck wird empfohlen, um Druck, Schnitt und Schachtsensor zu prüfen.",
+        "back": "Zurück zu den Einheiten"
+      },
+      "errors": { "forbidden": "Für Ihre Rolle nicht erlaubt.", "invalid": "Ungültige Werte.", "not_found": "Diese Einheit ist Ihnen nicht zugewiesen.", "server_error": "Etwas ist schiefgelaufen." }
+    },
+    "tickets": {
+      "eyebrow": "Wartung",
+      "title": "Vorfälle & Tickets",
+      "subtitle": "Melden Sie Vorfälle und führen Sie eine Servicehistorie für Ihre Standorte. Schreiben Sie hier niemals Kvittel-Inhalte oder Namen.",
+      "open": "{count, plural, =0 {Keine offenen Tickets} one {# offenes Ticket} other {# offene Tickets}}",
+      "new": "Neues Ticket",
+      "create": "Ticket erstellen",
+      "close": "Schließen",
+      "noneOpen": "Alles in Ordnung",
+      "noneOpenBody": "Keine offenen Vorfälle an Ihren Standorten.",
+      "history": "Wartungshistorie",
+      "resolved": "Erledigte Tickets",
+      "noHistory": "Noch keine erledigten Tickets.",
+      "rollChanges": "Papierrollenwechsel",
+      "current": "aktuell",
+      "site": "Grabstätte",
+      "unit": "Einheit",
+      "optional": "optional",
+      "kind": "Art",
+      "priority": "Priorität",
+      "titleLabel": "Kurzbeschreibung",
+      "noContentHint": "Beschreiben Sie nur das Hardwareproblem.",
+      "status": "Status",
+      "addNote": "Notiz hinzufügen",
+      "notePh": "Was wurde getan oder beobachtet…",
+      "due": "Fällig am {date}",
+      "overdue": "Überfällig seit {date}",
+      "kinds": { "paper_change": "Papierwechsel", "cleaning": "Reinigung", "battery": "Akku / Stromversorgung", "sensor": "Sensor", "cutter": "Schneidwerk", "other": "Sonstiges" },
+      "priorities": { "1": "Dringend", "2": "Normal", "3": "Niedrig" },
+      "statuses": { "open": "Offen", "in_progress": "In Bearbeitung", "waiting_parts": "Warten auf Teile", "resolved": "Erledigt", "closed": "Geschlossen" },
+      "errors": { "forbidden": "Für Ihre Rolle nicht erlaubt.", "invalid": "Bitte prüfen Sie das Formular.", "not_found": "In Ihren Standorten nicht gefunden.", "server_error": "Etwas ist schiefgelaufen." }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "commerce": {
+    "cart": {
+      "title": "Ihr Warenkorb",
+      "empty": { "title": "Ihr Warenkorb ist leer", "body": "Schreiben Sie ein Kvittel, dann erscheint es hier.", "cta": "Ein Kvittel schreiben" },
+      "kvittel": "Kvittel {n}",
+      "summary": "{people, plural, =0 {Keine Namen} one {# Name} other {# Namen}} · {chars} Zeichen",
+      "edit": "Bearbeiten",
+      "remove": "Entfernen",
+      "addAnother": "Weiteres Kvittel hinzufügen",
+      "checkout": "Weiter zur Zahlung",
+      "noAccount": "Kein Konto erforderlich."
+    },
+    "summary": {
+      "title": "Übersicht",
+      "deliveries": "{count, plural, one {# Zustellung} other {# Zustellungen}}",
+      "extraPages": "inkl. zusätzlicher Seiten",
+      "bundle": "Mehrere Grabstätten ({pct} %)",
+      "coupon": "Gutschein",
+      "total": "Gesamt",
+      "taxNote": "Endbetrag, einmalig belastet. Belege per E-Mail.",
+      "error": "Der Preis kann gerade nicht berechnet werden. Bitte versuchen Sie es erneut."
+    },
+    "checkout": {
+      "title": "Zahlung",
+      "intro": "Wir benötigen nur eine E-Mail-Adresse für Ihren Beleg und den Zustellungslink.",
+      "empty": "Es gibt nichts zu bezahlen.",
+      "emptyCta": "Ein Kvittel schreiben",
+      "email": "E-Mail",
+      "emailHint": "Für den Beleg und einen privaten Verfolgungslink. Es wird kein Konto angelegt.",
+      "coupon": "Gutscheincode",
+      "optional": "optional",
+      "apply": "Einlösen",
+      "couponErrors": {
+        "invalid": "Dieser Code ist ungültig.",
+        "expired": "Dieser Code ist abgelaufen.",
+        "exhausted": "Dieser Code wurde bereits vollständig eingelöst.",
+        "currency": "Dieser Code gilt für eine andere Währung."
+      },
+      "scheduled": {
+        "title": "Einige Zustellungen werden eingeplant",
+        "closed_hours": "Druck ab {when}",
+        "shabbat": "nach Schabbat, ab {when}",
+        "yom_tov": "nach Jom Tow, ab {when}",
+        "device_offline": "die Einheit verbindet sich neu; Druck, sobald sie wieder bereit ist",
+        "maintenance": "in Wartung; Druck, sobald der Service wieder aufgenommen wird",
+        "consent": "Ich verstehe, dass diese Kvittlach später gedruckt werden und dass ich vor der Zustellung jederzeit eine Erstattung verlangen kann."
+      },
+      "terms": "Ich stimme den <terms>Bedingungen</terms> zu und verstehe, <disclosure>was zugestellt wird</disclosure>: ein physisch gedrucktes Kvittel, kein Gebet in meinem Namen.",
+      "marketing": "Mir gelegentlich Neuigkeiten senden (z. B. zu bevorstehenden Hillulot)",
+      "marketingHint": "Optional. Sie können sich jederzeit abmelden.",
+      "secure": "Sichere Zahlung über den Zahlungsanbieter.",
+      "demoProvider": "DEMO-Anbieter",
+      "pay": "Bezahlen",
+      "pages": "{count, plural, one {# Seite} other {# Seiten}}",
+      "errors": {
+        "kvittel_invalid": "Eines der Kvittlach kann so nicht gedruckt werden ({detail}). Bitte bearbeiten Sie es.",
+        "grave_unavailable": "Eine ausgewählte Grabstätte ist derzeit nicht verfügbar ({detail}).",
+        "coupon_invalid": "Der Gutschein kann nicht eingelöst werden ({detail}).",
+        "schedule_consent_required": "Bitte bestätigen Sie, dass einige Zustellungen eingeplant werden.",
+        "rate_limited": "Zu viele Versuche. Bitte warten Sie einige Minuten.",
+        "server_error": "Etwas ist schiefgelaufen. Es wurde nichts belastet. Bitte versuchen Sie es erneut."
+      }
+    },
+    "demoPay": {
+      "noCard": "Es werden keine Kartendaten erfasst",
+      "merchant": "Kvittel-Bestellung",
+      "amount": "Betrag",
+      "explain": "Dies ist eine simulierte Zahlungsseite. Die Wahl eines Ergebnisses sendet einen signierten Webhook an den Server — auf demselben Weg wie ein echter Anbieter. Die Bestellung wird erst als bezahlt markiert, wenn dieser Webhook verifiziert ist.",
+      "succeed": "Erfolgreiche Zahlung simulieren",
+      "decline": "Ablehnung simulieren",
+      "replay": "Webhook erneut senden",
+      "webhookOutcome": "Webhook verarbeitet:",
+      "toOrder": "Zu meiner Bestellung"
+    },
+    "order": {
+      "eyebrow": "Ihre Bestellung",
+      "titlePaid": "Vielen Dank. Ihr Kvittel ist unterwegs.",
+      "titlePending": "Warten auf Zahlungsbestätigung",
+      "titleFailed": "Die Zahlung ist nicht durchgegangen",
+      "bodyPaid": "Verfolgen Sie unten jeden Schritt. Die Zeiten werden in der Ortszeit der Grabstätte angezeigt. Wir informieren Sie auch per E-Mail.",
+      "bodyPending": "Sobald der Zahlungsanbieter bestätigt, kommt Ihr Kvittel in die Warteschlange. Diese Seite aktualisiert sich von selbst.",
+      "bodyFailed": "Es wurde nichts belastet. Sie können es über Ihren Warenkorb erneut versuchen.",
+      "ref": "Bestellung",
+      "total": "Gesamt",
+      "placed": "Aufgegeben",
+      "webhookNote": "Bevor etwas gedruckt wird, warten wir auf die signierte Bestätigung des Zahlungsanbieters — nicht auf Ihren Browser.",
+      "localTime": "Ortszeit an der Grabstätte: {time} ({tz})",
+      "scheduledFor": "Druck eingeplant ab {when}, Ortszeit.",
+      "uncertain": { "title": "Wir prüfen diese Zustellung", "body": "Die Einheit konnte nicht jeden Schritt bestätigen. Wir drucken nicht automatisch erneut; ein Mitarbeiter prüft den Vorgang und meldet sich bei Ihnen." },
+      "confidence": {
+        "sensor_confirmed": "Bestätigt durch den optischen Sensor im Schacht.",
+        "printer_reported": "Vom Drucker gemeldet. Diese Einheit hat keinen Sensor im Schacht, daher wurde der Durchgang in die Öffnung nicht unabhängig bestätigt.",
+        "manual": "Nach Prüfung manuell von unserem Team bestätigt."
+      },
+      "privacy": "Der Inhalt Ihres Kvittels wird auf dieser Seite niemals angezeigt.",
+      "locked": { "title": "Diese Bestellung ist privat", "body": "Öffnen Sie sie über den Link in Ihrer Bestätigungs-E-Mail oder melden Sie sich mit der verwendeten E-Mail-Adresse an.", "signIn": "Anmelden" }
+    }
+  }
+}

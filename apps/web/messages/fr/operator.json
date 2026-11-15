@@ -1,0 +1,197 @@
+{
+  "operator": {
+    "shell": {
+      "title": "Opérateur",
+      "nav": "Navigation opérateur",
+      "units": "Unités",
+      "tickets": "Tickets",
+      "admin": "Administration",
+      "signOut": "Se déconnecter ({who})",
+      "scoped": "{count, plural, one {# tsiyoun attribué} other {# tsiyounim attribués}}",
+      "unscoped": "Tous les sites"
+    },
+    "units": {
+      "eyebrow": "État sur le terrain",
+      "title": "Vos unités",
+      "subtitle": "État en direct des unités de vos tsiyounim attribués. Actualisation toutes les 15 secondes.",
+      "empty": {
+        "title": "Aucun tsiyoun attribué",
+        "body": "Demandez à un administrateur d’associer votre compte partenaire à un site."
+      },
+      "noUnits": "Aucune unité n’est encore installée à ce tsiyoun.",
+      "simulated": "SIMULÉ",
+      "online": "En ligne",
+      "offline": "Hors ligne",
+      "paused": "En pause",
+      "lastSeen": "Dernier signal {when}",
+      "neverSeen": "Aucun signal reçu pour l’instant",
+      "queue": "{count, plural, =0 {File vide} one {# tâche en attente} other {# tâches en attente}}",
+      "changeRoll": "Changer le rouleau",
+      "testPrint": "Impression test",
+      "testPrintConfirm": "Imprimer maintenant un billet de test sur cette unité ?",
+      "testPrintQueued": "Impression test envoyée à l’unité.",
+      "privacy": "Ce portail n’affiche jamais le contenu des kvitlekh, ni les noms, ni les demandes.",
+      "paper": {
+        "title": "Papier restant",
+        "noRoll": "Aucun rouleau enregistré",
+        "days": "≈ {days} jours avant épuisement",
+        "daysUnknown": "Pas assez de données d’utilisation pour une prévision",
+        "confidence": {
+          "measured": "capteur de fin de rouleau",
+          "estimated": "estimation calibrée",
+          "low": "estimation approximative"
+        }
+      },
+      "sensor": {
+        "paper": "Capteur papier",
+        "cover": "Capot",
+        "cutter": "Massicot",
+        "chute": "Capteur du conduit",
+        "power": "Secteur",
+        "signal": "Signal",
+        "values": {
+          "ok": "OK",
+          "near_end": "Presque vide",
+          "paper_end": "Papier épuisé",
+          "unknown": "Inconnu",
+          "unsupported": "Non mesurable",
+          "closed": "Fermé",
+          "open": "Ouvert",
+          "fault": "Défaut",
+          "blocked": "Obstrué",
+          "not_installed": "Non installé",
+          "ac": "Sur secteur",
+          "battery": "Sur batterie"
+        }
+      },
+      "alerts": {
+        "heartbeat_missed": "Signal de vie manqué",
+        "device_offline": "Unité hors ligne (cause inconnue)",
+        "paper_low": "Papier bientôt épuisé",
+        "paper_end": "Papier épuisé",
+        "cover_open": "Capot ouvert",
+        "cutter_fault": "Défaut du massicot",
+        "print_uncertain": "Remise à vérifier",
+        "ac_power_lost": "Coupure secteur (confirmée par l’onduleur)",
+        "chute_sensor_fault": "Défaut du capteur du conduit",
+        "payment_mismatch": "Incohérence de paiement"
+      },
+      "errors": {
+        "forbidden": "Non autorisé pour votre rôle.",
+        "invalid": "Saisie invalide.",
+        "not_found": "Cette unité ne vous est pas attribuée.",
+        "server_error": "Une erreur s’est produite."
+      }
+    },
+    "roll": {
+      "eyebrow": "Maintenance",
+      "title": "Changer le rouleau de papier",
+      "backToUnits": "Retour aux unités",
+      "current": "Rouleau actuel installé le {date} · {m} m utilisés",
+      "remaining": "≈ {pct} % restant",
+      "optional": "facultatif",
+      "next": "Continuer",
+      "back": "Retour",
+      "steps": {
+        "label": "Étapes du changement de rouleau",
+        "prepare": "Préparer",
+        "specs": "Nouveau rouleau",
+        "confirm": "Confirmer"
+      },
+      "prepare": {
+        "title": "Devant l’unité",
+        "body": "Travaillez calmement et avec respect ; le lieu peut être fréquenté. Cochez chaque étape une fois terminée.",
+        "door": "Ouvrir la porte de service verrouillée",
+        "doorHint": "Utilisez la clé de service. L’unité suspend l’impression tant que le capot est ouvert.",
+        "remove": "Retirer l’ancien rouleau et son mandrin",
+        "removeHint": "Emportez le mandrin vide et tout morceau de papier.",
+        "load": "Placer le nouveau rouleau, face imprimable vers l’extérieur",
+        "loadHint": "La face thermique est tournée vers la tête d’impression ; tirez quelques centimètres dans le chemin papier.",
+        "cover": "Fermer le capot de l’imprimante et la porte de service",
+        "coverHint": "Attendez que le capteur du capot indique « Fermé »."
+      },
+      "photoLater": "L’ajout d’une photo du rouleau installé est prévu, mais pas encore disponible.",
+      "specs": {
+        "title": "Caractéristiques du nouveau rouleau",
+        "body": "Sert à estimer le papier restant. Les valeurs par défaut correspondent au rouleau standard de 58 mm.",
+        "outer": "Diamètre extérieur",
+        "core": "Diamètre du mandrin",
+        "thickness": "Épaisseur du papier",
+        "nominal": "Longueur indiquée sur l’emballage",
+        "nominalHint": "En millimètres, si elle est indiquée (p. ex. 18000).",
+        "estimate": "Longueur estimée : {m} m",
+        "invalid": "Vérifiez les valeurs : le mandrin doit être plus petit que le diamètre extérieur."
+      },
+      "confirm": {
+        "title": "Confirmer le changement",
+        "body": "Cela clôture le rouleau actuel, démarre le suivi du nouveau, efface les alertes papier et résout un éventuel ticket de changement de papier ouvert.",
+        "cta": "Confirmer le changement de rouleau"
+      },
+      "success": {
+        "title": "Changement de rouleau enregistré",
+        "body": "Le suivi du papier a redémarré. Une impression test est recommandée pour vérifier l’impression, la découpe et le capteur du conduit.",
+        "back": "Retour aux unités"
+      },
+      "errors": {
+        "forbidden": "Non autorisé pour votre rôle.",
+        "invalid": "Valeurs invalides.",
+        "not_found": "Cette unité ne vous est pas attribuée.",
+        "server_error": "Une erreur s’est produite."
+      }
+    },
+    "tickets": {
+      "eyebrow": "Maintenance",
+      "title": "Incidents et tickets",
+      "subtitle": "Signalez les incidents et tenez un historique d’intervention pour vos sites. N’écrivez jamais ici le contenu d’un kvitel ni des noms.",
+      "open": "{count, plural, =0 {Aucun ticket ouvert} one {# ticket ouvert} other {# tickets ouverts}}",
+      "new": "Nouveau ticket",
+      "create": "Créer le ticket",
+      "close": "Fermer",
+      "noneOpen": "Rien à signaler",
+      "noneOpenBody": "Aucun incident ouvert sur vos sites.",
+      "history": "Historique de maintenance",
+      "resolved": "Tickets résolus",
+      "noHistory": "Aucun ticket résolu pour l’instant.",
+      "rollChanges": "Changements de rouleau",
+      "current": "actuel",
+      "site": "Tsiyoun",
+      "unit": "Unité",
+      "optional": "facultatif",
+      "kind": "Type",
+      "priority": "Priorité",
+      "titleLabel": "Description courte",
+      "noContentHint": "Décrivez uniquement le problème matériel.",
+      "status": "Statut",
+      "addNote": "Ajouter une note",
+      "notePh": "Ce qui a été fait ou constaté…",
+      "due": "Échéance le {date}",
+      "overdue": "En retard depuis le {date}",
+      "kinds": {
+        "paper_change": "Changement de papier",
+        "cleaning": "Nettoyage",
+        "battery": "Batterie / alimentation",
+        "sensor": "Capteur",
+        "cutter": "Massicot",
+        "other": "Autre"
+      },
+      "priorities": {
+        "1": "Urgente",
+        "2": "Normale",
+        "3": "Basse"
+      },
+      "statuses": {
+        "open": "Ouvert",
+        "in_progress": "En cours",
+        "waiting_parts": "En attente de pièces",
+        "resolved": "Résolu",
+        "closed": "Fermé"
+      },
+      "errors": {
+        "forbidden": "Non autorisé pour votre rôle.",
+        "invalid": "Veuillez vérifier le formulaire.",
+        "not_found": "Introuvable parmi vos sites.",
+        "server_error": "Une erreur s’est produite."
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "common": {
+    "brand": "Kvittel",
+    "meta": {
+      "title": "Kvittel — votre kvitel, déposé au tsiyoun",
+      "description": "Écrivez un kvitel depuis n’importe où dans le monde. Il est imprimé sur place, près du tsiyoun, découpé puis glissé dans l’ouverture prévue pour les kvitlekh — avec une remise confirmée par capteur et une confidentialité pensée dès la conception."
+    },
+    "skipToContent": "Aller au contenu",
+    "homeAria": "Kvittel — accueil",
+    "nav": {
+      "primary": "Navigation principale",
+      "graves": "Tsiyounim",
+      "howItWorks": "Comment ça marche",
+      "faq": "Questions",
+      "account": "Mon compte",
+      "signIn": "Se connecter",
+      "cartAria": "Panier, {count, plural, =0 {vide} one {# remise} other {# remises}}",
+      "menu": "Ouvrir le menu",
+      "close": "Fermer le menu"
+    },
+    "cta": {
+      "write": "Écrire un kvitel"
+    },
+    "language": "Langue",
+    "currency": "Devise",
+    "weekdays": {
+      "0": "Dimanche",
+      "1": "Lundi",
+      "2": "Mardi",
+      "3": "Mercredi",
+      "4": "Jeudi",
+      "5": "Vendredi",
+      "6": "Chabbat"
+    },
+    "footer": {
+      "service": "Service",
+      "requestGrave": "Proposer un tsiyoun",
+      "trust": "Confiance",
+      "disclosure": "Ce que nous fournissons",
+      "privacy": "Confidentialité",
+      "refunds": "Remboursements",
+      "terms": "Conditions",
+      "account": "Compte",
+      "operators": "Opérateurs sur site",
+      "mission": "Une manière discrète et digne de porter votre kvitel jusqu’aux lieux de repos des tsaddikim — imprimé sur place, déposé dans l’ouverture, confirmé par capteur.",
+      "disclaimer": "Nous assurons la remise physique du mot que vous écrivez. Il ne s’agit pas d’une prière dite en votre nom, et aucun résultat spirituel n’est promis. Chaque unité fonctionne avec l’autorisation des responsables du lieu.",
+      "workingName": "nom provisoire"
+    },
+    "demo": {
+      "banner": "Environnement de démonstration : paiements, imprimantes et données sont simulés.",
+      "learn": "Qu’est-ce qui est réel ?",
+      "footer": "ENVIRONNEMENT DE DÉMONSTRATION — aucun paiement ni impression réels"
+    }
+  },
+  "status": {
+    "availability": {
+      "available_now": "Disponible maintenant",
+      "closed_hours": "Hors des heures de service",
+      "shabbat": "Chabbat — impression après Chabbat",
+      "yom_tov": "Yom Tov — impression après la fête",
+      "device_offline": "Unité en cours de reconnexion",
+      "maintenance": "En maintenance",
+      "discovery_only": "Informations uniquement",
+      "coming_soon": "Bientôt disponible",
+      "paused": "Service suspendu",
+      "no_device": "Aucune unité installée"
+    },
+    "item": {
+      "pending_payment": "En attente de paiement",
+      "paid": "Paiement confirmé",
+      "queued": "En file d’attente",
+      "scheduled": "Programmé",
+      "sending": "Envoyé à l’unité",
+      "printing": "Impression en cours",
+      "printed": "Imprimé",
+      "cut": "Découpé",
+      "chute_confirmed": "Passage détecté par le capteur",
+      "delivered": "Remis",
+      "uncertain": "En cours de vérification",
+      "failed": "Non remis",
+      "refunded": "Remboursé",
+      "canceled": "Annulé"
+    },
+    "order": {
+      "pending_payment": "En attente de paiement",
+      "paid": "Payée",
+      "in_fulfillment": "En cours",
+      "fulfilled": "Remise",
+      "attention": "Action requise",
+      "refunded": "Remboursée",
+      "partially_refunded": "Partiellement remboursée",
+      "canceled": "Annulée",
+      "payment_failed": "Échec du paiement"
+    }
+  },
+  "validation": {
+    "required": "Ce champ est obligatoire",
+    "email": "Veuillez saisir une adresse e-mail valide"
+  }
+}

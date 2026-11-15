@@ -1,0 +1,65 @@
+{
+  "lab": {
+    "eyebrow": "Demo · Laboratorio de unidades",
+    "title": "Laboratorio de unidades",
+    "description": "Controle unidades simuladas a través del protocolo real de las unidades — señales, asignaciones, eventos de impresión y comandos firmados — e inyecte fallos para ver cómo reacciona la plataforma.",
+    "disclaimer": {
+      "title": "Simulador, no hardware",
+      "body": "Estas unidades son sustitutos de software creados para la demo. Aquí no se imprime nada en papel, y nada de esto demuestra que una impresora, un cortador o un sensor reales funcionen."
+    },
+    "loadError": "No se han podido cargar las unidades simuladas.",
+    "none": { "title": "No hay unidades simuladas", "body": "Ejecute los datos de demostración (pnpm setup) para crear unidades simuladas." },
+    "unit": "Unidad simulada",
+    "start": "Iniciar ciclo",
+    "stop": "Detener ciclo",
+    "tick": "Un paso",
+    "writeOrder": "Escribir un kvitel para imprimir →",
+    "simBadge": "SIMULADO",
+    "yes": "Sí",
+    "no": "No",
+    "state": {
+      "title": "Estado de la unidad",
+      "loop": "Ciclo",
+      "running": "En marcha",
+      "stopped": "Detenido",
+      "phase": "Fase",
+      "heartbeat": "Última señal",
+      "ok": "Aceptada",
+      "failed": "Fallida",
+      "paused": "Pausada por el servidor",
+      "outbox": "Bandeja de salida (eventos sin enviar)",
+      "journal": "Entradas del diario"
+    },
+    "phase": { "idle": "Inactiva", "leasing": "Pidiendo trabajo", "printing": "Imprimiendo", "cutting": "Cortando", "waiting_chute": "Esperando el sensor del conducto", "offline": "Sin conexión", "rebooting": "Reiniciando" },
+    "knobs": {
+      "title": "Inyección de fallos",
+      "hint": "Los interruptores rojos inyectan un fallo. Los cambios se aplican en el siguiente paso.",
+      "paper": "Papel",
+      "cover": "Tapa",
+      "online": "Pérdida de internet",
+      "onlineHint": "Todas las solicitudes fallan; los trabajos esperan en la cola.",
+      "acPower": "Red eléctrica cortada",
+      "acPowerHint": "Indica funcionamiento con batería (SAI simulado).",
+      "cutterJam": "Atasco del cortador",
+      "cutterJamHint": "Falla tras imprimir → la entrega requiere revisión.",
+      "chuteSensorFail": "Fallo del sensor del conducto",
+      "chuteSensorFailHint": "El sensor nunca se activa → incierta, nunca se reimprime.",
+      "doubleCallback": "Callback doble",
+      "doubleCallbackHint": "Envía cada evento de trabajo dos veces (idempotencia).",
+      "rebootMidPrint": "Reinicio durante la impresión",
+      "rebootMidPrintHint": "Se corta la alimentación tras empezar a imprimir; se notifica la interrupción.",
+      "dropAckOnce": "Perder una confirmación",
+      "dropAckOnceHint": "El primer evento de impresión completada se reintenta desde la bandeja de salida."
+    },
+    "paper": { "ok": "OK", "near_end": "Casi agotado", "paper_end": "Agotado" },
+    "cover": { "closed": "Cerrada", "open": "Abierta" },
+    "log": { "title": "Registro del protocolo", "empty": "Aún no hay actividad — pulse «Un paso»." },
+    "printer": {
+      "title": "Salida de la impresora",
+      "clear": "Borrar",
+      "empty": "Aquí aparecerán las notas impresas.",
+      "note": "Ráster de 1 bit tal como lo recibió la unidad, mostrado a su resolución nativa.",
+      "slipAria": "Nota impresa (simulada)"
+    }
+  }
+}

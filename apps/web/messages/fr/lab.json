@@ -1,0 +1,86 @@
+{
+  "lab": {
+    "eyebrow": "Démo · Labo des unités",
+    "title": "Labo des unités",
+    "description": "Pilotez des unités de terrain simulées via le vrai protocole des unités — signaux de vie, baux, événements d’impression et commandes signées — et injectez des pannes pour observer la réaction de la plateforme.",
+    "disclaimer": {
+      "title": "Simulateur, pas du matériel",
+      "body": "Ces unités sont des substituts logiciels créés pour la démo. Rien n’est imprimé sur papier ici, et rien ici ne prouve qu’une imprimante, un massicot ou un capteur réel fonctionne."
+    },
+    "loadError": "Les unités simulées n’ont pas pu être chargées.",
+    "none": {
+      "title": "Aucune unité simulée",
+      "body": "Lancez le jeu de données de démo (pnpm setup) pour créer des unités simulées."
+    },
+    "unit": "Unité simulée",
+    "start": "Démarrer la boucle",
+    "stop": "Arrêter la boucle",
+    "tick": "Un cycle",
+    "writeOrder": "Écrire un kvitel à imprimer →",
+    "simBadge": "SIMULÉ",
+    "yes": "Oui",
+    "no": "Non",
+    "state": {
+      "title": "État de l’unité",
+      "loop": "Boucle",
+      "running": "En marche",
+      "stopped": "Arrêtée",
+      "phase": "Phase",
+      "heartbeat": "Dernier signal de vie",
+      "ok": "Accepté",
+      "failed": "Échec",
+      "paused": "Mise en pause par le serveur",
+      "outbox": "File d’envoi (événements non envoyés)",
+      "journal": "Entrées du journal"
+    },
+    "phase": {
+      "idle": "Inactive",
+      "leasing": "Demande de travail",
+      "printing": "Impression",
+      "cutting": "Découpe",
+      "waiting_chute": "Attente du capteur du conduit",
+      "offline": "Hors ligne",
+      "rebooting": "Redémarrage"
+    },
+    "knobs": {
+      "title": "Injection de pannes",
+      "hint": "Les interrupteurs rouges injectent une panne. Les changements s’appliquent au cycle suivant.",
+      "paper": "Papier",
+      "cover": "Capot",
+      "online": "Perte d’Internet",
+      "onlineHint": "Toutes les requêtes échouent ; les tâches attendent dans la file.",
+      "acPower": "Secteur coupé",
+      "acPowerHint": "Signale un fonctionnement sur batterie (onduleur simulé).",
+      "cutterJam": "Bourrage du massicot",
+      "cutterJamHint": "Échoue après l’impression → remise à vérifier.",
+      "chuteSensorFail": "Panne du capteur du conduit",
+      "chuteSensorFailHint": "Le capteur ne se déclenche jamais → incertain, jamais réimprimé.",
+      "doubleCallback": "Double rappel",
+      "doubleCallbackHint": "Envoie chaque événement de tâche deux fois (idempotence).",
+      "rebootMidPrint": "Redémarrage en cours d’impression",
+      "rebootMidPrintHint": "Le courant est coupé après le début de l’impression ; signale une interruption.",
+      "dropAckOnce": "Perdre un accusé de réception",
+      "dropAckOnceHint": "Le premier événement « impression terminée » est renvoyé depuis la file d’envoi."
+    },
+    "paper": {
+      "ok": "OK",
+      "near_end": "Presque vide",
+      "paper_end": "Épuisé"
+    },
+    "cover": {
+      "closed": "Fermé",
+      "open": "Ouvert"
+    },
+    "log": {
+      "title": "Journal du protocole",
+      "empty": "Aucune activité pour l’instant — appuyez sur « Un cycle »."
+    },
+    "printer": {
+      "title": "Sortie imprimante",
+      "clear": "Effacer",
+      "empty": "Les billets imprimés apparaîtront ici.",
+      "note": "Trame 1 bit exactement telle que reçue par l’unité, affichée à sa résolution native.",
+      "slipAria": "Billet imprimé (simulé)"
+    }
+  }
+}

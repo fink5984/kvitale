@@ -1,0 +1,153 @@
+{
+  "operator": {
+    "shell": {
+      "title": "Operator",
+      "nav": "Operator navigation",
+      "units": "Units",
+      "tickets": "Tickets",
+      "admin": "Admin",
+      "signOut": "Sign out ({who})",
+      "scoped": "{count, plural, one {# assigned tziyun} other {# assigned tziyunim}}",
+      "unscoped": "All sites"
+    },
+    "units": {
+      "eyebrow": "Field status",
+      "title": "Your units",
+      "subtitle": "Live condition of the units at your assigned tziyunim. Refreshes every 15 seconds.",
+      "empty": { "title": "No assigned tziyunim", "body": "Ask an administrator to assign your partner account to a site." },
+      "noUnits": "No unit is installed at this tziyun yet.",
+      "simulated": "SIMULATED",
+      "online": "Online",
+      "offline": "Offline",
+      "paused": "Paused",
+      "lastSeen": "Last heartbeat {when}",
+      "neverSeen": "No heartbeat received yet",
+      "queue": "{count, plural, =0 {Queue empty} one {# job waiting} other {# jobs waiting}}",
+      "changeRoll": "Change paper roll",
+      "testPrint": "Test print",
+      "testPrintConfirm": "Print a test slip on this unit now?",
+      "testPrintQueued": "Test print sent to the unit.",
+      "privacy": "This portal never shows the content of kvittlach, names or requests.",
+      "paper": {
+        "title": "Paper remaining",
+        "noRoll": "No roll recorded",
+        "days": "≈ {days} days to empty",
+        "daysUnknown": "Not enough usage data to forecast",
+        "confidence": { "measured": "near-end sensor", "estimated": "calibrated estimate", "low": "rough estimate" }
+      },
+      "sensor": {
+        "paper": "Paper sensor",
+        "cover": "Cover",
+        "cutter": "Cutter",
+        "chute": "Chute sensor",
+        "power": "Mains power",
+        "signal": "Signal",
+        "values": {
+          "ok": "OK",
+          "near_end": "Near end",
+          "paper_end": "Paper out",
+          "unknown": "Unknown",
+          "unsupported": "Not measurable",
+          "closed": "Closed",
+          "open": "Open",
+          "fault": "Fault",
+          "blocked": "Blocked",
+          "not_installed": "Not installed",
+          "ac": "On mains",
+          "battery": "On battery"
+        }
+      },
+      "alerts": {
+        "heartbeat_missed": "Heartbeat missed",
+        "device_offline": "Unit offline (cause unknown)",
+        "paper_low": "Paper running low",
+        "paper_end": "Paper out",
+        "cover_open": "Cover open",
+        "cutter_fault": "Cutter fault",
+        "print_uncertain": "Delivery needs review",
+        "ac_power_lost": "Mains power lost (confirmed by UPS)",
+        "chute_sensor_fault": "Chute sensor fault",
+        "payment_mismatch": "Payment mismatch"
+      },
+      "errors": { "forbidden": "Not permitted for your role.", "invalid": "Invalid input.", "not_found": "This unit is not assigned to you.", "server_error": "Something went wrong." }
+    },
+    "roll": {
+      "eyebrow": "Maintenance",
+      "title": "Change the paper roll",
+      "backToUnits": "Back to units",
+      "current": "Current roll installed {date} · {m} m used",
+      "remaining": "≈ {pct}% remaining",
+      "optional": "optional",
+      "next": "Continue",
+      "back": "Back",
+      "steps": { "label": "Roll change steps", "prepare": "Prepare", "specs": "New roll", "confirm": "Confirm" },
+      "prepare": {
+        "title": "At the unit",
+        "body": "Work calmly and respectfully; the site may be busy. Tick each step when done.",
+        "door": "Open the locked service door",
+        "doorHint": "Use the service key. The unit pauses printing while the cover is open.",
+        "remove": "Remove the old roll and core",
+        "removeHint": "Take the empty core and any loose paper with you.",
+        "load": "Load the new roll, print side out",
+        "loadHint": "Thermal side faces the print head; pull a few centimetres through the paper path.",
+        "cover": "Close the printer cover and the service door",
+        "coverHint": "Wait until the cover sensor reads “Closed”."
+      },
+      "photoLater": "Attaching a photo of the installed roll is planned and not available yet.",
+      "specs": {
+        "title": "New roll specification",
+        "body": "Used to estimate remaining paper. Defaults match the standard 58 mm roll.",
+        "outer": "Outer diameter",
+        "core": "Core diameter",
+        "thickness": "Paper thickness",
+        "nominal": "Length printed on the package",
+        "nominalHint": "In millimetres, if stated (e.g. 18000).",
+        "estimate": "Estimated length: {m} m",
+        "invalid": "Please check the values: the core must be smaller than the outer diameter."
+      },
+      "confirm": {
+        "title": "Confirm the change",
+        "body": "This closes the current roll, starts tracking the new one, clears paper alerts and resolves an open paper-change ticket.",
+        "cta": "Confirm roll change"
+      },
+      "success": {
+        "title": "Roll change recorded",
+        "body": "Paper tracking restarted. A test print is recommended to verify printing, cutting and the chute sensor.",
+        "back": "Back to units"
+      },
+      "errors": { "forbidden": "Not permitted for your role.", "invalid": "Invalid values.", "not_found": "This unit is not assigned to you.", "server_error": "Something went wrong." }
+    },
+    "tickets": {
+      "eyebrow": "Maintenance",
+      "title": "Incidents & tickets",
+      "subtitle": "Report incidents and keep a service history for your sites. Never write kvittel content or names here.",
+      "open": "{count, plural, =0 {No open tickets} one {# open ticket} other {# open tickets}}",
+      "new": "New ticket",
+      "create": "Create ticket",
+      "close": "Close",
+      "noneOpen": "All clear",
+      "noneOpenBody": "No open incidents at your sites.",
+      "history": "Maintenance history",
+      "resolved": "Resolved tickets",
+      "noHistory": "No resolved tickets yet.",
+      "rollChanges": "Paper roll changes",
+      "current": "current",
+      "site": "Tziyun",
+      "unit": "Unit",
+      "optional": "optional",
+      "kind": "Type",
+      "priority": "Priority",
+      "titleLabel": "Short description",
+      "noContentHint": "Describe the hardware issue only.",
+      "status": "Status",
+      "addNote": "Add note",
+      "notePh": "What was done or observed…",
+      "due": "Due {date}",
+      "overdue": "Overdue since {date}",
+      "kinds": { "paper_change": "Paper change", "cleaning": "Cleaning", "battery": "Battery / power", "sensor": "Sensor", "cutter": "Cutter", "other": "Other" },
+      "priorities": { "1": "Urgent", "2": "Normal", "3": "Low" },
+      "statuses": { "open": "Open", "in_progress": "In progress", "waiting_parts": "Waiting for parts", "resolved": "Resolved", "closed": "Closed" },
+      "errors": { "forbidden": "Not permitted for your role.", "invalid": "Please check the form.", "not_found": "Not found in your sites.", "server_error": "Something went wrong." }
+    }
+  }
+}

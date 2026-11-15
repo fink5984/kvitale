@@ -1,0 +1,75 @@
+{
+  "account": {
+    "login": {
+      "title": "Entrar",
+      "subtitle": "Sem senha. Enviamos por e-mail um link e um código de seis dígitos.",
+      "email": "E-mail",
+      "emailHint": "A conta é opcional. Visitantes sempre podem fazer pedidos.",
+      "send": "Enviar-me um link de acesso",
+      "sent": "Enviamos um link e um código para {email}.",
+      "code": "Código de seis dígitos",
+      "verify": "Entrar",
+      "changeEmail": "Usar outro e-mail",
+      "verifying": "Entrando…",
+      "demo": "Entre instantaneamente com uma função de demonstração. Disponível apenas no ambiente de demonstração.",
+      "mailbox": "Os e-mails simulados podem ser lidos em",
+      "errors": {
+        "invalid_email": "Informe um endereço de e-mail válido.",
+        "rate_limited": "Tentativas demais. Aguarde um pouco.",
+        "invalid_code": "Este código não é válido ou expirou.",
+        "invalid_link": "Este link não é válido ou expirou. Solicite um novo."
+      },
+      "roles": {
+        "super_admin": "Superadministrador",
+        "finance": "Financeiro",
+        "support_limited": "Suporte",
+        "content_editor": "Editor de conteúdo",
+        "partner_manager": "Gestor de parceiros",
+        "local_maintainer": "Técnico local",
+        "customer": "Cliente"
+      }
+    },
+    "dashboard": {
+      "eyebrow": "Minha conta",
+      "title": "Shalom, {name}",
+      "toAdmin": "Administração",
+      "toOperator": "Portal do operador",
+      "orders": "Pedidos",
+      "newKvittel": "Novo kvitel",
+      "noOrders": "Nenhum pedido ainda",
+      "noOrdersBody": "Os pedidos feitos com este e-mail aparecem aqui.",
+      "claim": "{count, plural, one {# pedido anterior como visitante com o seu e-mail pode ser vinculado} other {# pedidos anteriores como visitante com o seu e-mail podem ser vinculados}} à sua conta.",
+      "claimCta": "Vincular",
+      "favorites": "Tziyunim favoritos",
+      "noFavorites": "Nenhum ainda."
+    },
+    "names": {
+      "title": "Nomes salvos",
+      "add": "Nova lista",
+      "privacy": "Armazenados de forma criptografada, somente com o seu consentimento. Visíveis apenas para você.",
+      "empty": "Nenhuma lista salva.",
+      "count": "{count, plural, one {# nome} other {# nomes}}",
+      "use": "Usar",
+      "delete": "Excluir lista",
+      "save": "Salvar lista",
+      "groupName": "Nome da lista (ex.: Família)",
+      "lines": "Nomes, um por linha",
+      "linesHint": "ex.: “Yossef ben Sara”",
+      "consent": "Concordo em armazenar estes nomes de forma criptografada na minha conta."
+    },
+    "settings": {
+      "title": "Privacidade e configurações",
+      "marketingOptIn": "Receber novidades",
+      "marketingOptOut": "Sem novidades",
+      "marketingOn": "Você receberá novidades ocasionalmente.",
+      "marketingOff": "Você não receberá novidades.",
+      "export": "Baixar meus dados",
+      "signOut": "Sair",
+      "delete": "Excluir minha conta",
+      "deleteTitle": "Excluir conta",
+      "deleteBody": "Os nomes salvos e os favoritos são excluídos. Os registros de pedidos necessários para a contabilidade são mantidos, sem o conteúdo que você salvou.",
+      "deleteConfirm": "Excluir permanentemente",
+      "typeEmail": "Digite seu e-mail para confirmar"
+    }
+  }
+}
