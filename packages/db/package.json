@@ -15,6 +15,11 @@
     "migrate": "tsx scripts/migrate.ts",
     "seed": "tsx scripts/seed.ts",
     "reset": "tsx scripts/reset.ts",
+    "seed:base": "tsx scripts/seed-base.ts",
+    "seed:graves": "tsx scripts/seed-graves.ts",
+    "verify-clean": "tsx scripts/verify-clean.ts",
+    "purge-demo": "tsx scripts/purge-demo.ts",
+    "admin:bootstrap": "tsx scripts/bootstrap-admin.ts",
     "typecheck": "tsc --noEmit",
     "test": "echo \"db: covered by web integration tests\""
   },

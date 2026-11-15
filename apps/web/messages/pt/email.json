@@ -1,6 +1,6 @@
 {
   "email": {
-    "footer": "Kvittel · entrega física de kvitlach nos locais de descanso dos tzadikim. O conteúdo do seu kvitel nunca é incluído nos e-mails.",
+    "footer": "KVITALE · entrega física de kvitlach nos locais de descanso dos tzadikim. O conteúdo do seu kvitel nunca é incluído nos e-mails.",
     "magic": {
       "subject": "Seu link de acesso",
       "title": "Entrar no Kvittel",
@@ -19,9 +19,21 @@
       "privacy": "Mantenha este link em sigilo: ele dá acesso ao status do seu pedido."
     },
     "delivery": {
-      "delivered": { "subject": "Entregue · {ref}", "title": "Seu kvitel foi entregue", "body": "Seu kvitel foi impresso e conduzido à abertura no tziyun de {grave}." },
-      "uncertain": { "subject": "Estamos verificando uma entrega · {ref}", "title": "Estamos verificando esta entrega", "body": "A unidade no tziyun de {grave} não conseguiu confirmar todas as etapas. Nada será impresso duas vezes automaticamente; nossa equipe está analisando o caso." },
-      "failed": { "subject": "Entrega não concluída · {ref}", "title": "Entrega não concluída", "body": "Não conseguimos entregar seu kvitel no tziyun de {grave}. Você pode escolher uma entrega posterior ou o reembolso integral." }
+      "delivered": {
+        "subject": "Entregue · {ref}",
+        "title": "Seu kvitel foi entregue",
+        "body": "Seu kvitel foi impresso e conduzido à abertura no tziyun de {grave}."
+      },
+      "uncertain": {
+        "subject": "Estamos verificando uma entrega · {ref}",
+        "title": "Estamos verificando esta entrega",
+        "body": "A unidade no tziyun de {grave} não conseguiu confirmar todas as etapas. Nada será impresso duas vezes automaticamente; nossa equipe está analisando o caso."
+      },
+      "failed": {
+        "subject": "Entrega não concluída · {ref}",
+        "title": "Entrega não concluída",
+        "body": "Não conseguimos entregar seu kvitel no tziyun de {grave}. Você pode escolher uma entrega posterior ou o reembolso integral."
+      }
     }
   }
 }

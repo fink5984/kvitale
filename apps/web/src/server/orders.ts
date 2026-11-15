@@ -27,7 +27,7 @@ import type { CheckoutInput } from "@/lib/kvittel-schema";
 import { formatMoney } from "@/lib/format";
 import { audit } from "./audit";
 import { getDb } from "./db";
-import { env } from "./env";
+import { commerceReady, env } from "./env";
 import { computeAvailability, policyOf } from "./graves";
 import { log } from "./log";
 import { activeProvider } from "./payments";
@@ -39,12 +39,27 @@ import { sendOrderConfirmation } from "./email";
 
 export type CreateOrderResult =
   | { ok: true; ref: string; redirectUrl: string }
-  | { ok: false; error: "kvittel_invalid" | "grave_unavailable" | "coupon_invalid" | "schedule_consent_required" | "rate_limited" | "server_error"; detail?: string; entryId?: string };
+  | { ok: false; error: "kvittel_invalid" | "grave_unavailable" | "coupon_invalid" | "schedule_consent_required" | "rate_limited" | "server_error" | "service_unavailable"; detail?: string; entryId?: string };
 
 const newRef = () => `KV-${randomToken(5).replace(/[^A-Za-z0-9]/g, "").slice(0, 6).toUpperCase().padEnd(6, "X")}`;
 
 export async function createOrder(input: CheckoutInput, ctx: { userId?: string | null }): Promise<CreateOrderResult> {
   const db = await getDb();
+
+  // 0. Never take an order we cannot genuinely charge for and confirm.
+  if (!commerceReady()) return { ok: false, error: "service_unavailable" };
+
+  // 0b. Double-submit protection: the same idempotency key returns the same checkout.
+  if (input.idempotencyKey) {
+    const [prev] = await db.select({ id: orders.id, ref: orders.publicRef }).from(orders).where(eq(orders.idempotencyKey, input.idempotencyKey)).limit(1);
+    if (prev) {
+      const [pay] = await db.select().from(payments).where(eq(payments.orderId, prev.id)).limit(1);
+      if (pay) {
+        const redirect = pay.provider === "mock" ? `/${input.locale}/pay/demo/${pay.providerRef}` : (pay.checkoutUrl ?? `/${input.locale}/order/${prev.ref}`);
+        return { ok: true, ref: prev.ref, redirectUrl: redirect };
+      }
+    }
+  }
 
   // 1. Authoritative render of every kvittel (page count + blocking warnings)
   const rendered: Record<string, { pages: number; lengthMm: number; layoutVersion: string }> = {};
@@ -97,6 +112,7 @@ export async function createOrder(input: CheckoutInput, ctx: { userId?: string |
         couponId: q.coupon?.id ?? null,
         priceSnapshot: { lines: q.lines, bundleBps: q.bundleBps, coupon: q.coupon, couponDiscountMinor: q.couponDiscountMinor, quotedAt: new Date().toISOString() },
         marketingConsent: input.marketingConsent,
+        idempotencyKey: input.idempotencyKey ?? null,
         isDemo: env.demoMode,
       })
       .returning();
@@ -142,7 +158,7 @@ export async function createOrder(input: CheckoutInput, ctx: { userId?: string |
     successUrl: trackUrl,
     cancelUrl: `${env.appUrl}/${input.locale}/cart`,
   });
-  await db.insert(payments).values({ orderId: order.id, provider: provider.id, providerRef: checkout.providerRef, amountMinor: q.totalMinor, currency: input.currency, isDemo: provider.isDemo });
+  await db.insert(payments).values({ orderId: order.id, provider: provider.id, providerRef: checkout.providerRef, amountMinor: q.totalMinor, currency: input.currency, isDemo: provider.isDemo, checkoutUrl: provider.isDemo ? null : checkout.redirectUrl });
   // The buyer's browser keeps the tracking token in an httpOnly cookie, so the
   // post-payment redirect never needs it in a provider URL.
   const jar = await cookies();

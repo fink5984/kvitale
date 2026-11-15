@@ -1,0 +1,125 @@
+{
+  "site": {
+    "search": {
+      "label": "Search for a tzaddik, city or name",
+      "placeholder": "Search a tzaddik or city…",
+      "submit": "Search",
+      "resultsCount": "{count, plural, =0 {No results} one {# result} other {# results}}",
+      "noResults": "We couldn’t find that tziyun yet.",
+      "requestIt": "Suggest it to us"
+    },
+    "home": {
+      "hero": {
+        "line1": "Your kvittel.",
+        "line2": "At the tziyun.",
+        "sub": "Choose a tzaddik, write your kvittel, and send it — from anywhere in the world.",
+        "browse": "or browse all tziyunim"
+      },
+      "featured": {
+        "title": "Selected tziyunim",
+        "all": "All tziyunim"
+      },
+      "how": {
+        "title": "How it works",
+        "choose": {
+          "title": "Choose a tzaddik",
+          "body": "Search by name or city."
+        },
+        "write": {
+          "title": "Write your kvittel",
+          "body": "Names and a request, in a few words."
+        },
+        "send": {
+          "title": "Send it",
+          "body": "Pay, then follow your order."
+        }
+      },
+      "cta": {
+        "title": "Ready to write your kvittel?",
+        "button": "Find a tzaddik"
+      }
+    },
+    "card": {
+      "send": "Send a kvittel"
+    },
+    "directory": {
+      "metaTitle": "Tziyunim of tzaddikim",
+      "metaDescription": "Find the resting place of a tzaddik and send your kvittel.",
+      "title": "Find the tzaddik",
+      "allCountries": "All countries",
+      "resultsFor": "{count, plural, =0 {No results for} one {# result for} other {# results for}}",
+      "none": {
+        "title": "Opening soon",
+        "body": "We are preparing the first tziyunim. You can suggest a tzaddik who matters to you."
+      },
+      "empty": {
+        "title": "Nothing found",
+        "body": "Try another spelling, or suggest the tziyun to us."
+      },
+      "suggest": "Suggest a tziyun",
+      "missing": "Missing a tzaddik?"
+    },
+    "write": {
+      "formLabel": "Write a kvittel for {name}",
+      "names": {
+        "label": "Names for the prayer",
+        "hint": "A name and the mother’s name — for example: Yisroel ben Sarah",
+        "placeholder": "Yisroel ben Sarah",
+        "placeholderMore": "Another name",
+        "nth": "Name {n}",
+        "remove": "Remove name {n}",
+        "add": "Add another name"
+      },
+      "request": {
+        "label": "Your request",
+        "placeholder": "Write your request here..."
+      },
+      "more": {
+        "eyebrow": "More about the tzaddik",
+        "title": "More options",
+        "handwriting": "Add handwriting",
+        "handwritingHint": "You can attach a photo of your own handwriting.",
+        "remember": "Remember my draft on this device",
+        "rememberHint": "Kept on this device only, for up to seven days.",
+        "wipe": "Delete my draft",
+        "wipeConfirm": "Delete everything you wrote on this device?"
+      },
+      "update": "Update the kvittel",
+      "continue": "Continue to summary and payment",
+      "noPriceYet": "The final price is shown in the next step, before you pay.",
+      "preview": {
+        "title": "This is how your kvittel will look",
+        "open": "Show the kvittel",
+        "close": "Close",
+        "exact": "The preview matches what will be printed."
+      }
+    },
+    "how": {
+      "title": "How to send a kvittel",
+      "intro": "Four short steps.",
+      "steps": {
+        "choose": {
+          "title": "Choose a tzaddik",
+          "body": "Search by name or city, in any spelling."
+        },
+        "write": {
+          "title": "Write your kvittel",
+          "body": "Names for the prayer and a request. The kvittel appears as you type, exactly as it will be printed."
+        },
+        "pay": {
+          "title": "Pay",
+          "body": "You see the final price before you confirm. No registration."
+        },
+        "follow": {
+          "title": "Follow your order",
+          "body": "You get a private tracking link. We show “Delivered” only when it has actually been confirmed."
+        }
+      },
+      "honesty": {
+        "title": "What we provide",
+        "body": "Physical delivery of the kvittel you wrote. We do not pray on your behalf, and we do not promise any outcome."
+      },
+      "cta": "Find a tzaddik"
+    }
+  }
+}

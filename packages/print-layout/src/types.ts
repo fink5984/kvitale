@@ -12,7 +12,8 @@ export type TopicId = "health" | "livelihood" | "marriage" | "children" | "succe
 
 export type Relation = "ben" | "bat" | "none";
 
-export type TemplateId = "classic" | "minimal" | "arch";
+/** "simple" = the plain ruled-paper note (default). The others are legacy layouts kept so existing orders still render identically. */
+export type TemplateId = "simple" | "classic" | "minimal" | "arch";
 
 export interface KvittelPerson {
   id: string;

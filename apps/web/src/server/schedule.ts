@@ -60,7 +60,7 @@ function nextDay(y: number, m: number, d: number) {
 
 export function closedReason(p: GraveServicePolicy, at: Date): ClosedReason | null {
   // Test-only escape hatch for E2E runs; ignored unless DEMO mode is on.
-  if (process.env.KVITTEL_E2E_IGNORE_SCHEDULE === "1" && process.env.KVITTEL_DEMO_MODE !== "0") return null;
+  if (process.env.KVITTEL_E2E_IGNORE_SCHEDULE === "1" && process.env.KVITTEL_DEMO_MODE === "1" && !process.env.DATABASE_URL) return null;
   const lp = localParts(at, p.timezone);
   if (p.observeShabbat) {
     if (lp.weekday === 6) return "shabbat";

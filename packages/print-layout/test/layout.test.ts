@@ -85,3 +85,27 @@ describe("raster", () => {
     expect(Array.from(cmd.slice(2, 6))).toEqual([0x1d, 0x76, 0x30, 0x00]);
   });
 });
+
+describe("simple ruled note", () => {
+  const simple = (over: Partial<KvittelContent>): KvittelContent => ({ template: "simple", nusach: "he", graveDisplayName: "", people: [{ id: "1", mode: "free", given: "", relation: "none", freeText: "ישראל בן שרה" }], topics: [], request: "", showBH: false, ...over });
+  const rules = (l: ReturnType<typeof layoutKvittel>) => l.pages.flatMap((p) => p.ops).filter((o) => o.kind === "rule").length;
+  it("needs no tzaddik name and prints a localized title", () => {
+    const l = layoutKvittel(simple({}), PROFILE_58MM_203DPI, mono);
+    expect(l.warnings.filter((w) => w.blocking)).toEqual([]);
+    const titles = l.pages[0]!.ops.filter((o) => o.kind === "text").map((o) => (o.kind === "text" ? o.text : ""));
+    expect(titles).toContain("קוויטל");
+    expect(layoutKvittel(simple({ nusach: "en" }), PROFILE_58MM_203DPI, mono).pages[0]!.ops.some((o) => o.kind === "text" && o.text === "Kvittel")).toBe(true);
+  });
+  it("grows and shrinks with the text, one ruled line per text line", () => {
+    const short = layoutKvittel(simple({ request: "תודה" }), PROFILE_58MM_203DPI, mono);
+    const long = layoutKvittel(simple({ request: "בריאות ופרנסה טובה ".repeat(40) }), PROFILE_58MM_203DPI, mono);
+    expect(long.totalLengthMm).toBeGreaterThan(short.totalLengthMm);
+    expect(rules(long)).toBeGreaterThan(rules(short));
+    const again = layoutKvittel(simple({ request: "תודה" }), PROFILE_58MM_203DPI, mono);
+    expect(again.totalLengthMm).toBe(short.totalLengthMm);
+  });
+  it("is blocked only when empty", () => {
+    const l = layoutKvittel(simple({ people: [] }), PROFILE_58MM_203DPI, mono);
+    expect(l.warnings.some((w) => w.code === "empty" && w.blocking)).toBe(true);
+  });
+});

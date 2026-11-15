@@ -13,7 +13,7 @@ export const personSchema = z.object({
 });
 
 export const kvittelContentSchema = z.object({
-  template: z.enum(["classic", "minimal", "arch"]),
+  template: z.enum(["simple", "classic", "minimal", "arch"]),
   nusach: z.enum(["he", "yi", "en", "fr", "ru", "es", "pt", "de"]),
   graveDisplayName: z.string().max(LIMITS.graveNameChars),
   people: z.array(personSchema).max(LIMITS.people),
@@ -43,6 +43,8 @@ export const checkoutSchema = z.object({
   acceptTerms: z.literal(true),
   acceptSchedule: z.boolean().optional(),
   locale: z.string().min(2).max(5),
+  /** Generated once per checkout attempt on the client; repeats never create a second order */
+  idempotencyKey: z.string().min(16).max(80).optional(),
   /** honeypot — must stay empty */
   website: z.string().max(0).optional(),
 });

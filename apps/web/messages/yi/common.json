@@ -1,12 +1,12 @@
 {
   "common": {
-    "brand": "קוויטל",
+    "brand": "קוויטלה",
     "meta": {
-      "title": "קוויטל — אייַער קוויטל, אַרייַנגעלייגט בייַם ציון",
-      "description": "שרייַבט אַ קוויטל פֿון ערגעץ וווּ אויף דער וועלט. מע דרוקט עס אויפֿן אָרט, לעבן דעם ציון, מע שנייַדט עס אָפּ און מע לאָזט עס אַרייַן אין דער קוויטל־עפֿענונג — מיט אַ צושטעלונג וואָס אַ סענסאָר באַשטעטיקט, און מיט פּריוואַטקייט פֿון אָנהייב אָן."
+      "title": "KVITALE — your kvittel, at the tziyun",
+      "description": "Write a kvittel from anywhere in the world and send it to the resting place of a tzaddik."
     },
     "skipToContent": "שפּרינגט צום אינהאַלט",
-    "homeAria": "קוויטל — היים־זייַט",
+    "homeAria": "KVITALE — home",
     "nav": {
       "primary": "הויפּט־נאַוויגאַציע",
       "graves": "ציונים",
@@ -42,9 +42,8 @@
       "terms": "באַדינגונגען",
       "account": "קאָנטע",
       "operators": "אָפּעראַטאָרן אויפֿן אָרט",
-      "mission": "אַ שטילער, באַכּבֿודיקער וועג צו ברענגען אייַער קוויטל צו די מקומות־מנוחה פֿון צדיקים — געדרוקט אויפֿן אָרט, אַרייַנגעלאָזט אין דער עפֿענונג, באַשטעטיקט דורך אַ סענסאָר.",
-      "disclaimer": "מיר שטעלן צו פֿיזיש דעם צעטל וואָס איר שרייַבט. דאָס איז נישט קיין תּפֿילה וואָס מע זאָגט פֿאַר אייַך, און מע זאָגט נישט צו קיין שום רוחניותדיקן רעזולטאַט. יעדער אַפּאַראַט אַרבעט מיט דער רשות פֿון די גבאים פֿונעם אָרט.",
-      "workingName": "צייַטווייַליקער נאָמען"
+      "mission": "A quiet, dignified way to be remembered at the tzaddik’s resting place: write a kvittel and send it to the tziyun.",
+      "disclaimer": "We provide physical delivery of the kvittel you write. It is not a prayer said on your behalf, and no spiritual outcome is promised. Every unit operates with the permission of the site’s caretakers."
     },
     "demo": {
       "banner": "דעמאָנסטראַציע־סבֿיבֿה: צאָלונגען, דרוקערס און דאַטן זייַנען סימולירט.",
@@ -63,7 +62,8 @@
       "discovery_only": "נאָר אינפֿאָרמאַציע",
       "coming_soon": "באַלד",
       "paused": "דער דינסט איז אָפּגעשטעלט",
-      "no_device": "קיין אַפּאַראַט נישט אינסטאַלירט"
+      "no_device": "קיין אַפּאַראַט נישט אינסטאַלירט",
+      "service_unavailable": "Opening soon"
     },
     "item": {
       "pending_payment": "וואַרט אויף צאָלונג",

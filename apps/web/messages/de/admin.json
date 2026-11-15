@@ -26,7 +26,14 @@
       "settings": "Einstellungen",
       "audit": "Audit-Protokoll",
       "activity": "Geräteereignisse",
-      "groups": { "overview": "Übersicht", "operations": "Betrieb", "catalogue": "Katalog", "fleet": "Flotte", "business": "Geschäft", "system": "System" },
+      "groups": {
+        "overview": "Übersicht",
+        "operations": "Betrieb",
+        "catalogue": "Katalog",
+        "fleet": "Flotte",
+        "business": "Geschäft",
+        "system": "System"
+      },
       "roles": {
         "super_admin": "Superadministrator",
         "admin": "Administrator",

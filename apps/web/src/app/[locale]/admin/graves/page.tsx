@@ -20,7 +20,7 @@ export default async function AdminGraves({ params }: { params: Promise<{ locale
   const all = await db.select().from(graves).orderBy(asc(graves.sortOrder));
   const tr = await db.select({ graveId: graveTranslations.graveId, locale: graveTranslations.locale, name: graveTranslations.name, reviewed: graveTranslations.reviewed }).from(graveTranslations);
   const locs = await db.select().from(locations);
-  const cards = await listGraves(locale, "USD");
+  const cards = await listGraves(locale);
   return (
     <>
       <PageHeader eyebrow={t("eyebrow")} title={t("title")} description={t("description")} actions={s.permissions.has("graves.write") ? <Link href="/admin/graves/new" className={buttonClass("primary", "sm")}>{t("new")}</Link> : undefined} />

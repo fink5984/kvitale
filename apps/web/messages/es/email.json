@@ -1,6 +1,6 @@
 {
   "email": {
-    "footer": "Kvittel · entrega física de kvitlaj en los lugares de descanso de los tzadikim. El contenido de su kvitel nunca se incluye en los correos.",
+    "footer": "KVITALE · entrega física de kvitlaj en los lugares de descanso de los tzadikim. El contenido de su kvitel nunca se incluye en los correos.",
     "magic": {
       "subject": "Su enlace de acceso",
       "title": "Acceder a Kvittel",
@@ -19,9 +19,21 @@
       "privacy": "Mantenga este enlace en privado: da acceso al estado de su pedido."
     },
     "delivery": {
-      "delivered": { "subject": "Entregado · {ref}", "title": "Su kvitel ha sido entregado", "body": "Su kvitel se ha impreso y se ha introducido en la abertura del tziún de {grave}." },
-      "uncertain": { "subject": "Estamos revisando una entrega · {ref}", "title": "Estamos revisando esta entrega", "body": "La unidad del tziún de {grave} no pudo confirmar todos los pasos. Nada se imprimirá dos veces de forma automática; nuestro equipo lo está revisando." },
-      "failed": { "subject": "Entrega no completada · {ref}", "title": "Entrega no completada", "body": "No hemos podido entregar su kvitel en el tziún de {grave}. Puede elegir una entrega posterior o un reembolso completo." }
+      "delivered": {
+        "subject": "Entregado · {ref}",
+        "title": "Su kvitel ha sido entregado",
+        "body": "Su kvitel se ha impreso y se ha introducido en la abertura del tziún de {grave}."
+      },
+      "uncertain": {
+        "subject": "Estamos revisando una entrega · {ref}",
+        "title": "Estamos revisando esta entrega",
+        "body": "La unidad del tziún de {grave} no pudo confirmar todos los pasos. Nada se imprimirá dos veces de forma automática; nuestro equipo lo está revisando."
+      },
+      "failed": {
+        "subject": "Entrega no completada · {ref}",
+        "title": "Entrega no completada",
+        "body": "No hemos podido entregar su kvitel en el tziún de {grave}. Puede elegir una entrega posterior o un reembolso completo."
+      }
     }
   }
 }

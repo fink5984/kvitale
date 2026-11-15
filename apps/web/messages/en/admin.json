@@ -26,7 +26,14 @@
       "settings": "Settings",
       "audit": "Audit log",
       "activity": "Device events",
-      "groups": { "overview": "Overview", "operations": "Operations", "catalogue": "Catalogue", "fleet": "Fleet", "business": "Business", "system": "System" },
+      "groups": {
+        "overview": "Overview",
+        "operations": "Operations",
+        "catalogue": "Catalogue",
+        "fleet": "Fleet",
+        "business": "Business",
+        "system": "System"
+      },
       "roles": {
         "super_admin": "Super admin",
         "admin": "Admin",

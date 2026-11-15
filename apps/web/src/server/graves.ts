@@ -1,5 +1,5 @@
 import "server-only";
-import { and, asc, desc, eq, inArray, isNull, lte, or, gt } from "drizzle-orm";
+import { and, asc, desc, eq, inArray, isNull } from "drizzle-orm";
 import {
   deviceAssignments,
   devices,
@@ -11,9 +11,9 @@ import {
   graveTranslations,
   locations,
   normalizeSearch,
-  prices,
 } from "@kvittel/db";
 import { getDb } from "./db";
+import { commerceReady } from "./env";
 import { closedReason, nextHilula, nextOpenAt, type ClosedReason, type GraveServicePolicy } from "./schedule";
 
 export type GraveStatus = "discovery_only" | "coming_soon" | "active" | "paused" | "maintenance";
@@ -21,7 +21,17 @@ export type GraveStatus = "discovery_only" | "coming_soon" | "active" | "paused"
 export type Availability =
   | { kind: "available_now" }
   | { kind: "scheduled"; reason: ClosedReason | "device_offline" | "maintenance"; nextOpenAt: string | null }
-  | { kind: "not_purchasable"; reason: "discovery_only" | "coming_soon" | "paused" | "no_device" };
+  | { kind: "not_purchasable"; reason: "discovery_only" | "coming_soon" | "paused" | "no_device" | "service_unavailable" };
+
+/** A rights-verified photo. Served by /api/media/grave/[id]; focal point drives the crop. */
+export interface GraveImage {
+  id: string;
+  width: number | null;
+  height: number | null;
+  alt: string | null;
+  focalX: number;
+  focalY: number;
+}
 
 export interface GraveCardData {
   id: string;
@@ -40,10 +50,13 @@ export interface GraveCardData {
   translationLocale: string;
   hilula: { date: string; hebrewDay: number; hebrewMonth: number; verified: boolean } | null;
   availability: Availability;
-  fromPrice: { amountMinor: number; currency: string } | null;
   hasMedia: boolean;
-  /** First rights-verified photo, if any. Served by /api/media/grave/[id]. */
-  cover: { id: string; width: number | null; height: number | null; alt: string | null } | null;
+  /** Main (hero) photo: the one marked "hero", else the first rights-verified photo. */
+  cover: GraveImage | null;
+  /** Background of the writing screen (falls back to the hero photo). */
+  writingImage: GraveImage | null;
+  /** Portrait crop for phones (falls back to the hero photo). */
+  mobileImage: GraveImage | null;
 }
 
 export interface GraveDetailData extends GraveCardData {
@@ -57,7 +70,7 @@ export interface GraveDetailData extends GraveCardData {
   aliases: string[];
   location: { lat: number | null; lng: number | null; verified: boolean };
   schedules: Array<{ weekday: number; openMinute: number; closeMinute: number }>;
-  media: Array<{ id: string; alt: string | null; credit: string | null; license: string | null; width: number | null; height: number | null }>;
+  media: Array<{ id: string; alt: string | null; credit: string | null; license: string | null; width: number | null; height: number | null; role: string }>;
   translationsAvailable: string[];
 }
 
@@ -72,7 +85,6 @@ interface Loaded {
   sched: (typeof graveSchedules.$inferSelect)[];
   devs: Array<{ graveId: string; deviceId: string; status: string; lastSeenAt: Date | null; paused: boolean }>;
   media: (typeof graveMedia.$inferSelect)[];
-  priceRows: (typeof prices.$inferSelect)[];
 }
 
 async function loadAll(filter?: { slugs?: string[]; ids?: string[]; includeUnpublished?: boolean }): Promise<Loaded> {
@@ -83,8 +95,8 @@ async function loadAll(filter?: { slugs?: string[]; ids?: string[]; includeUnpub
   const gs = await db.select().from(graves).where(conds.length ? and(...conds) : undefined).orderBy(asc(graves.sortOrder));
   const visible = filter?.includeUnpublished ? gs : gs.filter((g) => g.publishedAt);
   const ids = visible.map((g) => g.id);
-  if (!ids.length) return { graves: [], tr: [], loc: [], hil: [], sched: [], devs: [], media: [], priceRows: [] };
-  const [tr, loc, hil, sched, devs, media, priceRows] = await Promise.all([
+  if (!ids.length) return { graves: [], tr: [], loc: [], hil: [], sched: [], devs: [], media: [] };
+  const [tr, loc, hil, sched, devs, media] = await Promise.all([
     db.select().from(graveTranslations).where(inArray(graveTranslations.graveId, ids)),
     db.select().from(locations).where(inArray(locations.id, visible.map((g) => g.locationId!).filter(Boolean))),
     db.select().from(graveHilulot).where(inArray(graveHilulot.graveId, ids)),
@@ -95,12 +107,8 @@ async function loadAll(filter?: { slugs?: string[]; ids?: string[]; includeUnpub
       .innerJoin(devices, eq(devices.id, deviceAssignments.deviceId))
       .where(and(inArray(deviceAssignments.graveId, ids), isNull(deviceAssignments.unassignedAt))),
     db.select().from(graveMedia).where(and(inArray(graveMedia.graveId, ids), eq(graveMedia.rightsVerified, true))).orderBy(asc(graveMedia.sortOrder), asc(graveMedia.createdAt)),
-    db
-      .select()
-      .from(prices)
-      .where(and(eq(prices.item, "kvittel"), lte(prices.validFrom, new Date()), or(isNull(prices.validTo), gt(prices.validTo, new Date())))),
   ]);
-  return { graves: visible, tr, loc, hil, sched, devs, media, priceRows };
+  return { graves: visible, tr, loc, hil, sched, devs, media };
 }
 
 export function policyOf(g: typeof graves.$inferSelect, sched: Loaded["sched"]): GraveServicePolicy {
@@ -116,6 +124,8 @@ export function policyOf(g: typeof graves.$inferSelect, sched: Loaded["sched"]):
 
 export function computeAvailability(g: typeof graves.$inferSelect, sched: Loaded["sched"], devs: Loaded["devs"], now = new Date()): Availability {
   if (g.status === "discovery_only" || g.status === "coming_soon" || g.status === "paused") return { kind: "not_purchasable", reason: g.status };
+  // Never present a grave as sendable while we cannot genuinely take payment and confirm by e-mail.
+  if (!commerceReady()) return { kind: "not_purchasable", reason: "service_unavailable" };
   const mine = devs.filter((d) => d.graveId === g.id && d.status !== "retired" && d.status !== "revoked");
   if (!mine.length) return { kind: "not_purchasable", reason: "no_device" };
   const policy = policyOf(g, sched);
@@ -137,14 +147,18 @@ function pickTr(all: Loaded["tr"], graveId: string, locale: string) {
   return mine[0];
 }
 
-function fromPriceFor(graveId: string, rows: Loaded["priceRows"], currency: string) {
-  const override = rows.filter((r) => r.scope === "grave" && r.graveId === graveId && r.currency === currency).sort((a, b) => b.version - a.version)[0];
-  const def = rows.filter((r) => r.scope === "default" && r.currency === currency).sort((a, b) => b.version - a.version)[0];
-  const r = override ?? def;
-  return r ? { amountMinor: r.amountMinor, currency } : null;
+type MediaRow = typeof graveMedia.$inferSelect;
+function imageOf(m: MediaRow | undefined, locale: string): GraveImage | null {
+  return m ? { id: m.id, width: m.width, height: m.height, alt: (m.alt as Record<string, string> | null)?.[locale] ?? null, focalX: m.focalX, focalY: m.focalY } : null;
+}
+/** Picks the photo for a role, falling back to the hero (or first) photo — never to anything unverified. */
+function pickImage(rows: MediaRow[], role: "hero" | "writing" | "mobile", locale: string): GraveImage | null {
+  const hero = rows.find((m) => m.role === "hero") ?? rows.find((m) => m.role === "gallery") ?? rows[0];
+  return imageOf(role === "hero" ? hero : (rows.find((m) => m.role === role) ?? hero), locale);
 }
 
-function toCard(L: Loaded, g: typeof graves.$inferSelect, locale: string, currency: string): GraveCardData {
+function toCard(L: Loaded, g: typeof graves.$inferSelect, locale: string): GraveCardData {
+  const mine = L.media.filter((x) => x.graveId === g.id);
   const t = pickTr(L.tr, g.id, locale);
   const he = L.tr.find((x) => x.graveId === g.id && x.locale === "he");
   const loc = L.loc.find((l) => l.id === g.locationId);
@@ -167,21 +181,19 @@ function toCard(L: Loaded, g: typeof graves.$inferSelect, locale: string, curren
     translationLocale: t?.locale ?? locale,
     hilula: next && h ? { date: next.date.toISOString(), hebrewDay: h.hebrewDay, hebrewMonth: h.hebrewMonth, verified: h.verified } : null,
     availability: computeAvailability(g, L.sched, L.devs),
-    fromPrice: fromPriceFor(g.id, L.priceRows, currency),
-    hasMedia: L.media.some((m) => m.graveId === g.id),
-    cover: (() => {
-      const m = L.media.find((x) => x.graveId === g.id);
-      return m ? { id: m.id, width: m.width, height: m.height, alt: (m.alt as Record<string, string> | null)?.[locale] ?? null } : null;
-    })(),
+    hasMedia: mine.length > 0,
+    cover: pickImage(mine, "hero", locale),
+    writingImage: pickImage(mine, "writing", locale),
+    mobileImage: pickImage(mine, "mobile", locale),
   };
 }
 
-export async function listGraves(locale: string, currency: string): Promise<GraveCardData[]> {
+export async function listGraves(locale: string): Promise<GraveCardData[]> {
   const L = await loadAll();
-  return L.graves.map((g) => toCard(L, g, locale, currency));
+  return L.graves.map((g) => toCard(L, g, locale));
 }
 
-export async function getGrave(slug: string, locale: string, currency: string, opts?: { includeUnpublished?: boolean }): Promise<GraveDetailData | null> {
+export async function getGrave(slug: string, locale: string, opts?: { includeUnpublished?: boolean }): Promise<GraveDetailData | null> {
   const L = await loadAll({ slugs: [slug], includeUnpublished: opts?.includeUnpublished });
   const g = L.graves[0];
   if (!g) return null;
@@ -190,7 +202,7 @@ export async function getGrave(slug: string, locale: string, currency: string, o
   const t = pickTr(L.tr, g.id, locale);
   const loc = L.loc.find((l) => l.id === g.locationId);
   return {
-    ...toCard(L, g, locale, currency),
+    ...toCard(L, g, locale),
     bio: t?.bio ?? null,
     bioSources: t?.bioSources ?? null,
     customs: t?.customs ?? null,
@@ -201,14 +213,14 @@ export async function getGrave(slug: string, locale: string, currency: string, o
     aliases: aliases.map((a) => a.alias),
     location: { lat: loc?.lat ?? null, lng: loc?.lng ?? null, verified: loc?.verified ?? false },
     schedules: L.sched.filter((s) => s.graveId === g.id).map((s) => ({ weekday: s.weekday, openMinute: s.openMinute, closeMinute: s.closeMinute })),
-    media: L.media.filter((m) => m.graveId === g.id).map((m) => ({ id: m.id, alt: (m.alt as Record<string, string> | null)?.[locale] ?? null, credit: m.credit, license: m.license, width: m.width, height: m.height })),
+    media: L.media.filter((m) => m.graveId === g.id).map((m) => ({ id: m.id, alt: (m.alt as Record<string, string> | null)?.[locale] ?? null, credit: m.credit, license: m.license, width: m.width, height: m.height, role: m.role })),
     translationsAvailable: L.tr.filter((x) => x.graveId === g.id).map((x) => x.locale),
   };
 }
 
-export async function getGravesByIds(ids: string[], locale: string, currency: string) {
+export async function getGravesByIds(ids: string[], locale: string) {
   const L = await loadAll({ ids });
-  return L.graves.map((g) => toCard(L, g, locale, currency));
+  return L.graves.map((g) => toCard(L, g, locale));
 }
 
 /* ───────────── search ───────────── */
@@ -294,10 +306,10 @@ export async function searchGraveIds(q: string): Promise<Array<{ graveId: string
     .map(([graveId, score]) => ({ graveId, score }));
 }
 
-export async function searchGraves(q: string, locale: string, currency: string): Promise<GraveCardData[]> {
+export async function searchGraves(q: string, locale: string): Promise<GraveCardData[]> {
   const hits = await searchGraveIds(q);
   if (!hits.length) return [];
-  const cards = await getGravesByIds(hits.map((h) => h.graveId), locale, currency);
+  const cards = await getGravesByIds(hits.map((h) => h.graveId), locale);
   const order = new Map(hits.map((h, i) => [h.graveId, i]));
   return cards.sort((a, b) => order.get(a.id)! - order.get(b.id)!);
 }
@@ -308,8 +320,8 @@ export async function recentlyActivated(limit = 3) {
 }
 
 /** Graves for the builder, with the printed-name candidates in every language. */
-export async function builderGraves(locale: string, currency: string) {
-  const cards = await listGraves(locale, currency);
+export async function builderGraves(locale: string) {
+  const cards = await listGraves(locale);
   const db = await getDb();
   const tr = cards.length ? await db.select({ graveId: graveTranslations.graveId, locale: graveTranslations.locale, name: graveTranslations.name }).from(graveTranslations).where(inArray(graveTranslations.graveId, cards.map((c) => c.id))) : [];
   return cards.map((c) => ({
@@ -319,6 +331,23 @@ export async function builderGraves(locale: string, currency: string) {
     namesByLocale: Object.fromEntries(tr.filter((x) => x.graveId === c.id).map((x) => [x.locale, x.name])),
     place: c.place,
     availability: c.availability,
-    fromPrice: c.fromPrice,
+    cover: c.cover,
   }));
+}
+
+/** One tzaddik for the writing screen, with the printed-name candidates in every language. */
+export async function getBuilderGrave(slug: string, locale: string) {
+  const g = await getGrave(slug, locale);
+  if (!g) return null;
+  const db = await getDb();
+  const tr = await db.select({ locale: graveTranslations.locale, name: graveTranslations.name }).from(graveTranslations).where(eq(graveTranslations.graveId, g.id));
+  return {
+    slug: g.slug,
+    name: g.name,
+    nameHe: g.nameHe,
+    namesByLocale: Object.fromEntries(tr.map((x) => [x.locale, x.name])),
+    place: g.place,
+    availability: g.availability,
+    cover: g.cover,
+  };
 }

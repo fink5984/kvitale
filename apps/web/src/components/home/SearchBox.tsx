@@ -13,17 +13,16 @@ interface Result {
   nameHe: string;
   place: string | null;
   availability: { kind: string; reason?: string };
-  isDemo: boolean;
 }
 
 /** WAI-ARIA combobox with live, accent- and transliteration-tolerant results. */
-export function SearchBox({ currency, tone = "light", autoFocus }: { currency: string; tone?: "light" | "dark"; autoFocus?: boolean }) {
-  const t = useTranslations("public.search");
+export function SearchBox({ tone = "light", autoFocus, initialQuery = "" }: { tone?: "light" | "dark"; autoFocus?: boolean; initialQuery?: string }) {
+  const t = useTranslations("site.search");
   const ta = useTranslations("status.availability");
   const locale = useLocale();
   const router = useRouter();
   const id = useId();
-  const [q, setQ] = useState("");
+  const [q, setQ] = useState(initialQuery);
   const [results, setResults] = useState<Result[]>([]);
   const [loading, setLoading] = useState(false);
   const [open, setOpen] = useState(false);
@@ -40,7 +39,7 @@ export function SearchBox({ currency, tone = "light", autoFocus }: { currency: s
     setLoading(true);
     const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}&locale=${locale}&currency=${currency}`, { signal: ctrl.signal });
+        const res = await fetch(`/api/search?q=${encodeURIComponent(q)}&locale=${locale}`, { signal: ctrl.signal });
         const data = (await res.json()) as { results: Result[] };
         setResults(data.results ?? []);
         setActive(-1);
@@ -55,7 +54,7 @@ export function SearchBox({ currency, tone = "light", autoFocus }: { currency: s
       clearTimeout(timer);
       ctrl.abort();
     };
-  }, [q, locale, currency]);
+  }, [q, locale]);
 
   useEffect(() => {
     const onDoc = (e: MouseEvent) => {
@@ -81,10 +80,10 @@ export function SearchBox({ currency, tone = "light", autoFocus }: { currency: s
         }}
         className={cn(
           "group flex h-16 items-center gap-3 rounded-full ps-6 pe-2 transition-[box-shadow,background-color] duration-300 sm:h-[4.4rem]",
-          dark ? "bg-ivory-50/[0.07] ring-1 ring-ivory-50/20 backdrop-blur-md focus-within:bg-ivory-50/[0.12] focus-within:ring-gold-300/70" : "bg-ivory-50 shadow-lift ring-1 ring-stone-300 focus-within:ring-gold-400",
+          dark ? "bg-ivory-50/95 shadow-lift ring-1 ring-ivory-50/40 focus-within:ring-2 focus-within:ring-gold-300" : "bg-ivory-50 shadow-lift ring-1 ring-stone-300 focus-within:ring-2 focus-within:ring-gold-400",
         )}
       >
-        <Search className={cn("size-5 shrink-0", dark ? "text-gold-300" : "text-gold-600")} strokeWidth={1.5} aria-hidden />
+        <Search className={cn("size-5 shrink-0", "text-gold-600")} strokeWidth={1.5} aria-hidden />
         <label htmlFor={`${id}-input`} className="sr-only">
           {t("label")}
         </label>
@@ -111,10 +110,10 @@ export function SearchBox({ currency, tone = "light", autoFocus }: { currency: s
             } else if (e.key === "Escape") setOpen(false);
           }}
           placeholder={t("placeholder")}
-          className={cn("h-full min-w-0 flex-1 bg-transparent text-[1.05rem] outline-none sm:text-lg", dark ? "text-ivory-50 placeholder:text-ivory-100/50" : "text-midnight-900 placeholder:text-charcoal-400")}
+          className={cn("h-full min-w-0 flex-1 bg-transparent text-[1.05rem] outline-none sm:text-lg", "text-midnight-900 placeholder:text-charcoal-400")}
         />
-        {loading && <Loader2 className={cn("size-4 animate-spin", dark ? "text-ivory-100/60" : "text-charcoal-400")} aria-hidden />}
-        <button type="submit" className={cn("inline-flex h-12 shrink-0 items-center gap-2 rounded-full px-5 text-sm font-medium transition-colors sm:h-14 sm:px-7", dark ? "bg-gold-400 text-midnight-950 hover:bg-gold-300" : "bg-midnight-900 text-ivory-50 hover:bg-midnight-800")}>
+        {loading && <Loader2 className={cn("size-4 animate-spin", "text-charcoal-400")} aria-hidden />}
+        <button type="submit" className={cn("inline-flex h-12 shrink-0 items-center gap-2 rounded-full px-5 text-sm font-medium transition-colors sm:h-14 sm:px-7", "bg-midnight-900 text-ivory-50 hover:bg-midnight-800")}>
           <span className="hidden sm:inline">{t("submit")}</span>
           <Arrow className="size-4" aria-hidden />
         </button>
@@ -135,18 +134,13 @@ export function SearchBox({ currency, tone = "light", autoFocus }: { currency: s
           {results.map((r, i) => (
             <li key={r.slug} id={`${id}-opt-${i}`} role="option" aria-selected={i === active}>
               <Link href={`/graves/${r.slug}`} className={cn("flex items-center gap-4 rounded-xl px-3 py-3 transition-colors", i === active ? "bg-stone-100" : "hover:bg-ivory-200")} onMouseEnter={() => setActive(i)}>
-                <span className="tex-stone grid size-12 shrink-0 place-items-center rounded-t-full rounded-b-sm ring-1 ring-stone-300">
-                  <span className="hebrew-name text-[0.8rem] leading-none text-midnight-900" lang="he" dir="rtl">
-                    {r.nameHe.split(" ").slice(-1)[0]}
-                  </span>
-                </span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate font-display text-lg leading-tight text-midnight-900">
                     <bdi>{r.name}</bdi>
                   </span>
                   <span className="block truncate text-[0.82rem] text-charcoal-500">{r.place}</span>
                 </span>
-                <span className={cn("hidden shrink-0 text-xs sm:block", r.availability.kind === "available_now" ? "text-sage-600" : "text-charcoal-500")}>{ta(r.availability.kind === "available_now" ? "available_now" : r.availability.reason!)}</span>
+                {r.availability.kind === "not_purchasable" && <span className="hidden shrink-0 text-xs text-charcoal-500 sm:block">{ta(r.availability.reason!)}</span>}
               </Link>
             </li>
           ))}

@@ -7,7 +7,7 @@ import { dirOf, INTL_TAG, type AppLocale } from "@/i18n/locales";
 import { routing } from "@/i18n/routing";
 import { fontVars } from "@/lib/fonts";
 
-const PUBLIC_NS = ["common", "public", "builder", "commerce", "account", "validation", "status"];
+const PUBLIC_NS = ["common", "site", "public", "builder", "commerce", "account", "validation", "status"];
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

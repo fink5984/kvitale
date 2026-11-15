@@ -1,12 +1,12 @@
 {
   "common": {
-    "brand": "Kvittel",
+    "brand": "KVITALE",
     "meta": {
-      "title": "Kvittel — seu kvitel, depositado no tziyun",
-      "description": "Escreva um kvitel de qualquer lugar do mundo. Ele é impresso no local, ao lado do tziyun, cortado e conduzido à abertura destinada aos kvitlach — com entrega confirmada por sensor e privacidade desde a concepção."
+      "title": "KVITALE — your kvittel, at the tziyun",
+      "description": "Write a kvittel from anywhere in the world and send it to the resting place of a tzaddik."
     },
     "skipToContent": "Pular para o conteúdo",
-    "homeAria": "Kvittel — início",
+    "homeAria": "KVITALE — home",
     "nav": {
       "primary": "Navegação principal",
       "graves": "Tziyunim",
@@ -18,10 +18,20 @@
       "menu": "Abrir menu",
       "close": "Fechar menu"
     },
-    "cta": { "write": "Escrever um kvitel" },
+    "cta": {
+      "write": "Escrever um kvitel"
+    },
     "language": "Idioma",
     "currency": "Moeda",
-    "weekdays": { "0": "Domingo", "1": "Segunda-feira", "2": "Terça-feira", "3": "Quarta-feira", "4": "Quinta-feira", "5": "Sexta-feira", "6": "Shabat" },
+    "weekdays": {
+      "0": "Domingo",
+      "1": "Segunda-feira",
+      "2": "Terça-feira",
+      "3": "Quarta-feira",
+      "4": "Quinta-feira",
+      "5": "Sexta-feira",
+      "6": "Shabat"
+    },
     "footer": {
       "service": "Serviço",
       "requestGrave": "Sugerir um tziyun",
@@ -32,9 +42,8 @@
       "terms": "Termos",
       "account": "Conta",
       "operators": "Operadores locais",
-      "mission": "Uma forma serena e digna de levar o seu kvitel aos locais de descanso dos tzadikim — impresso no local, depositado na abertura e confirmado por sensor.",
-      "disclaimer": "Oferecemos a entrega física do bilhete que você escreve. Não se trata de uma prece dita em seu nome, e nenhum resultado espiritual é prometido. Cada unidade funciona com a permissão dos responsáveis pelo local.",
-      "workingName": "nome provisório"
+      "mission": "A quiet, dignified way to be remembered at the tzaddik’s resting place: write a kvittel and send it to the tziyun.",
+      "disclaimer": "We provide physical delivery of the kvittel you write. It is not a prayer said on your behalf, and no spiritual outcome is promised. Every unit operates with the permission of the site’s caretakers."
     },
     "demo": {
       "banner": "Ambiente de demonstração: pagamentos, impressoras e dados são simulados.",
@@ -53,7 +62,8 @@
       "discovery_only": "Somente informação",
       "coming_soon": "Em breve",
       "paused": "Serviço pausado",
-      "no_device": "Nenhuma unidade instalada"
+      "no_device": "Nenhuma unidade instalada",
+      "service_unavailable": "Opening soon"
     },
     "item": {
       "pending_payment": "Aguardando pagamento",

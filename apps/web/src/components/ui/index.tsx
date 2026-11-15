@@ -1,5 +1,5 @@
 /**
- * Kvittel Design System — core primitives.
+ * KVITALE Design System — core primitives.
  * Consistent radii (2/4/8/14), warm shadows, gold used only as light & focus.
  */
 import { Loader2 } from "lucide-react";
@@ -15,7 +15,7 @@ type Size = "sm" | "md" | "lg" | "xl";
 
 const VARIANTS: Record<Variant, string> = {
   primary: "bg-midnight-900 text-ivory-50 hover:bg-midnight-800 shadow-[inset_0_1px_0_rgb(255_255_255/0.08)] active:translate-y-px",
-  gold: "bg-gold-400 text-midnight-950 hover:bg-gold-300 shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_8px_24px_-12px_rgb(179_141_72/0.8)] active:translate-y-px",
+  gold: "bg-gold-400 text-midnight-950 hover:bg-gold-300 shadow-[inset_0_1px_0_rgb(255_255_255/0.35),0_8px_24px_-12px_rgb(194_143_46/0.7)] active:translate-y-px",
   outline: "border border-[var(--line-strong)] bg-transparent text-midnight-900 hover:border-midnight-900 hover:bg-ivory-50",
   ghost: "bg-transparent text-midnight-900 hover:bg-stone-100",
   quiet: "bg-stone-100 text-midnight-900 hover:bg-stone-200",

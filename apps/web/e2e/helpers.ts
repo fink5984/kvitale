@@ -17,21 +17,18 @@ export function simFor(grave: string) {
 /** Guest journey up to the order page. Returns the order ref. */
 export async function orderKvittel(page: Page, opts: { locale?: string; grave: string; given: string; parent: string; request: string; email: string }) {
   const l = opts.locale ?? "en";
-  await page.goto(`/${l}/write?grave=${opts.grave}`);
+  await page.goto(`/${l}/graves/${opts.grave}`);
   await page.evaluate(() => sessionStorage.clear());
-  await page.goto(`/${l}/write?grave=${opts.grave}`);
-  await page.locator('input[id^="g-"]').first().fill(opts.given);
-  await page.locator('input[id^="p-"]').first().fill(opts.parent);
+  await page.goto(`/${l}/graves/${opts.grave}`);
+  await page.locator('input[aria-label="Name 1"]').first().fill(`${opts.given} ben ${opts.parent}`);
   await page.locator("#request").fill(opts.request);
-  await page.locator("form button[type=submit]").click();
-  await page.waitForURL(`**/${l}/cart`);
-  await page.locator('a[href$="/checkout"]').click();
+  await page.locator("form button[type=submit]").first().click();
   await page.waitForURL(`**/${l}/checkout`);
   await page.locator("#email").fill(opts.email);
-  await page.locator('input[type=checkbox]').first().check();
+  await page.locator('#pay-form input[type=checkbox]').first().check();
   const consent = page.getByText(/printed later/i);
   if (await consent.count()) await consent.click();
-  await page.locator("form button[type=submit]").click();
+  await page.locator('button[form="pay-form"]').click();
   await page.waitForURL(/\/pay\/demo\//);
   await page.getByRole("button", { name: /successful payment/i }).click();
   await page.waitForURL(/\/order\/KV-/);

@@ -1,33 +1,27 @@
-# UX & design system — "Nocturne & Limestone"
-
-Live reference: **`/{locale}/design`** (art directions, tokens, type specimens per script, components).
+# UX & design system — KVITALE / קוויטלה
 
 ## Principles
-1. **Sacred, quiet, precise.** No casino glow, no donation-site urgency, no generic SaaS gradients. Gold is light, never fill.
-2. **Night for meaning, limestone for work.** Dark sections mark moments (arrival, delivery proof, footer, admin navigation); light editorial surfaces carry tasks.
-3. **Honest imagery.** No stock photos, no fabricated tombstones. Graves are shown as *typographic portraits*: the Hebrew name set inside a limestone arch. Licensed photos appear only with confirmed rights.
-4. **Truthful states.** Every status, chart and badge reflects real data or is labelled DEMO.
+1. **Emotion, photograph, kvittel, user.** The tzaddik's real photograph is the centre of the public site; technology (printers, sensors) is invisible.
+2. **Light and calm.** Cream/parchment surfaces carry tasks; deep navy and antique gold mark impressions and actions (hero, CTA, price card, footer).
+3. **Honest imagery.** Only rights-verified photographs (Admin → Graves → Media). With no photo, a brand surface with the Hebrew name is shown — never an invented picture.
+4. **Truthful states.** Nothing simulated is shown as real; DEMO exists only in an explicit local environment.
+5. **No prices before the kvittel is written.** The first price appears on the summary/payment screen.
 
-## Tokens (`apps/web/src/app/globals.css`)
-- Palette: midnight 950–300, ivory 50–200, stone 100–500, gold 100–700, charcoal 400–900, umber, parchment; status sage/ochre/oxblood/ink.
-- Radii 2/4/8/14/22 + arch (`rounded-t-full rounded-b-*`). Shadows: hair, soft, lift, paper, glow (warm, never grey).
-- Motion: `rise` reveal, `flicker` candle, `kvittel-descend` hero, `paper-feed`; all disabled under `prefers-reduced-motion`.
-- Textures: `tex-stone`, `tex-night`, `tex-paper` — inline SVG noise, licence-free.
+## Brand assets
+Logo: `apps/web/public/brand/kvitale-logo-*.webp` (from the supplied artwork, never redrawn), favicon `src/app/icon.png`, `apple-icon.png`. `LogoMark` = symbol alone, `Logo` = symbol + typeset wordmark (קוויטלה / KVITALE).
+
+## Tokens (`src/app/globals.css`)
+Derived from the logo: navy `midnight-*` (wordmark ink), cream `ivory-*`/`parchment` (the note), antique gold `gold-*` (frame, ribbon), blue-grey `line-ink` (handwriting lines). Token names are unchanged so the admin follows automatically.
 
 ## Typography
-Display: Frank Ruhl Libre (he/yi) / Cormorant Garamond (Latin, Cyrillic). Body: Heebo / Manrope. Font stacks swap by `<html lang>`, and Hebrew names inside Latin pages keep a Hebrew face. Eyebrows use tracked caps in Latin and gentle spacing in Hebrew.
+Display: David Libre (Hebrew) / Playfair Display (Latin, Cyrillic). Text and every input: Assistant (Hebrew) / Source Sans 3 (Latin, Cyrillic). Stacks swap by `<html lang>`. Inputs never use a decorative face. Print preview and printer share Noto Serif (packages/print-layout).
 
-## Signature interactions
-- **Hero**: night arch with a kvittel descending into the opening; live search combobox (ARIA, keyboard).
-- **Builder**: form left, *stone niche stage* right with the exact printed slip (same engine/fonts as the printer), "show as printed" 1-bit toggle, torn-paper edges; mobile bottom bar + preview sheet.
-- **Tracking**: horizontal/vertical timeline with times in the grave's local time and an explicit confidence statement.
-- **Device Lab**: a "printer mouth" where simulated slips feed out.
+## Public journey
+`/` (hero + search, selected tziyunim, 3 words, one CTA) → `/graves` (search + country) → `/graves/[slug]` (writing screen over the tziyun photo; "more about" below) → `/checkout` (what is sent, final price, pay) → `/order/[ref]`.
+`/write` and `/cart` redirect for old links. Draft + basket live in `src/lib/store.ts` (session storage, optional 7-day device memory, wipe) and survive language switch, other tzaddik, and a cancelled payment.
 
-## Components (`@/components/ui`, `@/components/admin/kit`)
-Button (primary, gold, outline, ghost, quiet, danger, onDark; sizes; loading), Field/Input/Textarea/Select, Checkbox, Segmented, Card, Badge, DemoBadge, Notice, Stepper, Modal, Drawer, Skeleton, Spinner, EmptyState, ErrorState, Ornament, ArchGlyph; admin: PageHeader, Panel, Kpi (with deltas, drill-down), Table/Td, BarChart, LineChart, Meter, Dl.
+## The note ("simple" template)
+Title "קוויטל" (language follows what is typed), fine ruled lines, names and request on the lines; length follows the text. Implemented once in `packages/print-layout` (preview == printer). Legacy templates remain only so existing orders re-render identically.
 
-## Accessibility (WCAG 2.2 AA target)
-Skip link; visible gold focus ring; landmarks and labelled regions; Radix dialogs (focus trap, Esc); combobox semantics; `aria-live` for search counts, warnings and statuses; reduced-motion; contrast-checked text pairs; `lang` on mixed-script fragments. Not yet done: full screen-reader audit and automated axe run in CI.
-
-## Responsive
-Mobile-first; verified at 390 and 1440 by Playwright (no horizontal overflow) for public, admin and operator; desktop layouts are composed, not stretched (max width 88rem, asymmetric grids, sticky stages).
+## Mobile
+Writing first (name + first field on the first screen); preview opens from a bottom bar and never covers the fields; no horizontal scroll at 375/390/768/1440.

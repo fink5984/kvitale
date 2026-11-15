@@ -1,12 +1,12 @@
 {
   "common": {
-    "brand": "Kvittel",
+    "brand": "KVITALE",
     "meta": {
-      "title": "Kvittel — your kvittel, placed at the tziyun",
-      "description": "Write a kvittel from anywhere in the world. It is printed on site beside the tziyun, cut, and passed into the kvittel opening — with sensor-confirmed delivery and privacy by design."
+      "title": "KVITALE — your kvittel, at the tziyun",
+      "description": "Write a kvittel from anywhere in the world and send it to the resting place of a tzaddik."
     },
     "skipToContent": "Skip to content",
-    "homeAria": "Kvittel — home",
+    "homeAria": "KVITALE — home",
     "nav": {
       "primary": "Main navigation",
       "graves": "Tziyunim",
@@ -18,10 +18,20 @@
       "menu": "Open menu",
       "close": "Close menu"
     },
-    "cta": { "write": "Write a kvittel" },
+    "cta": {
+      "write": "Write a kvittel"
+    },
     "language": "Language",
     "currency": "Currency",
-    "weekdays": { "0": "Sunday", "1": "Monday", "2": "Tuesday", "3": "Wednesday", "4": "Thursday", "5": "Friday", "6": "Shabbat" },
+    "weekdays": {
+      "0": "Sunday",
+      "1": "Monday",
+      "2": "Tuesday",
+      "3": "Wednesday",
+      "4": "Thursday",
+      "5": "Friday",
+      "6": "Shabbat"
+    },
     "footer": {
       "service": "Service",
       "requestGrave": "Suggest a tziyun",
@@ -32,9 +42,8 @@
       "terms": "Terms",
       "account": "Account",
       "operators": "Site operators",
-      "mission": "A quiet, dignified way to bring your kvittel to the resting places of tzaddikim — printed on site, placed in the opening, confirmed by sensor.",
-      "disclaimer": "We provide physical delivery of the note you write. It is not a prayer said on your behalf, and no spiritual outcome is promised. Every unit operates with the permission of the site's caretakers.",
-      "workingName": "working name"
+      "mission": "A quiet, dignified way to be remembered at the tzaddik’s resting place: write a kvittel and send it to the tziyun.",
+      "disclaimer": "We provide physical delivery of the kvittel you write. It is not a prayer said on your behalf, and no spiritual outcome is promised. Every unit operates with the permission of the site’s caretakers."
     },
     "demo": {
       "banner": "Demonstration environment: payments, printers and data are simulated.",
@@ -53,7 +62,8 @@
       "discovery_only": "Information only",
       "coming_soon": "Coming soon",
       "paused": "Service paused",
-      "no_device": "No unit installed"
+      "no_device": "No unit installed",
+      "service_unavailable": "Opening soon"
     },
     "item": {
       "pending_payment": "Awaiting payment",

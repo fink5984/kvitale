@@ -2,7 +2,11 @@
   "commerce": {
     "cart": {
       "title": "Ihr Warenkorb",
-      "empty": { "title": "Ihr Warenkorb ist leer", "body": "Schreiben Sie ein Kvittel, dann erscheint es hier.", "cta": "Ein Kvittel schreiben" },
+      "empty": {
+        "title": "Ihr Warenkorb ist leer",
+        "body": "Schreiben Sie ein Kvittel, dann erscheint es hier.",
+        "cta": "Ein Kvittel schreiben"
+      },
       "kvittel": "Kvittel {n}",
       "summary": "{people, plural, =0 {Keine Namen} one {# Name} other {# Namen}} · {chars} Zeichen",
       "edit": "Bearbeiten",
@@ -22,10 +26,10 @@
       "error": "Der Preis kann gerade nicht berechnet werden. Bitte versuchen Sie es erneut."
     },
     "checkout": {
-      "title": "Zahlung",
-      "intro": "Wir benötigen nur eine E-Mail-Adresse für Ihren Beleg und den Zustellungslink.",
+      "title": "Summary and payment",
+      "intro": "Everything in one place: what is being sent, the final price, and payment.",
       "empty": "Es gibt nichts zu bezahlen.",
-      "emptyCta": "Ein Kvittel schreiben",
+      "emptyCta": "Find a tzaddik",
       "email": "E-Mail",
       "emailHint": "Für den Beleg und einen privaten Verfolgungslink. Es wird kein Konto angelegt.",
       "coupon": "Gutscheincode",
@@ -59,8 +63,18 @@
         "coupon_invalid": "Der Gutschein kann nicht eingelöst werden ({detail}).",
         "schedule_consent_required": "Bitte bestätigen Sie, dass einige Zustellungen eingeplant werden.",
         "rate_limited": "Zu viele Versuche. Bitte warten Sie einige Minuten.",
-        "server_error": "Etwas ist schiefgelaufen. Es wurde nichts belastet. Bitte versuchen Sie es erneut."
-      }
+        "server_error": "Etwas ist schiefgelaufen. Es wurde nichts belastet. Bitte versuchen Sie es erneut.",
+        "service_unavailable": "Ordering is not open yet. You have not been charged."
+      },
+      "summaryTitle": "Summary",
+      "deliveries": "{count, plural, one {# kvittel} other {# kvittlach}}",
+      "extraPages": "Includes extra pages",
+      "bundle": "Several tziyunim ({pct}%)",
+      "couponLine": "Coupon",
+      "total": "Total to pay",
+      "taxNote": "The final amount, charged once. The receipt is sent by e-mail.",
+      "quoteError": "We can’t calculate the price right now. Please try again.",
+      "unavailable": "Ordering is not open yet, so payment can’t be completed right now. Your draft is saved."
     },
     "demoPay": {
       "noCard": "Es werden keine Kartendaten erfasst",
@@ -87,14 +101,21 @@
       "webhookNote": "Bevor etwas gedruckt wird, warten wir auf die signierte Bestätigung des Zahlungsanbieters — nicht auf Ihren Browser.",
       "localTime": "Ortszeit an der Grabstätte: {time} ({tz})",
       "scheduledFor": "Druck eingeplant ab {when}, Ortszeit.",
-      "uncertain": { "title": "Wir prüfen diese Zustellung", "body": "Die Einheit konnte nicht jeden Schritt bestätigen. Wir drucken nicht automatisch erneut; ein Mitarbeiter prüft den Vorgang und meldet sich bei Ihnen." },
+      "uncertain": {
+        "title": "Wir prüfen diese Zustellung",
+        "body": "Die Einheit konnte nicht jeden Schritt bestätigen. Wir drucken nicht automatisch erneut; ein Mitarbeiter prüft den Vorgang und meldet sich bei Ihnen."
+      },
       "confidence": {
         "sensor_confirmed": "Bestätigt durch den optischen Sensor im Schacht.",
         "printer_reported": "Vom Drucker gemeldet. Diese Einheit hat keinen Sensor im Schacht, daher wurde der Durchgang in die Öffnung nicht unabhängig bestätigt.",
         "manual": "Nach Prüfung manuell von unserem Team bestätigt."
       },
       "privacy": "Der Inhalt Ihres Kvittels wird auf dieser Seite niemals angezeigt.",
-      "locked": { "title": "Diese Bestellung ist privat", "body": "Öffnen Sie sie über den Link in Ihrer Bestätigungs-E-Mail oder melden Sie sich mit der verwendeten E-Mail-Adresse an.", "signIn": "Anmelden" }
+      "locked": {
+        "title": "Diese Bestellung ist privat",
+        "body": "Öffnen Sie sie über den Link in Ihrer Bestätigungs-E-Mail oder melden Sie sich mit der verwendeten E-Mail-Adresse an.",
+        "signIn": "Anmelden"
+      }
     }
   }
 }

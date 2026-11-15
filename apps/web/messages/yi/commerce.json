@@ -26,10 +26,10 @@
       "error": "מע קען איצט נישט אויסרעכענען דעם פּרייַז. ביטע פּרוּווט נאָך אַ מאָל."
     },
     "checkout": {
-      "title": "צאָלונג",
-      "intro": "מיר דאַרפֿן נאָר אַן אימעיל פֿאַר אייַער קבלה און פֿאַרן צושטעלונג־לינק.",
+      "title": "Summary and payment",
+      "intro": "Everything in one place: what is being sent, the final price, and payment.",
       "empty": "עס איז נישטאָ וואָס צו באַצאָלן.",
-      "emptyCta": "שרייַבט אַ קוויטל",
+      "emptyCta": "Find a tzaddik",
       "email": "אימעיל",
       "emailHint": "פֿאַר דער קבלה און אַ פּריוואַטן לינק נאָכצופֿאָלגן. קיין קאָנטע ווערט נישט געשאַפֿן.",
       "coupon": "קופּאָן־קאָד",
@@ -63,8 +63,18 @@
         "coupon_invalid": "מע קען נישט אָנווענדן דעם קופּאָן ({detail}).",
         "schedule_consent_required": "ביטע באַשטעטיקט אַז טייל צושטעלונגען וועלן פֿאַרפּלאַנירט ווערן.",
         "rate_limited": "צו פֿיל פּרוּוון. ביטע וואַרט עטלעכע מינוט.",
-        "server_error": "עפּעס איז נישט געגאַנגען. מע האָט אייַך נישט באַרעכנט. ביטע פּרוּווט נאָך אַ מאָל."
-      }
+        "server_error": "עפּעס איז נישט געגאַנגען. מע האָט אייַך נישט באַרעכנט. ביטע פּרוּווט נאָך אַ מאָל.",
+        "service_unavailable": "Ordering is not open yet. You have not been charged."
+      },
+      "summaryTitle": "Summary",
+      "deliveries": "{count, plural, one {# kvittel} other {# kvittlach}}",
+      "extraPages": "Includes extra pages",
+      "bundle": "Several tziyunim ({pct}%)",
+      "couponLine": "Coupon",
+      "total": "Total to pay",
+      "taxNote": "The final amount, charged once. The receipt is sent by e-mail.",
+      "quoteError": "We can’t calculate the price right now. Please try again.",
+      "unavailable": "Ordering is not open yet, so payment can’t be completed right now. Your draft is saved."
     },
     "demoPay": {
       "noCard": "מע זאַמלט נישט קיין קאַרטל־פּרטים",

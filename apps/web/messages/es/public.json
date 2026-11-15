@@ -1,123 +1,5 @@
 {
   "public": {
-    "card": {
-      "location": "Ubicación",
-      "hilula": "Hilulá",
-      "hilulaOn": "Hilulá: {date}",
-      "from": "desde",
-      "notPurchasable": "Aún no disponible para entrega",
-      "write": "Escribir un kvitel",
-      "details": "Detalles"
-    },
-    "search": {
-      "label": "Buscar un tzadik, una ciudad o un nombre",
-      "placeholder": "Tzadik, ciudad o apodo — p. ej. Kerestir",
-      "submit": "Buscar",
-      "resultsCount": "{count, plural, =0 {Sin resultados} one {# resultado} other {# resultados}}",
-      "noResults": "Todavía no hemos encontrado ese tziún.",
-      "requestIt": "Sugiéranoslo"
-    },
-    "home": {
-      "hero": {
-        "eyebrow": "Desde cualquier lugar del mundo",
-        "titleA": "Su kvitel,",
-        "titleB": "depositado en el tziún.",
-        "subtitle": "Escriba los nombres y las palabras de su corazón. Imprimimos su kvitel junto al tziún, lo guiamos hasta la abertura de los kvitlaj y confirmamos el momento en que pasa por el sensor.",
-        "searchHint": "En hebreo, inglés, ídish, ruso o cualquier transliteración.",
-        "trust": {
-          "printed": "Impreso en el lugar, nunca a mano",
-          "sensor": "Entrega confirmada por sensor",
-          "noAccount": "Sin necesidad de cuenta",
-          "private": "Cifrado y privado"
-        }
-      },
-      "featured": {
-        "eyebrow": "Lugares de descanso",
-        "title": "Tziunim que reciben kvitlaj",
-        "body": "{count, plural, one {Actualmente # tziún recibe} other {Actualmente # tziunim reciben}} kvitlaj. Cada unidad se instala con el permiso de los responsables del lugar.",
-        "all": "Todos los tziunim"
-      },
-      "journey": {
-        "eyebrow": "El recorrido",
-        "title": "De sus palabras a la abertura",
-        "note": "La mayoría termina en uno o dos minutos. Tómese todo el tiempo que necesite.",
-        "choose": { "title": "Elegir", "body": "Encuentre el tziún por nombre, ciudad o apodo, con cualquier grafía." },
-        "write": { "title": "Escribir", "body": "Nombres y peticiones con sus propias palabras — y vea la nota impresa mientras escribe." },
-        "pay": { "title": "Pagar", "body": "Precio claro antes de pagar. Sin registro y sin guardar datos de tarjeta." },
-        "deliver": { "title": "Entregado", "body": "Impreso, cortado e introducido en la abertura — siga cada paso en directo." }
-      },
-      "proof": {
-        "eyebrow": "Físico y verificable",
-        "title": "Un papel, un camino cerrado y un sensor que lo ve pasar.",
-        "body": "Cada unidad es una columna discreta, color piedra, junto al tziún. En su interior, una impresora térmica imprime su kvitel, lo corta por completo y lo libera en un conducto cerrado que lleva a la abertura de los kvitlaj.",
-        "honesty": "Solo mostramos «Entregado» cuando el equipo lo confirma. Si un sensor no puede confirmarlo, se lo decimos — y una persona lo revisa. Nunca se imprime nada dos veces de forma automática.",
-        "steps": {
-          "printed": { "title": "Impreso", "body": "Exactamente como en su vista previa — el mismo motor de maquetación, las mismas fuentes." },
-          "cut": { "title": "Cortado", "body": "Un corte completo separa su kvitel del rollo." },
-          "chute": { "title": "Pasa por el sensor", "body": "Un sensor óptico en el conducto registra la nota en su descenso." },
-          "delivered": { "title": "Entregado", "body": "Verá la hora de entrega en la hora local del tziún." }
-        },
-        "diagram": {
-          "aria": "Diagrama de la unidad en el lugar: impresora, cortador, conducto cerrado y sensor óptico que conducen a la abertura de los kvitlaj",
-          "opening": "Abertura de los kvitlaj",
-          "printer": "Impresora térmica",
-          "cutter": "Corte completo",
-          "chute": "Conducto cerrado",
-          "sensor": "Sensor óptico",
-          "drawer": "Puerta de servicio con llave",
-          "modem": "Conexión saliente segura"
-        }
-      },
-      "hilulot": {
-        "eyebrow": "Calendario",
-        "title": "Próximas hilulot",
-        "body": "Días de recuerdo, en los que muchos envían kvitlaj. Las fechas siguen el calendario hebreo.",
-        "verify": "Las fechas de hilulá se muestran tal como se citan habitualmente y se están verificando con las fuentes."
-      },
-      "principles": {
-        "title": "Basado en cuatro compromisos",
-        "privacy": { "title": "Privado desde el diseño", "body": "Los nombres y las peticiones se cifran, nunca se registran y se eliminan tras la entrega." },
-        "honesty": { "title": "Estado honesto", "body": "Ningún «entregado» sin confirmación. Ninguna promesa de resultados." },
-        "permission": { "title": "Con permiso", "body": "Las unidades se instalan solo con el consentimiento de los responsables de cada lugar." },
-        "physical": { "title": "Verdaderamente físico", "body": "Sus palabras se convierten en papel en el tziún — no en un correo, no en una pantalla." }
-      },
-      "cta": {
-        "title": "Cuando usted esté listo.",
-        "body": "Escriba su kvitel ahora. Esperará en la cola hasta el próximo horario de servicio del tziún.",
-        "write": "Escribir un kvitel",
-        "learn": "Cómo funciona"
-      }
-    },
-    "directory": {
-      "metaTitle": "Tziunim de tzadikim",
-      "metaDescription": "Encuentre los lugares de descanso de los tzadikim y envíe un kvitel que se imprime en el lugar.",
-      "eyebrow": "Directorio",
-      "title": "Tziunim de tzadikim",
-      "subtitle": "Busque en cualquier idioma o grafía. La disponibilidad se muestra tal como está ahora mismo.",
-      "resultsFor": "{count, plural, =0 {Sin resultados para} one {# resultado para} other {# resultados para}}",
-      "empty": { "title": "Aún no hay nada aquí", "body": "Ningún tziún coincide con estos filtros. Pruebe con otra grafía, o díganos qué tziún busca.", "cta": "Sugerir un tziún" },
-      "missing": { "title": "¿Falta un tziún?", "body": "Díganos adónde le gustaría enviar un kvitel. Las solicitudes nos ayudan a decidir dónde instalar la próxima unidad.", "cta": "Sugerir un tziún" },
-      "filters": {
-        "label": "Filtrar",
-        "availability": "Disponibilidad",
-        "anyAvailability": "Cualquier disponibilidad",
-        "availableNow": "Disponible ahora",
-        "purchasable": "Se puede pedir",
-        "comingSoon": "Próximamente",
-        "country": "País",
-        "anyCountry": "Todos los países",
-        "tradition": "Tradición",
-        "anyTradition": "Todas las tradiciones",
-        "dynasty": { "hungary": "Jasidut húngara", "poland": "Jasidut polaca", "ukraine": "Ucrania y Podolia", "breslov": "Breslov", "tannaim": "Tanaím" },
-        "sort": "Ordenar",
-        "sortFeatured": "Destacados",
-        "sortHilula": "Próxima hilulá",
-        "sortName": "Nombre",
-        "apply": "Aplicar",
-        "clear": "Borrar",
-        "count": "{count, plural, =0 {Ningún tziún} one {# tziún} other {# tziunim}}"
-      }
-    },
     "grave": {
       "breadcrumb": "Ruta de navegación",
       "allGraves": "Todos los tziunim",
@@ -125,15 +7,27 @@
       "translationFallback": "Mostrado en otro idioma — traducción en curso",
       "location": "Ubicación",
       "hilula": "Hilulá",
-      "unverified": "fecha en verificación",
-      "price": "Precio por kvitel",
-      "priceNote": "Las páginas adicionales se indican con transparencia antes del pago.",
-      "write": "Escribir un kvitel para este tziún",
       "unavailable": {
-        "discovery_only": { "title": "Solo información", "body": "No hay unidad de impresión en este tziún. Nunca venderemos una entrega que no podamos realizar." },
-        "coming_soon": { "title": "Próximamente", "body": "Estamos preparando aquí una unidad junto con los responsables del lugar. Díganos si le gustaría enviar un kvitel aquí." },
-        "paused": { "title": "Servicio en pausa", "body": "La entrega aquí está en pausa temporalmente. No se aceptan nuevos pedidos hasta que se reanude." },
-        "no_device": { "title": "Sin unidad instalada", "body": "Este tziún figura en el directorio, pero aún no tiene conectada ninguna unidad de impresión." }
+        "discovery_only": {
+          "title": "Solo información",
+          "body": "No hay unidad de impresión en este tziún. Nunca venderemos una entrega que no podamos realizar."
+        },
+        "coming_soon": {
+          "title": "Próximamente",
+          "body": "Estamos preparando aquí una unidad junto con los responsables del lugar. Díganos si le gustaría enviar un kvitel aquí."
+        },
+        "paused": {
+          "title": "Servicio en pausa",
+          "body": "La entrega aquí está en pausa temporalmente. No se aceptan nuevos pedidos hasta que se reanude."
+        },
+        "no_device": {
+          "title": "Sin unidad instalada",
+          "body": "Este tziún figura en el directorio, pero aún no tiene conectada ninguna unidad de impresión."
+        },
+        "service_unavailable": {
+          "title": "Orders are not open yet",
+          "body": "We are finishing the last preparations. You can let us know this tziyun matters to you."
+        }
       },
       "scheduled": {
         "closed_hours": "En este momento el tziún está fuera del horario de servicio. Su kvitel se imprimirá a partir del {when} (hora local).",
@@ -141,15 +35,6 @@
         "yom_tov": "No se imprime en Yom Tov. Su kvitel se imprimirá a partir del {when} (hora local).",
         "device_offline": "La unidad se está reconectando. Su kvitel esperará con seguridad en la cola y se imprimirá cuando vuelva — o puede solicitar un reembolso en cualquier momento.",
         "maintenance": "La unidad está en mantenimiento. Su kvitel se programará para cuando se reanude el servicio — o puede solicitar un reembolso en cualquier momento."
-      },
-      "about": "Acerca de",
-      "included": {
-        "title": "Qué incluye",
-        "print": "Impresión de su kvitel en el lugar, exactamente como en la vista previa",
-        "cut": "Corte completo y salida por un conducto cerrado",
-        "sensor": "Confirmación por sensor óptico donde esté instalado",
-        "tracking": "Estado en directo en la hora local del tziún",
-        "notIncluded": "No incluye: una persona que rece en su nombre, ni ninguna promesa de resultado."
       },
       "customs": "Costumbres del lugar",
       "aliases": "También conocido como",
@@ -159,46 +44,73 @@
         "closed": "Cerrado",
         "policy": "No se imprime en Shabat ni en Yom Tov, ni después del mediodía los viernes y las vísperas de Yom Tov. Los pedidos esperan con seguridad en la cola."
       },
-      "map": { "title": "Mapa", "navigate": "Cómo llegar", "unverified": "Las coordenadas exactas están pendientes de verificación y todavía no se muestran." },
       "faq": "Preguntas",
-      "demand": { "cta": "Me gustaría enviar un kvitel aquí", "thanks": "Gracias — lo hemos anotado." }
-    },
-    "how": {
-      "eyebrow": "Cómo funciona",
-      "title": "De su mano a la abertura",
-      "intro": "Cada paso es real y visible — desde las palabras que escribe hasta el momento en que la nota pasa por el sensor en el tziún.",
-      "steps": {
-        "choose": { "title": "Elija el tziún", "body": "Busque por nombre, apodo o ciudad, con cualquier grafía. Puede enviar el mismo kvitel a varios tziunim en un solo pedido." },
-        "write": { "title": "Escriba con sus propias palabras", "body": "Añada nombres (con el nombre de la madre o del padre, si lo desea), elija temas y escriba con libertad. Las frases sugeridas son opcionales." },
-        "preview": { "title": "Vea la nota exacta", "body": "La vista previa se genera con el mismo motor que la imprime — en papel de 58 mm, en hebreo, ídish, alfabeto latino o cirílico." },
-        "pay": { "title": "Pague con seguridad", "body": "El precio final queda fijado antes del pago. Los datos de la tarjeta nunca nos llegan; el pago solo se confirma mediante el mensaje firmado del proveedor de pagos." },
-        "queue": { "title": "En cola, con respeto por los tiempos", "body": "La unidad solo imprime durante el horario de servicio del tziún — nunca en Shabat ni en Yom Tov." },
-        "print": { "title": "Impreso y cortado", "body": "La unidad recibe una imagen de su kvitel (nunca texto legible), la imprime y la corta por completo." },
-        "chute": { "title": "Por el conducto", "body": "La nota cae por un conducto cerrado hasta la abertura de los kvitlaj; un sensor óptico registra su paso." },
-        "notify": { "title": "Le decimos la verdad", "body": "Ve cada paso en directo. Si el equipo no puede confirmarlo, se lo decimos y una persona lo revisa." }
+      "demand": {
+        "cta": "Me gustaría enviar un kvitel aquí",
+        "thanks": "Gracias — lo hemos anotado."
       },
-      "honesty": { "title": "Lo que no afirmamos", "body": "Este es un servicio de entrega física. No rezamos en su nombre y no prometemos ningún resultado espiritual. Un estado solo se muestra cuando realmente ha ocurrido." },
-      "cta": "Escribir un kvitel"
+      "map": {
+        "navigate": "Navigate"
+      }
     },
     "faq": {
       "eyebrow": "Preguntas",
       "title": "Preguntas, respuestas claras",
       "items": {
-        "what": { "q": "¿Qué recibo exactamente?", "a": "Su kvitel se imprime en papel en una unidad junto al tziún, se corta y se libera por un conducto cerrado hasta la abertura de los kvitlaj. Puede seguir cada paso." },
-        "prayer": { "q": "¿Alguien reza por mí?", "a": "No. Ofrecemos la entrega física de la nota que usted escribió. No rezamos en su nombre y no prometemos ningún resultado." },
-        "proof": { "q": "¿Cómo sé que se entregó?", "a": "Un sensor óptico en el conducto registra la nota. «Entregado» solo se muestra tras esa confirmación. Si una unidad no tiene sensor, lo indicamos explícitamente." },
-        "privacy": { "q": "¿Quién puede leer lo que escribo?", "a": "Su texto se cifra y solo se convierte en imagen en el momento de imprimirlo. Por defecto, nuestro personal no puede leerlo, nunca se escribe en registros y se elimina tras la entrega." },
-        "language": { "q": "¿En qué idiomas puedo escribir?", "a": "Hebreo (con nikud), ídish, inglés, francés, ruso y otros idiomas en alfabeto latino o cirílico. Los emojis no se pueden imprimir — se lo indicaremos antes del pago." },
-        "handwriting": { "q": "¿Puedo enviar mi propia letra?", "a": "Sí. Suba una foto; puede girarla y ajustar el contraste. Nunca cambiamos ni «corregimos» sus palabras." },
-        "shabbat": { "q": "¿Y en Shabat y Yom Tov?", "a": "Las unidades no imprimen en Shabat ni en Yom Tov, ni después del mediodía de la víspera. Su kvitel espera en la cola y se imprime después." },
-        "uncertain": { "q": "¿Qué significa «en revisión»?", "a": "A veces el equipo no puede confirmar un paso — por ejemplo, si se corta la electricidad a mitad de la impresión. Nunca reimprimimos automáticamente; una persona lo comprueba y se pone en contacto con usted." },
-        "refund": { "q": "¿Puedo obtener un reembolso?", "a": "Si su kvitel no se entregó por una avería, un mantenimiento o una pausa, puede elegir una entrega posterior o un reembolso completo." },
-        "account": { "q": "¿Necesito una cuenta?", "a": "No. Puede hacer su pedido como invitado. Una cuenta le permite ver su historial y guardar nombres — solo con su consentimiento explícito." },
-        "multi": { "q": "¿Puedo enviar a varios tziunim?", "a": "Sí — añada varios tziunim a un mismo kvitel, o escriba kvitlaj distintos. Los pedidos con más de una entrega reciben un descuento por volumen." },
-        "video": { "q": "¿Recibiré un vídeo?", "a": "Todavía no. Está previsto un breve vídeo privado de la entrega (que muestre solo la ranura, nunca a personas), que solo se ofrecerá donde esté instalado y aprobado." }
+        "what": {
+          "q": "¿Qué recibo exactamente?",
+          "a": "Su kvitel se imprime en papel en una unidad junto al tziún, se corta y se libera por un conducto cerrado hasta la abertura de los kvitlaj. Puede seguir cada paso."
+        },
+        "prayer": {
+          "q": "¿Alguien reza por mí?",
+          "a": "No. Ofrecemos la entrega física de la nota que usted escribió. No rezamos en su nombre y no prometemos ningún resultado."
+        },
+        "proof": {
+          "q": "¿Cómo sé que se entregó?",
+          "a": "Un sensor óptico en el conducto registra la nota. «Entregado» solo se muestra tras esa confirmación. Si una unidad no tiene sensor, lo indicamos explícitamente."
+        },
+        "privacy": {
+          "q": "¿Quién puede leer lo que escribo?",
+          "a": "Su texto se cifra y solo se convierte en imagen en el momento de imprimirlo. Por defecto, nuestro personal no puede leerlo, nunca se escribe en registros y se elimina tras la entrega."
+        },
+        "language": {
+          "q": "¿En qué idiomas puedo escribir?",
+          "a": "Hebreo (con nikud), ídish, inglés, francés, ruso y otros idiomas en alfabeto latino o cirílico. Los emojis no se pueden imprimir — se lo indicaremos antes del pago."
+        },
+        "handwriting": {
+          "q": "¿Puedo enviar mi propia letra?",
+          "a": "Sí. Suba una foto; puede girarla y ajustar el contraste. Nunca cambiamos ni «corregimos» sus palabras."
+        },
+        "shabbat": {
+          "q": "¿Y en Shabat y Yom Tov?",
+          "a": "Las unidades no imprimen en Shabat ni en Yom Tov, ni después del mediodía de la víspera. Su kvitel espera en la cola y se imprime después."
+        },
+        "uncertain": {
+          "q": "¿Qué significa «en revisión»?",
+          "a": "A veces el equipo no puede confirmar un paso — por ejemplo, si se corta la electricidad a mitad de la impresión. Nunca reimprimimos automáticamente; una persona lo comprueba y se pone en contacto con usted."
+        },
+        "refund": {
+          "q": "¿Puedo obtener un reembolso?",
+          "a": "Si su kvitel no se entregó por una avería, un mantenimiento o una pausa, puede elegir una entrega posterior o un reembolso completo."
+        },
+        "account": {
+          "q": "¿Necesito una cuenta?",
+          "a": "No. Puede hacer su pedido como invitado. Una cuenta le permite ver su historial y guardar nombres — solo con su consentimiento explícito."
+        },
+        "multi": {
+          "q": "¿Puedo enviar a varios tziunim?",
+          "a": "Sí — añada varios tziunim a un mismo kvitel, o escriba kvitlaj distintos. Los pedidos con más de una entrega reciben un descuento por volumen."
+        },
+        "video": {
+          "q": "¿Recibiré un vídeo?",
+          "a": "Todavía no. Está previsto un breve vídeo privado de la entrega (que muestre solo la ranura, nunca a personas), que solo se ofrecerá donde esté instalado y aprobado."
+        }
       }
     },
-    "legal": { "fallback": "Mostrado en otro idioma — traducción en curso", "draft": "Texto provisional — sujeto a revisión legal antes del lanzamiento." },
+    "legal": {
+      "fallback": "Mostrado en otro idioma — traducción en curso",
+      "draft": "Texto provisional — sujeto a revisión legal antes del lanzamiento."
+    },
     "requestGrave": {
       "eyebrow": "Sugerir un tziún",
       "title": "¿Adónde le gustaría enviar un kvitel?",

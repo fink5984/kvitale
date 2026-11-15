@@ -1,12 +1,12 @@
 {
   "common": {
-    "brand": "Kvittel",
+    "brand": "KVITALE",
     "meta": {
-      "title": "Kvittel — votre kvitel, déposé au tsiyoun",
-      "description": "Écrivez un kvitel depuis n’importe où dans le monde. Il est imprimé sur place, près du tsiyoun, découpé puis glissé dans l’ouverture prévue pour les kvitlekh — avec une remise confirmée par capteur et une confidentialité pensée dès la conception."
+      "title": "KVITALE — votre kvittel, auprès du tzadik",
+      "description": "Écrivez un kvittel où que vous soyez et envoyez-le au tombeau d’un tzadik."
     },
     "skipToContent": "Aller au contenu",
-    "homeAria": "Kvittel — accueil",
+    "homeAria": "KVITALE — accueil",
     "nav": {
       "primary": "Navigation principale",
       "graves": "Tsiyounim",
@@ -42,9 +42,8 @@
       "terms": "Conditions",
       "account": "Compte",
       "operators": "Opérateurs sur site",
-      "mission": "Une manière discrète et digne de porter votre kvitel jusqu’aux lieux de repos des tsaddikim — imprimé sur place, déposé dans l’ouverture, confirmé par capteur.",
-      "disclaimer": "Nous assurons la remise physique du mot que vous écrivez. Il ne s’agit pas d’une prière dite en votre nom, et aucun résultat spirituel n’est promis. Chaque unité fonctionne avec l’autorisation des responsables du lieu.",
-      "workingName": "nom provisoire"
+      "mission": "Une manière sobre et digne de se souvenir auprès du tzadik : écrivez un kvittel et envoyez-le au tombeau.",
+      "disclaimer": "Nous assurons la remise physique du kvittel que vous écrivez. Ce n’est pas une prière dite en votre nom et aucun résultat spirituel n’est promis. Chaque unité fonctionne avec l’autorisation des responsables du lieu."
     },
     "demo": {
       "banner": "Environnement de démonstration : paiements, imprimantes et données sont simulés.",
@@ -63,7 +62,8 @@
       "discovery_only": "Informations uniquement",
       "coming_soon": "Bientôt disponible",
       "paused": "Service suspendu",
-      "no_device": "Aucune unité installée"
+      "no_device": "Aucune unité installée",
+      "service_unavailable": "Bientôt disponible"
     },
     "item": {
       "pending_payment": "En attente de paiement",

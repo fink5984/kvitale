@@ -1,123 +1,5 @@
 {
   "public": {
-    "card": {
-      "location": "Ort",
-      "hilula": "Hillula",
-      "hilulaOn": "Hillula: {date}",
-      "from": "ab",
-      "notPurchasable": "Noch nicht für Zustellungen verfügbar",
-      "write": "Ein Kvittel schreiben",
-      "details": "Details"
-    },
-    "search": {
-      "label": "Nach Zaddik, Stadt oder Namen suchen",
-      "placeholder": "Zaddik, Stadt oder Beiname — z. B. Kerestir",
-      "submit": "Suchen",
-      "resultsCount": "{count, plural, =0 {Keine Ergebnisse} one {# Ergebnis} other {# Ergebnisse}}",
-      "noResults": "Diese Grabstätte haben wir noch nicht gefunden.",
-      "requestIt": "Schlagen Sie sie uns vor"
-    },
-    "home": {
-      "hero": {
-        "eyebrow": "Von überall auf der Welt",
-        "titleA": "Ihr Kvittel,",
-        "titleB": "an der Grabstätte niedergelegt.",
-        "subtitle": "Schreiben Sie die Namen und die Worte Ihres Herzens. Wir drucken Ihr Kvittel neben der Grabstätte, führen es in die Kvittel-Öffnung und bestätigen den Moment, in dem es den Sensor passiert.",
-        "searchHint": "Hebräisch, Englisch, Jiddisch, Russisch oder jede Transliteration.",
-        "trust": {
-          "printed": "Vor Ort gedruckt, nie von Hand",
-          "sensor": "Sensorbestätigte Zustellung",
-          "noAccount": "Kein Konto erforderlich",
-          "private": "Verschlüsselt und vertraulich"
-        }
-      },
-      "featured": {
-        "eyebrow": "Ruhestätten",
-        "title": "Grabstätten, die Kvittlach annehmen",
-        "body": "{count, plural, one {# Grabstätte nimmt} other {# Grabstätten nehmen}} derzeit Kvittlach an. Jede Einheit wird mit Erlaubnis der Verantwortlichen vor Ort installiert.",
-        "all": "Alle Grabstätten"
-      },
-      "journey": {
-        "eyebrow": "Der Weg",
-        "title": "Von Ihren Worten bis zur Öffnung",
-        "note": "Die meisten sind in ein bis zwei Minuten fertig. Nehmen Sie sich so viel Zeit, wie Sie brauchen.",
-        "choose": { "title": "Wählen", "body": "Finden Sie die Grabstätte nach Name, Stadt oder Beiname, in jeder Schreibweise." },
-        "write": { "title": "Schreiben", "body": "Namen und Anliegen in Ihren eigenen Worten — und den gedruckten Zettel sehen Sie schon beim Tippen." },
-        "pay": { "title": "Bezahlen", "body": "Klarer Preis vor der Zahlung. Keine Registrierung, keine gespeicherten Kartendaten." },
-        "deliver": { "title": "Zugestellt", "body": "Gedruckt, abgeschnitten und in die Öffnung geführt — verfolgen Sie jeden Schritt live." }
-      },
-      "proof": {
-        "eyebrow": "Physisch, überprüfbar",
-        "title": "Ein Zettel Papier, ein geschlossener Weg, ein Sensor, der ihn passieren sieht.",
-        "body": "Jede Einheit ist eine schlichte, steinfarbene Säule neben der Grabstätte. Darin druckt ein Thermodrucker Ihr Kvittel, schneidet es vollständig ab und gibt es in einen geschlossenen Schacht frei, der zur Kvittel-Öffnung führt.",
-        "honesty": "Wir zeigen „Zugestellt“ nur an, wenn die Hardware es bestätigt. Kann ein Sensor nicht bestätigen, sagen wir es Ihnen — und ein Mensch prüft den Vorgang. Nichts wird jemals automatisch doppelt gedruckt.",
-        "steps": {
-          "printed": { "title": "Gedruckt", "body": "Genau wie in Ihrer Vorschau — dieselbe Layout-Engine, dieselben Schriften." },
-          "cut": { "title": "Abgeschnitten", "body": "Ein vollständiger Schnitt trennt Ihr Kvittel von der Rolle." },
-          "chute": { "title": "Passiert den Sensor", "body": "Ein optischer Sensor im Schacht erfasst den Zettel auf seinem Weg nach unten." },
-          "delivered": { "title": "Zugestellt", "body": "Sie sehen den Zeitpunkt der Zustellung in der Ortszeit der Grabstätte." }
-        },
-        "diagram": {
-          "aria": "Schema der Einheit vor Ort: Drucker, Schneidwerk, geschlossener Schacht und optischer Sensor, die zur Kvittel-Öffnung führen",
-          "opening": "Kvittel-Öffnung",
-          "printer": "Thermodrucker",
-          "cutter": "Vollschnitt",
-          "chute": "Geschlossener Schacht",
-          "sensor": "Optischer Sensor",
-          "drawer": "Verschlossene Servicetür",
-          "modem": "Sichere ausgehende Verbindung"
-        }
-      },
-      "hilulot": {
-        "eyebrow": "Kalender",
-        "title": "Bevorstehende Hillulot",
-        "body": "Tage des Gedenkens, an denen viele Kvittlach senden. Die Daten folgen dem jüdischen Kalender.",
-        "verify": "Die Hillula-Daten werden so angegeben, wie sie üblicherweise genannt werden, und anhand der Quellen überprüft."
-      },
-      "principles": {
-        "title": "Getragen von vier Verpflichtungen",
-        "privacy": { "title": "Datenschutz von Grund auf", "body": "Namen und Anliegen werden verschlüsselt, nie protokolliert und nach der Zustellung gelöscht." },
-        "honesty": { "title": "Ehrlicher Status", "body": "Kein „zugestellt“ ohne Bestätigung. Keine Versprechen von Ergebnissen." },
-        "permission": { "title": "Mit Erlaubnis", "body": "Einheiten werden nur mit Zustimmung der Verantwortlichen des jeweiligen Ortes installiert." },
-        "physical": { "title": "Wirklich physisch", "body": "Ihre Worte werden an der Grabstätte zu Papier — keine E-Mail, kein Bildschirm." }
-      },
-      "cta": {
-        "title": "Wann immer Sie bereit sind.",
-        "body": "Schreiben Sie Ihr Kvittel jetzt. Es wartet in der Warteschlange bis zum nächsten Servicefenster der Grabstätte.",
-        "write": "Ein Kvittel schreiben",
-        "learn": "So funktioniert es"
-      }
-    },
-    "directory": {
-      "metaTitle": "Grabstätten der Zaddikim",
-      "metaDescription": "Finden Sie die Ruhestätten der Zaddikim und senden Sie ein Kvittel, das vor Ort gedruckt wird.",
-      "eyebrow": "Verzeichnis",
-      "title": "Grabstätten der Zaddikim",
-      "subtitle": "Suchen Sie in jeder Sprache und Schreibweise. Die Verfügbarkeit wird so angezeigt, wie sie gerade ist.",
-      "resultsFor": "{count, plural, =0 {Keine Ergebnisse für} one {# Ergebnis für} other {# Ergebnisse für}}",
-      "empty": { "title": "Noch nichts hier", "body": "Keine Grabstätte entspricht diesen Filtern. Versuchen Sie eine andere Schreibweise oder sagen Sie uns, welche Grabstätte Sie suchen.", "cta": "Grabstätte vorschlagen" },
-      "missing": { "title": "Fehlt eine Grabstätte?", "body": "Sagen Sie uns, wohin Sie ein Kvittel senden möchten. Anfragen helfen uns zu entscheiden, wo wir die nächste Einheit installieren.", "cta": "Grabstätte vorschlagen" },
-      "filters": {
-        "label": "Filter",
-        "availability": "Verfügbarkeit",
-        "anyAvailability": "Jede Verfügbarkeit",
-        "availableNow": "Jetzt verfügbar",
-        "purchasable": "Bestellbar",
-        "comingSoon": "Demnächst",
-        "country": "Land",
-        "anyCountry": "Alle Länder",
-        "tradition": "Tradition",
-        "anyTradition": "Alle Traditionen",
-        "dynasty": { "hungary": "Ungarische Chassidut", "poland": "Polnische Chassidut", "ukraine": "Ukraine & Podolien", "breslov": "Breslow", "tannaim": "Tannaim" },
-        "sort": "Sortieren",
-        "sortFeatured": "Empfohlen",
-        "sortHilula": "Nächste Hillula",
-        "sortName": "Name",
-        "apply": "Anwenden",
-        "clear": "Zurücksetzen",
-        "count": "{count, plural, =0 {Keine Grabstätten} one {# Grabstätte} other {# Grabstätten}}"
-      }
-    },
     "grave": {
       "breadcrumb": "Brotkrümelnavigation",
       "allGraves": "Alle Grabstätten",
@@ -125,15 +7,27 @@
       "translationFallback": "In einer anderen Sprache angezeigt — Übersetzung in Arbeit",
       "location": "Ort",
       "hilula": "Hillula",
-      "unverified": "Datum wird überprüft",
-      "price": "Preis pro Kvittel",
-      "priceNote": "Zusätzliche Seiten werden vor der Zahlung transparent ausgewiesen.",
-      "write": "Hier ein Kvittel schreiben",
       "unavailable": {
-        "discovery_only": { "title": "Nur Informationen", "body": "An dieser Grabstätte gibt es keine Druckeinheit. Wir verkaufen niemals eine Zustellung, die wir nicht leisten können." },
-        "coming_soon": { "title": "Demnächst", "body": "Gemeinsam mit den Verantwortlichen vor Ort bereiten wir hier eine Einheit vor. Lassen Sie uns wissen, dass Sie gern ein Kvittel hierher senden möchten." },
-        "paused": { "title": "Service pausiert", "body": "Die Zustellung ist hier vorübergehend pausiert. Neue Bestellungen werden erst nach der Wiederaufnahme angenommen." },
-        "no_device": { "title": "Keine Einheit installiert", "body": "Diese Grabstätte ist verzeichnet, aber es ist noch keine Druckeinheit angeschlossen." }
+        "discovery_only": {
+          "title": "Nur Informationen",
+          "body": "An dieser Grabstätte gibt es keine Druckeinheit. Wir verkaufen niemals eine Zustellung, die wir nicht leisten können."
+        },
+        "coming_soon": {
+          "title": "Demnächst",
+          "body": "Gemeinsam mit den Verantwortlichen vor Ort bereiten wir hier eine Einheit vor. Lassen Sie uns wissen, dass Sie gern ein Kvittel hierher senden möchten."
+        },
+        "paused": {
+          "title": "Service pausiert",
+          "body": "Die Zustellung ist hier vorübergehend pausiert. Neue Bestellungen werden erst nach der Wiederaufnahme angenommen."
+        },
+        "no_device": {
+          "title": "Keine Einheit installiert",
+          "body": "Diese Grabstätte ist verzeichnet, aber es ist noch keine Druckeinheit angeschlossen."
+        },
+        "service_unavailable": {
+          "title": "Orders are not open yet",
+          "body": "We are finishing the last preparations. You can let us know this tziyun matters to you."
+        }
       },
       "scheduled": {
         "closed_hours": "Die Grabstätte ist gerade außerhalb der Servicezeiten. Ihr Kvittel wird ab {when} (Ortszeit) gedruckt.",
@@ -141,15 +35,6 @@
         "yom_tov": "An Jom Tow wird nicht gedruckt. Ihr Kvittel wird ab {when} (Ortszeit) gedruckt.",
         "device_offline": "Die Einheit verbindet sich neu. Ihr Kvittel wartet sicher in der Warteschlange und wird gedruckt, sobald sie wieder bereit ist — oder Sie können jederzeit eine Erstattung verlangen.",
         "maintenance": "Die Einheit wird gewartet. Ihr Kvittel wird für die Wiederaufnahme des Service eingeplant — oder Sie können jederzeit eine Erstattung verlangen."
-      },
-      "about": "Über",
-      "included": {
-        "title": "Was enthalten ist",
-        "print": "Druck Ihres Kvittels vor Ort, genau wie in der Vorschau",
-        "cut": "Vollständiger Schnitt und Freigabe durch einen geschlossenen Schacht",
-        "sensor": "Bestätigung durch einen optischen Sensor, wo installiert",
-        "tracking": "Live-Status in der Ortszeit der Grabstätte",
-        "notIncluded": "Nicht enthalten: eine Person, die in Ihrem Namen betet, oder irgendein Versprechen eines Ergebnisses."
       },
       "customs": "Bräuche des Ortes",
       "aliases": "Auch bekannt als",
@@ -159,46 +44,73 @@
         "closed": "Geschlossen",
         "policy": "Kein Druck an Schabbat und Jom Tow, ebenso nicht nach Mittag am Freitag und am Vorabend von Jom Tow. Bestellungen warten sicher in der Warteschlange."
       },
-      "map": { "title": "Karte", "navigate": "Route", "unverified": "Die genauen Koordinaten werden noch überprüft und sind noch nicht sichtbar." },
       "faq": "Fragen",
-      "demand": { "cta": "Ich würde hierher ein Kvittel senden", "thanks": "Danke — vermerkt." }
-    },
-    "how": {
-      "eyebrow": "So funktioniert es",
-      "title": "Von Ihrer Hand bis zur Öffnung",
-      "intro": "Jeder Schritt ist echt und sichtbar — von den Worten, die Sie tippen, bis zu dem Moment, in dem der Zettel an der Grabstätte den Sensor passiert.",
-      "steps": {
-        "choose": { "title": "Grabstätte wählen", "body": "Suchen Sie nach Name, Beiname oder Stadt, in jeder Schreibweise. Sie können dasselbe Kvittel in einer Bestellung an mehrere Grabstätten senden." },
-        "write": { "title": "In eigenen Worten schreiben", "body": "Fügen Sie Namen hinzu (auf Wunsch mit dem Namen der Mutter oder des Vaters), wählen Sie Anliegen und schreiben Sie frei. Vorgeschlagene Formulierungen sind optional." },
-        "preview": { "title": "Den genauen Zettel sehen", "body": "Die Vorschau wird von derselben Engine erzeugt, die auch druckt — auf 58-mm-Papier, in hebräischer, jiddischer, lateinischer oder kyrillischer Schrift." },
-        "pay": { "title": "Sicher bezahlen", "body": "Der Endpreis steht vor der Zahlung fest. Kartendaten erreichen uns nie; die Zahlung gilt erst durch die signierte Nachricht des Zahlungsanbieters als bestätigt." },
-        "queue": { "title": "Eingereiht, mit Achtung vor den Zeiten", "body": "Die Einheit druckt nur während der Servicezeiten der Grabstätte — niemals an Schabbat oder Jom Tow." },
-        "print": { "title": "Gedruckt und abgeschnitten", "body": "Die Einheit erhält ein Bild Ihres Kvittels (niemals lesbaren Text), druckt es und schneidet es vollständig ab." },
-        "chute": { "title": "Durch den Schacht", "body": "Der Zettel fällt durch einen geschlossenen Schacht in die Kvittel-Öffnung; ein optischer Sensor erfasst seinen Durchgang." },
-        "notify": { "title": "Wir sagen Ihnen die Wahrheit", "body": "Sie sehen jeden Schritt live. Kann die Hardware nicht bestätigen, sagen wir es — und ein Mensch prüft den Vorgang." }
+      "demand": {
+        "cta": "Ich würde hierher ein Kvittel senden",
+        "thanks": "Danke — vermerkt."
       },
-      "honesty": { "title": "Was wir nicht behaupten", "body": "Dies ist ein Dienst zur physischen Zustellung. Wir beten nicht in Ihrem Namen und versprechen kein spirituelles Ergebnis. Ein Status wird nur angezeigt, wenn er tatsächlich eingetreten ist." },
-      "cta": "Ein Kvittel schreiben"
+      "map": {
+        "navigate": "Navigate"
+      }
     },
     "faq": {
       "eyebrow": "Fragen",
       "title": "Fragen, klar beantwortet",
       "items": {
-        "what": { "q": "Was genau erhalte ich?", "a": "Ihr Kvittel wird von einer Einheit neben der Grabstätte auf Papier gedruckt, abgeschnitten und durch einen geschlossenen Schacht in die Kvittel-Öffnung freigegeben. Sie können jeden Schritt verfolgen." },
-        "prayer": { "q": "Betet jemand für mich?", "a": "Nein. Wir leisten die physische Zustellung des Zettels, den Sie geschrieben haben. Wir beten nicht in Ihrem Namen und versprechen kein Ergebnis." },
-        "proof": { "q": "Woher weiß ich, dass es zugestellt wurde?", "a": "Ein optischer Sensor im Schacht erfasst den Zettel. „Zugestellt“ wird erst nach dieser Bestätigung angezeigt. Hat eine Einheit keinen Sensor, sagen wir das ausdrücklich." },
-        "privacy": { "q": "Wer kann lesen, was ich schreibe?", "a": "Ihr Text wird verschlüsselt und erst im Moment des Drucks in ein Bild umgewandelt. Unsere Mitarbeiter können ihn standardmäßig nicht lesen, er wird nie protokolliert und nach der Zustellung gelöscht." },
-        "language": { "q": "In welchen Sprachen kann ich schreiben?", "a": "Hebräisch (mit Nikkud), Jiddisch, Englisch, Französisch, Russisch und weitere Sprachen in lateinischer oder kyrillischer Schrift. Emojis können nicht gedruckt werden — wir weisen Sie vor der Zahlung darauf hin." },
-        "handwriting": { "q": "Kann ich meine eigene Handschrift senden?", "a": "Ja. Laden Sie ein Foto hoch; Sie können es drehen und den Kontrast anpassen. Wir verändern oder „korrigieren“ Ihre Worte niemals." },
-        "shabbat": { "q": "Und an Schabbat und Jom Tow?", "a": "Die Einheiten drucken nicht an Schabbat und Jom Tow, ebenso nicht nach Mittag am Vortag. Ihr Kvittel wartet in der Warteschlange und wird danach gedruckt." },
-        "uncertain": { "q": "Was bedeutet „In Prüfung“?", "a": "Manchmal kann die Hardware einen Schritt nicht bestätigen — etwa wenn mitten im Druck der Strom ausfällt. Wir drucken nie automatisch erneut; ein Mensch prüft den Vorgang und meldet sich bei Ihnen." },
-        "refund": { "q": "Kann ich eine Erstattung erhalten?", "a": "Wurde Ihr Kvittel wegen einer Störung, Wartung oder Pause nicht zugestellt, können Sie eine spätere Zustellung oder eine vollständige Erstattung wählen." },
-        "account": { "q": "Brauche ich ein Konto?", "a": "Nein. Sie können als Gast bestellen. Mit einem Konto sehen Sie Ihren Verlauf und können Namen speichern — nur mit Ihrer ausdrücklichen Einwilligung." },
-        "multi": { "q": "Kann ich an mehrere Grabstätten senden?", "a": "Ja — fügen Sie einem Kvittel mehrere Grabstätten hinzu oder schreiben Sie verschiedene Kvittlach. Bestellungen mit mehr als einer Zustellung erhalten einen Paketrabatt." },
-        "video": { "q": "Bekomme ich ein Video?", "a": "Noch nicht. Ein privater Zustellungsclip (der nur den Einwurfschlitz zeigt, niemals Menschen) ist geplant und wird nur dort angeboten, wo er installiert und genehmigt ist." }
+        "what": {
+          "q": "Was genau erhalte ich?",
+          "a": "Ihr Kvittel wird von einer Einheit neben der Grabstätte auf Papier gedruckt, abgeschnitten und durch einen geschlossenen Schacht in die Kvittel-Öffnung freigegeben. Sie können jeden Schritt verfolgen."
+        },
+        "prayer": {
+          "q": "Betet jemand für mich?",
+          "a": "Nein. Wir leisten die physische Zustellung des Zettels, den Sie geschrieben haben. Wir beten nicht in Ihrem Namen und versprechen kein Ergebnis."
+        },
+        "proof": {
+          "q": "Woher weiß ich, dass es zugestellt wurde?",
+          "a": "Ein optischer Sensor im Schacht erfasst den Zettel. „Zugestellt“ wird erst nach dieser Bestätigung angezeigt. Hat eine Einheit keinen Sensor, sagen wir das ausdrücklich."
+        },
+        "privacy": {
+          "q": "Wer kann lesen, was ich schreibe?",
+          "a": "Ihr Text wird verschlüsselt und erst im Moment des Drucks in ein Bild umgewandelt. Unsere Mitarbeiter können ihn standardmäßig nicht lesen, er wird nie protokolliert und nach der Zustellung gelöscht."
+        },
+        "language": {
+          "q": "In welchen Sprachen kann ich schreiben?",
+          "a": "Hebräisch (mit Nikkud), Jiddisch, Englisch, Französisch, Russisch und weitere Sprachen in lateinischer oder kyrillischer Schrift. Emojis können nicht gedruckt werden — wir weisen Sie vor der Zahlung darauf hin."
+        },
+        "handwriting": {
+          "q": "Kann ich meine eigene Handschrift senden?",
+          "a": "Ja. Laden Sie ein Foto hoch; Sie können es drehen und den Kontrast anpassen. Wir verändern oder „korrigieren“ Ihre Worte niemals."
+        },
+        "shabbat": {
+          "q": "Und an Schabbat und Jom Tow?",
+          "a": "Die Einheiten drucken nicht an Schabbat und Jom Tow, ebenso nicht nach Mittag am Vortag. Ihr Kvittel wartet in der Warteschlange und wird danach gedruckt."
+        },
+        "uncertain": {
+          "q": "Was bedeutet „In Prüfung“?",
+          "a": "Manchmal kann die Hardware einen Schritt nicht bestätigen — etwa wenn mitten im Druck der Strom ausfällt. Wir drucken nie automatisch erneut; ein Mensch prüft den Vorgang und meldet sich bei Ihnen."
+        },
+        "refund": {
+          "q": "Kann ich eine Erstattung erhalten?",
+          "a": "Wurde Ihr Kvittel wegen einer Störung, Wartung oder Pause nicht zugestellt, können Sie eine spätere Zustellung oder eine vollständige Erstattung wählen."
+        },
+        "account": {
+          "q": "Brauche ich ein Konto?",
+          "a": "Nein. Sie können als Gast bestellen. Mit einem Konto sehen Sie Ihren Verlauf und können Namen speichern — nur mit Ihrer ausdrücklichen Einwilligung."
+        },
+        "multi": {
+          "q": "Kann ich an mehrere Grabstätten senden?",
+          "a": "Ja — fügen Sie einem Kvittel mehrere Grabstätten hinzu oder schreiben Sie verschiedene Kvittlach. Bestellungen mit mehr als einer Zustellung erhalten einen Paketrabatt."
+        },
+        "video": {
+          "q": "Bekomme ich ein Video?",
+          "a": "Noch nicht. Ein privater Zustellungsclip (der nur den Einwurfschlitz zeigt, niemals Menschen) ist geplant und wird nur dort angeboten, wo er installiert und genehmigt ist."
+        }
       }
     },
-    "legal": { "fallback": "In einer anderen Sprache angezeigt — Übersetzung in Arbeit", "draft": "Entwurfstext — vor dem Start vorbehaltlich rechtlicher Prüfung." },
+    "legal": {
+      "fallback": "In einer anderen Sprache angezeigt — Übersetzung in Arbeit",
+      "draft": "Entwurfstext — vor dem Start vorbehaltlich rechtlicher Prüfung."
+    },
     "requestGrave": {
       "eyebrow": "Grabstätte vorschlagen",
       "title": "Wohin möchten Sie ein Kvittel senden?",

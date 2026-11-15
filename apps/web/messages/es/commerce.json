@@ -2,7 +2,11 @@
   "commerce": {
     "cart": {
       "title": "Su cesta",
-      "empty": { "title": "Su cesta está vacía", "body": "Escriba un kvitel y aparecerá aquí.", "cta": "Escribir un kvitel" },
+      "empty": {
+        "title": "Su cesta está vacía",
+        "body": "Escriba un kvitel y aparecerá aquí.",
+        "cta": "Escribir un kvitel"
+      },
       "kvittel": "Kvitel {n}",
       "summary": "{people, plural, =0 {Sin nombres} one {# nombre} other {# nombres}} · {chars} caracteres",
       "edit": "Editar",
@@ -22,10 +26,10 @@
       "error": "No se ha podido calcular el precio en este momento. Inténtelo de nuevo."
     },
     "checkout": {
-      "title": "Pago",
-      "intro": "Solo necesitamos un correo electrónico para su recibo y el enlace de seguimiento.",
+      "title": "Summary and payment",
+      "intro": "Everything in one place: what is being sent, the final price, and payment.",
       "empty": "No hay nada que pagar.",
-      "emptyCta": "Escribir un kvitel",
+      "emptyCta": "Find a tzaddik",
       "email": "Correo electrónico",
       "emailHint": "Para el recibo y un enlace de seguimiento privado. No se crea ninguna cuenta.",
       "coupon": "Código de cupón",
@@ -59,8 +63,18 @@
         "coupon_invalid": "No se puede aplicar el cupón ({detail}).",
         "schedule_consent_required": "Confirme que algunas entregas quedarán programadas.",
         "rate_limited": "Demasiados intentos. Espere unos minutos.",
-        "server_error": "Algo ha salido mal. No se le ha cobrado. Inténtelo de nuevo."
-      }
+        "server_error": "Algo ha salido mal. No se le ha cobrado. Inténtelo de nuevo.",
+        "service_unavailable": "Ordering is not open yet. You have not been charged."
+      },
+      "summaryTitle": "Summary",
+      "deliveries": "{count, plural, one {# kvittel} other {# kvittlach}}",
+      "extraPages": "Includes extra pages",
+      "bundle": "Several tziyunim ({pct}%)",
+      "couponLine": "Coupon",
+      "total": "Total to pay",
+      "taxNote": "The final amount, charged once. The receipt is sent by e-mail.",
+      "quoteError": "We can’t calculate the price right now. Please try again.",
+      "unavailable": "Ordering is not open yet, so payment can’t be completed right now. Your draft is saved."
     },
     "demoPay": {
       "noCard": "No se recogen datos de tarjeta",
@@ -87,14 +101,21 @@
       "webhookNote": "Antes de imprimir nada, esperamos la confirmación firmada del proveedor de pagos — no la de su navegador.",
       "localTime": "Hora local en el tziún: {time} ({tz})",
       "scheduledFor": "Programado para imprimirse a partir del {when}, hora local.",
-      "uncertain": { "title": "Estamos revisando esta entrega", "body": "La unidad no pudo confirmar todos los pasos. No volveremos a imprimir automáticamente; una persona lo está revisando y se pondrá en contacto con usted." },
+      "uncertain": {
+        "title": "Estamos revisando esta entrega",
+        "body": "La unidad no pudo confirmar todos los pasos. No volveremos a imprimir automáticamente; una persona lo está revisando y se pondrá en contacto con usted."
+      },
       "confidence": {
         "sensor_confirmed": "Confirmado por el sensor óptico del conducto.",
         "printer_reported": "Notificado por la impresora. Esta unidad no tiene sensor en el conducto, por lo que el paso a la abertura no se ha confirmado de forma independiente.",
         "manual": "Confirmado manualmente por nuestro equipo tras una revisión."
       },
       "privacy": "El contenido de su kvitel nunca se muestra en esta página.",
-      "locked": { "title": "Este pedido es privado", "body": "Ábralo con el enlace de su correo de confirmación, o inicie sesión con el correo que utilizó.", "signIn": "Iniciar sesión" }
+      "locked": {
+        "title": "Este pedido es privado",
+        "body": "Ábralo con el enlace de su correo de confirmación, o inicie sesión con el correo que utilizó.",
+        "signIn": "Iniciar sesión"
+      }
     }
   }
 }

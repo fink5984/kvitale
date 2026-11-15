@@ -25,9 +25,25 @@
         "repeat": "Repeat customers",
         "repeatSub": "{graves} active tziyunim"
       },
-      "charts": { "daily": "Orders and deliveries per day (UTC)", "orders": "Orders", "delivered": "Delivered" },
-      "revenue": { "title": "Revenue by currency", "currency": "Currency", "gross": "Gross", "refunds": "Refunds", "aov": "Avg. order", "note": "No currency conversion is applied: each currency is reported on its own until real exchange rates are connected." },
-      "breakdown": { "graves": "Deliveries by tziyun", "languages": "Orders by language", "geography": "Orders by country", "geoNote": "Country is a hint from the order context, not verified identity." },
+      "charts": {
+        "daily": "Orders and deliveries per day (UTC)",
+        "orders": "Orders",
+        "delivered": "Delivered"
+      },
+      "revenue": {
+        "title": "Revenue by currency",
+        "currency": "Currency",
+        "gross": "Gross",
+        "refunds": "Refunds",
+        "aov": "Avg. order",
+        "note": "No currency conversion is applied: each currency is reported on its own until real exchange rates are connected."
+      },
+      "breakdown": {
+        "graves": "Deliveries by tziyun",
+        "languages": "Orders by language",
+        "geography": "Orders by country",
+        "geoNote": "Country is a hint from the order context, not verified identity."
+      },
       "alerts": {
         "title": "Open alerts",
         "all": "All alerts",
@@ -45,7 +61,10 @@
           "payment_mismatch": "Payment mismatch"
         }
       },
-      "funnel": { "title": "Conversion funnel", "body": "Not measured yet. A privacy-respecting analytics provider (no request content, no third-party ad tracking) must be connected before visit-to-order conversion can be shown. We do not display estimated funnels." }
+      "funnel": {
+        "title": "Conversion funnel",
+        "body": "Not measured yet. A privacy-respecting analytics provider (no request content, no third-party ad tracking) must be connected before visit-to-order conversion can be shown. We do not display estimated funnels."
+      }
     },
     "orders": {
       "eyebrow": "Operations",
@@ -56,12 +75,38 @@
       "grave": "Tziyun",
       "from": "From",
       "to": "To",
-      "cols": { "ref": "Order", "created": "Created", "customer": "Customer", "deliveries": "Deliveries", "status": "Status", "total": "Total" },
+      "cols": {
+        "ref": "Order",
+        "created": "Created",
+        "customer": "Customer",
+        "deliveries": "Deliveries",
+        "status": "Status",
+        "total": "Total"
+      },
       "privacyNote": "Exports and lists contain no names or requests.",
       "detailDesc": "Each tziyun is a separate delivery with its own print job and attempts.",
-      "item": { "pages": "Pages", "scheduled": "Scheduled for", "delivered": "Delivered", "confidence": "Confirmation", "job": "Print job", "attempts": "{n, plural, one {# attempt} other {# attempts}}", "lastError": "Last error" },
-      "confidence": { "sensor_confirmed": "Chute sensor", "printer_reported": "Printer report only", "manual": "Manual (after review)" },
-      "att": { "leased": "Leased", "started": "Started", "printed": "Printed", "cut": "Cut", "chute": "Chute", "outcome": "Outcome" },
+      "item": {
+        "pages": "Pages",
+        "scheduled": "Scheduled for",
+        "delivered": "Delivered",
+        "confidence": "Confirmation",
+        "job": "Print job",
+        "attempts": "{n, plural, one {# attempt} other {# attempts}}",
+        "lastError": "Last error"
+      },
+      "confidence": {
+        "sensor_confirmed": "Chute sensor",
+        "printer_reported": "Printer report only",
+        "manual": "Manual (after review)"
+      },
+      "att": {
+        "leased": "Leased",
+        "started": "Started",
+        "printed": "Printed",
+        "cut": "Cut",
+        "chute": "Chute",
+        "outcome": "Outcome"
+      },
       "summary": "Summary",
       "locale": "Language",
       "paid": "Paid",
@@ -85,7 +130,13 @@
         "resolved": "Updated",
         "revealAlt": "Printed kvittel",
         "hide": "Hide",
-        "dialog": { "delivered": "Confirm delivery", "requeue": "Re-queue for printing", "failed": "Mark as not delivered", "refund": "Request a refund", "reveal": "View kvittel content" },
+        "dialog": {
+          "delivered": "Confirm delivery",
+          "requeue": "Re-queue for printing",
+          "failed": "Mark as not delivered",
+          "refund": "Request a refund",
+          "reveal": "View kvittel content"
+        },
         "revealWarning": "This kvittel may contain sensitive personal information. Access is restricted and permanently recorded with your reason.",
         "dialogHint": "Explain what you verified. This is stored in the audit log.",
         "confirm": "Confirm",
@@ -99,17 +150,42 @@
       "description": "Create, translate and publish tziyunim. A tziyun can only be active with an approved installation permit.",
       "new": "New tziyun",
       "draft": "Draft",
-      "cols": { "name": "Name", "status": "Status", "availability": "Now", "location": "Country", "translations": "Translations", "permit": "Permit", "demand": "Demand" },
-      "status": { "discovery_only": "Information only", "coming_soon": "Coming soon", "active": "Active", "paused": "Paused", "maintenance": "Maintenance" },
+      "cols": {
+        "name": "Name",
+        "status": "Status",
+        "availability": "Now",
+        "location": "Country",
+        "translations": "Translations",
+        "permit": "Permit",
+        "demand": "Demand"
+      },
+      "status": {
+        "discovery_only": "Information only",
+        "coming_soon": "Coming soon",
+        "active": "Active",
+        "paused": "Paused",
+        "maintenance": "Maintenance"
+      },
       "unverified": "unverified",
       "reviewed": "Reviewed",
       "unreviewed": "Not reviewed",
       "missing": "Missing",
-      "permit": { "none": "None", "requested": "Requested", "approved": "Approved", "revoked": "Revoked" },
+      "permit": {
+        "none": "None",
+        "requested": "Requested",
+        "approved": "Approved",
+        "revoked": "Revoked"
+      },
       "editorDesc": "Changes go live on save when the tziyun is published. Use preview to check the public page first.",
       "editor": {
         "tabs": "Editor sections",
-        "tab": { "general": "General", "translations": "Languages", "location": "Location", "hours": "Hours & calendar", "media": "Photos" },
+        "tab": {
+          "general": "General",
+          "translations": "Languages",
+          "location": "Location",
+          "hours": "Hours & calendar",
+          "media": "Photos"
+        },
         "slug": "URL slug",
         "slugHint": "Lowercase letters, digits and hyphens.",
         "status": "Service status",
@@ -160,7 +236,21 @@
         "hilulaMonth": "Hebrew month",
         "hilulaYear": "Hebrew year of passing",
         "hilulaVerified": "Date verified",
-        "months": { "1": "Nisan", "2": "Iyar", "3": "Sivan", "4": "Tammuz", "5": "Av", "6": "Elul", "7": "Tishrei", "8": "Cheshvan", "9": "Kislev", "10": "Tevet", "11": "Shevat", "12": "Adar (I)", "13": "Adar II" },
+        "months": {
+          "1": "Nisan",
+          "2": "Iyar",
+          "3": "Sivan",
+          "4": "Tammuz",
+          "5": "Av",
+          "6": "Elul",
+          "7": "Tishrei",
+          "8": "Cheshvan",
+          "9": "Kislev",
+          "10": "Tevet",
+          "11": "Shevat",
+          "12": "Adar (I)",
+          "13": "Adar II"
+        },
         "saveFirst": "Save the tziyun first to add photos.",
         "mediaPolicy": "Only authentic photos of this tziyun with a confirmed licence and credit are shown publicly. Never use a photo of another place.",
         "noMedia": "No photos. The public page shows the typographic portrait.",
@@ -178,7 +268,14 @@
         "makeCover": "Make cover",
         "deletePhoto": "Delete",
         "deleteConfirm": "Delete this photo permanently?",
-        "mediaErrors": {"invalid":"Something went wrong. Please try again.","invalid_file":"Choose a JPG, PNG or WebP image up to 10 MB.","decode_failed":"This file could not be read as an image.","credit_license_required":"Fill in the credit and licence before confirming rights.","storage_failed":"Photo storage is not available right now. Check the storage settings (write access) and try again.","not_found":"This photo no longer exists."},
+        "mediaErrors": {
+          "invalid": "Something went wrong. Please try again.",
+          "invalid_file": "Choose a JPG, PNG or WebP image up to 10 MB.",
+          "decode_failed": "This file could not be read as an image.",
+          "credit_license_required": "Fill in the credit and licence before confirming rights.",
+          "storage_failed": "Photo storage is not available right now. Check the storage settings (write access) and try again.",
+          "not_found": "This photo no longer exists."
+        },
         "upload": "Upload",
         "live": "Published",
         "draftState": "Draft",
@@ -194,7 +291,19 @@
           "publish_not_permitted": "Your role cannot publish.",
           "name_required": "A published tziyun needs at least one name.",
           "invalid_timezone": "Unknown time zone."
-        }
+        },
+        "role": "Photo role",
+        "roleHint": "Main: cards and home · Writing: background of the writing screen · Mobile: phone crop",
+        "roles": {
+          "hero": "Main",
+          "writing": "Writing background",
+          "mobile": "Mobile crop",
+          "gallery": "Gallery"
+        },
+        "focalX": "Focal point (horizontal)",
+        "focalY": "Focal point (vertical)",
+        "altHe": "Alt text (Hebrew)",
+        "altEn": "Alt text (English)"
       }
     },
     "pricing": {
@@ -214,9 +323,33 @@
       "addOverride": "Set a price for a specific tziyun",
       "endOverride": "End",
       "coupons": "Coupons",
-      "coupon": { "code": "Code", "kind": "Type", "value": "Value", "used": "Used", "validTo": "Valid until", "state": "State", "percent": "Percent", "fixed": "Fixed amount", "on": "Active", "off": "Off", "valuePct": "Percent", "valueAmount": "Amount", "currency": "Currency", "max": "Max uses", "active": "Active", "save": "Save coupon" },
+      "coupon": {
+        "code": "Code",
+        "kind": "Type",
+        "value": "Value",
+        "used": "Used",
+        "validTo": "Valid until",
+        "state": "State",
+        "percent": "Percent",
+        "fixed": "Fixed amount",
+        "on": "Active",
+        "off": "Off",
+        "valuePct": "Percent",
+        "valueAmount": "Amount",
+        "currency": "Currency",
+        "max": "Max uses",
+        "active": "Active",
+        "save": "Save coupon"
+      },
       "history": "Price history",
-      "historyCols": { "when": "Changed", "scope": "Scope", "item": "Item", "amount": "Amount", "version": "Version", "until": "Valid until" },
+      "historyCols": {
+        "when": "Changed",
+        "scope": "Scope",
+        "item": "Item",
+        "amount": "Amount",
+        "version": "Version",
+        "until": "Valid until"
+      },
       "default": "Default",
       "current": "Current",
       "snapshotNote": "Each order stores a snapshot of the prices used at the moment of purchase."
@@ -232,7 +365,17 @@
       "currencies": "Currencies",
       "currenciesSub": "reported separately",
       "byCurrency": "By currency",
-      "cols": { "currency": "Currency", "payments": "Payments", "gross": "Gross", "fees": "Fees", "refunds": "Refunds", "net": "Net", "grave": "Tziyun", "deliveries": "Deliveries", "revenue": "Revenue" },
+      "cols": {
+        "currency": "Currency",
+        "payments": "Payments",
+        "gross": "Gross",
+        "fees": "Fees",
+        "refunds": "Refunds",
+        "net": "Net",
+        "grave": "Tziyun",
+        "deliveries": "Deliveries",
+        "revenue": "Revenue"
+      },
       "feesNote": "Demo fees are estimates (2.9% + 30). Real fees come from the payment provider’s balance transactions once connected.",
       "byGrave": "Revenue by tziyun",
       "partners": "Partner agreements",
@@ -244,7 +387,13 @@
       "title": "Customers",
       "description": "Guests and account holders, grouped by email. No kvittel content is shown here.",
       "searchPh": "Email",
-      "cols": { "email": "Email", "type": "Type", "orders": "Orders", "last": "Last order", "marketing": "Marketing" },
+      "cols": {
+        "email": "Email",
+        "type": "Type",
+        "orders": "Orders",
+        "last": "Last order",
+        "marketing": "Marketing"
+      },
       "registered": "Account",
       "guest": "Guest",
       "optedIn": "Opted in",
@@ -257,7 +406,11 @@
       "eyebrow": "Business",
       "title": "Partners",
       "description": "Site committees, local technicians and institutions. Partners only ever see their own tziyunim and never kvittel content.",
-      "kinds": { "operator": "Site operator", "technician": "Technician", "institution": "Institution" },
+      "kinds": {
+        "operator": "Site operator",
+        "technician": "Technician",
+        "institution": "Institution"
+      },
       "scope": "Assigned tziyunim",
       "people": "People",
       "agreement": "Revenue share {pct}% · {currency}",
@@ -277,7 +430,12 @@
       "description": "Policy and disclosure pages in every language. Mark a translation reviewed only after legal and native review.",
       "view": "View",
       "requests": "Tziyun suggestions from visitors",
-      "reqCols": { "name": "Requested", "location": "Location", "locale": "Language", "when": "When" },
+      "reqCols": {
+        "name": "Requested",
+        "location": "Location",
+        "locale": "Language",
+        "when": "When"
+      },
       "uiStringsNote": "Interface texts live in versioned message catalogs (messages/[locale]/*.json) and are reviewed through code review.",
       "pageTitle": "Title",
       "body": "Text",
@@ -289,25 +447,70 @@
       "eyebrow": "System",
       "title": "Settings",
       "description": "Integrations, feature flags, roles and language readiness.",
-      "tabs": { "integrations": "Integrations", "flags": "Feature flags", "roles": "Roles & access", "localization": "Languages" },
+      "tabs": {
+        "integrations": "Integrations",
+        "flags": "Feature flags",
+        "roles": "Roles & access",
+        "localization": "Languages"
+      },
       "int": {
         "name": "Integration",
         "status": "Status",
         "detail": "Detail",
         "note": "Secrets live only in environment variables, never in the database or the repository.",
-        "keys": { "database": "Database", "payments": "Payments", "email": "Email", "devices": "Field units", "camera": "Delivery camera", "whatsapp": "WhatsApp", "invoices": "Tax invoices", "fx_rates": "Exchange rates" },
-        "states": { "configured": "Configured", "embedded": "Embedded (dev)", "mock": "Mock / DEMO", "missing_credentials": "Missing credentials", "simulated": "Simulated", "not_installed": "Not installed", "not_connected": "Not connected" }
+        "keys": {
+          "database": "Database",
+          "payments": "Payments",
+          "email": "Email",
+          "devices": "Field units",
+          "camera": "Delivery camera",
+          "whatsapp": "WhatsApp",
+          "invoices": "Tax invoices",
+          "fx_rates": "Exchange rates"
+        },
+        "states": {
+          "configured": "Configured",
+          "embedded": "Embedded (dev)",
+          "mock": "Mock / DEMO",
+          "missing_credentials": "Missing credentials",
+          "simulated": "Simulated",
+          "not_installed": "Not installed",
+          "not_connected": "Not connected"
+        }
       },
       "flagsNote": "Flags gate features that are built but not yet approved for production. Changes are audited.",
-      "roles": { "grantTitle": "Grant a role", "email": "Email", "role": "Role", "partner": "Partner scope", "grant": "Grant", "revoke": "Revoke", "note": "Partner roles are always limited to the partner’s tziyunim. Only super admins can view kvittel content, and only with a recorded reason." },
-      "loc": { "language": "Language", "state": "State", "coverage": "Translated", "keys": "Strings", "enabled": "Live", "awaitingQa": "Awaiting native QA", "disabled": "Off", "note": "Strings identical to English count as untranslated. Additional languages are enabled through NEXT_PUBLIC_EXTRA_LOCALES only after native review." }
+      "roles": {
+        "grantTitle": "Grant a role",
+        "email": "Email",
+        "role": "Role",
+        "partner": "Partner scope",
+        "grant": "Grant",
+        "revoke": "Revoke",
+        "note": "Partner roles are always limited to the partner’s tziyunim. Only super admins can view kvittel content, and only with a recorded reason."
+      },
+      "loc": {
+        "language": "Language",
+        "state": "State",
+        "coverage": "Translated",
+        "keys": "Strings",
+        "enabled": "Live",
+        "awaitingQa": "Awaiting native QA",
+        "disabled": "Off",
+        "note": "Strings identical to English count as untranslated. Additional languages are enabled through NEXT_PUBLIC_EXTRA_LOCALES only after native review."
+      }
     },
     "audit": {
       "eyebrow": "System",
       "title": "Audit log",
       "description": "Append-only record of sensitive actions: refunds, content access, price changes, role changes, device commands.",
       "filterPh": "action contains… e.g. refund",
-      "cols": { "when": "When", "actor": "Actor", "action": "Action", "target": "Target", "reason": "Reason" },
+      "cols": {
+        "when": "When",
+        "actor": "Actor",
+        "action": "Action",
+        "target": "Target",
+        "reason": "Reason"
+      },
       "note": "The audit log never contains kvittel content."
     },
     "search": {

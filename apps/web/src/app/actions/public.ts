@@ -3,11 +3,10 @@
 import { and, eq, sql } from "drizzle-orm";
 import { headers } from "next/headers";
 import { z } from "zod";
-import { graveRequests, graves, payments, users, roleAssignments } from "@kvittel/db";
+import { graveRequests, graves, payments } from "@kvittel/db";
 import type { KvittelContent } from "@kvittel/print-layout";
 import { routing } from "@/i18n/routing";
 import { checkoutSchema, cartEntrySchema, kvittelContentSchema } from "@/lib/kvittel-schema";
-import { audit } from "@/server/audit";
 import { consumeMagicCode, consumeMagicToken, createMagicLink, createSession, destroySession, findOrCreateUser, getSession } from "@/server/auth/session";
 import { getDb } from "@/server/db";
 import { sendMagicLink } from "@/server/email";
@@ -105,7 +104,12 @@ export async function requestMagicLink(input: { email: string; locale: string; n
   const locale = (routing.locales as readonly string[]).includes(input.locale) ? input.locale : "he";
   const next = input.next && input.next.startsWith("/") && !input.next.startsWith("//") ? input.next : null;
   const { token, code } = await createMagicLink(email.data, next);
-  await sendMagicLink(email.data.toLowerCase(), locale, `${env.appUrl}/${locale}/login/verify?token=${token}`, code);
+  try {
+    await sendMagicLink(email.data.toLowerCase(), locale, `${env.appUrl}/${locale}/login/verify?token=${token}`, code);
+  } catch (e) {
+    console.error("magic_link_mail_failed", (e as Error).message);
+    return { ok: false as const, error: "mail_unavailable" };
+  }
   return { ok: true as const };
 }
 
@@ -124,19 +128,6 @@ export async function verifyMagicToken(token: string, locale: string) {
   const user = await findOrCreateUser(row.email, locale);
   await createSession(user.id, (await headers()).get("user-agent"));
   return { ok: true as const, next: row.redirectTo ?? "/account" };
-}
-
-/** DEMO-only quick sign-in as a seeded role. Disabled outside demo mode. */
-export async function demoSignIn(email: string) {
-  if (!env.demoMode || !email.endsWith("@demo.kvittel.local")) return { ok: false as const };
-  const db = await getDb();
-  const [u] = await db.select().from(users).where(eq(users.email, email)).limit(1);
-  if (!u) return { ok: false as const };
-  await createSession(u.id, "demo-signin");
-  const roles = await db.select({ role: roleAssignments.role }).from(roleAssignments).where(eq(roleAssignments.userId, u.id));
-  await audit({ actorUserId: u.id, action: "auth.demo_sign_in" });
-  const r = roles.map((x) => x.role);
-  return { ok: true as const, next: r.some((x) => ["super_admin", "admin", "finance", "support_limited", "content_editor"].includes(x)) ? "/admin" : r.some((x) => ["partner_manager", "local_maintainer"].includes(x)) ? "/operator" : "/account" };
 }
 
 export async function signOut() {

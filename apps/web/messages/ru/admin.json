@@ -26,7 +26,14 @@
       "settings": "Настройки",
       "audit": "Журнал аудита",
       "activity": "События устройств",
-      "groups": { "overview": "Обзор", "operations": "Операции", "catalogue": "Каталог", "fleet": "Парк", "business": "Бизнес", "system": "Система" },
+      "groups": {
+        "overview": "Обзор",
+        "operations": "Операции",
+        "catalogue": "Каталог",
+        "fleet": "Парк",
+        "business": "Бизнес",
+        "system": "Система"
+      },
       "roles": {
         "super_admin": "Суперадминистратор",
         "admin": "Администратор",

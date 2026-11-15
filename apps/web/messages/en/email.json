@@ -1,9 +1,9 @@
 {
   "email": {
-    "footer": "Kvittel · physical delivery of kvittlach to the resting places of tzaddikim. Your kvittel’s content is never included in emails.",
+    "footer": "KVITALE · physical delivery of kvittlach to the resting places of tzaddikim. Your kvittel’s content is never included in emails.",
     "magic": {
       "subject": "Your sign-in link",
-      "title": "Sign in to Kvittel",
+      "title": "Sign in to KVITALE",
       "body": "Use the button below to sign in. The link is valid for 15 minutes.",
       "cta": "Sign in",
       "code": "Or enter this code:",
@@ -19,9 +19,21 @@
       "privacy": "Keep this link private: it gives access to the status of your order."
     },
     "delivery": {
-      "delivered": { "subject": "Delivered · {ref}", "title": "Your kvittel was delivered", "body": "Your kvittel was printed and passed into the opening at {grave}." },
-      "uncertain": { "subject": "We are checking a delivery · {ref}", "title": "We are checking this delivery", "body": "The unit at {grave} could not confirm every step. Nothing will be printed twice automatically; our team is reviewing it." },
-      "failed": { "subject": "Delivery not completed · {ref}", "title": "Delivery not completed", "body": "We could not deliver your kvittel at {grave}. You can choose a later delivery or a full refund." }
+      "delivered": {
+        "subject": "Delivered · {ref}",
+        "title": "Your kvittel was delivered",
+        "body": "Your kvittel was printed and passed into the opening at {grave}."
+      },
+      "uncertain": {
+        "subject": "We are checking a delivery · {ref}",
+        "title": "We are checking this delivery",
+        "body": "The unit at {grave} could not confirm every step. Nothing will be printed twice automatically; our team is reviewing it."
+      },
+      "failed": {
+        "subject": "Delivery not completed · {ref}",
+        "title": "Delivery not completed",
+        "body": "We could not deliver your kvittel at {grave}. You can choose a later delivery or a full refund."
+      }
     }
   }
 }

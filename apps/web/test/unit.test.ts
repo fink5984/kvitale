@@ -112,3 +112,38 @@ describe("input validation", () => {
     expect(checkoutSchema.safeParse({ ...ok, currency: "BTC" }).success).toBe(false);
   });
 });
+
+import { detectNusach } from "@/lib/nusach";
+
+describe("note language follows the text", () => {
+  it("Hebrew text → he, Cyrillic → ru, Latin → site language or en, empty → site language", () => {
+    expect(detectNusach("ישראל בן שרה", "en")).toBe("he");
+    expect(detectNusach("Александр", "he")).toBe("ru");
+    expect(detectNusach("Yisroel ben Sarah", "he")).toBe("en");
+    expect(detectNusach("Élodie", "fr")).toBe("fr");
+    expect(detectNusach("", "he")).toBe("he");
+  });
+});
+
+describe("demo mode can never be on by accident", () => {
+  const load = async (env: Record<string, string | undefined>) => {
+    const saved = { ...process.env };
+    for (const k of ["KVITTEL_DEMO_MODE", "DATABASE_URL", "RAILWAY_ENVIRONMENT", "RAILWAY_PROJECT_ID"]) delete process.env[k];
+    Object.assign(process.env, env);
+    const { vi } = await import("vitest");
+    vi.resetModules();
+    const m = await import("@/server/env");
+    process.env = saved;
+    return m;
+  };
+  it("is off when the variable is absent", async () => expect((await load({})).env.demoMode).toBe(false));
+  it("is off with a real database or on Railway even if requested", async () => {
+    expect((await load({ KVITTEL_DEMO_MODE: "1", DATABASE_URL: "postgres://x" })).env.demoMode).toBe(false);
+    expect((await load({ KVITTEL_DEMO_MODE: "1", RAILWAY_ENVIRONMENT: "production" })).env.demoMode).toBe(false);
+  });
+  it("is on only when explicitly requested locally", async () => expect((await load({ KVITTEL_DEMO_MODE: "1" })).env.demoMode).toBe(true));
+  it("commerce is unavailable without real payments + mail", async () => {
+    const m = await load({});
+    expect(m.commerceReady()).toBe(false);
+  });
+});

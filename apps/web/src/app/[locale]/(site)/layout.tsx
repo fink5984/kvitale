@@ -5,17 +5,15 @@ import { Header } from "@/components/site/Header";
 import { Link } from "@/i18n/navigation";
 import { getSession } from "@/server/auth/session";
 import { env } from "@/server/env";
-import { getCurrency } from "@/server/prefs";
 
 export default async function SiteLayout({ children, params }: { children: ReactNode; params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const [currency, session, t] = await Promise.all([getCurrency(locale), getSession(), getTranslations("common")]);
+  const [session, t] = await Promise.all([getSession(), getTranslations("common")]);
   return (
     <>
       <Suspense>
         <Header
-          currency={currency}
           signedIn={!!session}
           banner={
             env.demoMode ? (

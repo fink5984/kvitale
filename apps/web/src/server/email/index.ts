@@ -23,12 +23,29 @@ const devMailbox: MailProvider = {
   },
 };
 
+/**
+ * Resend (HTTPS API, no SDK). Requires RESEND_API_KEY and MAIL_FROM (a verified sender).
+ * Message bodies never contain kvittel content — only order references and tracking links.
+ */
+const resend: MailProvider = {
+  id: "resend",
+  async send(m) {
+    const db = await getDb();
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { authorization: `Bearer ${env.resendApiKey}`, "content-type": "application/json" },
+      body: JSON.stringify({ from: env.mailFrom, to: [m.to], subject: m.subject, html: m.html, text: m.text }),
+    });
+    await db.insert(outboundEmails).values({ ...m, html: "", text: "", provider: "resend", status: res.ok ? "sent" : `failed_${res.status}` });
+    if (!res.ok) throw new Error(`resend_${res.status}`);
+  },
+};
+
+/** The dev mailbox exists only in an explicit local DEMO. Otherwise a real provider is required — no silent fallback. */
 function provider(): MailProvider {
-  if (env.mailProvider !== "devmailbox") {
-    // Real providers require credentials; until configured, fail closed to the dev mailbox in DEMO, error otherwise.
-    if (!env.demoMode) throw new Error(`MAIL_PROVIDER=${env.mailProvider} not configured`);
-  }
-  return devMailbox;
+  if (env.demoMode && env.mailProvider === "devmailbox") return devMailbox;
+  if (env.mailProvider === "resend" && env.resendApiKey && env.mailFrom) return resend;
+  throw new Error("mail_unavailable");
 }
 
 const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
@@ -38,7 +55,7 @@ function layout(locale: string, title: string, bodyHtml: string, footer: string)
   return `<!doctype html><html lang="${locale}" dir="${dir}"><body style="margin:0;background:#F5EFE2;font-family:Georgia,'Times New Roman',serif;color:#0F1D33">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="padding:32px 12px"><tr><td align="center">
 <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FBF8F1;border:1px solid #D9CDB4;border-radius:4px">
-<tr><td style="background:#0F1D33;padding:28px 32px;text-align:center;color:#E3CB8F;font-size:13px;letter-spacing:.2em">KVITTEL · קוויטל</td></tr>
+<tr><td style="background:#12203F;padding:28px 32px;text-align:center;color:#E3CB8F;font-size:13px;letter-spacing:.2em">KVITALE · קוויטלה</td></tr>
 <tr><td style="padding:32px;text-align:${dir === "rtl" ? "right" : "left"}"><h1 style="font-weight:normal;font-size:26px;margin:0 0 16px">${esc(title)}</h1>${bodyHtml}</td></tr>
 <tr><td style="padding:20px 32px;border-top:1px solid #E8DFCC;color:#6B645A;font-size:12px;text-align:center;font-family:Arial,sans-serif">${esc(footer)}</td></tr>
 </table></td></tr></table></body></html>`;

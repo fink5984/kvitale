@@ -113,13 +113,18 @@ export function newId() {
 
 export function emptyContent(nusach: KvittelContentInput["nusach"], graveDisplayName = ""): KvittelContentInput {
   return {
-    template: "classic",
+    template: "simple",
     nusach,
     graveDisplayName,
-    people: [{ id: newId(), mode: "structured", given: "", parent: "", relation: "ben" }],
+    people: [{ id: newId(), mode: "free", given: "", relation: "none", freeText: "" }],
     topics: [],
     request: "",
     signature: "",
-    showBH: true,
+    showBH: false,
   };
+}
+
+/** True when the person has typed anything worth keeping. */
+export function hasText(c: KvittelContentInput): boolean {
+  return c.request.trim().length > 0 || c.people.some((p) => (p.freeText ?? p.given ?? "").trim().length > 0) || !!c.handwritingRef;
 }

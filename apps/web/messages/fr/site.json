@@ -1,0 +1,125 @@
+{
+  "site": {
+    "search": {
+      "label": "Rechercher un tzadik, une ville ou un nom",
+      "placeholder": "Un tzadik ou une ville…",
+      "submit": "Rechercher",
+      "resultsCount": "{count, plural, =0 {Aucun résultat} one {# résultat} other {# résultats}}",
+      "noResults": "Nous n’avons pas encore ce tombeau.",
+      "requestIt": "Proposez-le-nous"
+    },
+    "home": {
+      "hero": {
+        "line1": "Votre kvittel.",
+        "line2": "Auprès du tzadik.",
+        "sub": "Choisissez un tzadik, écrivez votre kvittel et envoyez-le, où que vous soyez.",
+        "browse": "ou parcourez tous les tombeaux"
+      },
+      "featured": {
+        "title": "Tombeaux à l’honneur",
+        "all": "Tous les tombeaux"
+      },
+      "how": {
+        "title": "Comment ça marche",
+        "choose": {
+          "title": "Choisissez un tzadik",
+          "body": "Recherche par nom ou par ville."
+        },
+        "write": {
+          "title": "Écrivez votre kvittel",
+          "body": "Des noms et une demande, en quelques mots."
+        },
+        "send": {
+          "title": "Envoyez",
+          "body": "Payez, puis suivez votre commande."
+        }
+      },
+      "cta": {
+        "title": "Prêt à écrire votre kvittel ?",
+        "button": "Trouver un tzadik"
+      }
+    },
+    "card": {
+      "send": "Envoyer un kvittel"
+    },
+    "directory": {
+      "metaTitle": "Tombeaux de tzadikim",
+      "metaDescription": "Trouvez le tombeau d’un tzadik et envoyez votre kvittel.",
+      "title": "Trouvez le tzadik",
+      "allCountries": "Tous les pays",
+      "resultsFor": "{count, plural, =0 {Aucun résultat pour} one {# résultat pour} other {# résultats pour}}",
+      "none": {
+        "title": "Bientôt",
+        "body": "Nous préparons les premiers tombeaux. Vous pouvez nous suggérer un tzadik qui compte pour vous."
+      },
+      "empty": {
+        "title": "Aucun résultat",
+        "body": "Essayez une autre orthographe, ou proposez-nous ce tombeau."
+      },
+      "suggest": "Proposer un tombeau",
+      "missing": "Il manque un tzadik ?"
+    },
+    "write": {
+      "formLabel": "Écrire un kvittel pour {name}",
+      "names": {
+        "label": "Noms pour la prière",
+        "hint": "Un prénom et le nom de la mère — par exemple : Yisroel ben Sarah",
+        "placeholder": "Yisroel ben Sarah",
+        "placeholderMore": "Un autre nom",
+        "nth": "Nom {n}",
+        "remove": "Retirer le nom {n}",
+        "add": "Ajouter un autre nom"
+      },
+      "request": {
+        "label": "Votre demande",
+        "placeholder": "Écrivez ici votre demande..."
+      },
+      "more": {
+        "eyebrow": "En savoir plus sur le tzadik",
+        "title": "Plus d’options",
+        "handwriting": "Ajouter une écriture manuscrite",
+        "handwritingHint": "Vous pouvez joindre une photo de votre écriture.",
+        "remember": "Garder mon brouillon sur cet appareil",
+        "rememberHint": "Conservé sur cet appareil uniquement, jusqu’à sept jours.",
+        "wipe": "Supprimer mon brouillon",
+        "wipeConfirm": "Supprimer tout ce que vous avez écrit sur cet appareil ?"
+      },
+      "update": "Mettre à jour le kvittel",
+      "continue": "Continuer vers le récapitulatif et le paiement",
+      "noPriceYet": "Le prix final s’affiche à l’étape suivante, avant le paiement.",
+      "preview": {
+        "title": "Voici votre kvittel",
+        "open": "Voir le kvittel",
+        "close": "Fermer",
+        "exact": "L’aperçu correspond à ce qui sera imprimé."
+      }
+    },
+    "how": {
+      "title": "Comment envoyer un kvittel",
+      "intro": "Quatre étapes courtes.",
+      "steps": {
+        "choose": {
+          "title": "Choisissez un tzadik",
+          "body": "Recherchez par nom ou par ville, quelle que soit l’orthographe."
+        },
+        "write": {
+          "title": "Écrivez votre kvittel",
+          "body": "Des noms pour la prière et une demande. Le kvittel apparaît pendant que vous écrivez, tel qu’il sera imprimé."
+        },
+        "pay": {
+          "title": "Payez",
+          "body": "Vous voyez le prix final avant de confirmer. Sans inscription."
+        },
+        "follow": {
+          "title": "Suivez votre commande",
+          "body": "Vous recevez un lien de suivi privé. Nous n’affichons « Remis » que lorsque c’est réellement confirmé."
+        }
+      },
+      "honesty": {
+        "title": "Ce que nous fournissons",
+        "body": "La remise physique du kvittel que vous avez écrit. Nous ne prions pas à votre place et ne promettons aucun résultat."
+      },
+      "cta": "Trouver un tzadik"
+    }
+  }
+}

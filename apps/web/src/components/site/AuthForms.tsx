@@ -3,11 +3,10 @@
 import { Mail } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState, useTransition } from "react";
-import { demoSignIn, requestGrave, requestMagicLink, verifyMagicCode, verifyMagicToken } from "@/app/actions/public";
+import { requestGrave, requestMagicLink, verifyMagicCode, verifyMagicToken } from "@/app/actions/public";
 import { Button, Field, Input, Notice, Textarea } from "@/components/ui";
-import { Link } from "@/i18n/navigation";
 
-export function LoginForm({ next, demoUsers }: { next?: string; demoUsers: Array<{ email: string; role: string }> | null }) {
+export function LoginForm({ next }: { next?: string }) {
   const t = useTranslations("account.login");
   const locale = useLocale();
   const [email, setEmail] = useState("");
@@ -65,38 +64,6 @@ export function LoginForm({ next, demoUsers }: { next?: string; demoUsers: Array
         </form>
       )}
       {error && <Notice tone="warning">{error}</Notice>}
-      {demoUsers && (
-        <div className="rounded-xl border border-dashed border-ochre-600/40 bg-ochre-100/40 p-5">
-          <p className="font-mono text-xs font-semibold tracking-[0.15em] text-ochre-600">DEMO</p>
-          <p className="mt-1 text-sm text-charcoal-700">{t("demo")}</p>
-          <div className="mt-4 grid gap-2 sm:grid-cols-2">
-            {demoUsers.map((u) => (
-              <button
-                key={u.email}
-                type="button"
-                className="rounded-lg border border-[var(--line)] bg-ivory-50 px-3 py-2 text-start text-sm hover:border-gold-500"
-                onClick={() =>
-                  start(async () => {
-                    const r = await demoSignIn(u.email);
-                    if (r.ok) go(r.next);
-                  })
-                }
-              >
-                <span className="block font-medium">{t(`roles.${u.role}`)}</span>
-                <span className="block truncate font-mono text-[0.7rem] text-charcoal-500" dir="ltr">
-                  {u.email}
-                </span>
-              </button>
-            ))}
-          </div>
-          <p className="mt-3 text-xs text-charcoal-500">
-            {t("mailbox")}{" "}
-            <Link href="/dev/mailbox" className="underline">
-              /dev/mailbox
-            </Link>
-          </p>
-        </div>
-      )}
     </div>
   );
 }

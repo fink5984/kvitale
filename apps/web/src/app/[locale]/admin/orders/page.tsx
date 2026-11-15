@@ -19,7 +19,7 @@ export default async function AdminOrders({ params, searchParams }: { params: Pr
   const tc = await getTranslations("admin.common");
   const ts = await getTranslations("status.order");
   const ti = await getTranslations("status.item");
-  const [res, counts, graves] = await Promise.all([listOrders({ ...sp, page: Number(sp.page ?? 1) }), orderStatusCounts(), listGraves(locale, "USD")]);
+  const [res, counts, graves] = await Promise.all([listOrders({ ...sp, page: Number(sp.page ?? 1) }), orderStatusCounts(), listGraves(locale)]);
   const qs = (patch: Partial<SP>) => {
     const n = new URLSearchParams(Object.entries({ ...sp, ...patch }).filter(([, v]) => v) as Array<[string, string]>);
     return `/admin/orders?${n.toString()}`;

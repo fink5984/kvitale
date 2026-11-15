@@ -1,6 +1,6 @@
 {
   "email": {
-    "footer": "Kvittel · physische Zustellung von Kvittlach an die Ruhestätten der Zaddikim. Der Inhalt Ihres Kvittels ist niemals Teil unserer E-Mails.",
+    "footer": "KVITALE · physische Zustellung von Kvittlach an die Ruhestätten der Zaddikim. Der Inhalt Ihres Kvittels ist niemals Teil unserer E-Mails.",
     "magic": {
       "subject": "Ihr Anmeldelink",
       "title": "Bei Kvittel anmelden",
@@ -19,9 +19,21 @@
       "privacy": "Behalten Sie diesen Link für sich: Er gewährt Zugriff auf den Status Ihrer Bestellung."
     },
     "delivery": {
-      "delivered": { "subject": "Zugestellt · {ref}", "title": "Ihr Kvittel wurde zugestellt", "body": "Ihr Kvittel wurde gedruckt und in die Öffnung an der Grabstätte von {grave} geführt." },
-      "uncertain": { "subject": "Wir prüfen eine Zustellung · {ref}", "title": "Wir prüfen diese Zustellung", "body": "Die Einheit an der Grabstätte von {grave} konnte nicht jeden Schritt bestätigen. Nichts wird automatisch doppelt gedruckt; unser Team prüft den Vorgang." },
-      "failed": { "subject": "Zustellung nicht abgeschlossen · {ref}", "title": "Zustellung nicht abgeschlossen", "body": "Wir konnten Ihr Kvittel an der Grabstätte von {grave} nicht zustellen. Sie können eine spätere Zustellung oder eine vollständige Erstattung wählen." }
+      "delivered": {
+        "subject": "Zugestellt · {ref}",
+        "title": "Ihr Kvittel wurde zugestellt",
+        "body": "Ihr Kvittel wurde gedruckt und in die Öffnung an der Grabstätte von {grave} geführt."
+      },
+      "uncertain": {
+        "subject": "Wir prüfen eine Zustellung · {ref}",
+        "title": "Wir prüfen diese Zustellung",
+        "body": "Die Einheit an der Grabstätte von {grave} konnte nicht jeden Schritt bestätigen. Nichts wird automatisch doppelt gedruckt; unser Team prüft den Vorgang."
+      },
+      "failed": {
+        "subject": "Zustellung nicht abgeschlossen · {ref}",
+        "title": "Zustellung nicht abgeschlossen",
+        "body": "Wir konnten Ihr Kvittel an der Grabstätte von {grave} nicht zustellen. Sie können eine spätere Zustellung oder eine vollständige Erstattung wählen."
+      }
     }
   }
 }

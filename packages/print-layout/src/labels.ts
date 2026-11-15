@@ -8,6 +8,8 @@ import type { NusachLanguage, Relation, TopicId } from "./types";
 interface PrintLabels {
   bh: string;
   heading: string;
+  /** Title of the plain note ("simple" template), in the language of the kvittel */
+  noteTitle: string;
   relation: Record<Exclude<Relation, "none">, string>;
   topicsLead: string;
   topics: Record<TopicId, string>;
@@ -18,6 +20,7 @@ export const PRINT_LABELS: Record<NusachLanguage, PrintLabels> = {
   he: {
     bh: "ב״ה",
     heading: "בקשה על ציון",
+    noteTitle: "קוויטל",
     relation: { ben: "בן", bat: "בת" },
     topicsLead: "בעניני",
     topics: {
@@ -34,6 +37,7 @@ export const PRINT_LABELS: Record<NusachLanguage, PrintLabels> = {
   yi: {
     bh: "ב״ה",
     heading: "אַ בקשה בײַם ציון",
+    noteTitle: "קוויטל",
     relation: { ben: "בן", bat: "בת" },
     topicsLead: "וועגן",
     topics: {
@@ -50,6 +54,7 @@ export const PRINT_LABELS: Record<NusachLanguage, PrintLabels> = {
   en: {
     bh: "ב״ה",
     heading: "A petition at the resting place of",
+    noteTitle: "Kvittel",
     relation: { ben: "ben", bat: "bat" },
     topicsLead: "Concerning",
     topics: {
@@ -66,6 +71,7 @@ export const PRINT_LABELS: Record<NusachLanguage, PrintLabels> = {
   fr: {
     bh: "ב״ה",
     heading: "Requête auprès du tombeau de",
+    noteTitle: "Kvittel",
     relation: { ben: "ben", bat: "bat" },
     topicsLead: "Au sujet de",
     topics: {
@@ -82,6 +88,7 @@ export const PRINT_LABELS: Record<NusachLanguage, PrintLabels> = {
   ru: {
     bh: "ב״ה",
     heading: "Записка у могилы праведника",
+    noteTitle: "Квитл",
     relation: { ben: "бен", bat: "бат" },
     topicsLead: "Темы",
     topics: {
@@ -98,6 +105,7 @@ export const PRINT_LABELS: Record<NusachLanguage, PrintLabels> = {
   es: {
     bh: "ב״ה",
     heading: "Petición ante la tumba de",
+    noteTitle: "Kvittel",
     relation: { ben: "ben", bat: "bat" },
     topicsLead: "Acerca de",
     topics: {
@@ -114,6 +122,7 @@ export const PRINT_LABELS: Record<NusachLanguage, PrintLabels> = {
   pt: {
     bh: "ב״ה",
     heading: "Pedido junto ao túmulo de",
+    noteTitle: "Kvittel",
     relation: { ben: "ben", bat: "bat" },
     topicsLead: "Sobre",
     topics: {
@@ -130,6 +139,7 @@ export const PRINT_LABELS: Record<NusachLanguage, PrintLabels> = {
   de: {
     bh: "ב״ה",
     heading: "Bitte am Grab von",
+    noteTitle: "Kvittel",
     relation: { ben: "ben", bat: "bat" },
     topicsLead: "Betreffend",
     topics: {

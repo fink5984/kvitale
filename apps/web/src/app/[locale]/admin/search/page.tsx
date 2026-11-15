@@ -17,7 +17,7 @@ export default async function AdminSearch({ params, searchParams }: { params: Pr
   const db = await getDb();
   const like = `%${q.replace(/[%_]/g, "")}%`;
   const os = q && s.permissions.has("orders.read") ? await db.select().from(orders).where(or(ilike(orders.publicRef, like), ilike(orders.email, like))).orderBy(desc(orders.createdAt)).limit(10) : [];
-  const gs = q && s.permissions.has("graves.read") ? await searchGraves(q, locale, "USD") : [];
+  const gs = q && s.permissions.has("graves.read") ? await searchGraves(q, locale) : [];
   const ds = q && s.permissions.has("devices.read") ? await db.select().from(devices).where(or(ilike(devices.name, like), ilike(devices.serial, like))).limit(10) : [];
   return (
     <>

@@ -2,7 +2,11 @@
   "commerce": {
     "cart": {
       "title": "Your basket",
-      "empty": { "title": "Your basket is empty", "body": "Write a kvittel and it will appear here.", "cta": "Write a kvittel" },
+      "empty": {
+        "title": "Your basket is empty",
+        "body": "Write a kvittel and it will appear here.",
+        "cta": "Write a kvittel"
+      },
       "kvittel": "Kvittel {n}",
       "summary": "{people, plural, =0 {No names} one {# name} other {# names}} · {chars} characters",
       "edit": "Edit",
@@ -22,10 +26,10 @@
       "error": "The price could not be calculated right now. Please try again."
     },
     "checkout": {
-      "title": "Payment",
-      "intro": "We only need an email for your receipt and the delivery link.",
+      "title": "Summary and payment",
+      "intro": "Everything in one place: what is being sent, the final price, and payment.",
       "empty": "There is nothing to pay for.",
-      "emptyCta": "Write a kvittel",
+      "emptyCta": "Find a tzaddik",
       "email": "Email",
       "emailHint": "For the receipt and a private tracking link. No account is created.",
       "coupon": "Coupon code",
@@ -59,8 +63,18 @@
         "coupon_invalid": "The coupon cannot be applied ({detail}).",
         "schedule_consent_required": "Please confirm that some deliveries will be scheduled.",
         "rate_limited": "Too many attempts. Please wait a few minutes.",
-        "server_error": "Something went wrong. You have not been charged. Please try again."
-      }
+        "server_error": "Something went wrong. You have not been charged. Please try again.",
+        "service_unavailable": "Ordering is not open yet. You have not been charged."
+      },
+      "summaryTitle": "Summary",
+      "deliveries": "{count, plural, one {# kvittel} other {# kvittlach}}",
+      "extraPages": "Includes extra pages",
+      "bundle": "Several tziyunim ({pct}%)",
+      "couponLine": "Coupon",
+      "total": "Total to pay",
+      "taxNote": "The final amount, charged once. The receipt is sent by e-mail.",
+      "quoteError": "We can’t calculate the price right now. Please try again.",
+      "unavailable": "Ordering is not open yet, so payment can’t be completed right now. Your draft is saved."
     },
     "demoPay": {
       "noCard": "No card details are collected",
@@ -87,14 +101,21 @@
       "webhookNote": "We wait for the payment provider’s signed confirmation — not for your browser — before printing anything.",
       "localTime": "Local time at the tziyun: {time} ({tz})",
       "scheduledFor": "Scheduled to print from {when}, local time.",
-      "uncertain": { "title": "We are checking this delivery", "body": "The unit could not confirm every step. We will not reprint automatically; a person is reviewing it and will contact you." },
+      "uncertain": {
+        "title": "We are checking this delivery",
+        "body": "The unit could not confirm every step. We will not reprint automatically; a person is reviewing it and will contact you."
+      },
       "confidence": {
         "sensor_confirmed": "Confirmed by the optical sensor in the chute.",
         "printer_reported": "Reported by the printer. This unit has no chute sensor, so passage into the opening was not independently confirmed.",
         "manual": "Confirmed manually by our team after review."
       },
       "privacy": "The content of your kvittel is never shown on this page.",
-      "locked": { "title": "This order is private", "body": "Open it with the link from your confirmation email, or sign in with the email you used.", "signIn": "Sign in" }
+      "locked": {
+        "title": "This order is private",
+        "body": "Open it with the link from your confirmation email, or sign in with the email you used.",
+        "signIn": "Sign in"
+      }
     }
   }
 }

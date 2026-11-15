@@ -26,7 +26,14 @@
       "settings": "Ajustes",
       "audit": "Registro de auditoría",
       "activity": "Eventos de unidades",
-      "groups": { "overview": "Resumen", "operations": "Operaciones", "catalogue": "Catálogo", "fleet": "Flota", "business": "Negocio", "system": "Sistema" },
+      "groups": {
+        "overview": "Resumen",
+        "operations": "Operaciones",
+        "catalogue": "Catálogo",
+        "fleet": "Flota",
+        "business": "Negocio",
+        "system": "Sistema"
+      },
       "roles": {
         "super_admin": "Superadministrador",
         "admin": "Administrador",

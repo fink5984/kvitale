@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 /** Locale-aware sitemap with hreflang alternates for every public page. */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = (process.env.APP_URL ?? "http://localhost:3000").replace(/\/$/, "");
-  const graves = await listGraves("en", "USD");
+  const graves = await listGraves("en");
   const paths = ["", "/graves", "/how-it-works", "/faq", "/request-grave", "/legal/delivery-disclosure", "/legal/privacy", "/legal/refunds", "/legal/terms", ...graves.map((g) => `/graves/${g.slug}`)];
   return paths.flatMap((p) =>
     routing.locales.map((l) => ({

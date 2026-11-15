@@ -26,7 +26,14 @@
       "settings": "Configurações",
       "audit": "Log de auditoria",
       "activity": "Eventos das unidades",
-      "groups": { "overview": "Visão geral", "operations": "Operações", "catalogue": "Catálogo", "fleet": "Frota", "business": "Negócio", "system": "Sistema" },
+      "groups": {
+        "overview": "Visão geral",
+        "operations": "Operações",
+        "catalogue": "Catálogo",
+        "fleet": "Frota",
+        "business": "Negócio",
+        "system": "Sistema"
+      },
       "roles": {
         "super_admin": "Superadministrador",
         "admin": "Administrador",

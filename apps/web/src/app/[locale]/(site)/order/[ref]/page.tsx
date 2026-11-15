@@ -1,6 +1,7 @@
 import { Check, Clock, ShieldAlert } from "lucide-react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { AutoRefresh } from "@/components/commerce/AutoRefresh";
+import { ClearCartWhenPaid } from "@/components/commerce/ClearCartWhenPaid";
 import { Badge, DemoBadge, Notice, Ornament, buttonClass } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
 import { cn, formatDateTime, formatMoney } from "@/lib/format";
@@ -43,6 +44,7 @@ export default async function OrderPage({ params, searchParams }: { params: Prom
   return (
     <div className="pb-28">
       <AutoRefresh active={live} intervalMs={4000} />
+      <ClearCartWhenPaid paid={o.paymentStatus === "succeeded"} />
       <section className="tex-night text-ivory-50">
         <div className="mx-auto max-w-5xl px-[var(--gutter)] py-14 sm:py-20">
           <div className="flex flex-wrap items-center gap-3">

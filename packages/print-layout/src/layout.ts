@@ -13,7 +13,7 @@ import type {
   PrinterProfile,
 } from "./types";
 
-export const ENGINE_VERSION = "1.0.0";
+export const ENGINE_VERSION = "1.1.0";
 
 /** 58mm paper, 203dpi head, 48mm printable — the common profile of the candidate printers. */
 export const PROFILE_58MM_203DPI: PrinterProfile = {
@@ -67,6 +67,7 @@ export function layoutKvittel(
   const baseDir: Dir = labels.dir;
   const warnings: LayoutWarning[] = [];
   const blocks: Block[] = [];
+  const simple = content.template === "simple";
 
   const graveName = normalizeForPrint(content.graveDisplayName).trim();
   const people = content.people
@@ -76,7 +77,8 @@ export function layoutKvittel(
   const signature = normalizeForPrint(content.signature ?? "").trim();
 
   // ---- validation (transparent, never silent) ----
-  if (!graveName) warnings.push({ code: "grave_name_empty", blocking: true });
+  // The plain note never prints the tzaddik's name (the unit stands at the tziyun), so only legacy layouts require it.
+  if (!graveName && !simple) warnings.push({ code: "grave_name_empty", blocking: true });
   if (people.length === 0 && request.trim() === "" && !content.handwritingRef)
     warnings.push({ code: "empty", blocking: true });
   const missingParent = content.people.filter((p) => p.mode === "structured" && p.given.trim() && !(p.parent ?? "").trim());
@@ -109,6 +111,9 @@ export function layoutKvittel(
     blocks.push({ height: size + pad * 2, ops: [{ kind: "ornament", name, cx: CX, cy: pad + size / 2, size }] });
 
   // ---- composition ----
+  if (simple) {
+    composeSimple();
+  } else {
   space(10);
   if (content.showBH) {
     // ב״ה always sits at the top-right, per custom, regardless of language.
@@ -170,6 +175,54 @@ export function layoutKvittel(
   const footer = [opts.dateLine, opts.reference].filter(Boolean).join("  ·  ");
   if (footer) textLines(footer, F.tiny, "center", detectDir(footer, baseDir));
   space(8);
+  }
+
+  /**
+   * The plain note: a title, then fine horizontal rules like writing paper, with the
+   * typed names and request sitting on the rules. No frame, no ornament, no template.
+   * Length follows the text; one empty ruled line closes the note.
+   */
+  function composeSimple() {
+    const PITCH = 44;
+    const ruleY = PITCH - 3;
+    const ruled = (text: string | null, font: FontSpec, dir: Dir, align: "start" | "center" = "start") => {
+      const ops: DrawOp[] = [{ kind: "rule", x1: L, x2: R, y: ruleY, thickness: 1 }];
+      if (text) {
+        const startRight = dir === "rtl";
+        ops.unshift(align === "center"
+          ? { kind: "text", x: CX, y: ruleY - 9, text, font, align: "center", dir }
+          : { kind: "text", x: startRight ? R : L, y: ruleY - 9, text, font, align: startRight ? "right" : "left", dir });
+      }
+      blocks.push({ height: PITCH, ops });
+    };
+    const wrapRuled = (text: string, font: FontSpec) => {
+      const dir = detectDir(text, baseDir);
+      for (const line of wrapText(text, font, CW, m)) ruled(line, font, dir);
+    };
+    space(14);
+    if (content.showBH) blocks.push({ height: lh(F.small), ops: [{ kind: "text", x: R, y: baseline(F.small), text: labels.bh, font: F.small, align: "right", dir: "rtl" }] });
+    blocks.push({ height: lh(F.title) + 8, ops: [{ kind: "text", x: CX, y: baseline(F.title) + 2, text: labels.noteTitle, font: F.title, align: "center", dir: detectDir(labels.noteTitle, baseDir) }], keepWithNext: true });
+    space(8);
+    const NAME: FontSpec = { size: 25, weight: 700, style: "normal" };
+    for (const p of people) wrapRuled(p, NAME);
+    if (people.length && request.trim()) ruled(null, F.body, baseDir);
+    for (const para of splitParagraphs(request)) {
+      if (para === "") ruled(null, F.body, baseDir);
+      else wrapRuled(para, F.body);
+    }
+    if (content.handwritingRef && content.handwritingSize) {
+      const { width, height } = content.handwritingSize;
+      const w = W - 8;
+      const h = Math.max(1, Math.round((w * height) / Math.max(1, width)));
+      space(10);
+      blocks.push({ height: h, ops: [{ kind: "image", ref: content.handwritingRef, x: 4, y: 0, width: w, height: h }] });
+    }
+    ruled(null, F.body, baseDir);
+    space(4);
+    const footer = [opts.dateLine, opts.reference].filter(Boolean).join("  ·  ");
+    if (footer) textLines(footer, F.tiny, "center", detectDir(footer, baseDir));
+    space(8);
+  }
 
   // ---- pagination ----
   const pages = paginate(blocks, profile);

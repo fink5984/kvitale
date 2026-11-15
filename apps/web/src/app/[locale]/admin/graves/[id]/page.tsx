@@ -19,7 +19,7 @@ export default async function GraveEditPage({ params }: { params: Promise<{ loca
   const t = await getTranslations("admin.graves");
   const db = await getDb();
   let input: GraveInput;
-  let media: Array<{ id: string; credit: string | null; license: string | null; rightsVerified: boolean; width: number | null; height: number | null }> = [];
+  let media: Array<{ id: string; credit: string | null; license: string | null; rightsVerified: boolean; width: number | null; height: number | null; role: string; focalX: number; focalY: number; alt: Record<string, string> | null }> = [];
   let assigned: Array<{ id: string; name: string }> = [];
   if (id === "new") {
     input = {
@@ -56,7 +56,7 @@ export default async function GraveEditPage({ params }: { params: Promise<{ loca
     const al = await db.select().from(graveAliases).where(eq(graveAliases.graveId, id));
     const sc = await db.select().from(graveSchedules).where(eq(graveSchedules.graveId, id));
     const [h] = await db.select().from(graveHilulot).where(eq(graveHilulot.graveId, id));
-    media = (await db.select().from(graveMedia).where(eq(graveMedia.graveId, id)).orderBy(asc(graveMedia.sortOrder), asc(graveMedia.createdAt))).map((m) => ({ id: m.id, credit: m.credit, license: m.license, rightsVerified: m.rightsVerified, width: m.width, height: m.height }));
+    media = (await db.select().from(graveMedia).where(eq(graveMedia.graveId, id)).orderBy(asc(graveMedia.sortOrder), asc(graveMedia.createdAt))).map((m) => ({ id: m.id, credit: m.credit, license: m.license, rightsVerified: m.rightsVerified, width: m.width, height: m.height, role: m.role, focalX: m.focalX, focalY: m.focalY, alt: (m.alt as Record<string, string> | null) ?? null }));
     assigned = await db.select({ id: devices.id, name: devices.name }).from(deviceAssignments).innerJoin(devices, eq(devices.id, deviceAssignments.deviceId)).where(and(eq(deviceAssignments.graveId, id), isNull(deviceAssignments.unassignedAt)));
     const names = new Set(tr.map((x) => x.name));
     input = {

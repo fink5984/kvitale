@@ -13,6 +13,11 @@ import { DEMO_USERS, FEATURE_FLAGS, PRICE_DEFAULTS, SEED_GRAVES } from "./seed-d
 import { LEGAL_PAGES } from "./seed-pages";
 
 loadLocalEnv();
+// DEMO data may only ever be created in an explicit, local, throw-away database.
+if (process.env.DATABASE_URL || process.env.KVITTEL_DEMO_MODE !== "1") {
+  console.error("Refusing to seed DEMO data: it requires KVITTEL_DEMO_MODE=1 and NO DATABASE_URL (local PGlite only). For a real deployment use: pnpm db:seed:base");
+  process.exit(1);
+}
 console.log(`→ target: ${describeDatabaseUrl(process.env.DATABASE_URL)}`);
 const h = await createDb();
 await h.migrate();

@@ -21,6 +21,12 @@ const config: NextConfig = {
   transpilePackages: ["@kvittel/print-layout", "@kvittel/db", "@kvittel/device-sim"],
   serverExternalPackages: ["@electric-sql/pglite", "@napi-rs/canvas", "pg"],
   typedRoutes: false,
+  images: {
+    formats: ["image/avif", "image/webp"],
+    minimumCacheTTL: 60 * 60 * 24,
+    localPatterns: [{ pathname: "/api/media/grave/**" }, { pathname: "/brand/**" }],
+    qualities: [60, 74, 80],
+  },
   experimental: {
     serverActions: { bodySizeLimit: "12mb" },
   },

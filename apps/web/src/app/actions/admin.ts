@@ -251,13 +251,13 @@ export async function adminUploadGraveMedia(form: FormData): Promise<Result> {
 }
 
 /** Edit credit/licence and the rights confirmation. Public display requires all three. */
-export async function adminUpdateGraveMedia(input: { id: string; credit: string; license: string; rightsVerified: boolean }): Promise<Result> {
+export async function adminUpdateGraveMedia(input: { id: string; credit: string; license: string; rightsVerified: boolean; role: "hero" | "writing" | "mobile" | "gallery"; focalX: number; focalY: number; altHe: string; altEn: string }): Promise<Result> {
   const u = await requirePermission("graves.write");
-  const p = z.object({ id: z.string().uuid(), credit: z.string().trim().max(200), license: z.string().trim().max(200), rightsVerified: z.boolean() }).safeParse(input);
+  const p = z.object({ id: z.string().uuid(), credit: z.string().trim().max(200), license: z.string().trim().max(200), rightsVerified: z.boolean(), role: z.enum(["hero", "writing", "mobile", "gallery"]), focalX: z.number().int().min(0).max(100), focalY: z.number().int().min(0).max(100), altHe: z.string().trim().max(300), altEn: z.string().trim().max(300) }).safeParse(input);
   if (!p.success) return { ok: false, error: "invalid" };
   if (p.data.rightsVerified && (!p.data.credit || !p.data.license)) return { ok: false, error: "credit_license_required" };
   const db = await getDb();
-  const [m] = await db.update(graveMedia).set({ credit: p.data.credit || null, license: p.data.license || null, rightsVerified: p.data.rightsVerified }).where(eq(graveMedia.id, p.data.id)).returning({ graveId: graveMedia.graveId });
+  const [m] = await db.update(graveMedia).set({ credit: p.data.credit || null, license: p.data.license || null, rightsVerified: p.data.rightsVerified, role: p.data.role, focalX: p.data.focalX, focalY: p.data.focalY, alt: { ...(p.data.altHe ? { he: p.data.altHe } : {}), ...(p.data.altEn ? { en: p.data.altEn } : {}) } }).where(eq(graveMedia.id, p.data.id)).returning({ graveId: graveMedia.graveId });
   if (!m) return { ok: false, error: "not_found" };
   await audit({ actorUserId: u.id, action: "grave.media.updated", targetType: "grave", targetId: m.graveId, meta: { mediaId: p.data.id, rightsVerified: p.data.rightsVerified } });
   revalidatePath("/[locale]", "layout");

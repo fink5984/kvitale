@@ -25,9 +25,25 @@
         "repeat": "Clientes recurrentes",
         "repeatSub": "{graves} tziunim activos"
       },
-      "charts": { "daily": "Pedidos y entregas por día (UTC)", "orders": "Pedidos", "delivered": "Entregados" },
-      "revenue": { "title": "Ingresos por moneda", "currency": "Moneda", "gross": "Bruto", "refunds": "Reembolsos", "aov": "Pedido medio", "note": "No se aplica conversión de moneda: cada moneda se informa por separado hasta que se conecten tipos de cambio reales." },
-      "breakdown": { "graves": "Entregas por tziún", "languages": "Pedidos por idioma", "geography": "Pedidos por país", "geoNote": "El país es un indicio del contexto del pedido, no una identidad verificada." },
+      "charts": {
+        "daily": "Pedidos y entregas por día (UTC)",
+        "orders": "Pedidos",
+        "delivered": "Entregados"
+      },
+      "revenue": {
+        "title": "Ingresos por moneda",
+        "currency": "Moneda",
+        "gross": "Bruto",
+        "refunds": "Reembolsos",
+        "aov": "Pedido medio",
+        "note": "No se aplica conversión de moneda: cada moneda se informa por separado hasta que se conecten tipos de cambio reales."
+      },
+      "breakdown": {
+        "graves": "Entregas por tziún",
+        "languages": "Pedidos por idioma",
+        "geography": "Pedidos por país",
+        "geoNote": "El país es un indicio del contexto del pedido, no una identidad verificada."
+      },
       "alerts": {
         "title": "Alertas abiertas",
         "all": "Todas las alertas",
@@ -45,7 +61,10 @@
           "payment_mismatch": "Discrepancia en el pago"
         }
       },
-      "funnel": { "title": "Embudo de conversión", "body": "Aún no se mide. Antes de mostrar la conversión de visita a pedido debe conectarse un proveedor de analítica respetuoso con la privacidad (sin contenido de peticiones ni rastreo publicitario de terceros). No mostramos embudos estimados." }
+      "funnel": {
+        "title": "Embudo de conversión",
+        "body": "Aún no se mide. Antes de mostrar la conversión de visita a pedido debe conectarse un proveedor de analítica respetuoso con la privacidad (sin contenido de peticiones ni rastreo publicitario de terceros). No mostramos embudos estimados."
+      }
     },
     "orders": {
       "eyebrow": "Operaciones",
@@ -56,12 +75,38 @@
       "grave": "Tziún",
       "from": "Desde",
       "to": "Hasta",
-      "cols": { "ref": "Pedido", "created": "Creado", "customer": "Cliente", "deliveries": "Entregas", "status": "Estado", "total": "Total" },
+      "cols": {
+        "ref": "Pedido",
+        "created": "Creado",
+        "customer": "Cliente",
+        "deliveries": "Entregas",
+        "status": "Estado",
+        "total": "Total"
+      },
       "privacyNote": "Las exportaciones y listas no contienen nombres ni peticiones.",
       "detailDesc": "Cada tziún es una entrega independiente con su propio trabajo de impresión e intentos.",
-      "item": { "pages": "Páginas", "scheduled": "Programada para", "delivered": "Entregada", "confidence": "Confirmación", "job": "Trabajo de impresión", "attempts": "{n, plural, one {# intento} other {# intentos}}", "lastError": "Último error" },
-      "confidence": { "sensor_confirmed": "Sensor del conducto", "printer_reported": "Solo informe de la impresora", "manual": "Manual (tras revisión)" },
-      "att": { "leased": "Asignado", "started": "Iniciado", "printed": "Impreso", "cut": "Cortado", "chute": "Conducto", "outcome": "Resultado" },
+      "item": {
+        "pages": "Páginas",
+        "scheduled": "Programada para",
+        "delivered": "Entregada",
+        "confidence": "Confirmación",
+        "job": "Trabajo de impresión",
+        "attempts": "{n, plural, one {# intento} other {# intentos}}",
+        "lastError": "Último error"
+      },
+      "confidence": {
+        "sensor_confirmed": "Sensor del conducto",
+        "printer_reported": "Solo informe de la impresora",
+        "manual": "Manual (tras revisión)"
+      },
+      "att": {
+        "leased": "Asignado",
+        "started": "Iniciado",
+        "printed": "Impreso",
+        "cut": "Cortado",
+        "chute": "Conducto",
+        "outcome": "Resultado"
+      },
       "summary": "Resumen",
       "locale": "Idioma",
       "paid": "Pagado",
@@ -85,7 +130,13 @@
         "resolved": "Actualizado",
         "revealAlt": "Kvitel impreso",
         "hide": "Ocultar",
-        "dialog": { "delivered": "Confirmar la entrega", "requeue": "Volver a poner en la cola de impresión", "failed": "Marcar como no entregado", "refund": "Solicitar un reembolso", "reveal": "Ver el contenido del kvitel" },
+        "dialog": {
+          "delivered": "Confirmar la entrega",
+          "requeue": "Volver a poner en la cola de impresión",
+          "failed": "Marcar como no entregado",
+          "refund": "Solicitar un reembolso",
+          "reveal": "Ver el contenido del kvitel"
+        },
         "revealWarning": "Este kvitel puede contener información personal sensible. El acceso está restringido y queda registrado de forma permanente con su motivo.",
         "dialogHint": "Explique lo que ha comprobado. Se guarda en el registro de auditoría.",
         "confirm": "Confirmar",
@@ -99,17 +150,42 @@
       "description": "Cree, traduzca y publique tziunim. Un tziún solo puede estar activo con un permiso de instalación aprobado.",
       "new": "Nuevo tziún",
       "draft": "Borrador",
-      "cols": { "name": "Nombre", "status": "Estado", "availability": "Ahora", "location": "País", "translations": "Traducciones", "permit": "Permiso", "demand": "Demanda" },
-      "status": { "discovery_only": "Solo información", "coming_soon": "Próximamente", "active": "Activo", "paused": "En pausa", "maintenance": "Mantenimiento" },
+      "cols": {
+        "name": "Nombre",
+        "status": "Estado",
+        "availability": "Ahora",
+        "location": "País",
+        "translations": "Traducciones",
+        "permit": "Permiso",
+        "demand": "Demanda"
+      },
+      "status": {
+        "discovery_only": "Solo información",
+        "coming_soon": "Próximamente",
+        "active": "Activo",
+        "paused": "En pausa",
+        "maintenance": "Mantenimiento"
+      },
       "unverified": "sin verificar",
       "reviewed": "Revisada",
       "unreviewed": "Sin revisar",
       "missing": "Falta",
-      "permit": { "none": "Ninguno", "requested": "Solicitado", "approved": "Aprobado", "revoked": "Revocado" },
+      "permit": {
+        "none": "Ninguno",
+        "requested": "Solicitado",
+        "approved": "Aprobado",
+        "revoked": "Revocado"
+      },
       "editorDesc": "Si el tziún está publicado, los cambios se publican al guardar. Use la vista previa para revisar antes la página pública.",
       "editor": {
         "tabs": "Secciones del editor",
-        "tab": { "general": "General", "translations": "Idiomas", "location": "Ubicación", "hours": "Horario y calendario", "media": "Fotos" },
+        "tab": {
+          "general": "General",
+          "translations": "Idiomas",
+          "location": "Ubicación",
+          "hours": "Horario y calendario",
+          "media": "Fotos"
+        },
         "slug": "Slug de URL",
         "slugHint": "Letras minúsculas, dígitos y guiones.",
         "status": "Estado del servicio",
@@ -160,7 +236,21 @@
         "hilulaMonth": "Mes hebreo",
         "hilulaYear": "Año hebreo de fallecimiento",
         "hilulaVerified": "Fecha verificada",
-        "months": { "1": "Nisán", "2": "Iyar", "3": "Siván", "4": "Tamuz", "5": "Av", "6": "Elul", "7": "Tishrei", "8": "Jeshván", "9": "Kislev", "10": "Tevet", "11": "Shevat", "12": "Adar (I)", "13": "Adar II" },
+        "months": {
+          "1": "Nisán",
+          "2": "Iyar",
+          "3": "Siván",
+          "4": "Tamuz",
+          "5": "Av",
+          "6": "Elul",
+          "7": "Tishrei",
+          "8": "Jeshván",
+          "9": "Kislev",
+          "10": "Tevet",
+          "11": "Shevat",
+          "12": "Adar (I)",
+          "13": "Adar II"
+        },
         "saveFirst": "Guarde primero el tziún para añadir fotos.",
         "mediaPolicy": "Solo se muestran públicamente fotos auténticas de este tziún con licencia y crédito confirmados. Nunca use una foto de otro lugar.",
         "noMedia": "No hay fotos. La página pública muestra el retrato tipográfico.",
@@ -178,7 +268,14 @@
         "makeCover": "Make cover",
         "deletePhoto": "Delete",
         "deleteConfirm": "Delete this photo permanently?",
-        "mediaErrors": {"invalid":"Something went wrong. Please try again.","invalid_file":"Choose a JPG, PNG or WebP image up to 10 MB.","decode_failed":"This file could not be read as an image.","credit_license_required":"Fill in the credit and licence before confirming rights.","storage_failed":"Photo storage is not available right now. Check the storage settings (write access) and try again.","not_found":"This photo no longer exists."},
+        "mediaErrors": {
+          "invalid": "Something went wrong. Please try again.",
+          "invalid_file": "Choose a JPG, PNG or WebP image up to 10 MB.",
+          "decode_failed": "This file could not be read as an image.",
+          "credit_license_required": "Fill in the credit and licence before confirming rights.",
+          "storage_failed": "Photo storage is not available right now. Check the storage settings (write access) and try again.",
+          "not_found": "This photo no longer exists."
+        },
         "upload": "Subir",
         "live": "Publicado",
         "draftState": "Borrador",
@@ -194,7 +291,19 @@
           "publish_not_permitted": "Su rol no puede publicar.",
           "name_required": "Un tziún publicado necesita al menos un nombre.",
           "invalid_timezone": "Zona horaria desconocida."
-        }
+        },
+        "role": "Photo role",
+        "roleHint": "Main: cards and home · Writing: background of the writing screen · Mobile: phone crop",
+        "roles": {
+          "hero": "Main",
+          "writing": "Writing background",
+          "mobile": "Mobile crop",
+          "gallery": "Gallery"
+        },
+        "focalX": "Focal point (horizontal)",
+        "focalY": "Focal point (vertical)",
+        "altHe": "Alt text (Hebrew)",
+        "altEn": "Alt text (English)"
       }
     },
     "pricing": {
@@ -214,9 +323,33 @@
       "addOverride": "Fijar un precio para un tziún concreto",
       "endOverride": "Finalizar",
       "coupons": "Cupones",
-      "coupon": { "code": "Código", "kind": "Tipo", "value": "Valor", "used": "Usado", "validTo": "Válido hasta", "state": "Estado", "percent": "Porcentaje", "fixed": "Importe fijo", "on": "Activo", "off": "Desactivado", "valuePct": "Porcentaje", "valueAmount": "Importe", "currency": "Moneda", "max": "Usos máx.", "active": "Activo", "save": "Guardar cupón" },
+      "coupon": {
+        "code": "Código",
+        "kind": "Tipo",
+        "value": "Valor",
+        "used": "Usado",
+        "validTo": "Válido hasta",
+        "state": "Estado",
+        "percent": "Porcentaje",
+        "fixed": "Importe fijo",
+        "on": "Activo",
+        "off": "Desactivado",
+        "valuePct": "Porcentaje",
+        "valueAmount": "Importe",
+        "currency": "Moneda",
+        "max": "Usos máx.",
+        "active": "Activo",
+        "save": "Guardar cupón"
+      },
       "history": "Historial de precios",
-      "historyCols": { "when": "Modificado", "scope": "Ámbito", "item": "Artículo", "amount": "Importe", "version": "Versión", "until": "Válido hasta" },
+      "historyCols": {
+        "when": "Modificado",
+        "scope": "Ámbito",
+        "item": "Artículo",
+        "amount": "Importe",
+        "version": "Versión",
+        "until": "Válido hasta"
+      },
       "default": "Por defecto",
       "current": "Actual",
       "snapshotNote": "Cada pedido guarda una instantánea de los precios aplicados en el momento de la compra."
@@ -232,7 +365,17 @@
       "currencies": "Monedas",
       "currenciesSub": "informadas por separado",
       "byCurrency": "Por moneda",
-      "cols": { "currency": "Moneda", "payments": "Pagos", "gross": "Bruto", "fees": "Comisiones", "refunds": "Reembolsos", "net": "Neto", "grave": "Tziún", "deliveries": "Entregas", "revenue": "Ingresos" },
+      "cols": {
+        "currency": "Moneda",
+        "payments": "Pagos",
+        "gross": "Bruto",
+        "fees": "Comisiones",
+        "refunds": "Reembolsos",
+        "net": "Neto",
+        "grave": "Tziún",
+        "deliveries": "Entregas",
+        "revenue": "Ingresos"
+      },
       "feesNote": "Las comisiones de demo son estimaciones (2,9 % + 30). Las comisiones reales provendrán de las transacciones de saldo del proveedor de pagos una vez conectado.",
       "byGrave": "Ingresos por tziún",
       "partners": "Acuerdos con socios",
@@ -244,7 +387,13 @@
       "title": "Clientes",
       "description": "Invitados y titulares de cuenta, agrupados por correo. Aquí no se muestra ningún contenido de kvitel.",
       "searchPh": "Correo",
-      "cols": { "email": "Correo", "type": "Tipo", "orders": "Pedidos", "last": "Último pedido", "marketing": "Marketing" },
+      "cols": {
+        "email": "Correo",
+        "type": "Tipo",
+        "orders": "Pedidos",
+        "last": "Último pedido",
+        "marketing": "Marketing"
+      },
       "registered": "Cuenta",
       "guest": "Invitado",
       "optedIn": "Suscrito",
@@ -257,7 +406,11 @@
       "eyebrow": "Negocio",
       "title": "Socios",
       "description": "Comités de los lugares, técnicos locales e instituciones. Los socios solo ven sus propios tziunim y nunca el contenido de los kvitlaj.",
-      "kinds": { "operator": "Operador del lugar", "technician": "Técnico", "institution": "Institución" },
+      "kinds": {
+        "operator": "Operador del lugar",
+        "technician": "Técnico",
+        "institution": "Institución"
+      },
       "scope": "Tziunim asignados",
       "people": "Personas",
       "agreement": "Reparto de ingresos {pct} % · {currency}",
@@ -277,7 +430,12 @@
       "description": "Páginas de políticas e información en todos los idiomas. Marque una traducción como revisada solo después de la revisión legal y nativa.",
       "view": "Ver",
       "requests": "Sugerencias de tziunim de los visitantes",
-      "reqCols": { "name": "Solicitado", "location": "Ubicación", "locale": "Idioma", "when": "Cuándo" },
+      "reqCols": {
+        "name": "Solicitado",
+        "location": "Ubicación",
+        "locale": "Idioma",
+        "when": "Cuándo"
+      },
       "uiStringsNote": "Los textos de la interfaz están en catálogos de mensajes versionados (messages/[locale]/*.json) y se revisan mediante revisión de código.",
       "pageTitle": "Título",
       "body": "Texto",
@@ -289,25 +447,70 @@
       "eyebrow": "Sistema",
       "title": "Ajustes",
       "description": "Integraciones, feature flags, roles y preparación de idiomas.",
-      "tabs": { "integrations": "Integraciones", "flags": "Feature flags", "roles": "Roles y acceso", "localization": "Idiomas" },
+      "tabs": {
+        "integrations": "Integraciones",
+        "flags": "Feature flags",
+        "roles": "Roles y acceso",
+        "localization": "Idiomas"
+      },
       "int": {
         "name": "Integración",
         "status": "Estado",
         "detail": "Detalle",
         "note": "Los secretos están solo en variables de entorno, nunca en la base de datos ni en el repositorio.",
-        "keys": { "database": "Base de datos", "payments": "Pagos", "email": "Correo electrónico", "devices": "Unidades en los lugares", "camera": "Cámara de entrega", "whatsapp": "WhatsApp", "invoices": "Facturas fiscales", "fx_rates": "Tipos de cambio" },
-        "states": { "configured": "Configurado", "embedded": "Integrado (dev)", "mock": "Simulado / DEMO", "missing_credentials": "Faltan credenciales", "simulated": "Simulado", "not_installed": "No instalado", "not_connected": "No conectado" }
+        "keys": {
+          "database": "Base de datos",
+          "payments": "Pagos",
+          "email": "Correo electrónico",
+          "devices": "Unidades en los lugares",
+          "camera": "Cámara de entrega",
+          "whatsapp": "WhatsApp",
+          "invoices": "Facturas fiscales",
+          "fx_rates": "Tipos de cambio"
+        },
+        "states": {
+          "configured": "Configurado",
+          "embedded": "Integrado (dev)",
+          "mock": "Simulado / DEMO",
+          "missing_credentials": "Faltan credenciales",
+          "simulated": "Simulado",
+          "not_installed": "No instalado",
+          "not_connected": "No conectado"
+        }
       },
       "flagsNote": "Los flags controlan funciones ya desarrolladas pero aún no aprobadas para producción. Los cambios se auditan.",
-      "roles": { "grantTitle": "Asignar un rol", "email": "Correo", "role": "Rol", "partner": "Ámbito del socio", "grant": "Asignar", "revoke": "Revocar", "note": "Los roles de socio siempre se limitan a los tziunim del socio. Solo los superadministradores pueden ver el contenido de los kvitlaj, y solo con un motivo registrado." },
-      "loc": { "language": "Idioma", "state": "Estado", "coverage": "Traducido", "keys": "Cadenas", "enabled": "Activo", "awaitingQa": "Pendiente de revisión nativa", "disabled": "Desactivado", "note": "Las cadenas idénticas al inglés cuentan como no traducidas. Los idiomas adicionales se activan mediante NEXT_PUBLIC_EXTRA_LOCALES solo después de la revisión nativa." }
+      "roles": {
+        "grantTitle": "Asignar un rol",
+        "email": "Correo",
+        "role": "Rol",
+        "partner": "Ámbito del socio",
+        "grant": "Asignar",
+        "revoke": "Revocar",
+        "note": "Los roles de socio siempre se limitan a los tziunim del socio. Solo los superadministradores pueden ver el contenido de los kvitlaj, y solo con un motivo registrado."
+      },
+      "loc": {
+        "language": "Idioma",
+        "state": "Estado",
+        "coverage": "Traducido",
+        "keys": "Cadenas",
+        "enabled": "Activo",
+        "awaitingQa": "Pendiente de revisión nativa",
+        "disabled": "Desactivado",
+        "note": "Las cadenas idénticas al inglés cuentan como no traducidas. Los idiomas adicionales se activan mediante NEXT_PUBLIC_EXTRA_LOCALES solo después de la revisión nativa."
+      }
     },
     "audit": {
       "eyebrow": "Sistema",
       "title": "Registro de auditoría",
       "description": "Registro de solo adición de acciones sensibles: reembolsos, acceso al contenido, cambios de precios, cambios de roles, comandos a unidades.",
       "filterPh": "la acción contiene… p. ej. refund",
-      "cols": { "when": "Cuándo", "actor": "Autor", "action": "Acción", "target": "Objeto", "reason": "Motivo" },
+      "cols": {
+        "when": "Cuándo",
+        "actor": "Autor",
+        "action": "Acción",
+        "target": "Objeto",
+        "reason": "Motivo"
+      },
       "note": "El registro de auditoría nunca contiene el contenido de los kvitlaj."
     },
     "search": {

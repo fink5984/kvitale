@@ -308,6 +308,11 @@ export const graveMedia = pgTable("grave_media", {
   license: text("license"),
   /** Must be true before public display — no unlicensed or misattributed photos */
   rightsVerified: boolean("rights_verified").notNull().default(false),
+  /** hero = main image · writing = background of the writing screen · mobile = portrait crop for phones · gallery */
+  role: text("role").notNull().default("gallery"),
+  /** Focal point (percent, 0-100) used as object-position when the image is cropped */
+  focalX: smallint("focal_x").notNull().default(50),
+  focalY: smallint("focal_y").notNull().default(50),
   sortOrder: integer("sort_order").notNull().default(0),
   createdAt: createdAt(),
 });
@@ -700,6 +705,8 @@ export const orders = pgTable(
     marketingConsent: boolean("marketing_consent").notNull().default(false),
     source: text("source").notNull().default("web"),
     countryHint: text("country_hint"),
+    /** Client-generated key: a repeated submit of the same checkout returns the same order instead of charging twice */
+    idempotencyKey: text("idempotency_key"),
     isDemo: boolean("is_demo").notNull().default(false),
     createdAt: createdAt(),
     paidAt: ts("paid_at"),
@@ -707,6 +714,7 @@ export const orders = pgTable(
   },
   (t) => [
     uniqueIndex("orders_ref_uq").on(t.publicRef),
+    uniqueIndex("orders_idem_uq").on(t.idempotencyKey),
     index("orders_created_idx").on(t.createdAt),
     index("orders_status_idx").on(t.status),
     index("orders_email_idx").on(t.email),
@@ -818,6 +826,8 @@ export const payments = pgTable(
     currency: text("currency").notNull(),
     feeMinor: integer("fee_minor"),
     refundedMinor: integer("refunded_minor").notNull().default(0),
+    /** Hosted checkout URL of a real provider, so an interrupted payment can be resumed */
+    checkoutUrl: text("checkout_url"),
     isDemo: boolean("is_demo").notNull().default(false),
     createdAt: createdAt(),
     succeededAt: ts("succeeded_at"),

@@ -26,10 +26,10 @@
       "error": "Le prix ne peut pas être calculé pour le moment. Veuillez réessayer."
     },
     "checkout": {
-      "title": "Paiement",
-      "intro": "Nous n’avons besoin que d’une adresse e-mail pour votre reçu et le lien de suivi.",
+      "title": "Récapitulatif et paiement",
+      "intro": "Tout au même endroit : ce qui est envoyé, le prix final et le paiement.",
       "empty": "Il n’y a rien à régler.",
-      "emptyCta": "Écrire un kvitel",
+      "emptyCta": "Trouver un tzadik",
       "email": "E-mail",
       "emailHint": "Pour le reçu et un lien de suivi privé. Aucun compte n’est créé.",
       "coupon": "Code promo",
@@ -63,8 +63,18 @@
         "coupon_invalid": "Le code promo ne peut pas être appliqué ({detail}).",
         "schedule_consent_required": "Veuillez confirmer que certaines remises seront programmées.",
         "rate_limited": "Trop de tentatives. Veuillez patienter quelques minutes.",
-        "server_error": "Une erreur s’est produite. Vous n’avez pas été débité. Veuillez réessayer."
-      }
+        "server_error": "Une erreur s’est produite. Vous n’avez pas été débité. Veuillez réessayer.",
+        "service_unavailable": "Les commandes ne sont pas encore ouvertes. Vous n’avez pas été débité."
+      },
+      "summaryTitle": "Récapitulatif",
+      "deliveries": "{count, plural, one {# kvittel} other {# kvittlach}}",
+      "extraPages": "Pages supplémentaires incluses",
+      "bundle": "Plusieurs tombeaux ({pct} %)",
+      "couponLine": "Code promo",
+      "total": "Total à payer",
+      "taxNote": "Le montant final, débité une seule fois. Le reçu est envoyé par e-mail.",
+      "quoteError": "Impossible de calculer le prix pour le moment. Veuillez réessayer.",
+      "unavailable": "Les commandes ne sont pas encore ouvertes : le paiement ne peut pas être finalisé. Votre brouillon est conservé."
     },
     "demoPay": {
       "noCard": "Aucune donnée de carte n’est collectée",

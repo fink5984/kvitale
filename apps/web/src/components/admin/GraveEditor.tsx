@@ -17,7 +17,7 @@ const toMin = (s: string) => {
   return (h ?? 0) * 60 + (m ?? 0);
 };
 
-export function GraveEditor({ initial, media, assigned, canWrite, canPublish }: { initial: GraveInput; media: Array<{ id: string; credit: string | null; license: string | null; rightsVerified: boolean; width: number | null; height: number | null }>; assigned: Array<{ id: string; name: string }>; canWrite: boolean; canPublish: boolean }) {
+export function GraveEditor({ initial, media, assigned, canWrite, canPublish }: { initial: GraveInput; media: Array<{ id: string; credit: string | null; license: string | null; rightsVerified: boolean; width: number | null; height: number | null; role: string; focalX: number; focalY: number; alt: Record<string, string> | null }>; assigned: Array<{ id: string; name: string }>; canWrite: boolean; canPublish: boolean }) {
   const t = useTranslations("admin.graves.editor");
   const tg = useTranslations("admin.graves");
   const tw = useTranslations("common.weekdays");
@@ -187,7 +187,7 @@ export function GraveEditor({ initial, media, assigned, canWrite, canPublish }: 
   );
 }
 
-type MediaRow = { id: string; credit: string | null; license: string | null; rightsVerified: boolean; width: number | null; height: number | null };
+type MediaRow = { id: string; credit: string | null; license: string | null; rightsVerified: boolean; width: number | null; height: number | null; role: string; focalX: number; focalY: number; alt: Record<string, string> | null };
 
 function MediaTab({ graveId, media }: { graveId?: string; media: MediaRow[] }) {
   const t = useTranslations("admin.graves.editor");
@@ -248,8 +248,13 @@ function MediaItem({ m, isCover }: { m: MediaRow; isCover: boolean }) {
   const [credit, setCredit] = useState(m.credit ?? "");
   const [license, setLicense] = useState(m.license ?? "");
   const [rights, setRights] = useState(m.rightsVerified);
+  const [role, setRole] = useState(m.role);
+  const [fx, setFx] = useState(m.focalX);
+  const [fy, setFy] = useState(m.focalY);
+  const [altHe, setAltHe] = useState(m.alt?.he ?? "");
+  const [altEn, setAltEn] = useState(m.alt?.en ?? "");
   const [err, setErr] = useState<string | null>(null);
-  const dirty = credit !== (m.credit ?? "") || license !== (m.license ?? "") || rights !== m.rightsVerified;
+  const dirty = credit !== (m.credit ?? "") || license !== (m.license ?? "") || rights !== m.rightsVerified || role !== m.role || fx !== m.focalX || fy !== m.focalY || altHe !== (m.alt?.he ?? "") || altEn !== (m.alt?.en ?? "");
   const run = (fn: () => Promise<{ ok: boolean; error?: string }>) =>
     start(async () => {
       setErr(null);
@@ -261,7 +266,7 @@ function MediaItem({ m, isCover }: { m: MediaRow; isCover: boolean }) {
     <li className="overflow-hidden rounded-lg border border-[var(--line)] bg-ivory-50">
       <div className="relative aspect-[4/3] bg-stone-200">
         {/* eslint-disable-next-line @next/next/no-img-element -- admin preview through the permission-checked media route */}
-        <img src={`/api/media/grave/${m.id}`} alt="" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+        <img src={`/api/media/grave/${m.id}`} alt="" className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: `${fx}% ${fy}%` }} loading="lazy" />
         <div className="absolute inset-x-2 top-2 flex flex-wrap gap-1.5">
           <Badge tone={m.rightsVerified ? "success" : "warning"}>{m.rightsVerified ? t("rightsOk") : t("rightsMissing")}</Badge>
           {isCover && <Badge tone="gold">{t("cover")}</Badge>}
@@ -274,10 +279,21 @@ function MediaItem({ m, isCover }: { m: MediaRow; isCover: boolean }) {
         </p>
         <Field label={t("credit")} htmlFor={`c-${m.id}`}><Input id={`c-${m.id}`} value={credit} onChange={(e) => setCredit(e.target.value)} dir="auto" /></Field>
         <Field label={t("license")} htmlFor={`l-${m.id}`}><Input id={`l-${m.id}`} value={license} onChange={(e) => setLicense(e.target.value)} dir="auto" /></Field>
+        <Field label={t("role")} htmlFor={`r-${m.id}`} hint={t("roleHint")}>
+          <select id={`r-${m.id}`} value={role} onChange={(e) => setRole(e.target.value)} className="h-11 w-full rounded-md border border-[var(--line-strong)] bg-ivory-50 px-3 text-sm">
+            {(["hero", "writing", "mobile", "gallery"] as const).map((r) => <option key={r} value={r}>{t(`roles.${r}`)}</option>)}
+          </select>
+        </Field>
+        <div className="grid grid-cols-2 gap-3">
+          <Field label={t("focalX")} htmlFor={`fx-${m.id}`}><input id={`fx-${m.id}`} type="range" min={0} max={100} value={fx} onChange={(e) => setFx(Number(e.target.value))} className="w-full accent-[var(--color-gold-500)]" /></Field>
+          <Field label={t("focalY")} htmlFor={`fy-${m.id}`}><input id={`fy-${m.id}`} type="range" min={0} max={100} value={fy} onChange={(e) => setFy(Number(e.target.value))} className="w-full accent-[var(--color-gold-500)]" /></Field>
+        </div>
+        <Field label={t("altHe")} htmlFor={`ah-${m.id}`}><Input id={`ah-${m.id}`} value={altHe} onChange={(e) => setAltHe(e.target.value)} dir="rtl" /></Field>
+        <Field label={t("altEn")} htmlFor={`ae-${m.id}`}><Input id={`ae-${m.id}`} value={altEn} onChange={(e) => setAltEn(e.target.value)} dir="ltr" /></Field>
         <Checkbox checked={rights} onChange={(e) => setRights(e.target.checked)} label={t("rightsConfirm")} />
         {err && <p className="text-xs text-oxblood-600" role="alert">{err}</p>}
         <div className="flex flex-wrap gap-2 pt-1">
-          <Button type="button" size="sm" disabled={!dirty} loading={pending} onClick={() => run(() => adminUpdateGraveMedia({ id: m.id, credit, license, rightsVerified: rights }))}>{t("save")}</Button>
+          <Button type="button" size="sm" disabled={!dirty} loading={pending} onClick={() => run(() => adminUpdateGraveMedia({ id: m.id, credit, license, rightsVerified: rights, role: role as "hero", focalX: fx, focalY: fy, altHe, altEn }))}>{t("save")}</Button>
           {!isCover && <Button type="button" size="sm" variant="ghost" disabled={pending} onClick={() => run(() => adminSetGraveCover(m.id))}>{t("makeCover")}</Button>}
           <Button type="button" size="sm" variant="danger" disabled={pending} onClick={() => { if (window.confirm(t("deleteConfirm"))) run(() => adminDeleteGraveMedia(m.id)); }}>{t("deletePhoto")}</Button>
         </div>

@@ -268,7 +268,14 @@
         "makeCover": "Make cover",
         "deletePhoto": "Delete",
         "deleteConfirm": "Delete this photo permanently?",
-        "mediaErrors": {"invalid":"Something went wrong. Please try again.","invalid_file":"Choose a JPG, PNG or WebP image up to 10 MB.","decode_failed":"This file could not be read as an image.","credit_license_required":"Fill in the credit and licence before confirming rights.","storage_failed":"Photo storage is not available right now. Check the storage settings (write access) and try again.","not_found":"This photo no longer exists."},
+        "mediaErrors": {
+          "invalid": "Something went wrong. Please try again.",
+          "invalid_file": "Choose a JPG, PNG or WebP image up to 10 MB.",
+          "decode_failed": "This file could not be read as an image.",
+          "credit_license_required": "Fill in the credit and licence before confirming rights.",
+          "storage_failed": "Photo storage is not available right now. Check the storage settings (write access) and try again.",
+          "not_found": "This photo no longer exists."
+        },
         "upload": "אַרויפֿלאָדן",
         "live": "פּובליקירט",
         "draftState": "אָנוואַרף",
@@ -284,7 +291,19 @@
           "publish_not_permitted": "אייַער ראָלע קען נישט פּובליקירן.",
           "name_required": "אַ פּובליקירטער ציון דאַרף האָבן כאָטש איין נאָמען.",
           "invalid_timezone": "אומבאַקאַנטע צייַט־זאָנע."
-        }
+        },
+        "role": "Photo role",
+        "roleHint": "Main: cards and home · Writing: background of the writing screen · Mobile: phone crop",
+        "roles": {
+          "hero": "Main",
+          "writing": "Writing background",
+          "mobile": "Mobile crop",
+          "gallery": "Gallery"
+        },
+        "focalX": "Focal point (horizontal)",
+        "focalY": "Focal point (vertical)",
+        "altHe": "Alt text (Hebrew)",
+        "altEn": "Alt text (English)"
       }
     },
     "pricing": {
