@@ -238,7 +238,7 @@ export async function adminUploadGraveMedia(form: FormData): Promise<Result> {
   try {
     await storage.put(key, clean.data);
   } catch (e) {
-    log.error("grave media storage put failed", { name: (e as Error).name });
+    log.error("grave media storage put failed", { name: (e as Error).name, reason: String((e as Error).message).slice(0, 200), provider: process.env.STORAGE_PROVIDER ?? "local", bucketSet: !!process.env.S3_BUCKET, endpointSet: !!process.env.S3_ENDPOINT, keysSet: !!process.env.S3_ACCESS_KEY_ID && !!process.env.S3_SECRET_ACCESS_KEY, encKeySet: !!process.env.KVITTEL_ENCRYPTION_KEY });
     return { ok: false, error: "storage_failed" };
   }
   const db = await getDb();
