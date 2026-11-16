@@ -174,7 +174,7 @@ export function GraveEditor({ initial, media, assigned, canWrite, canPublish }: 
           {msg && <p role="status" className={cn("mt-3 text-sm", msg.ok ? "text-sage-600" : "text-oxblood-600")}>{msg.text}</p>}
           {g.id && g.slug && (
             <Link href={`/graves/${g.slug}?preview=1`} target="_blank" className="mt-4 inline-flex items-center gap-1.5 text-sm text-midnight-900 underline-offset-4 hover:underline">
-              <ExternalLink className="size-3.5" /> {t("preview")}
+              <ExternalLink className="size-3.5" /> {t("previewWriting")}
             </Link>
           )}
         </div>

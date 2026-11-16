@@ -2,7 +2,7 @@
 
 import { Eye, Plus, Trash2 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useDeferredValue, useEffect, useMemo, useState, useTransition } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef, useState, useTransition } from "react";
 import { stripUnsupported, type KvittelContent, type LayoutWarning } from "@kvittel/print-layout";
 import { validateKvittel } from "@/app/actions/public";
 import { HandwritingUpload } from "@/components/builder/HandwritingUpload";
@@ -10,7 +10,9 @@ import { PaperSlips, usePreviewLayout } from "@/components/builder/KvittelPrevie
 import { Button, Checkbox, Drawer, Field, Input, Notice, Textarea } from "@/components/ui";
 import { useRouter } from "@/i18n/navigation";
 import { LIMITS, type KvittelContentInput } from "@/lib/kvittel-schema";
-import { hebrewDate } from "@/lib/format";
+import { dirOf } from "@/i18n/locales";
+import { cn } from "@/lib/format";
+import { hebrewDateString } from "@/lib/hebrew-date";
 import { detectNusach } from "@/lib/nusach";
 import { emptyContent, hasText, newId, store, useStore } from "@/lib/store";
 import type { BuilderGrave } from "./types";
@@ -19,11 +21,12 @@ import type { BuilderGrave } from "./types";
  * The whole act of writing: names + a request, and the note appearing beside it as it will print.
  * No templates, no styles, no categories. The note's language and direction follow the text.
  */
-export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwriting: boolean } }) {
+export function Writer({ grave, flags, preview = false }: { grave: BuilderGrave; flags: { handwriting: boolean }; preview?: boolean }) {
   const t = useTranslations("site.write");
   const tw = useTranslations("builder.warnings");
   const locale = useLocale();
   const router = useRouter();
+  const uiDir = dirOf(locale); // an empty field (and its placeholder) follows the page direction; typed text follows its own language
   const draft = useStore((s) => s.draft);
   const remember = useStore((s) => s.remember);
   const [hydrated, setHydrated] = useState(false);
@@ -31,6 +34,7 @@ export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwri
   const [serverWarnings, setServerWarnings] = useState<LayoutWarning[] | null>(null);
   const [handImages, setHandImages] = useState<Record<string, HTMLImageElement>>({});
   const [submitting, startSubmit] = useTransition();
+  const [previewDone, setPreviewDone] = useState(false);
   const displayName = (nusach: string) => (nusach === "he" || nusach === "yi" ? grave.nameHe : (grave.namesByLocale[nusach] ?? grave.namesByLocale.en ?? grave.name));
 
   // Restore whatever was already typed (language switch, other tzaddik, back from payment) and aim it at this tzaddik.
@@ -59,7 +63,8 @@ export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwri
   const setName = (id: string, freeText: string) => update({ people: content.people.map((p) => (p.id === id ? { ...p, mode: "free", freeText } : p)) });
 
   const deferred = useDeferredValue(content);
-  const opts = useMemo(() => ({ dateLine: hebrewDate(new Date(), deferred.nusach === "he" || deferred.nusach === "yi" ? "he" : deferred.nusach), reference: "KV·PREVIEW" }), [deferred.nusach]);
+  const [fillDots, setFillDots] = useState(0);
+  const opts = useMemo(() => ({ dateLine: hebrewDateString(new Date(), deferred.nusach === "he" || deferred.nusach === "yi" ? "he" : deferred.nusach), minHeightDots: fillDots || undefined }), [deferred.nusach, fillDots]);
   const { layout } = usePreviewLayout(deferred as KvittelContent, opts);
   const warnings = (serverWarnings ?? layout?.warnings ?? []).filter((w) => w.code !== "empty");
   const unsupported = warnings.find((w) => w.code === "unsupported_chars");
@@ -69,6 +74,11 @@ export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwri
   const submit = () =>
     startSubmit(async () => {
       if (!draft || empty) return;
+      // Admin preview: the real writing UI, but nothing leaves the browser: no validation call, no cart, no order, no charge, no print job.
+      if (preview) {
+        setPreviewDone(true);
+        return;
+      }
       const v = await validateKvittel(content);
       if (!v.ok) {
         setServerWarnings(v.warnings as LayoutWarning[]);
@@ -98,7 +108,7 @@ export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwri
             {names2.map((p, i) => (
               <li key={p.id} className="flex items-center gap-2">
                 <Input
-                  dir="auto"
+                  dir={p.freeText ? "auto" : uiDir}
                   value={p.freeText ?? ""}
                   maxLength={LIMITS.nameChars * 2}
                   placeholder={i === 0 ? t("names.placeholder") : t("names.placeholderMore")}
@@ -126,7 +136,7 @@ export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwri
         <Field label={<span className="font-display text-xl text-midnight-900">{t("request.label")}</span>} htmlFor="request" className="mt-7" hint={content.request.length > LIMITS.requestChars * 0.7 ? <span className="tabular">{content.request.length}/{LIMITS.requestChars}</span> : undefined}>
           <Textarea
             id="request"
-            dir="auto"
+            dir={content.request ? "auto" : uiDir}
             rows={6}
             maxLength={LIMITS.requestChars}
             value={content.request}
@@ -188,6 +198,11 @@ export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwri
           </div>
         )}
 
+        {previewDone && (
+          <Notice tone="success" className="mt-6">
+            {t("adminPreview.done")}
+          </Notice>
+        )}
         <div className="mt-7 hidden lg:block">
           <Button type="submit" variant="primary" size="xl" className="w-full" loading={submitting} disabled={empty || blocking || !hydrated}>
             {draft?.editingEntryId ? t("update") : t("continue")}
@@ -197,10 +212,8 @@ export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwri
       </form>
 
       {/* live note — desktop */}
-      <aside className="hidden lg:block" aria-label={t("preview.title")}>
-        <div className="sticky top-24">
-          <NotePreview layout={layout} images={handImages} />
-        </div>
+      <aside className="hidden lg:flex" aria-label={t("preview.title")}>
+        <NotePreview layout={layout} images={handImages} onFill={setFillDots} />
       </aside>
 
       {/* mobile bottom bar: fields are never covered by the preview */}
@@ -215,21 +228,40 @@ export function Writer({ grave, flags }: { grave: BuilderGrave; flags: { handwri
         </div>
       </div>
       <Drawer open={previewOpen} onOpenChange={setPreviewOpen} title={t("preview.title")} closeLabel={t("preview.close")}>
-        <NotePreview layout={layout} images={handImages} compact />
+        <NotePreview layout={layout} images={handImages} compact onFill={setFillDots} />
       </Drawer>
     </>
   );
 }
 
-export function NotePreview({ layout, images, compact }: { layout: ReturnType<typeof usePreviewLayout>["layout"]; images?: Record<string, CanvasImageSource>; compact?: boolean }) {
+/**
+ * The note in a window of FIXED size: on desktop it is exactly as tall as the writing card beside it, on phones a fixed
+ * share of the screen. It never grows with the text; longer notes scroll inside the sheet. (The printed paper itself
+ * is still cut to the length of the text.)
+ */
+export function NotePreview({ layout, images, compact, onFill }: { onFill?: (dots: number) => void; layout: ReturnType<typeof usePreviewLayout>["layout"]; images?: Record<string, CanvasImageSource>; compact?: boolean }) {
   const t = useTranslations("site.write.preview");
+  const sheet = useRef<HTMLDivElement>(null);
+  // tell the engine how tall the window is (in printer dots) so the date line can sit at its bottom
+  useEffect(() => {
+    const el = sheet.current;
+    if (!el || !onFill) return;
+    const report = () => {
+      const w = el.clientWidth;
+      if (w > 0 && el.clientHeight > 0) onFill(Math.round((el.clientHeight * 384) / w));
+    };
+    report();
+    const ro = new ResizeObserver(report);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [onFill]);
   return (
-    <div className="rounded-2xl bg-ivory-200/70 p-5 ring-1 ring-stone-300/70 backdrop-blur-sm sm:p-8">
-      <p className="eyebrow mb-5 text-center text-gold-700">{t("title")}</p>
-      <div className={compact ? "" : "max-h-[calc(100dvh-13rem)] overflow-y-auto scroll-thin"}>
-        {layout ? <PaperSlips layout={layout} images={images} /> : <div className="skeleton mx-auto h-72 w-full max-w-[19rem]" />}
+    <div className={cn("flex w-full flex-col rounded-2xl bg-ivory-200/70 p-5 ring-1 ring-stone-300/70 backdrop-blur-sm sm:p-8", compact ? "h-[62dvh]" : "h-full min-h-[30rem]")}>
+      <p className="eyebrow mb-5 shrink-0 text-center text-gold-700">{t("title")}</p>
+      <div ref={sheet} className="scroll-thin mx-auto min-h-0 w-full max-w-[19rem] flex-1 overflow-y-auto rounded-[3px] bg-[#FBF9F3] shadow-paper">
+        {layout ? <PaperSlips layout={layout} images={images} flat /> : <div className="skeleton h-full w-full" />}
       </div>
-      <p className="mt-5 text-center text-xs text-charcoal-500">{t("exact")}</p>
+      <p className="mt-5 shrink-0 text-center text-xs text-charcoal-500">{t("exact")}</p>
     </div>
   );
 }

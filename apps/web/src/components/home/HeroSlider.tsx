@@ -1,51 +1,100 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { TziyunPhoto } from "@/components/graves/Photo";
-import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/format";
 import type { GraveImage } from "@/server/graves";
 
 export interface HeroSlide {
   slug: string;
-  name: string;
-  place: string | null;
   image: GraveImage;
   mobile: GraveImage | null;
 }
 
+/** Tuning knobs, in one place. */
+export const HERO_SLIDER = {
+  /** How long one photograph stays before the next begins to appear. */
+  intervalMs: 9000,
+  /** Length of the cross-fade. Long on purpose: the change should be barely noticed. */
+  crossfadeMs: 3600,
+  /** Very slow push-in on the visible photograph (scale 1 -> this). */
+  zoomTo: 1.07,
+} as const;
+
 /**
- * A slow cross-fade between real photographs of tziyunim. Only the first image is
- * loaded eagerly; the rest are lazy and decode off-thread. No motion at all when the
- * visitor prefers reduced motion or the tab is hidden.
+ * An almost-invisible cross-fade between real photographs of tziyunim.
+ *  - Layers overlap and only opacity changes: there is never a frame without a background, no fade to black.
+ *  - Photographs are mounted one at a time; a transition only starts once the NEXT photograph has fully loaded.
+ *  - No captions: the photograph alone makes the atmosphere.
+ *  - Reduced motion, a hidden tab or a single photograph: it simply stays still.
  */
-export function HeroSlider({ slides, interval = 7000 }: { slides: HeroSlide[]; interval?: number }) {
-  const [i, setI] = useState(0);
+export function HeroSlider({ slides }: { slides: HeroSlide[] }) {
+  const n = slides.length;
+  const [cur, setCur] = useState(0);
+  const [mounted, setMounted] = useState(1); // how many slides are in the DOM
+  const loaded = useRef<Set<number>>(new Set());
+  const [, bump] = useState(0);
+  const root = useRef<HTMLDivElement>(null);
+
+  const onLoaded = useCallback((idx: number) => {
+    if (loaded.current.has(idx)) return;
+    loaded.current.add(idx);
+    bump((x) => x + 1);
+  }, []);
+
+  // photographs that finished loading before hydration never fire a load event: pick them up here
   useEffect(() => {
-    if (slides.length < 2) return;
+    Array.from(root.current?.children ?? []).forEach((el, idx) => {
+      const img = el.querySelector("img");
+      if (img?.complete && img.naturalWidth > 0) onLoaded(idx);
+    });
+  }, [mounted, onLoaded]);
+
+  // after the first photograph is on screen, mount the next one (each only after the previous has loaded)
+  useEffect(() => {
+    if (n < 2 || mounted >= n || !loaded.current.has(mounted - 1)) return;
+    const id = window.setTimeout(() => setMounted((m) => Math.min(n, m + 1)), 600);
+    return () => window.clearTimeout(id);
+  });
+
+  useEffect(() => {
+    if (n < 2) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const id = setInterval(() => {
-      if (!document.hidden) setI((n) => (n + 1) % slides.length);
-    }, interval);
-    return () => clearInterval(id);
-  }, [slides.length, interval]);
-  if (!slides.length) return null;
-  const cur = slides[i]!;
+    const id = window.setInterval(() => {
+      if (document.hidden) return;
+      setCur((c) => {
+        const next = (c + 1) % n;
+        return next < mounted && loaded.current.has(next) ? next : c; // next photograph not ready yet: stay
+      });
+    }, HERO_SLIDER.intervalMs);
+    return () => window.clearInterval(id);
+  }, [n, mounted]);
+
+  if (!n) return null;
   return (
-    <>
-      <div className="absolute inset-0 -z-20 bg-midnight-900" aria-hidden>
-        {slides.map((s, idx) => (
-          <div key={s.slug} className={cn("absolute inset-0 transition-opacity duration-[1800ms] ease-in-out", idx === i ? "opacity-100" : "opacity-0")}>
-            <TziyunPhoto image={s.image} mobile={s.mobile} sizes="100vw" priority={idx === 0} className={cn(idx === i && slides.length > 1 && "scale-[1.04] transition-transform duration-[9000ms] ease-out", idx !== i && "scale-100")} />
+    <div ref={root} className="absolute inset-0" aria-hidden>
+      {slides.slice(0, mounted).map((s, idx) => {
+        const active = idx === cur;
+        return (
+          <div
+            key={s.slug}
+            onLoadCapture={() => onLoaded(idx)}
+            className={cn("absolute inset-0 will-change-[opacity]", active ? "z-[1] opacity-100" : "z-0 opacity-0")}
+            style={{ transition: `opacity ${HERO_SLIDER.crossfadeMs}ms ease-in-out` }}
+          >
+            <div
+              className="absolute inset-0"
+              style={{
+                scale: active && n > 1 ? HERO_SLIDER.zoomTo : 1,
+                // zoom slowly while visible; snap back only once the layer is fully faded out
+                transition: active ? `scale ${HERO_SLIDER.intervalMs + HERO_SLIDER.crossfadeMs}ms linear` : `scale 0s linear ${HERO_SLIDER.crossfadeMs}ms`,
+              }}
+            >
+              <TziyunPhoto image={s.image} mobile={s.mobile} sizes="100vw" priority={idx === 0} />
+            </div>
           </div>
-        ))}
-      </div>
-      <p className="absolute bottom-5 end-[var(--gutter)] z-10 max-w-[60%] truncate text-xs text-ivory-100/80" aria-live="off">
-        <Link href={`/graves/${cur.slug}`} className="underline-offset-4 hover:underline">
-          <bdi>{cur.name}</bdi>
-          {cur.place ? ` · ${cur.place}` : ""}
-        </Link>
-      </p>
-    </>
+        );
+      })}
+    </div>
   );
 }

@@ -64,9 +64,9 @@ export default async function GravesPage({ params, searchParams }: { params: Pro
             />
           </div>
         ) : (
-          <div className="mt-10 grid gap-x-7 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="mt-10 grid grid-cols-2 gap-x-3.5 gap-y-9 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 xl:grid-cols-5">
             {graves.map((g, i) => (
-              <GraveCard key={g.id} g={g} locale={locale} priority={i < 2} sizes="(min-width:1280px) 25vw, (min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" />
+              <GraveCard key={g.id} g={g} locale={locale} index={i} priority={i < 4} />
             ))}
           </div>
         )}

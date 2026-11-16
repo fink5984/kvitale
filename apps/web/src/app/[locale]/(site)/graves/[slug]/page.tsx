@@ -32,10 +32,11 @@ export default async function GravePage({ params, searchParams }: { params: Prom
   const { locale, slug } = await params;
   setRequestLocale(locale);
   // Admin preview of unpublished records (permission-checked).
-  const preview = (await searchParams).preview === "1" && can(await getSession(), "graves.read");
+  const staff = can(await getSession(), "graves.read");
+  const preview = (await searchParams).preview === "1" && staff;
   const g = await getGrave(slug, locale, { includeUnpublished: preview });
   if (!g) notFound();
-  const [t, tw, ts, flags, builderGrave] = await Promise.all([getTranslations("public.grave"), getTranslations("common.weekdays"), getTranslations("site.write"), getFlags(), getBuilderGrave(slug, locale)]);
+  const [t, tw, ts, flags, builderGrave] = await Promise.all([getTranslations("public.grave"), getTranslations("common.weekdays"), getTranslations("site.write"), getFlags(), getBuilderGrave(slug, locale, { includeUnpublished: preview })]);
   const purchasable = g.availability.kind !== "not_purchasable";
   const Back = dirOf(locale) === "rtl" ? ArrowRight : ArrowLeft;
   const fmtMin = (m: number) => `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
@@ -45,24 +46,23 @@ export default async function GravePage({ params, searchParams }: { params: Prom
   const hasHours = g.schedules.length > 0;
 
   return (
-    <article>
-      {/* ───────── the tziyun, and the page to write on ───────── */}
-      <section className="relative isolate overflow-hidden pb-28 lg:pb-20" aria-labelledby="grave-title">
-        {/* Fixed backdrop: the photo stays put while the content scrolls. The clip-path wrapper confines the fixed layer to this section. */}
-        <div className="pointer-events-none absolute inset-0 -z-20 [clip-path:inset(0)]" aria-hidden>
-          <div className="fixed inset-0 bg-midnight-900">
-            {bg ? <TziyunPhoto image={bg} mobile={g.mobileImage} sizes="100vw" priority /> : <PhotoFallback nameHe={g.nameHe} className="[&>span]:hidden" />}
-            <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(5_15_36/0.62),rgb(5_15_36/0.5))]" />
-          </div>
+    <article className="relative isolate">
+      <div className="backdrop-clip" aria-hidden>
+        <div className="backdrop-fixed">
+          <div className="stage-in absolute inset-0">{bg ? <TziyunPhoto image={bg} mobile={g.mobileImage} sizes="100vw" priority /> : <PhotoFallback nameHe={g.nameHe} className="[&>span]:hidden" />}</div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgb(5_15_36/0.6),rgb(5_15_36/0.46))]" />
+          <div className="ambient-gold" />
         </div>
-
+      </div>
+      {/* ───────── the tziyun, and the page to write on ───────── */}
+      <section className="relative pb-28 lg:pb-20" aria-labelledby="grave-title">
         <div className="mx-auto max-w-6xl px-[var(--gutter)]">
           <header className="pb-8 pt-8 text-ivory-50 sm:pt-12">
             <Link href="/graves" className="inline-flex items-center gap-1.5 text-sm text-ivory-100/80 hover:text-ivory-50">
               <Back className="size-4" aria-hidden /> {t("allGraves")}
             </Link>
             <p className="eyebrow mt-6 text-gold-200">{g.place ?? countryName(g.countryCode, locale)}</p>
-            <h1 id="grave-title" className="font-display mt-2 text-[clamp(2.3rem,6vw,4.2rem)] font-medium leading-[1.04]">
+            <h1 id="grave-title" className="name-plate rise-in mt-2 text-[clamp(2.2rem,6vw,4.4rem)] [--d:150]">
               <bdi>{g.name}</bdi>
             </h1>
             {g.epithet && <p className="mt-2 max-w-2xl text-lg text-ivory-100/85">{g.epithet}</p>}
@@ -73,6 +73,11 @@ export default async function GravePage({ params, searchParams }: { params: Prom
             )}
           </header>
 
+          {preview && (
+            <Notice tone="info" className="mb-6" title={ts("adminPreview.title")}>
+              {ts("adminPreview.body")}
+            </Notice>
+          )}
           {g.availability.kind === "available_now" && g.availability.testIntake && (
             <Notice tone="warning" className="mb-6">
               {t("testIntake")}
@@ -84,15 +89,20 @@ export default async function GravePage({ params, searchParams }: { params: Prom
             </Notice>
           )}
 
-          {purchasable && builderGrave ? (
-            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-12">
-              <Writer grave={builderGrave} flags={{ handwriting: !!flags.handwriting }} />
+          {(purchasable || preview) && builderGrave ? (
+            <div className="grid items-stretch gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] xl:gap-12">
+              <Writer grave={builderGrave} flags={{ handwriting: !!flags.handwriting }} preview={preview} />
             </div>
           ) : (
             <div className="max-w-2xl rounded-2xl border border-[var(--line)] bg-ivory-50/95 p-6 shadow-lift backdrop-blur-md sm:p-8">
               <h2 className="font-display text-2xl text-midnight-900">{t(`unavailable.${(g.availability as { reason: string }).reason}.title`)}</h2>
               <p className="mt-2 text-charcoal-600">{t(`unavailable.${(g.availability as { reason: string }).reason}.body`)}</p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
+                {staff && (
+                  <Link href={`/graves/${g.slug}?preview=1`} className={buttonClass("gold", "md")}>
+                    {ts("adminPreview.open")}
+                  </Link>
+                )}
                 <DemandButton slug={g.slug} />
                 <Link href="/graves" className={buttonClass("ghost", "md")}>
                   {t("allGraves")}
@@ -107,7 +117,7 @@ export default async function GravePage({ params, searchParams }: { params: Prom
       </section>
 
       {/* ───────── more about the tzaddik (secondary; also what search engines read) ───────── */}
-      <section className="border-t border-[var(--line)] bg-ivory-100/95 backdrop-blur-sm" aria-labelledby="more-title">
+      <section className="border-t border-gold-300/40 bg-ivory-100/90 backdrop-blur-md" aria-labelledby="more-title">
         <div className="mx-auto grid max-w-6xl gap-14 px-[var(--gutter)] py-16 sm:py-20 lg:grid-cols-[1.4fr_0.8fr]">
           <div className="space-y-12">
             <div>

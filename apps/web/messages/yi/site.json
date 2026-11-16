@@ -92,6 +92,12 @@
         "open": "Show the kvittel",
         "close": "Close",
         "exact": "The preview matches what will be printed."
+      },
+      "adminPreview": {
+        "title": "Admin preview",
+        "body": "This is the real writing screen. No order, charge, print job or e-mail is created here, and the tzaddik's public availability does not change.",
+        "done": "Preview mode: no order was created and nothing was charged. A customer would now continue to the summary and payment.",
+        "open": "Preview kvittel writing (admin)"
       }
     },
     "how": {

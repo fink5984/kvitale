@@ -107,11 +107,4 @@ export function nextHilula(day: number, month: number, yearOfPassing: number | n
   return null;
 }
 
-export function hebrewDateString(d: Date, locale: string): string {
-  try {
-    if (locale === "he" || locale === "yi") return new HDate(d).renderGematriya(true);
-    return new HDate(d).render(locale === "ru" ? "ru" : locale === "fr" ? "fr" : "en", false);
-  } catch {
-    return "";
-  }
-}
+export { hebrewDateString } from "../lib/hebrew-date";

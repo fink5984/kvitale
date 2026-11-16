@@ -160,3 +160,14 @@ describe("password hashing", () => {
     expect(hashPassword("correct horse battery")).not.toBe(h);
   });
 });
+
+describe("hebrew date line", () => {
+  it("is written fully in Hebrew letters for he/yi, with no Latin digits, and is the one function used by preview and print", async () => {
+    const { hebrewDateString } = await import("@/lib/hebrew-date");
+    const he = hebrewDateString(new Date("2026-11-16T12:00:00Z"), "he");
+    expect(he).toMatch(/[א-ת]/);
+    expect(he).not.toMatch(/[0-9]/);
+    expect(he).toContain("כסלו");
+    expect(hebrewDateString(new Date("2026-11-16T12:00:00Z"), "en")).toMatch(/Kislev/);
+  });
+});

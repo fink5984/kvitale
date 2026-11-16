@@ -1,4 +1,5 @@
 import { INTL_TAG, type AppLocale } from "@/i18n/locales";
+import { hebrewDateString } from "./hebrew-date";
 
 const tag = (l: string) => INTL_TAG[l as AppLocale] ?? l;
 
@@ -20,6 +21,8 @@ export function formatNumber(n: number, locale: string, opts?: Intl.NumberFormat
 
 export function hebrewDate(iso: string | Date, locale: string) {
   try {
+    // Hebrew / Yiddish pages: the full date in Hebrew letters (ו׳ כסלו תשפ״ז), the same function the printer uses
+    if (locale === "he" || locale === "yi") return hebrewDateString(typeof iso === "string" ? new Date(iso) : iso, locale);
     return new Intl.DateTimeFormat(`${tag(locale)}-u-ca-hebrew`, { day: "numeric", month: "long", year: "numeric" }).format(typeof iso === "string" ? new Date(iso) : iso);
   } catch {
     return "";

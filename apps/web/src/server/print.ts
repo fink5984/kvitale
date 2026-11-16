@@ -3,7 +3,7 @@ import path from "node:path";
 import { repoRoot } from "@kvittel/db";
 import { registerPrintFonts, renderKvittel } from "@kvittel/print-layout/node";
 import type { KvittelContent } from "@kvittel/print-layout";
-import { hebrewDateString } from "./schedule";
+import { hebrewDateString } from "@/lib/hebrew-date";
 import { storage } from "./storage";
 
 let ready = false;

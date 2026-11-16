@@ -13,7 +13,7 @@ import type {
   PrinterProfile,
 } from "./types";
 
-export const ENGINE_VERSION = "1.1.0";
+export const ENGINE_VERSION = "1.2.0";
 
 /** 58mm paper, 203dpi head, 48mm printable — the common profile of the candidate printers. */
 export const PROFILE_58MM_203DPI: PrinterProfile = {
@@ -178,15 +178,15 @@ export function layoutKvittel(
   }
 
   /**
-   * The plain note: a title, then fine horizontal rules like writing paper, with the
-   * typed names and request sitting on the rules. No frame, no ornament, no template.
-   * Length follows the text; one empty ruled line closes the note.
+   * The plain note: a title, then the typed names and request on clean paper.
+   * No rules, no frame, no ornament, no template. Line spacing is kept so the text stays airy;
+   * the printed length follows the text.
    */
   function composeSimple() {
     const PITCH = 44;
     const ruleY = PITCH - 3;
     const ruled = (text: string | null, font: FontSpec, dir: Dir, align: "start" | "center" = "start") => {
-      const ops: DrawOp[] = [{ kind: "rule", x1: L, x2: R, y: ruleY, thickness: 1 }];
+      const ops: DrawOp[] = [];
       if (text) {
         const startRight = dir === "rtl";
         ops.unshift(align === "center"
@@ -202,7 +202,8 @@ export function layoutKvittel(
     space(14);
     if (content.showBH) blocks.push({ height: lh(F.small), ops: [{ kind: "text", x: R, y: baseline(F.small), text: labels.bh, font: F.small, align: "right", dir: "rtl" }] });
     blocks.push({ height: lh(F.title) + 8, ops: [{ kind: "text", x: CX, y: baseline(F.title) + 2, text: labels.noteTitle, font: F.title, align: "center", dir: detectDir(labels.noteTitle, baseDir) }], keepWithNext: true });
-    space(8);
+    ornament("flourish", 18, 6); // one small ornament under the title
+    space(4);
     const NAME: FontSpec = { size: 25, weight: 700, style: "normal" };
     for (const p of people) wrapRuled(p, NAME);
     if (people.length && request.trim()) ruled(null, F.body, baseDir);
@@ -220,6 +221,14 @@ export function layoutKvittel(
     ruled(null, F.body, baseDir);
     space(4);
     const footer = [opts.dateLine, opts.reference].filter(Boolean).join("  ·  ");
+    if (opts.minHeightDots) {
+      // fixed-window preview: push the date line down to the bottom, never beyond one printable page
+      const used = blocks.reduce((n, b) => n + b.height, 0);
+      const footerH = footer ? lh(F.tiny) : 0;
+      const room = profile.maxPageDots - 40 - used - footerH - 8;
+      const pad = Math.min(opts.minHeightDots - used - footerH - 8, room);
+      if (pad > 0) space(pad);
+    }
     if (footer) textLines(footer, F.tiny, "center", detectDir(footer, baseDir));
     space(8);
   }

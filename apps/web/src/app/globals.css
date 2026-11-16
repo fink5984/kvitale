@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./motion.css";
 
 /*
  * KVITALE DESIGN TOKENS — derived from the logo artwork.
@@ -61,7 +62,7 @@
   /* type */
   --font-display: var(--font-display-stack);
   --font-sans: var(--font-body-stack);
-  --font-hebrew: var(--font-david), var(--font-assistant), serif;
+  --font-hebrew: var(--font-suez), var(--font-frank), var(--font-assistant), serif;
   --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Mono", Consolas, monospace;
 
   /* radii — deliberately restrained */
@@ -121,11 +122,11 @@
 
 :root[lang="he"],
 :root[lang="yi"] {
-  --font-display-stack: var(--font-david), var(--font-playfair), serif;
+  --font-display-stack: var(--font-suez), var(--font-frank), var(--font-cormorant), serif;
   --font-body-stack: var(--font-assistant), var(--font-source), system-ui, sans-serif;
 }
 :root:not([lang="he"]):not([lang="yi"]) {
-  --font-display-stack: var(--font-playfair), var(--font-david), serif;
+  --font-display-stack: var(--font-cormorant), var(--font-suez), serif;
   --font-body-stack: var(--font-source), var(--font-assistant), system-ui, sans-serif;
 }
 
@@ -156,10 +157,22 @@ body {
 /* Typography primitives */
 .font-display {
   font-family: var(--font-display);
+  font-synthesis: none; /* Suez One has a single weight: never fake a bold */
   font-feature-settings: "liga", "kern";
 }
 :root:not([lang="he"]):not([lang="yi"]) .font-display {
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  font-weight: 600;
+  font-size-adjust: 0.5; /* Cormorant has a small x-height: lift it to the presence of the Hebrew face */
+}
+/* the printed name of a tzaddik, set like a title-page line */
+.name-plate {
+  font-family: var(--font-display);
+  font-synthesis: none;
+  font-weight: 400;
+  line-height: 1.16;
+  letter-spacing: 0.012em;
+  text-wrap: balance;
 }
 .eyebrow {
   font-family: var(--font-sans);

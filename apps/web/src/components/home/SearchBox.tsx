@@ -42,7 +42,7 @@ export function SearchBox({ tone = "light", autoFocus, initialQuery = "" }: { to
         const res = await fetch(`/api/search?q=${encodeURIComponent(q)}&locale=${locale}`, { signal: ctrl.signal });
         const data = (await res.json()) as { results: Result[] };
         setResults(data.results ?? []);
-        setActive(-1);
+        setActive(data.results?.length ? 0 : -1);
         setOpen(true);
       } catch {
         /* aborted */
@@ -71,58 +71,68 @@ export function SearchBox({ tone = "light", autoFocus, initialQuery = "" }: { to
 
   const dark = tone === "dark";
   return (
-    <div ref={boxRef} className="relative w-full">
+    <div ref={boxRef} className="relative w-full scroll-mt-28">
       <form
         role="search"
         onSubmit={(e) => {
           e.preventDefault();
           submit();
         }}
-        className={cn(
-          "group flex h-16 items-center gap-3 rounded-full ps-6 pe-2 transition-[box-shadow,background-color] duration-300 sm:h-[4.4rem]",
-          dark ? "bg-ivory-50/95 shadow-lift ring-1 ring-ivory-50/40 focus-within:ring-2 focus-within:ring-gold-300" : "bg-ivory-50 shadow-lift ring-1 ring-stone-300 focus-within:ring-2 focus-within:ring-gold-400",
-        )}
+        className={cn("gold-ring pill-ring ring-live group h-14 sm:h-[3.6rem]", dark ? "shadow-[0_20px_50px_-20px_rgb(0_0_0/0.75),0_0_30px_-8px_rgb(224_178_79/0.5)]" : "")}
       >
-        <Search className={cn("size-5 shrink-0", "text-gold-600")} strokeWidth={1.5} aria-hidden />
-        <label htmlFor={`${id}-input`} className="sr-only">
-          {t("label")}
-        </label>
-        <input
-          id={`${id}-input`}
-          role="combobox"
-          aria-expanded={open && q.length >= 2}
-          aria-controls={`${id}-list`}
-          aria-autocomplete="list"
-          aria-activedescendant={active >= 0 ? `${id}-opt-${active}` : undefined}
-          autoComplete="off"
-          autoFocus={autoFocus}
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          onFocus={() => results.length && setOpen(true)}
-          onKeyDown={(e) => {
-            if (e.key === "ArrowDown") {
-              e.preventDefault();
-              setOpen(true);
-              setActive((a) => Math.min(results.length - 1, a + 1));
-            } else if (e.key === "ArrowUp") {
-              e.preventDefault();
-              setActive((a) => Math.max(-1, a - 1));
-            } else if (e.key === "Escape") setOpen(false);
-          }}
-          placeholder={t("placeholder")}
-          className={cn("h-full min-w-0 flex-1 bg-transparent text-[1.05rem] outline-none sm:text-lg", "text-midnight-900 placeholder:text-charcoal-400")}
-        />
-        {loading && <Loader2 className={cn("size-4 animate-spin", "text-charcoal-400")} aria-hidden />}
-        <button type="submit" className={cn("inline-flex h-12 shrink-0 items-center gap-2 rounded-full px-5 text-sm font-medium transition-colors sm:h-14 sm:px-7", "bg-midnight-900 text-ivory-50 hover:bg-midnight-800")}>
-          <span className="hidden sm:inline">{t("submit")}</span>
-          <Arrow className="size-4" aria-hidden />
-        </button>
+        <i className="ring-beam" aria-hidden />
+        <i className="ring-beam b2" aria-hidden />
+        <div className="ring-inner flex h-full w-full items-center gap-2.5 rounded-full bg-ivory-50 ps-5 pe-1.5">
+          <Search className="size-[1.15rem] shrink-0 text-gold-600" strokeWidth={1.6} aria-hidden />
+          <label htmlFor={`${id}-input`} className="sr-only">
+            {t("label")}
+          </label>
+          <input
+            id={`${id}-input`}
+            role="combobox"
+            aria-expanded={open && q.trim().length >= 2}
+            aria-controls={`${id}-list`}
+            aria-autocomplete="list"
+            aria-activedescendant={active >= 0 ? `${id}-opt-${active}` : undefined}
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck={false}
+            enterKeyHint="search"
+            autoFocus={autoFocus}
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            onFocus={() => {
+              if (results.length) setOpen(true);
+              // on phones, lift the field to the top so the keyboard never hides the results
+              if (window.matchMedia("(max-width: 639px)").matches) boxRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowDown") {
+                e.preventDefault();
+                setOpen(true);
+                setActive((a) => Math.min(results.length - 1, a + 1));
+              } else if (e.key === "ArrowUp") {
+                e.preventDefault();
+                setActive((a) => Math.max(0, a - 1));
+              } else if (e.key === "Escape") setOpen(false);
+            }}
+            placeholder={t("placeholder")}
+            className="h-full min-w-0 flex-1 bg-transparent text-base text-midnight-900 placeholder:text-charcoal-400 sm:text-[1.05rem]"
+          />
+          <span className="grid size-5 shrink-0 place-items-center" aria-hidden>
+            <Loader2 className={cn("size-4 animate-spin text-charcoal-400 transition-opacity duration-200", loading ? "opacity-100" : "opacity-0")} />
+          </span>
+          <button type="submit" className="btn-shine inline-flex h-[2.6rem] shrink-0 items-center gap-2 rounded-full bg-midnight-900 px-4 text-sm font-medium text-ivory-50 transition-colors hover:bg-midnight-800 sm:h-11 sm:px-6">
+            <span className="hidden sm:inline">{t("submit")}</span>
+            <Arrow className="size-4" aria-hidden />
+          </button>
+        </div>
       </form>
       <div aria-live="polite" className="sr-only">
         {open && q.length >= 2 ? t("resultsCount", { count: results.length }) : ""}
       </div>
       {open && q.trim().length >= 2 && (
-        <ul id={`${id}-list`} role="listbox" className="absolute inset-x-0 top-[calc(100%+0.6rem)] z-30 max-h-[60vh] overflow-y-auto rounded-2xl border border-[var(--line)] bg-ivory-50 p-2 text-start shadow-lift">
+        <ul id={`${id}-list`} role="listbox" className="rise-in absolute inset-x-0 top-[calc(100%+0.6rem)] z-30 max-h-[min(60vh,26rem)] overflow-y-auto overscroll-contain rounded-2xl border border-gold-300/60 bg-ivory-50 p-2 text-start shadow-lift [--d:0]">
           {results.length === 0 && !loading && (
             <li className="px-4 py-5 text-sm text-charcoal-500">
               {t("noResults")}{" "}
@@ -133,7 +143,7 @@ export function SearchBox({ tone = "light", autoFocus, initialQuery = "" }: { to
           )}
           {results.map((r, i) => (
             <li key={r.slug} id={`${id}-opt-${i}`} role="option" aria-selected={i === active}>
-              <Link href={`/graves/${r.slug}`} className={cn("flex items-center gap-4 rounded-xl px-3 py-3 transition-colors", i === active ? "bg-stone-100" : "hover:bg-ivory-200")} onMouseEnter={() => setActive(i)}>
+              <Link href={`/graves/${r.slug}`} className={cn("flex items-center gap-4 rounded-xl px-3 py-3 transition-colors", i === active ? "bg-gold-100 ring-1 ring-gold-300/70" : "hover:bg-ivory-200")} onMouseEnter={() => setActive(i)}>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate font-display text-lg leading-tight text-midnight-900">
                     <bdi>{r.name}</bdi>

@@ -27,7 +27,7 @@ export function loadPrintFonts(): Promise<void> {
   return fontsPromise;
 }
 
-export function usePreviewLayout(content: KvittelContent, opts: { dateLine?: string; reference?: string }) {
+export function usePreviewLayout(content: KvittelContent, opts: { dateLine?: string; reference?: string; minHeightDots?: number }) {
   const [ready, setReady] = useState(false);
   useEffect(() => {
     let alive = true;
@@ -53,18 +53,18 @@ export function usePreviewLayout(content: KvittelContent, opts: { dateLine?: str
  * Renders the layout pages exactly as the printer will, at a crisp preview scale.
  * `thermal` shows the true 1-bit dot output.
  */
-export function PaperSlips({ layout, images, thermal, className, maxPages }: { layout: KvittelLayout; images?: Record<string, CanvasImageSource>; thermal?: boolean; className?: string; maxPages?: number }) {
+export function PaperSlips({ layout, images, thermal, className, maxPages, flat }: { flat?: boolean; layout: KvittelLayout; images?: Record<string, CanvasImageSource>; thermal?: boolean; className?: string; maxPages?: number }) {
   const pages = maxPages ? layout.pages.slice(0, maxPages) : layout.pages;
   return (
     <div className={cn("flex flex-col items-center gap-5", className)}>
       {pages.map((p, i) => (
-        <PageCanvas key={i} page={p} widthDots={layout.widthDots} images={images} thermal={thermal} label={layout.pages.length > 1 ? `${i + 1}/${layout.pages.length}` : undefined} />
+        <PageCanvas key={i} flat={flat} page={p} widthDots={layout.widthDots} images={images} thermal={thermal} label={layout.pages.length > 1 ? `${i + 1}/${layout.pages.length}` : undefined} />
       ))}
     </div>
   );
 }
 
-function PageCanvas({ page, widthDots, images, thermal, label }: { page: KvittelLayout["pages"][number]; widthDots: number; images?: Record<string, CanvasImageSource>; thermal?: boolean; label?: string }) {
+function PageCanvas({ page, widthDots, images, thermal, label, flat }: { flat?: boolean; page: KvittelLayout["pages"][number]; widthDots: number; images?: Record<string, CanvasImageSource>; thermal?: boolean; label?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
     const canvas = ref.current;
@@ -87,7 +87,7 @@ function PageCanvas({ page, widthDots, images, thermal, label }: { page: Kvittel
   }, [page, widthDots, images, thermal]);
   return (
     <figure className="relative mx-auto w-full max-w-[19rem]">
-      <canvas ref={ref} className={cn("block h-auto w-full rounded-[2px] bg-[#FBF9F3] shadow-paper", thermal && "[image-rendering:pixelated]")} style={{ aspectRatio: `${widthDots} / ${page.heightDots}` }} aria-hidden />
+      <canvas ref={ref} className={cn("block h-auto w-full", !flat && "rounded-[2px] bg-[#FBF9F3] shadow-paper", thermal && "[image-rendering:pixelated]")} style={{ aspectRatio: `${widthDots} / ${page.heightDots}` }} aria-hidden />
       {label && <figcaption className="mt-3 text-center text-xs text-charcoal-500 tabular">{label}</figcaption>}
     </figure>
   );

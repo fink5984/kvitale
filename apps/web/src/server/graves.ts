@@ -125,7 +125,9 @@ export function policyOf(g: typeof graves.$inferSelect, sched: Loaded["sched"]):
 export function computeAvailability(g: typeof graves.$inferSelect, sched: Loaded["sched"], devs: Loaded["devs"], now = new Date()): Availability {
   if (g.status === "discovery_only" || g.status === "paused" || (g.status === "coming_soon" && !g.testIntake)) return { kind: "not_purchasable", reason: g.status };
   // Never present a grave as sendable while we cannot genuinely take payment and confirm by e-mail.
-  if (!commerceReady()) return { kind: "not_purchasable", reason: "service_unavailable" };
+  // Testing intake: the writing screen is shown even though payments/e-mail are not configured. Orders stay impossible:
+  // createOrder() and the checkout page both refuse while !commerceReady(), and say so honestly.
+  if (!commerceReady()) return g.testIntake && g.status !== "maintenance" ? { kind: "available_now", testIntake: true } : { kind: "not_purchasable", reason: "service_unavailable" };
   const mine = devs.filter((d) => d.graveId === g.id && d.status !== "retired" && d.status !== "revoked");
   // Testing intake: orders are accepted and wait in the queue; nothing is printed or marked delivered without a device.
   if (!mine.length) return g.testIntake ? { kind: "available_now", testIntake: true } : { kind: "not_purchasable", reason: "no_device" };
@@ -337,8 +339,8 @@ export async function builderGraves(locale: string) {
 }
 
 /** One tzaddik for the writing screen, with the printed-name candidates in every language. */
-export async function getBuilderGrave(slug: string, locale: string) {
-  const g = await getGrave(slug, locale);
+export async function getBuilderGrave(slug: string, locale: string, opts?: { includeUnpublished?: boolean }) {
+  const g = await getGrave(slug, locale, opts);
   if (!g) return null;
   const db = await getDb();
   const tr = await db.select({ locale: graveTranslations.locale, name: graveTranslations.name }).from(graveTranslations).where(eq(graveTranslations.graveId, g.id));

@@ -42,6 +42,7 @@ export const buttonClass = (variant: Variant = "primary", size: Size = "md", ext
     "transition-[background-color,border-color,color,box-shadow,transform] duration-200 ease-[var(--ease-out-soft)]",
     "disabled:pointer-events-none disabled:opacity-50",
     VARIANTS[variant],
+    (variant === "primary" || variant === "gold") && "btn-shine",
     SIZES[size],
     extra,
   );

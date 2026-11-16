@@ -19,7 +19,7 @@ export function Logo({ name, tone = "dark", className }: { name: string; tone?: 
   return (
     <span className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark className="h-10 w-auto" />
-      <span className={cn("font-display text-[1.55rem] font-medium leading-none tracking-[0.04em]", tone === "light" ? "text-ivory-50" : "text-midnight-900")}>{name}</span>
+      <span className={cn("wordmark", tone === "light" ? "wordmark-light" : "wordmark-dark")}>{name}</span>
     </span>
   );
 }

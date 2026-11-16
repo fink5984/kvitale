@@ -1,5 +1,6 @@
-import { ArrowUpRight, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { InView } from "@/components/motion/InView";
 import { Badge } from "@/components/ui";
 import { Link } from "@/i18n/navigation";
 import { cn, countryName } from "@/lib/format";
@@ -12,41 +13,38 @@ export function availabilityTone(a: GraveCardData["availability"]): "success" | 
   return a.reason === "paused" ? "danger" : "neutral";
 }
 
-/** Photograph-led card. No price, no statistics: the tzaddik, the place, and one clear action. */
-export function GraveCard({ g, locale, priority, tall, sizes = "(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw" }: { g: GraveCardData; locale: string; priority?: boolean; tall?: boolean; sizes?: string }) {
-  const t = useTranslations("site.card");
-  const ta = useTranslations("status.availability");
-  const sendable = g.availability.kind !== "not_purchasable";
+/**
+ * A tall, narrow arch with a live gold frame: the photograph fills the arch, the name stands beneath it.
+ * No price, no statistics. The whole card is the link. The frame's light only travels while the card is on screen.
+ */
+export function GraveCard({ g, locale, priority, index = 0, tone = "light", sizes = "(min-width:1280px) 20vw, (min-width:1024px) 25vw, (min-width:640px) 33vw, 50vw" }: { g: GraveCardData; locale: string; priority?: boolean; index?: number; tone?: "light" | "dark"; sizes?: string }) {
+  const dark = tone === "dark";
   return (
-    <article className="group relative">
-      <Link href={`/graves/${g.slug}`} className="relative block overflow-hidden rounded-[1.1rem] bg-midnight-900 shadow-soft ring-1 ring-stone-300/50 transition-[box-shadow,transform] duration-500 ease-[var(--ease-out-soft)] hover:-translate-y-0.5 hover:shadow-lift" aria-label={g.name}>
-        <div className={cn("relative w-full", tall ? "aspect-[4/5] sm:aspect-[3/4]" : "aspect-[4/5]")}>
-          {g.cover ? <TziyunPhoto image={g.cover} mobile={g.mobileImage} sizes={sizes} priority={priority} className="transition-transform duration-[1200ms] ease-[var(--ease-out-soft)] group-hover:scale-[1.03]" /> : <PhotoFallback nameHe={g.nameHe} />}
-          <div className="absolute inset-0 bg-[linear-gradient(to_top,rgb(5_15_36/0.82),rgb(5_15_36/0.15)_55%,transparent)]" aria-hidden />
-          <div className="absolute inset-x-0 bottom-0 p-5 text-ivory-50 sm:p-6">
-            <h3 className="font-display text-[1.6rem] font-medium leading-tight sm:text-[1.8rem]">
-              <bdi>{g.name}</bdi>
-            </h3>
-            <p className="mt-1.5 flex items-center gap-1.5 text-sm text-ivory-100/80">
-              <MapPin className="size-3.5 shrink-0 text-gold-300" strokeWidth={1.5} aria-hidden />
-              <span className="truncate">{g.place ?? countryName(g.countryCode, locale)}</span>
-            </p>
-            <div className="mt-4 flex items-center justify-between gap-3">
-              {sendable ? (
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-gold-400 px-4 py-2 text-sm font-medium text-midnight-950 transition-colors group-hover:bg-gold-300">
-                  {t("send")}
-                  <ArrowUpRight className="flip-rtl size-4" strokeWidth={1.6} aria-hidden />
-                </span>
-              ) : (
-                <Badge tone="neutral" className="bg-ivory-50/90">
-                  {ta(g.availability.kind === "not_purchasable" ? g.availability.reason : "coming_soon")}
-                </Badge>
-              )}
-            </div>
+    <InView as="article" className="rv group relative" style={{ ["--i" as string]: index % 6 }}>
+      <Link href={`/graves/${g.slug}`} className="block rounded-[1.2rem] focus-visible:outline-offset-8" aria-label={g.name}>
+        <div className="gold-ring arch" style={{ aspectRatio: "10 / 19" }}>
+          <i className="ring-beam" aria-hidden />
+          <i className="ring-beam b2" aria-hidden />
+          <div className="ring-inner arch shine once relative h-full w-full overflow-hidden bg-midnight-900">
+            {g.cover ? (
+              <TziyunPhoto image={g.cover} mobile={g.mobileImage} sizes={sizes} priority={priority} className="depth drift" />
+            ) : (
+              <PhotoFallback nameHe={g.nameHe} className="[&>span]:hidden" />
+            )}
+            <div className="absolute inset-0 bg-[linear-gradient(to_top,rgb(5_15_36/0.4),transparent_38%)]" aria-hidden />
           </div>
         </div>
+        <div className="mx-auto mt-3.5 max-w-[16rem] text-center sm:mt-4">
+          <h3 className={cn("name-plate line-clamp-2 min-h-[2.3em] text-[1.02rem] sm:text-[1.28rem]", dark ? "text-ivory-50" : "text-midnight-900")}>
+            <bdi>{g.name}</bdi>
+          </h3>
+          <p className={cn("mt-1 flex items-center justify-center gap-1 text-[0.74rem] sm:text-[0.82rem]", dark ? "text-ivory-100/70" : "text-charcoal-500")}>
+            <MapPin className="size-3 shrink-0 text-gold-500" strokeWidth={1.6} aria-hidden />
+            <span className="truncate">{g.place ?? countryName(g.countryCode, locale)}</span>
+          </p>
+        </div>
       </Link>
-    </article>
+    </InView>
   );
 }
 
@@ -63,7 +61,7 @@ export function AvailabilityBadge({ a, className }: { a: GraveCardData["availabi
 export function GraveCardSkeleton() {
   return (
     <div aria-hidden>
-      <div className="skeleton aspect-[4/5] rounded-[1.1rem]" />
+      <div className="skeleton arch aspect-[10/19]" />
     </div>
   );
 }

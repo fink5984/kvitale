@@ -119,4 +119,6 @@ export interface LayoutOptions {
   dateLine?: string;
   /** Short non-personal reference printed in the footer, e.g. "K7F3A" */
   reference?: string;
+  /** Preview only: pad the (single-page) note down to at least this height so the date sits at the bottom of a fixed window. The printer never sets it. */
+  minHeightDots?: number;
 }

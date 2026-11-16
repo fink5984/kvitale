@@ -305,7 +305,8 @@
         "altHe": "Alt text (Hebrew)",
         "altEn": "Alt text (English)",
         "testIntake": "Test intake: accept orders without a device",
-        "testIntakeHint": "For testing only. The kvittel waits in the queue and is never printed or marked delivered until a real device is assigned. Turn off before opening to customers."
+        "testIntakeHint": "For testing only. The kvittel waits in the queue and is never printed or marked delivered until a real device is assigned. Turn off before opening to customers.",
+        "previewWriting": "Preview kvittel writing"
       }
     },
     "pricing": {
